@@ -1,0 +1,227 @@
+const projects = [
+  {
+    slug: "botanical-portraits",
+    number: "01",
+    title: "Botanical Portraits",
+    subtitle: "Portraits of fruit, specimens, and still lifes",
+    description:
+      "White and black background works in which cultivated fruit is treated as portrait, specimen, and object. The series moves between botanical art, still life, and contemporary photographic observation.",
+    cover: "/images/botanical-portraits/cover.jpg",
+    images: Array.from({ length: 15 }, (_, i) => `/images/botanical-portraits/${String(i + 1).padStart(2, "0")}.jpg`)
+  },
+  {
+    slug: "growth-process",
+    number: "02",
+    title: "Growth Process",
+    subtitle: "Fruit, time, and seasonal transformation",
+    description:
+      "Works documenting the formation of pears, grapes, apples, and plums through the growing season. The images observe change, weight, color, labor, and the temporal structure of cultivation.",
+    cover: "/images/growth-process/cover.jpg",
+    images: Array.from({ length: 4 }, (_, i) => `/images/growth-process/${String(i + 1).padStart(2, "0")}.jpg`)
+  },
+  {
+    slug: "sculptural-fruit",
+    number: "03",
+    title: "Sculptural Fruit",
+    subtitle: "Organic form, intervention, gravity, and structure",
+    description:
+      "Fruit forms treated as sculptural objects. The series explores growth control, tension, deformation, gravity, and the boundary between agricultural practice and constructed form.",
+    cover: "/images/sculptural-fruit/cover.jpg",
+    images: Array.from({ length: 12 }, (_, i) => `/images/sculptural-fruit/${String(i + 1).padStart(2, "0")}.jpg`)
+  },
+  {
+    slug: "parchment-on-vellum",
+    number: "04",
+    title: "Parchment on Vellum",
+    subtitle: "Material, archive, and botanical memory",
+    description:
+      "Works printed and presented with a vellum-like material sensibility. The series connects fruit, horticultural classification, historical botanical illustration, and the physical presence of the print.",
+    cover: "/images/parchment-on-vellum/cover.jpg",
+    images: Array.from({ length: 5 }, (_, i) => `/images/parchment-on-vellum/${String(i + 1).padStart(2, "0")}.jpg`)
+  },
+  {
+    slug: "breeding-archive",
+    number: "05",
+    title: "Breeding Archive",
+    subtitle: "Selection, rejection, disappearance, and record",
+    description:
+      "A forthcoming archive of varieties and selections removed from advancement during the breeding process. The project considers cultivation as judgment, memory, and disappearance.",
+    cover: "/images/breeding-archive/cover.jpg",
+    images: Array.from({ length: 4 }, (_, i) => `/images/breeding-archive/${String(i + 1).padStart(2, "0")}.jpg`),
+    note: "Archive in progress"
+  }
+];
+
+function ProjectGallery({ project }: { project: typeof projects[number] }) {
+  return (
+    <section id={project.slug} className="border-t border-white/10 py-28 md:py-40">
+      <div className="mx-auto max-w-7xl px-5 md:px-8">
+        <div className="grid gap-12 md:grid-cols-[0.82fr_1.18fr] md:gap-20">
+          <div className="md:sticky md:top-28 self-start">
+            <p className="mb-8 text-[11px] uppercase tracking-[0.35em] text-white/35">
+              {project.number} / Project
+            </p>
+            <h2 className="text-5xl font-extralight leading-none tracking-tight md:text-7xl">
+              {project.title}
+            </h2>
+            <p className="mt-6 max-w-md text-sm uppercase tracking-[0.18em] text-white/35">
+              {project.subtitle}
+            </p>
+            <p className="mt-10 max-w-md text-sm leading-8 text-white/58">
+              {project.description}
+            </p>
+            {project.note && (
+              <p className="mt-8 inline-block rounded-full border border-white/15 px-5 py-2 text-[10px] uppercase tracking-[0.24em] text-white/45">
+                {project.note}
+              </p>
+            )}
+          </div>
+
+          <div className="grid gap-5 md:gap-8">
+            <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03]">
+              <img src={project.cover} alt={project.title} className="h-[70vh] w-full object-cover transition duration-[1800ms] hover:scale-[1.015]" />
+            </div>
+
+            <div className="grid grid-cols-2 gap-5 md:gap-8">
+              {project.images.slice(1).map((src, index) => (
+                <div key={src} className={`${index % 5 === 0 ? "col-span-2" : ""} overflow-hidden rounded-[1.4rem] border border-white/8 bg-white/[0.025]`}>
+                  <img src={src} alt={`${project.title} ${index + 2}`} className={`${index % 5 === 0 ? "h-[58vh]" : "h-[38vh]"} w-full object-cover transition duration-[1800ms] hover:scale-[1.02]`} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default function Home() {
+  return (
+    <main className="min-h-screen bg-[#030303] text-[#f7f3ed]">
+      <header className="fixed left-0 right-0 top-0 z-50 border-b border-white/5 bg-black/35 backdrop-blur-2xl">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 md:px-8">
+          <a href="#" className="text-[11px] uppercase tracking-[0.32em] text-white/90">
+            Masumi Shiohara
+          </a>
+          <nav className="hidden gap-9 text-[10px] uppercase tracking-[0.25em] text-white/45 md:flex">
+            <a className="transition hover:text-white" href="#projects">Projects</a>
+            <a className="transition hover:text-white" href="#about">About</a>
+            <a className="transition hover:text-white" href="#contact">Contact</a>
+          </nav>
+        </div>
+      </header>
+
+      <section className="relative flex min-h-screen items-center overflow-hidden bg-black">
+        <img
+          src="/images/home/hero.jpg"
+          alt="Masumi Shiohara work"
+          className="absolute inset-0 h-full w-full object-cover object-right opacity-95"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.98)_0%,rgba(0,0,0,0.78)_42%,rgba(0,0,0,0.2)_78%)]" />
+
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-5 md:px-8">
+          <div className="max-w-2xl pt-20">
+            <p className="mb-8 text-[10px] uppercase tracking-[0.42em] text-white/38">
+              Official Archive
+            </p>
+            <h1 className="text-6xl font-extralight leading-[0.88] tracking-tight md:text-8xl lg:text-9xl">
+              Masumi
+              <br />
+              Shiohara
+            </h1>
+            <p className="mt-10 max-w-lg text-sm leading-8 text-white/62 md:text-base">
+              Fruit, cultivation, breeding, and photography.
+              <br />
+              Works formed through growth, intervention, selection, and time.
+            </p>
+            <a
+              href="#projects"
+              className="mt-14 inline-block rounded-full border border-white/18 px-7 py-3 text-[10px] uppercase tracking-[0.28em] text-white/80 transition duration-500 hover:bg-white hover:text-black"
+            >
+              Enter Archive
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-5 py-28 md:px-8 md:py-40">
+        <div className="grid gap-12 md:grid-cols-[0.75fr_1.25fr]">
+          <p className="text-[11px] uppercase tracking-[0.34em] text-white/35">
+            Statement
+          </p>
+          <p className="text-3xl font-extralight leading-tight tracking-tight text-white/90 md:text-5xl">
+            The work begins before the photograph. It begins in cultivation, in breeding, in seasonal labor, and in the decision to preserve a form at the moment it appears.
+          </p>
+        </div>
+      </section>
+
+      <section id="projects" className="border-t border-white/10 py-24">
+        <div className="mx-auto max-w-7xl px-5 md:px-8">
+          <p className="mb-16 text-[11px] uppercase tracking-[0.34em] text-white/35">
+            Projects
+          </p>
+          <div className="grid gap-5 md:grid-cols-5">
+            {projects.map((project) => (
+              <a key={project.slug} href={`#${project.slug}`} className="group block overflow-hidden rounded-[1.4rem] border border-white/10 bg-white/[0.025]">
+                <div className="relative h-[360px] overflow-hidden">
+                  <img src={project.cover} alt={project.title} className="h-full w-full object-cover opacity-80 transition duration-[1600ms] group-hover:scale-[1.04] group-hover:opacity-100" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-5">
+                    <p className="mb-3 text-[10px] uppercase tracking-[0.3em] text-white/35">{project.number}</p>
+                    <h3 className="text-2xl font-extralight leading-none">{project.title}</h3>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {projects.map((project) => (
+        <ProjectGallery key={project.slug} project={project} />
+      ))}
+
+      <section id="about" className="border-t border-white/10 bg-white/[0.025] py-28 md:py-40">
+        <div className="mx-auto grid max-w-6xl gap-14 px-5 md:grid-cols-[0.8fr_1.2fr] md:px-8">
+          <p className="text-[11px] uppercase tracking-[0.34em] text-white/35">
+            About
+          </p>
+          <div>
+            <p className="text-3xl font-extralight leading-snug tracking-tight md:text-5xl">
+              Masumi Shiohara is a Japanese fruit grower, grape breeder, and photographer working between cultivation and image-making.
+            </p>
+            <p className="mt-10 max-w-2xl text-sm leading-8 text-white/55">
+              His practice treats fruit not only as agricultural product, but as a form shaped by time, intervention, selection, and harvest. The archive brings together botanical portraits, growth processes, sculptural fruit, vellum-like print works, and breeding records.
+            </p>
+            <div className="mt-12 grid gap-4 text-[11px] uppercase tracking-[0.22em] text-white/42 md:grid-cols-2">
+              <p>Photoville</p>
+              <p>Arte Laguna Prize</p>
+              <p>KEW Gardens</p>
+              <p>Karuizawa Photo Fest</p>
+              <p>Fujingaho</p>
+              <p>Photo Book Forthcoming</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" className="px-5 py-32 text-center md:px-8 md:py-44">
+        <p className="mb-10 text-[11px] uppercase tracking-[0.34em] text-white/35">
+          Contact
+        </p>
+        <h2 className="mx-auto max-w-4xl text-5xl font-extralight leading-none tracking-tight md:text-7xl">
+          For exhibitions,
+          <br />
+          publications, and inquiries.
+        </h2>
+        <a
+          href="mailto:contact@masumishiohara.com"
+          className="mt-14 inline-block rounded-full border border-white/15 px-8 py-4 text-[10px] uppercase tracking-[0.28em] text-white/80 transition duration-500 hover:bg-white hover:text-black"
+        >
+          contact@masumishiohara.com
+        </a>
+      </section>
+    </main>
+  );
+}
