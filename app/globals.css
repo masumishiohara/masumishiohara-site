@@ -6,15 +6,20 @@
 
 html {
   background: #010101;
-  color: #f6efe5;
+  color: #f7efe3;
   scroll-behavior: smooth;
 }
 
 body {
   background: #010101;
-  color: #f6efe5;
+  color: #f7efe3;
   font-family: Georgia, "Times New Roman", serif;
   overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 img {
@@ -23,7 +28,10 @@ img {
 }
 
 main {
-  background: #010101;
+  background:
+    radial-gradient(circle at 78% 0%, rgba(220, 185, 108, 0.16), transparent 34%),
+    radial-gradient(circle at 12% 45%, rgba(255, 255, 255, 0.045), transparent 32%),
+    linear-gradient(180deg, #010101 0%, #060504 45%, #010101 100%);
 }
 
 .heroLuxury {
@@ -33,72 +41,124 @@ main {
   display: flex;
   align-items: center;
   padding: 0 7vw;
+  border-bottom: 1px solid rgba(247, 239, 227, 0.12);
 }
 
 .heroImage {
   position: absolute;
   inset: 0;
-  width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: 64% center;
-  opacity: 0.5;
-  filter: brightness(0.56) contrast(1.14) saturate(0.78);
+  opacity: 0.48;
+  filter: brightness(0.58) contrast(1.16) saturate(0.82);
+  transform: scale(1.04);
 }
 
-.heroBlackVeil {
+.heroVeil {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(0,0,0,0.96), rgba(0,0,0,0.72), rgba(0,0,0,0.35));
+  background:
+    linear-gradient(90deg, rgba(0,0,0,0.98), rgba(0,0,0,0.76) 34%, rgba(0,0,0,0.18) 72%, rgba(0,0,0,0.72)),
+    linear-gradient(180deg, rgba(0,0,0,0.1), rgba(0,0,0,0.88));
 }
 
-.heroInner {
+.goldHalo {
+  position: absolute;
+  right: -16vw;
+  top: 4vh;
+  width: 70vw;
+  height: 70vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(222, 184, 98, 0.18), transparent 63%);
+  filter: blur(28px);
+}
+
+.topLine {
+  position: absolute;
+  top: 30px;
+  left: 7vw;
+  right: 7vw;
+  z-index: 4;
+  display: flex;
+  justify-content: space-between;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: rgba(247, 239, 227, 0.5);
+}
+
+.heroText {
   position: relative;
-  z-index: 2;
-  max-width: 800px;
+  z-index: 5;
+  max-width: 820px;
+  animation: rise 1.4s ease both;
 }
 
 .eyebrow {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 11px;
-  letter-spacing: 0.34em;
+  font-size: 10px;
+  letter-spacing: 0.42em;
   text-transform: uppercase;
-  color: rgba(246,239,229,0.5);
+  color: rgba(247, 239, 227, 0.48);
 }
 
-.heroInner h1 {
+.heroText h1 {
   margin-top: 34px;
-  font-size: clamp(86px, 11vw, 184px);
+  font-size: clamp(88px, 11vw, 190px);
   line-height: 0.78;
   font-weight: 400;
-  letter-spacing: -0.08em;
+  letter-spacing: -0.085em;
 }
 
-.heroSub {
+.heroText p:last-child {
   margin-top: 46px;
-  max-width: 660px;
+  max-width: 680px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
-  line-height: 2;
-  color: rgba(246,239,229,0.72);
+  line-height: 2.05;
+  color: rgba(247, 239, 227, 0.72);
 }
 
 .manifesto {
+  min-height: 96vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: 190px 7vw;
-  background: #050403;
 }
 
 .manifesto h2 {
-  margin-top: 40px;
-  max-width: 1100px;
+  margin-top: 44px;
+  max-width: 1280px;
   font-size: clamp(46px, 5.6vw, 98px);
   line-height: 1.04;
+  font-weight: 400;
+  letter-spacing: -0.065em;
+}
+
+.jewelPanel {
+  padding: 180px 7vw;
+  background:
+    radial-gradient(circle at 76% 46%, rgba(222, 184, 98, 0.13), transparent 36%),
+    #050403;
+  border-top: 1px solid rgba(247, 239, 227, 0.12);
+  border-bottom: 1px solid rgba(247, 239, 227, 0.12);
+}
+
+.jewelPanel h2 {
+  margin-top: 42px;
+  margin-left: auto;
+  max-width: 1080px;
+  font-size: clamp(40px, 4.8vw, 84px);
+  line-height: 1.08;
   font-weight: 400;
   letter-spacing: -0.06em;
 }
 
 .worksLuxury {
-  padding: 160px 7vw 210px;
+  padding: 160px 7vw 220px;
 }
 
 .luxuryWork {
@@ -106,25 +166,63 @@ main {
   grid-template-columns: 1.15fr 0.85fr;
   gap: 8vw;
   align-items: center;
-  margin-top: 170px;
+  margin-top: 210px;
+}
+
+.luxuryWork:nth-of-type(even) {
+  grid-template-columns: 0.85fr 1.15fr;
+}
+
+.luxuryWork:nth-of-type(even) .imageStage {
+  order: 2;
+}
+
+.luxuryWork:nth-of-type(even) .workInfo {
+  order: 1;
 }
 
 .imageStage {
+  position: relative;
   overflow: hidden;
   background: #060606;
-  box-shadow: 0 48px 150px rgba(0,0,0,0.7);
+  box-shadow: 0 52px 160px rgba(0, 0, 0, 0.74);
+}
+
+.imageStage::before {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border: 1px solid rgba(247, 239, 227, 0.14);
+  z-index: 2;
+  pointer-events: none;
 }
 
 .imageStage img {
-  height: 82vh;
+  height: 84vh;
   object-fit: cover;
+  filter: brightness(0.92) contrast(1.1) saturate(0.9);
+  transition: transform 2s ease, filter 2s ease;
+}
+
+.luxuryWork:hover img {
+  transform: scale(1.035);
+  filter: brightness(1.04) contrast(1.12) saturate(0.96);
+}
+
+.workInfo span {
+  display: inline-block;
+  margin-bottom: 34px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.34em;
+  color: rgba(247, 239, 227, 0.38);
 }
 
 .workInfo h3 {
-  font-size: clamp(54px, 6vw, 108px);
+  font-size: clamp(54px, 6.2vw, 108px);
   line-height: 0.9;
   font-weight: 400;
-  letter-spacing: -0.07em;
+  letter-spacing: -0.075em;
 }
 
 .workInfo p {
@@ -133,19 +231,66 @@ main {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   line-height: 2;
-  color: rgba(246,239,229,0.66);
+  color: rgba(247, 239, 227, 0.66);
 }
 
-.luxuryFooter {
-  min-height: 80vh;
-  padding: 190px 7vw;
+.archiveLuxury {
+  padding: 210px 7vw;
+  background:
+    radial-gradient(circle at 18% 20%, rgba(247,239,227,0.055), transparent 40%),
+    #060504;
+  border-top: 1px solid rgba(247, 239, 227, 0.12);
+  border-bottom: 1px solid rgba(247, 239, 227, 0.12);
+}
+
+.archiveLuxury h2 {
+  margin-top: 42px;
+  max-width: 1140px;
+  font-size: clamp(42px, 5vw, 88px);
+  line-height: 1.08;
+  font-weight: 400;
+  letter-spacing: -0.06em;
+}
+
+.archiveGrid {
+  margin-top: 100px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(247, 239, 227, 0.13);
+}
+
+.archiveGrid div {
+  min-height: 280px;
+  padding: 34px;
+  background: #060504;
+}
+
+.archiveGrid span {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(247, 239, 227, 0.42);
+}
+
+.archiveGrid p {
+  margin-top: 44px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.95;
+  color: rgba(247, 239, 227, 0.64);
+}
+
+.footerLuxury {
+  min-height: 86vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border-top: 1px solid rgba(246,239,229,0.11);
+  padding: 190px 7vw;
 }
 
-.luxuryFooter h2 {
+.footerLuxury h2 {
   margin-top: 40px;
   font-size: clamp(78px, 9vw, 160px);
   line-height: 0.82;
@@ -153,36 +298,80 @@ main {
   letter-spacing: -0.08em;
 }
 
-.reveal {
-  opacity: 0;
-  transform: translateY(78px);
-  transition: opacity 1.55s ease, transform 1.55s cubic-bezier(0.22, 1, 0.36, 1);
+.footerLuxury a {
+  width: fit-content;
+  margin-top: 60px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.12em;
+  color: rgba(247, 239, 227, 0.72);
+  border-bottom: 1px solid rgba(247, 239, 227, 0.42);
+  padding-bottom: 8px;
 }
 
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(34px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 900px) {
+  .topLine {
+    left: 28px;
+    right: 28px;
+  }
+
+  .topLine span:last-child {
+    display: none;
+  }
+
   .heroLuxury {
     padding: 0 28px;
   }
 
-  .heroInner h1 {
+  .heroImage {
+    object-position: 66% center;
+  }
+
+  .heroText h1 {
     font-size: 78px;
   }
 
+  .heroText p:last-child {
+    font-size: 15px;
+  }
+
   .manifesto,
+  .jewelPanel,
   .worksLuxury,
-  .luxuryFooter {
+  .archiveLuxury,
+  .footerLuxury {
     padding-left: 28px;
     padding-right: 28px;
   }
 
-  .luxuryWork {
+  .manifesto h2,
+  .jewelPanel h2,
+  .archiveLuxury h2 {
+    font-size: 42px;
+  }
+
+  .luxuryWork,
+  .luxuryWork:nth-of-type(even) {
     grid-template-columns: 1fr;
     gap: 46px;
+    margin-top: 140px;
+  }
+
+  .luxuryWork:nth-of-type(even) .imageStage,
+  .luxuryWork:nth-of-type(even) .workInfo {
+    order: initial;
   }
 
   .imageStage img {
@@ -191,5 +380,9 @@ main {
 
   .workInfo h3 {
     font-size: 54px;
+  }
+
+  .archiveGrid {
+    grid-template-columns: 1fr;
   }
 }
