@@ -1,9 +1,9 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Masumi Shiohara | Official Botanical Archive",
+  title: "Masumi Shiohara | Botanical Archive",
   description:
-    "Fruit, cultivation, breeding, and photography. A botanical archive formed through growth, selection, intervention, and time.",
+    "Masumi Shiohara official archive. Fruit cultivation, breeding, botanical photography, sculptural forms, and vellum works.",
 };
 
 export default function RootLayout({
