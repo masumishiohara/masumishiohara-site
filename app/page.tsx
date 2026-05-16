@@ -1,236 +1,135 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-const works = [
+const projects = [
   {
-    number: "01",
     title: "Botanical Portraits",
-    subtitle: "Fruit as portrait, specimen, and still life.",
-    image: "botanical.jpg",
-    fallback: "botanical.jpg.jpg",
+    text: "Fruit as portrait, specimen, and still life.",
+    image: "/images/botanical.jpg",
   },
   {
-    number: "02",
     title: "Growth Process",
-    subtitle: "Seasonal transformation through cultivation and time.",
-    image: "growth.jpg",
-    fallback: "growth.jpg.jpg",
+    text: "Seasonal transformation through cultivation and time.",
+    image: "/images/growth.jpg",
   },
   {
-    number: "03",
     title: "Sculptural Fruit",
-    subtitle: "Forms shaped by intervention, gravity, and growth.",
-    image: "sculptural.jpg",
-    fallback: "sculptural.jpg.jpg",
+    text: "Forms shaped by intervention, gravity, and growth.",
+    image: "/images/sculptural.jpg",
   },
   {
-    number: "04",
     title: "Vellum Prints",
-    subtitle: "Botanical works printed on calf vellum.",
-    image: "vellum.jpg",
-    fallback: "vellum.jpg.jpg",
+    text: "Botanical works printed on calf vellum.",
+    image: "/images/vellum.jpg",
   },
   {
-    number: "05",
     title: "Breeding Archive",
-    subtitle: "Selection, rejection, disappearance, and record.",
-    image: "archive.jpg",
-    fallback: "archive.jpg.jpg",
+    text: "Selection, rejection, disappearance, and record.",
+    image: "/images/archive.jpg",
   },
 ];
 
-function SmartImage({
-  file,
-  fallback,
-  alt,
-  className,
-}: {
-  file: string;
-  fallback?: string;
-  alt: string;
-  className?: string;
-}) {
-  const candidates = [
-    `/images/${file}`,
-    fallback ? `/images/${fallback}` : "",
-    `/${file}`,
-    fallback ? `/${fallback}` : "",
-  ].filter(Boolean);
+function Reveal({ children }: { children: React.ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
 
-  const [index, setIndex] = useState(0);
-
-  if (index >= candidates.length) {
-    return (
-      <div className={`${className ?? ""} imageFallback`}>
-        <span>{alt}</span>
-      </div>
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+        }
+      },
+      {
+        threshold: 0.15,
+      }
     );
-  }
+
+    if (ref.current) observer.observe(ref.current);
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <img
-      src={candidates[index]}
-      alt={alt}
-      className={className}
-      onError={() => setIndex((current) => current + 1)}
-    />
+    <div
+      ref={ref}
+      className={`reveal ${visible ? "visible" : ""}`}
+    >
+      {children}
+    </div>
   );
 }
 
 export default function Home() {
   return (
-    <main className="siteShell">
-      <header className="siteHeader">
-        <a href="#top" className="brandMark">
-          Masumi Shiohara
-        </a>
-
-        <nav className="siteNav">
-          <a href="#vision">Vision</a>
-          <a href="#projects">Projects</a>
-          <a href="#archive">Archive</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </header>
-
-      <section id="top" className="heroMaison">
-        <SmartImage
-          file="hero.jpg"
-          fallback="hero.jpg.jpg"
+    <main>
+      <section className="hero">
+        <img
+          src="/images/hero.jpg"
           alt="Masumi Shiohara"
           className="heroImage"
         />
 
-        <div className="heroVeil" />
-        <div className="heroGrain" />
+        <div className="heroOverlay" />
 
-        <div className="heroCopy">
-          <p className="eyebrow">Official Botanical Archive</p>
+        <Reveal>
+          <div className="heroContent">
+            <p className="label">Official Archive</p>
 
-          <h1>
-            Masumi
-            <br />
-            Shiohara
-          </h1>
+            <h1>
+              Masumi
+              <br />
+              Shiohara
+            </h1>
 
-          <p className="heroLead">
-            Fruit, cultivation, breeding, and photography.
-            <br />
-            A botanical maison of cultivated form.
-          </p>
-        </div>
+            <p className="heroLead">
+              Fruit, cultivation, breeding, and photography.
+              <br />
+              A photographic practice born from growth,
+              intervention, selection, and time.
+            </p>
+          </div>
+        </Reveal>
       </section>
 
-      <section id="vision" className="visionSection">
-        <p className="eyebrow">Vision</p>
+      <section className="intro">
+        <Reveal>
+          <>
+            <p className="sectionLabel">Practice</p>
 
-        <h2>
-          Fruit is not only cultivated. It is shaped by season,
-          gravity, climate, selection, and care.
-          At the moment of harvest, it becomes form.
-          Through photography, it becomes archive.
-        </h2>
+            <h2>
+              Fruit is cultivated as form,
+              observed through time,
+              selected at the edge of disappearance,
+              and preserved as image.
+            </h2>
+          </>
+        </Reveal>
       </section>
 
-      <section id="projects" className="projectSection">
-        <div className="sectionIntro">
-          <p className="eyebrow">Projects</p>
-          <h2>Works as botanical jewels.</h2>
-        </div>
+      <section className="works">
+        <p className="sectionLabel">Projects</p>
 
-        <div className="projectList">
-          {works.map((work) => (
-            <article className="projectPanel" key={work.title}>
-              <div className="projectImageStage">
-                <SmartImage
-                  file={work.image}
-                  fallback={work.fallback}
-                  alt={work.title}
-                  className="projectImage"
+        {projects.map((project, index) => (
+          <Reveal key={index}>
+            <article className="work">
+              <div className="workImageFrame">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="workImage"
                 />
               </div>
 
-              <div className="projectText">
-                <span>{work.number}</span>
-
-                <h3>{work.title}</h3>
-
-                <p>{work.subtitle}</p>
+              <div className="workText">
+                <h3>{project.title}</h3>
+                <p>{project.text}</p>
               </div>
             </article>
-          ))}
-        </div>
+          </Reveal>
+        ))}
       </section>
-
-      <section id="archive" className="archiveSection">
-        <p className="eyebrow">Archive</p>
-
-        <h2>
-          Cultivation, intervention, selection,
-          disappearance, and material memory
-          are presented as a continuous
-          photographic practice.
-        </h2>
-
-        <div className="archiveGrid">
-          <div>
-            <span>Material</span>
-
-            <p>
-              Calf vellum, photographic print,
-              fruit surface, orchard light.
-            </p>
-          </div>
-
-          <div>
-            <span>Practice</span>
-
-            <p>
-              Growing, breeding, shaping,
-              harvesting, photographing,
-              archiving.
-            </p>
-          </div>
-
-          <div>
-            <span>Language</span>
-
-            <p>
-              Botanical portrait,
-              sculptural fruit,
-              seasonal record,
-              selection.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="contextSection">
-        <p className="eyebrow">Selected Contexts</p>
-
-        <ul>
-          <li>Photoville</li>
-          <li>Arte Laguna Prize</li>
-          <li>KEW Gardens</li>
-          <li>Karuizawa Photo Fest</li>
-          <li>Fujingaho</li>
-        </ul>
-      </section>
-
-      <footer id="contact" className="footerMaison">
-        <p className="eyebrow">Contact</p>
-
-        <h2>
-          Botanical
-          <br />
-          Archive
-        </h2>
-
-        <a href="mailto:contact@masumishiohara.com">
-          contact@masumishiohara.com
-        </a>
-      </footer>
     </main>
   );
 }
