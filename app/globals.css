@@ -193,3 +193,12 @@ h1 {
     padding-right: 28px;
   }
 }
+@media (max-width: 900px) {
+  .hero img {
+    object-position: 62% center;
+  }
+
+  .heroText {
+    padding-top: 22vh;
+  }
+}
