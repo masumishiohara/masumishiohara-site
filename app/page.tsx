@@ -2,27 +2,27 @@ const projects = [
   {
     title: "Botanical Portraits",
     subtitle: "Fruit as portrait, specimen, and still life.",
-    image: "/images/botanical-portraits/cover.jpg",
+    image: "/hero.jpg",
   },
   {
     title: "Growth Process",
     subtitle: "Seasonal transformation through cultivation and time.",
-    image: "/images/growth-process/cover.jpg",
+    image: "/01 (1).jpg",
   },
   {
     title: "Sculptural Fruit",
     subtitle: "Forms shaped by intervention, gravity, and growth.",
-    image: "/images/sculptural-fruit/cover.jpg",
+    image: "/02 (2).jpg",
   },
   {
     title: "Parchment on Vellum",
     subtitle: "Botanical memory, print, and material presence.",
-    image: "/images/parchment-on-vellum/cover.jpg",
+    image: "/cover (12).jpg",
   },
   {
     title: "Breeding Archive",
     subtitle: "Selection, rejection, disappearance, and record.",
-    image: "/images/breeding-archive/cover.jpg",
+    image: "/03 (3).jpg",
   },
 ];
 
@@ -30,7 +30,7 @@ export default function Home() {
   return (
     <main>
       <section className="hero">
-        <img src="/images/home/hero.jpg" alt="Masumi Shiohara" />
+        <img src="/hero.jpg" alt="Masumi Shiohara" />
         <div className="shade" />
         <div className="heroText">
           <p className="label">Official Archive</p>
@@ -75,9 +75,9 @@ export default function Home() {
         </h2>
         <p>
           His work treats fruit not only as agricultural product, but as form,
-          object, archive, and evidence of time. The practice connects
-          botanical portraiture, growth process, sculptural fruit, vellum-like
-          print works, and breeding records.
+          object, archive, and evidence of time. The practice connects botanical
+          portraiture, growth process, sculptural fruit, vellum-like print
+          works, and breeding records.
         </p>
       </section>
 
