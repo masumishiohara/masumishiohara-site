@@ -1,4 +1,16 @@
 "use client";
+
+const works = [
+  {
+    title: "Botanical Portraits",
+    text: "Fruit as portrait, specimen, and still life.",
+    image: "/images/botanical.jpg",
+  },
+  {
+    title: "Growth Process",
+    text: "Seasonal transformation through cultivation and time.",
+    image: "/images/growth.jpg",
+  },
   {
     title: "Sculptural Fruit",
     text: "Forms shaped by intervention, gravity, and growth.",
@@ -18,15 +30,15 @@
 
 export default function Home() {
   return (
-    <main>
+    <main className="site">
       <section className="hero">
+        <div className="heroOverlay" />
+
         <img
           src="/images/hero.jpg"
           alt="Masumi Shiohara"
           className="heroImage"
         />
-
-        <div className="heroOverlay" />
 
         <div className="heroContent">
           <p className="heroLabel">Official Archive</p>
@@ -40,8 +52,8 @@ export default function Home() {
           <p className="heroLead">
             Fruit, cultivation, breeding, and photography.
             <br />
-            A photographic practice born from growth,
-            intervention, selection, and time.
+            A photographic practice born from growth, intervention,
+            selection, and time.
           </p>
         </div>
       </section>
