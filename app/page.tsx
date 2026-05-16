@@ -4,7 +4,7 @@ const projects = [
   ["Botanical Portraits", "Fruit as portrait, specimen, and still life.", ["botanical.jpg", "botanical.jpg.jpg"]],
   ["Growth Process", "Seasonal transformation through cultivation and time.", ["growth.jpg", "growth.jpg.jpg"]],
   ["Sculptural Fruit", "Forms shaped by intervention, gravity, and growth.", ["sculptural.jpg", "sculptural.jpg.jpg"]],
-  ["Parchment on Vellum", "Botanical memory, print, and material presence.", ["vellum.jpg", "vellum.jpg.jpg"]],
+ ["Vellum Prints", "Botanical works printed on calf vellum.", ["vellum.jpg", "vellum.jpg.jpg"]],
   ["Breeding Archive", "Selection, rejection, disappearance, and record.", ["archive.jpg", "archive.jpg.jpg"]],
 ];
 
