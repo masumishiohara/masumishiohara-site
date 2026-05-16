@@ -5,14 +5,17 @@
 }
 
 html {
-  background: #010101;
-  color: #f7efe3;
+  background: #050505;
+  color: #f5efe6;
   scroll-behavior: smooth;
 }
 
 body {
-  background: #010101;
-  color: #f7efe3;
+  background:
+    radial-gradient(circle at top right, rgba(188, 148, 74, 0.12), transparent 32%),
+    radial-gradient(circle at left center, rgba(255,255,255,0.03), transparent 28%),
+    linear-gradient(180deg, #050505 0%, #090807 42%, #050505 100%);
+  color: #f5efe6;
   font-family: Georgia, "Times New Roman", serif;
   overflow-x: hidden;
 }
@@ -28,11 +31,12 @@ img {
 }
 
 main {
-  background:
-    radial-gradient(circle at 78% 0%, rgba(220, 185, 108, 0.16), transparent 34%),
-    radial-gradient(circle at 12% 45%, rgba(255, 255, 255, 0.045), transparent 32%),
-    linear-gradient(180deg, #010101 0%, #060504 45%, #010101 100%);
+  overflow: hidden;
 }
+
+/* =========================
+   HERO
+========================= */
 
 .heroLuxury {
   position: relative;
@@ -41,17 +45,18 @@ main {
   display: flex;
   align-items: center;
   padding: 0 7vw;
-  border-bottom: 1px solid rgba(247, 239, 227, 0.12);
+  border-bottom: 1px solid rgba(245,239,230,0.1);
 }
 
 .heroImage {
   position: absolute;
   inset: 0;
+  width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: 64% center;
-  opacity: 0.48;
-  filter: brightness(0.58) contrast(1.16) saturate(0.82);
+  opacity: 0.82;
+  filter: brightness(0.9) contrast(1.08) saturate(0.92);
   transform: scale(1.04);
 }
 
@@ -59,40 +64,54 @@ main {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(0,0,0,0.98), rgba(0,0,0,0.76) 34%, rgba(0,0,0,0.18) 72%, rgba(0,0,0,0.72)),
-    linear-gradient(180deg, rgba(0,0,0,0.1), rgba(0,0,0,0.88));
+    linear-gradient(
+      90deg,
+      rgba(0,0,0,0.72),
+      rgba(0,0,0,0.38) 34%,
+      rgba(0,0,0,0.08) 72%,
+      rgba(0,0,0,0.42)
+    ),
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,0.04),
+      rgba(0,0,0,0.38)
+    );
 }
 
 .goldHalo {
   position: absolute;
-  right: -16vw;
-  top: 4vh;
+  right: -18vw;
+  top: -8vh;
   width: 70vw;
   height: 70vw;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(222, 184, 98, 0.18), transparent 63%);
-  filter: blur(28px);
+  background:
+    radial-gradient(circle,
+      rgba(205, 168, 94, 0.22),
+      rgba(205,168,94,0.04) 42%,
+      transparent 68%);
+  filter: blur(40px);
 }
 
 .topLine {
   position: absolute;
-  top: 30px;
+  top: 34px;
   left: 7vw;
   right: 7vw;
-  z-index: 4;
+  z-index: 10;
   display: flex;
   justify-content: space-between;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 10px;
-  letter-spacing: 0.34em;
+  letter-spacing: 0.38em;
   text-transform: uppercase;
-  color: rgba(247, 239, 227, 0.5);
+  color: rgba(245,239,230,0.52);
 }
 
 .heroText {
   position: relative;
   z-index: 5;
-  max-width: 820px;
+  max-width: 840px;
   animation: rise 1.4s ease both;
 }
 
@@ -101,28 +120,33 @@ main {
   font-size: 10px;
   letter-spacing: 0.42em;
   text-transform: uppercase;
-  color: rgba(247, 239, 227, 0.48);
+  color: rgba(245,239,230,0.46);
 }
 
 .heroText h1 {
   margin-top: 34px;
-  font-size: clamp(88px, 11vw, 190px);
+  font-size: clamp(92px, 11vw, 210px);
   line-height: 0.78;
   font-weight: 400;
-  letter-spacing: -0.085em;
+  letter-spacing: -0.09em;
+  text-shadow: 0 10px 38px rgba(0,0,0,0.45);
 }
 
 .heroText p:last-child {
   margin-top: 46px;
-  max-width: 680px;
+  max-width: 720px;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
-  line-height: 2.05;
-  color: rgba(247, 239, 227, 0.72);
+  font-size: 17px;
+  line-height: 2;
+  color: rgba(245,239,230,0.76);
 }
 
+/* =========================
+   MANIFESTO
+========================= */
+
 .manifesto {
-  min-height: 96vh;
+  min-height: 92vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -132,33 +156,43 @@ main {
 .manifesto h2 {
   margin-top: 44px;
   max-width: 1280px;
-  font-size: clamp(46px, 5.6vw, 98px);
+  font-size: clamp(48px, 5.8vw, 104px);
   line-height: 1.04;
+  font-weight: 400;
+  letter-spacing: -0.07em;
+}
+
+/* =========================
+   JEWEL PANEL
+========================= */
+
+.jewelPanel {
+  padding: 190px 7vw;
+  background:
+    radial-gradient(circle at right center,
+      rgba(199, 163, 89, 0.16),
+      transparent 38%),
+    #080706;
+  border-top: 1px solid rgba(245,239,230,0.1);
+  border-bottom: 1px solid rgba(245,239,230,0.1);
+}
+
+.jewelPanel h2 {
+  margin-top: 40px;
+  margin-left: auto;
+  max-width: 1120px;
+  font-size: clamp(42px, 5vw, 88px);
+  line-height: 1.08;
   font-weight: 400;
   letter-spacing: -0.065em;
 }
 
-.jewelPanel {
-  padding: 180px 7vw;
-  background:
-    radial-gradient(circle at 76% 46%, rgba(222, 184, 98, 0.13), transparent 36%),
-    #050403;
-  border-top: 1px solid rgba(247, 239, 227, 0.12);
-  border-bottom: 1px solid rgba(247, 239, 227, 0.12);
-}
-
-.jewelPanel h2 {
-  margin-top: 42px;
-  margin-left: auto;
-  max-width: 1080px;
-  font-size: clamp(40px, 4.8vw, 84px);
-  line-height: 1.08;
-  font-weight: 400;
-  letter-spacing: -0.06em;
-}
+/* =========================
+   WORKS
+========================= */
 
 .worksLuxury {
-  padding: 160px 7vw 220px;
+  padding: 180px 7vw 240px;
 }
 
 .luxuryWork {
@@ -166,7 +200,7 @@ main {
   grid-template-columns: 1.15fr 0.85fr;
   gap: 8vw;
   align-items: center;
-  margin-top: 210px;
+  margin-top: 220px;
 }
 
 .luxuryWork:nth-of-type(even) {
@@ -184,15 +218,17 @@ main {
 .imageStage {
   position: relative;
   overflow: hidden;
-  background: #060606;
-  box-shadow: 0 52px 160px rgba(0, 0, 0, 0.74);
+  background: #080808;
+  box-shadow:
+    0 60px 180px rgba(0,0,0,0.78),
+    0 0 0 1px rgba(245,239,230,0.06);
 }
 
 .imageStage::before {
   content: "";
   position: absolute;
   inset: 18px;
-  border: 1px solid rgba(247, 239, 227, 0.14);
+  border: 1px solid rgba(245,239,230,0.12);
   z-index: 2;
   pointer-events: none;
 }
@@ -200,56 +236,71 @@ main {
 .imageStage img {
   height: 84vh;
   object-fit: cover;
-  filter: brightness(0.92) contrast(1.1) saturate(0.9);
-  transition: transform 2s ease, filter 2s ease;
+  transition:
+    transform 2.4s ease,
+    filter 2.4s ease;
+  filter:
+    brightness(0.95)
+    contrast(1.06)
+    saturate(0.94);
 }
 
 .luxuryWork:hover img {
   transform: scale(1.035);
-  filter: brightness(1.04) contrast(1.12) saturate(0.96);
+  filter:
+    brightness(1.03)
+    contrast(1.1)
+    saturate(1);
 }
 
 .workInfo span {
   display: inline-block;
-  margin-bottom: 34px;
+  margin-bottom: 32px;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 11px;
+  font-size: 10px;
   letter-spacing: 0.34em;
-  color: rgba(247, 239, 227, 0.38);
+  text-transform: uppercase;
+  color: rgba(245,239,230,0.36);
 }
 
 .workInfo h3 {
-  font-size: clamp(54px, 6.2vw, 108px);
+  font-size: clamp(58px, 6vw, 118px);
   line-height: 0.9;
   font-weight: 400;
-  letter-spacing: -0.075em;
+  letter-spacing: -0.08em;
 }
 
 .workInfo p {
-  margin-top: 36px;
-  max-width: 540px;
+  margin-top: 38px;
+  max-width: 560px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   line-height: 2;
-  color: rgba(247, 239, 227, 0.66);
+  color: rgba(245,239,230,0.66);
 }
 
+/* =========================
+   ARCHIVE GRID
+========================= */
+
 .archiveLuxury {
-  padding: 210px 7vw;
+  padding: 220px 7vw;
   background:
-    radial-gradient(circle at 18% 20%, rgba(247,239,227,0.055), transparent 40%),
-    #060504;
-  border-top: 1px solid rgba(247, 239, 227, 0.12);
-  border-bottom: 1px solid rgba(247, 239, 227, 0.12);
+    radial-gradient(circle at left top,
+      rgba(255,255,255,0.04),
+      transparent 30%),
+    #070605;
+  border-top: 1px solid rgba(245,239,230,0.1);
+  border-bottom: 1px solid rgba(245,239,230,0.1);
 }
 
 .archiveLuxury h2 {
-  margin-top: 42px;
-  max-width: 1140px;
-  font-size: clamp(42px, 5vw, 88px);
+  margin-top: 44px;
+  max-width: 1180px;
+  font-size: clamp(42px, 5vw, 92px);
   line-height: 1.08;
   font-weight: 400;
-  letter-spacing: -0.06em;
+  letter-spacing: -0.065em;
 }
 
 .archiveGrid {
@@ -257,57 +308,65 @@ main {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1px;
-  background: rgba(247, 239, 227, 0.13);
+  background: rgba(245,239,230,0.1);
 }
 
 .archiveGrid div {
-  min-height: 280px;
-  padding: 34px;
-  background: #060504;
+  min-height: 300px;
+  padding: 38px;
+  background: #070605;
 }
 
 .archiveGrid span {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 10px;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: rgba(247, 239, 227, 0.42);
+  color: rgba(245,239,230,0.38);
 }
 
 .archiveGrid p {
-  margin-top: 44px;
+  margin-top: 46px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
-  line-height: 1.95;
-  color: rgba(247, 239, 227, 0.64);
+  line-height: 2;
+  color: rgba(245,239,230,0.66);
 }
+
+/* =========================
+   FOOTER
+========================= */
 
 .footerLuxury {
   min-height: 86vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 190px 7vw;
+  padding: 200px 7vw;
 }
 
 .footerLuxury h2 {
   margin-top: 40px;
-  font-size: clamp(78px, 9vw, 160px);
+  font-size: clamp(82px, 9vw, 170px);
   line-height: 0.82;
   font-weight: 400;
-  letter-spacing: -0.08em;
+  letter-spacing: -0.09em;
 }
 
 .footerLuxury a {
   width: fit-content;
   margin-top: 60px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(245,239,230,0.4);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
   letter-spacing: 0.12em;
-  color: rgba(247, 239, 227, 0.72);
-  border-bottom: 1px solid rgba(247, 239, 227, 0.42);
-  padding-bottom: 8px;
+  color: rgba(245,239,230,0.74);
 }
+
+/* =========================
+   ANIMATION
+========================= */
 
 @keyframes rise {
   from {
@@ -321,7 +380,12 @@ main {
   }
 }
 
+/* =========================
+   MOBILE
+========================= */
+
 @media (max-width: 900px) {
+
   .topLine {
     left: 28px;
     right: 28px;
@@ -336,11 +400,11 @@ main {
   }
 
   .heroImage {
-    object-position: 66% center;
+    object-position: 68% center;
   }
 
   .heroText h1 {
-    font-size: 78px;
+    font-size: 82px;
   }
 
   .heroText p:last-child {
@@ -359,14 +423,14 @@ main {
   .manifesto h2,
   .jewelPanel h2,
   .archiveLuxury h2 {
-    font-size: 42px;
+    font-size: 44px;
   }
 
   .luxuryWork,
   .luxuryWork:nth-of-type(even) {
     grid-template-columns: 1fr;
-    gap: 46px;
-    margin-top: 140px;
+    gap: 48px;
+    margin-top: 150px;
   }
 
   .luxuryWork:nth-of-type(even) .imageStage,
@@ -379,10 +443,14 @@ main {
   }
 
   .workInfo h3 {
-    font-size: 54px;
+    font-size: 56px;
   }
 
   .archiveGrid {
     grid-template-columns: 1fr;
+  }
+
+  .footerLuxury h2 {
+    font-size: 92px;
   }
 }
