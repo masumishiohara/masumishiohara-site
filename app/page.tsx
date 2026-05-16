@@ -1,15 +1,35 @@
+"use client";
+
 const projects = [
-  ["Botanical Portraits", "Fruit as portrait, specimen, and still life.", "/images/botanical.jpg"],
-  ["Growth Process", "Seasonal transformation through cultivation and time.", "/images/growth.jpg"],
-  ["Sculptural Fruit", "Forms shaped by intervention, gravity, and growth.", "/images/sculptural.jpg"],
-  ["Parchment on Vellum", "Botanical memory, print, and material presence.", "/images/vellum.jpg"],
-  ["Breeding Archive", "Selection, rejection, disappearance, and record.", "/images/archive.jpg"],
+  ["Botanical Portraits", "Fruit as portrait, specimen, and still life.", ["botanical.jpg", "botanical.jpg.jpg"]],
+  ["Growth Process", "Seasonal transformation through cultivation and time.", ["growth.jpg", "growth.jpg.jpg"]],
+  ["Sculptural Fruit", "Forms shaped by intervention, gravity, and growth.", ["sculptural.jpg", "sculptural.jpg.jpg"]],
+  ["Parchment on Vellum", "Botanical memory, print, and material presence.", ["vellum.jpg", "vellum.jpg.jpg"]],
+  ["Breeding Archive", "Selection, rejection, disappearance, and record.", ["archive.jpg", "archive.jpg.jpg"]],
 ];
+
+function SmartImage({ names, alt }: { names: string[]; alt: string }) {
+  const candidates = names.flatMap((n) => [`/images/${n}`, `/${n}`]);
+  const [index, setIndex] = React.useState(0);
+
+  if (index >= candidates.length) return <div className="imageFallback" />;
+
+  return (
+    <img
+      src={candidates[index]}
+      alt={alt}
+      onError={() => setIndex(index + 1)}
+    />
+  );
+}
+
+import React from "react";
 
 export default function Home() {
   return (
     <main>
-      <section className="hero" style={{ backgroundImage: "url('/images/hero.jpg')" }}>
+      <section className="hero">
+        <SmartImage names={["hero.jpg", "hero.jpg.jpg"]} alt="Masumi Shiohara" />
         <div className="shade" />
         <div className="heroText">
           <p className="label">Official Archive</p>
@@ -32,9 +52,11 @@ export default function Home() {
       <section className="projects">
         <p className="label">Projects</p>
         <div className="projectGrid">
-          {projects.map(([title, subtitle, image]) => (
-            <article className="card" key={title}>
-              <div className="cardImage" style={{ backgroundImage: `url('${image}')` }} />
+          {projects.map(([title, subtitle, names]) => (
+            <article className="card" key={title as string}>
+              <div className="cardImage">
+                <SmartImage names={names as string[]} alt={title as string} />
+              </div>
               <div className="cardText">
                 <h3>{title}</h3>
                 <p>{subtitle}</p>
@@ -54,18 +76,6 @@ export default function Home() {
           His work treats fruit not only as agricultural product, but as form, object,
           archive, and evidence of time.
         </p>
-      </section>
-
-      <section className="exhibitions">
-        <p className="label">Selected Exhibitions / Publications</p>
-        <ul>
-          <li>Photoville</li>
-          <li>Arte Laguna Prize</li>
-          <li>KEW Gardens</li>
-          <li>Karuizawa Photo Fest</li>
-          <li>Fujingaho</li>
-          <li>Photo Book Forthcoming</li>
-        </ul>
       </section>
 
       <section className="contact">
