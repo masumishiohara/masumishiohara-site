@@ -195,7 +195,7 @@ h1 {
 }
 @media (max-width: 900px) {
   .hero img {
-    object-position: 78% center;
+    object-position: 50% center;
   }
 
   .heroText {
