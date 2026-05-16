@@ -37,7 +37,7 @@ export default function Home() {
       <section className="heroLuxury">
         <img src="/images/hero.jpg" alt="Masumi Shiohara" className="heroImage" />
         <div className="heroVeil" />
-        <div className="goldHalo" />
+        <div className="softLight" />
 
         <div className="topLine">
           <span>Masumi Shiohara</span>
@@ -53,7 +53,7 @@ export default function Home() {
           </h1>
           <p>
             Fruit, cultivation, breeding, vellum, and photography — a botanical
-            world where living forms are treated with the gravity of jewels.
+            archive shaped by season, selection, material, and time.
           </p>
         </div>
       </section>
@@ -61,8 +61,8 @@ export default function Home() {
       <section className="manifesto">
         <p className="eyebrow">Maison Vision</p>
         <h2>
-          Fruit is not only grown. It is shaped by season, gravity, climate,
-          hand, and selection. At harvest, it becomes presence. Through
+          Fruit is not only grown. It is shaped by climate, gravity, hand,
+          selection, and care. At harvest, it becomes presence. Through
           photography, it becomes archive.
         </h2>
       </section>
@@ -70,8 +70,8 @@ export default function Home() {
       <section className="jewelPanel">
         <p className="eyebrow">Botanical High Jewellery</p>
         <h2>
-          Inspired by the dreamlike union of plants and precious objects, this
-          archive presents fruit as a rare cultivated form.
+          Inspired by the union of plants and precious objects, this work treats
+          fruit as a rare cultivated form rather than produce alone.
         </h2>
       </section>
 
@@ -94,10 +94,10 @@ export default function Home() {
       </section>
 
       <section className="archiveLuxury">
-        <p className="eyebrow">Material Memory</p>
+        <p className="eyebrow">Material Archive</p>
         <h2>
           Orchard, breeding field, studio, vellum, photographic surface, and
-          archive become one continuous practice.
+          archive form one continuous practice.
         </h2>
 
         <div className="archiveGrid">
@@ -107,7 +107,7 @@ export default function Home() {
           </div>
           <div>
             <span>02 / Intervention</span>
-            <p>Forms guided by hand, constraint, chance, and growth.</p>
+            <p>Forms guided by hand, restraint, chance, and growth.</p>
           </div>
           <div>
             <span>03 / Vellum</span>
