@@ -4,64 +4,55 @@ import { useEffect, useRef, useState } from "react";
 
 const works = [
   {
+    number: "01",
     title: "Botanical Portraits",
-    text: "Fruit as portrait, specimen, and still life.",
+    text: "Fruit observed as portrait, specimen, and still life — each surface held like a stone under light.",
     image: "/images/botanical.jpg",
   },
   {
+    number: "02",
     title: "Growth Process",
-    text: "Seasonal transformation through cultivation and time.",
+    text: "Seasonal transformation recorded through cultivation, weather, hand, and time.",
     image: "/images/growth.jpg",
   },
   {
+    number: "03",
     title: "Sculptural Fruit",
-    text: "Forms shaped by intervention, gravity, and growth.",
+    text: "Forms shaped by gravity, intervention, accident, and the quiet force of growth.",
     image: "/images/sculptural.jpg",
   },
   {
+    number: "04",
     title: "Vellum Prints",
-    text: "Botanical works printed on calf vellum.",
+    text: "Botanical works printed on calf vellum, where image becomes material memory.",
     image: "/images/vellum.jpg",
   },
   {
+    number: "05",
     title: "Breeding Archive",
-    text: "Selection, rejection, disappearance, and record.",
+    text: "Selection, rejection, disappearance, and record — a living archive of cultivated form.",
     image: "/images/archive.jpg",
   },
 ];
 
-function Reveal({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+function Reveal({ children }: { children: React.ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-        }
+        if (entry.isIntersecting) setVisible(true);
       },
-      {
-        threshold: 0.15,
-      }
+      { threshold: 0.14 }
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
+    if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
 
   return (
-    <div
-      ref={ref}
-      className={`reveal ${visible ? "visible" : ""}`}
-    >
+    <div ref={ref} className={`reveal ${visible ? "visible" : ""}`}>
       {children}
     </div>
   );
@@ -70,102 +61,13 @@ function Reveal({
 export default function Home() {
   return (
     <main>
-      <section className="hero">
-        <img
-          src="/images/hero.jpg"
-          alt="Masumi Shiohara"
-          className="heroImage"
-        />
+      <section className="heroLuxury">
+        <img src="/images/hero.jpg" alt="Masumi Shiohara" className="heroImage" />
+        <div className="heroBlackVeil" />
+        <div className="goldAura" />
+        <div className="grain" />
 
-        <div className="heroOverlay" />
-
-        <Reveal>
-          <div className="heroContent">
-            <p className="label">
-              Official Botanical Archive
-            </p>
-
-            <h1>
-              Masumi
-              <br />
-              Shiohara
-            </h1>
-
-            <p className="heroLead">
-              Fruit, cultivation, breeding,
-              and photography.
-              <br />
-              A botanical maison of cultivated form.
-            </p>
-          </div>
-        </Reveal>
-      </section>
-
-      <section className="vision">
-        <Reveal>
-          <>
-            <p className="sectionLabel">
-              Maison Vision
-            </p>
-
-            <h2>
-              A botanical world where fruit
-              is cultivated as form,
-              observed through time,
-              selected at the edge of disappearance,
-              and preserved as image.
-            </h2>
-          </>
-        </Reveal>
-      </section>
-
-      <section className="works">
-        <p className="sectionLabel">Projects</p>
-
-        {works.map((work, index) => (
-          <Reveal key={index}>
-            <article className="work">
-              <div className="workImageFrame">
-                <img
-                  src={work.image}
-                  alt={work.title}
-                  className="workImage"
-                />
-              </div>
-
-              <div className="workText">
-                <span>
-                  0{index + 1}
-                </span>
-
-                <h3>{work.title}</h3>
-
-                <p>{work.text}</p>
-              </div>
-            </article>
-          </Reveal>
-        ))}
-      </section>
-
-      <section className="contact">
-        <Reveal>
-          <>
-            <p className="sectionLabel">
-              Contact
-            </p>
-
-            <h2>
-              Botanical
-              <br />
-              Archive
-            </h2>
-
-            <a href="mailto:contact@masumishiohara.com">
-              contact@masumishiohara.com
-            </a>
-          </>
-        </Reveal>
-      </section>
-    </main>
-  );
+        <div className="topBar">
+          <span>Masumi Shiohara</span>
+          <span>Botanical Maison</span>
 }
