@@ -1,4 +1,66 @@
 "use client";
+  return (
+    <img
+      src={candidates[index]}
+      alt={alt}
+      className={className}
+      onError={() => setIndex((current) => current + 1)}
+    />
+  );
+}
+
+export default function Home() {
+  return (
+    <main className="siteShell">
+      <header className="siteHeader">
+        <a href="#top" className="brandMark">
+          Masumi Shiohara
+        </a>
+        <nav className="siteNav" aria-label="Primary navigation">
+          <a href="#vision">Vision</a>
+          <a href="#projects">Projects</a>
+          <a href="#archive">Archive</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+
+      <section id="top" className="heroMaison">
+        <SmartImage
+          file="hero.jpg"
+          fallback="hero.jpg.jpg"
+          alt="Masumi Shiohara botanical work"
+          className="heroImage"
+        />
+        <div className="heroVeil" />
+        <div className="heroGrain" />
+
+        <div className="heroCopy">
+          <p className="eyebrow">Official Botanical Archive</p>
+          <h1>
+            Masumi
+            <br />
+            Shiohara
+          </h1>
+          <p className="heroLead">
+            Fruit, cultivation, breeding, and photography.
+            <br />
+            A botanical maison of cultivated form.
+          </p>
+        </div>
+      </section>
+
+      <section id="vision" className="visionSection">
+        <p className="eyebrow">Vision</p>
+        <h2>
+          Fruit is not only cultivated. It is shaped by season, gravity,
+          climate, selection, and care. At the moment of harvest, it becomes
+          form. Through photography, it becomes archive.
+        </h2>
+      </section>
+
+      <section id="projects" className="projectSection">
+        <div className="sectionIntro">
+          <p className="eyebrow">Projects</p>
           <h2>Works as botanical jewels.</h2>
         </div>
 
@@ -30,44 +92,4 @@
           Cultivation, intervention, selection, disappearance, and material
           memory are presented as a continuous photographic practice.
         </h2>
-        <div className="archiveGrid">
-          <div>
-            <span>Material</span>
-            <p>Calf vellum, photographic print, fruit surface, orchard light.</p>
-          </div>
-          <div>
-            <span>Practice</span>
-            <p>Growing, breeding, shaping, harvesting, photographing, archiving.</p>
-          </div>
-          <div>
-            <span>Language</span>
-            <p>Botanical portrait, sculptural fruit, seasonal record, selection.</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="contextSection">
-        <p className="eyebrow">Selected Contexts</p>
-        <ul>
-          <li>Photoville</li>
-          <li>Arte Laguna Prize</li>
-          <li>KEW Gardens</li>
-          <li>Karuizawa Photo Fest</li>
-          <li>Fujingaho</li>
-        </ul>
-      </section>
-
-      <footer id="contact" className="footerMaison">
-        <p className="eyebrow">Contact</p>
-        <h2>
-          Botanical
-          <br />
-          Archive
-        </h2>
-        <a href="mailto:contact@masumishiohara.com">
-          contact@masumishiohara.com
-        </a>
-      </footer>
-    </main>
-  );
 }
