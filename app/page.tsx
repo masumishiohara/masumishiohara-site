@@ -2,19 +2,19 @@ const works = [
   {
     number: "01",
     title: "Botanical Portraits",
-    text: "Fruit observed as portrait, specimen, and still life.",
+    text: "Fruit presented as portrait, object, and presence.",
     image: "/images/botanical.jpg",
   },
   {
     number: "02",
     title: "Growth Process",
-    text: "Seasonal transformation through cultivation and time.",
+    text: "Seasonal transformation shaped by cultivation and time.",
     image: "/images/growth.jpg",
   },
   {
     number: "03",
     title: "Sculptural Fruit",
-    text: "Forms shaped by intervention, gravity, and growth.",
+    text: "Forms guided by gravity, intervention, and growth.",
     image: "/images/sculptural.jpg",
   },
   {
@@ -26,7 +26,7 @@ const works = [
   {
     number: "05",
     title: "Breeding Archive",
-    text: "Selection, rejection, disappearance, and record.",
+    text: "Selection, disappearance, and record.",
     image: "/images/archive.jpg",
   },
 ];
@@ -34,57 +34,60 @@ const works = [
 export default function Home() {
   return (
     <main>
-      <section className="heroLuxury">
+      <section className="luxuryHero">
         <img src="/images/hero.jpg" alt="Masumi Shiohara" className="heroImage" />
-        <div className="heroVeil" />
-        <div className="softLight" />
+        <div className="heroShade" />
 
-        <div className="topLine">
+        <header className="luxuryHeader">
           <span>Masumi Shiohara</span>
-          <span>Botanical Maison</span>
-        </div>
+          <span>Official Site</span>
+        </header>
 
-        <div className="heroText">
-          <p className="eyebrow">Official Botanical Archive</p>
+        <div className="heroContent">
+          <p className="smallLabel">Fruit / Cultivation / Photography</p>
           <h1>
-            Cultivated
+            Rare
             <br />
-            Form
+            Botanical
+            <br />
+            Works
           </h1>
-          <p>
-            Fruit, cultivation, breeding, vellum, and photography — a botanical
-            archive shaped by season, selection, material, and time.
+          <p className="heroLead">
+            Fruit cultivated, selected, photographed, and transformed into
+            works of quiet luxury.
           </p>
         </div>
       </section>
 
-      <section className="manifesto">
-        <p className="eyebrow">Maison Vision</p>
+      <section className="luxuryIntro">
+        <p className="smallLabel">Statement</p>
         <h2>
-          Fruit is not only grown. It is shaped by climate, gravity, hand,
-          selection, and care. At harvest, it becomes presence. Through
-          photography, it becomes archive.
+          A practice where fruit is treated not as produce, but as a rare object
+          shaped by season, hand, time, and light.
         </h2>
       </section>
 
-      <section className="jewelPanel">
-        <p className="eyebrow">Botanical High Jewellery</p>
-        <h2>
-          Inspired by the union of plants and precious objects, this work treats
-          fruit as a rare cultivated form rather than produce alone.
-        </h2>
+      <section className="signaturePanel">
+        <div>
+          <p className="smallLabel">Signature</p>
+          <h2>Cultivated Form</h2>
+        </div>
+        <p>
+          Each work begins in the field and reaches completion through selection,
+          photography, and material presentation.
+        </p>
       </section>
 
-      <section className="worksLuxury">
-        <p className="eyebrow">Selected Works</p>
+      <section className="worksSection">
+        <p className="smallLabel">Collections</p>
 
         {works.map((work) => (
-          <article className="luxuryWork" key={work.title}>
-            <div className="imageStage">
+          <article className="workBlock" key={work.title}>
+            <div className="workImageBox">
               <img src={work.image} alt={work.title} />
             </div>
 
-            <div className="workInfo">
+            <div className="workCopy">
               <span>{work.number}</span>
               <h3>{work.title}</h3>
               <p>{work.text}</p>
@@ -93,40 +96,17 @@ export default function Home() {
         ))}
       </section>
 
-      <section className="archiveLuxury">
-        <p className="eyebrow">Material Archive</p>
+      <section className="privateSection">
+        <p className="smallLabel">Private Viewing</p>
         <h2>
-          Orchard, breeding field, studio, vellum, photographic surface, and
-          archive form one continuous practice.
+          Works are presented for exhibitions, publications, curatorial review,
+          and selected private enquiries.
         </h2>
-
-        <div className="archiveGrid">
-          <div>
-            <span>01 / Cultivation</span>
-            <p>Fruit shaped by weather, soil, season, and agricultural care.</p>
-          </div>
-          <div>
-            <span>02 / Intervention</span>
-            <p>Forms guided by hand, restraint, chance, and growth.</p>
-          </div>
-          <div>
-            <span>03 / Vellum</span>
-            <p>Images transferred onto calf vellum as material memory.</p>
-          </div>
-          <div>
-            <span>04 / Archive</span>
-            <p>Selection, disappearance, and record held as botanical history.</p>
-          </div>
-        </div>
       </section>
 
-      <footer className="footerLuxury">
-        <p className="eyebrow">Contact</p>
-        <h2>
-          Botanical
-          <br />
-          Archive
-        </h2>
+      <footer className="luxuryFooter">
+        <p className="smallLabel">Contact</p>
+        <h2>Masumi Shiohara</h2>
         <a href="mailto:contact@masumishiohara.com">
           contact@masumishiohara.com
         </a>
