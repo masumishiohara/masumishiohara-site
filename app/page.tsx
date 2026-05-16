@@ -1,95 +1,73 @@
 "use client";
-
-const works = [
-  {
-    title: "Botanical Portraits",
-    text: "Fruit as portrait, specimen, and still life.",
-    image: "/images/botanical.jpg",
-  },
-  {
-    title: "Growth Process",
-    text: "Seasonal transformation through cultivation and time.",
-    image: "/images/growth.jpg",
-  },
-  {
-    title: "Sculptural Fruit",
-    text: "Forms shaped by intervention, gravity, and growth.",
-    image: "/images/sculptural.jpg",
-  },
-  {
-    title: "Vellum Prints",
-    text: "Botanical works printed on calf vellum.",
-    image: "/images/vellum.jpg",
-  },
-  {
-    title: "Breeding Archive",
-    text: "Selection, rejection, disappearance, and record.",
-    image: "/images/archive.jpg",
-  },
-];
-
-export default function Home() {
-  return (
-    <main className="site">
-      <section className="hero">
-        <div className="heroOverlay" />
-
-        <img
-          src="/images/hero.jpg"
-          alt="Masumi Shiohara"
-          className="heroImage"
-        />
-
-        <div className="heroContent">
-          <p className="heroLabel">Official Archive</p>
-
-          <h1>
-            Masumi
-            <br />
-            Shiohara
-          </h1>
-
-          <p className="heroLead">
-            Fruit, cultivation, breeding, and photography.
-            <br />
-            A photographic practice born from growth, intervention,
-            selection, and time.
-          </p>
+          <h2>Works as botanical jewels.</h2>
         </div>
-      </section>
 
-      <section className="intro">
-        <p className="sectionLabel">Practice</p>
-
-        <h2>
-          Fruit is cultivated as form, observed through time,
-          selected at the edge of disappearance,
-          and preserved as image.
-        </h2>
-      </section>
-
-      <section className="works">
-        <p className="sectionLabel">Projects</p>
-
-        <div className="worksGrid">
-          {works.map((work) => (
-            <article className="workCard" key={work.title}>
-              <div className="workImageWrap">
-                <img
-                  src={work.image}
+        <div className="projectList">
+          {works.map((work, index) => (
+            <article className="projectPanel" key={work.title}>
+              <div className="projectImageStage">
+                <SmartImage
+                  file={work.image}
+                  fallback={work.fallback}
                   alt={work.title}
-                  className="workImage"
+                  className="projectImage"
                 />
               </div>
 
-              <div className="workText">
+              <div className="projectText">
+                <span>{work.number}</span>
                 <h3>{work.title}</h3>
-                <p>{work.text}</p>
+                <p>{work.subtitle}</p>
               </div>
             </article>
           ))}
         </div>
       </section>
+
+      <section id="archive" className="archiveSection">
+        <p className="eyebrow">Archive</p>
+        <h2>
+          Cultivation, intervention, selection, disappearance, and material
+          memory are presented as a continuous photographic practice.
+        </h2>
+        <div className="archiveGrid">
+          <div>
+            <span>Material</span>
+            <p>Calf vellum, photographic print, fruit surface, orchard light.</p>
+          </div>
+          <div>
+            <span>Practice</span>
+            <p>Growing, breeding, shaping, harvesting, photographing, archiving.</p>
+          </div>
+          <div>
+            <span>Language</span>
+            <p>Botanical portrait, sculptural fruit, seasonal record, selection.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="contextSection">
+        <p className="eyebrow">Selected Contexts</p>
+        <ul>
+          <li>Photoville</li>
+          <li>Arte Laguna Prize</li>
+          <li>KEW Gardens</li>
+          <li>Karuizawa Photo Fest</li>
+          <li>Fujingaho</li>
+        </ul>
+      </section>
+
+      <footer id="contact" className="footerMaison">
+        <p className="eyebrow">Contact</p>
+        <h2>
+          Botanical
+          <br />
+          Archive
+        </h2>
+        <a href="mailto:contact@masumishiohara.com">
+          contact@masumishiohara.com
+        </a>
+      </footer>
     </main>
   );
 }
