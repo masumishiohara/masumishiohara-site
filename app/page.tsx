@@ -1,18 +1,4 @@
 "use client";
-
-import React from "react";
-
-const works = [
-  {
-    title: "Botanical Portraits",
-    text: "Fruit as portrait, specimen, and still life.",
-    image: "/images/botanical.jpg",
-  },
-  {
-    title: "Growth Process",
-    text: "Seasonal transformation through cultivation and time.",
-    image: "/images/growth.jpg",
-  },
   {
     title: "Sculptural Fruit",
     text: "Forms shaped by intervention, gravity, and growth.",
