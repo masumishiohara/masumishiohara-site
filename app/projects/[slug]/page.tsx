@@ -62,7 +62,19 @@ export default function ProjectPage({
 
         </div>
       </section>
+{project.gallery && (
+  <section className="collectionGallery">
+    <p className="smallLabel">Collection Works</p>
 
+    <div className="collectionGalleryGrid">
+      {project.gallery.map((image, index) => (
+        <div className="collectionGalleryItem" key={image}>
+          <img src={image} alt={`${project.title} ${index + 1}`} />
+        </div>
+      ))}
+    </div>
+  </section>
+)}
       <section className="relatedArchive">
         <div className="archiveHeader">
           <p className="smallLabel">
