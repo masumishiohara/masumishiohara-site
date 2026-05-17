@@ -584,8 +584,8 @@ main {
     saturate(0.32);
 
   transition:
-    filter 4.8s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 4.8s cubic-bezier(0.22, 1, 0.36, 1);
+    filter 8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .projectSection.visible .projectImageFrame img,
