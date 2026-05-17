@@ -572,3 +572,34 @@ main {
     max-height: none;
   }
 }
+/* =========================
+   COLOR FADE-IN FOR WORK IMAGES
+========================= */
+
+.projectImageFrame img,
+.museumFrame img {
+  filter:
+    brightness(0.96)
+    contrast(1.03)
+    saturate(0.32);
+
+  transition:
+    filter 4.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 4.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.projectSection.visible .projectImageFrame img,
+.museumSection.visible .museumFrame img {
+  filter:
+    brightness(1)
+    contrast(1.04)
+    saturate(0.92);
+}
+
+.projectImageFrame:hover img,
+.museumFrame:hover img {
+  filter:
+    brightness(1.02)
+    contrast(1.05)
+    saturate(1);
+}
