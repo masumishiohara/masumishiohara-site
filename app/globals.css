@@ -969,7 +969,7 @@ main {
 
 .collectionGallery.maisonGallery {
   width: min(1680px, 94%);
-  margin: 130px auto 190px;
+  margin: 40px auto 190px;
 }
 
 .collectionGalleryHeader {
