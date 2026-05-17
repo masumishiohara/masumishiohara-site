@@ -2,12 +2,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getProject, projects } from "../../project-data";
 
-export function generateStaticParams() {
-  return projects.map((project) => ({
-    slug: project.slug,
-  }));
-}
-
 export default function ProjectPage({
   params,
 }: {
@@ -19,34 +13,89 @@ export default function ProjectPage({
     notFound();
   }
 
+  const related = projects.filter(
+    (p) => p.slug !== project.slug
+  );
+
   return (
-    <main>
-      <section className="projectDetailHero">
+    <main className="projectLuxuryPage">
+
+      <div className="projectTopBar">
         <Link href="/" className="backLink">
-          ← Masumi Shiohara
+          ← MASUMI SHIOHARA
         </Link>
 
-        <p className="smallLabel">Collection {project.number}</p>
+        <span className="collectionIndex">
+          COLLECTION {project.number}
+        </span>
+      </div>
 
-        <h1>{project.title}</h1>
+      <section className="projectHero reveal">
+        <div className="projectHeroGrid">
 
-        <p className="projectDetailLead">{project.subtitle}</p>
-      </section>
+          <div className="projectHeroText">
+            <p className="smallLabel">
+              BOTANICAL ARCHIVE
+            </p>
 
-      <section className="projectDetailImageSection">
-        <div className="projectDetailImageFrame">
-          <div className="rembrandtLight" />
-          <img src={project.image} alt={project.title} />
+            <h1>{project.title}</h1>
+
+            <p className="projectLead">
+              {project.subtitle}
+            </p>
+
+            <div className="projectBody">
+              {project.body}
+            </div>
+          </div>
+
+          <div className="projectHeroImageFrame">
+            <div className="rembrandtLight" />
+            <div className="heroGoldMist" />
+            <div className="heroGreenMist" />
+
+            <img
+              src={project.image}
+              alt={project.title}
+            />
+          </div>
+
         </div>
       </section>
 
-      <section className="projectDetailText">
-        <p>{project.body}</p>
+      <section className="relatedArchive reveal">
+        <div className="archiveHeader">
+          <p className="smallLabel">
+            RELATED COLLECTIONS
+          </p>
+        </div>
 
-        <Link href="/" className="collectionLink">
-          Back to Collections
-        </Link>
+        <div className="archiveStrip">
+          {related.map((item) => (
+            <Link
+              href={`/projects/${item.slug}`}
+              className="archiveCard"
+              key={item.slug}
+            >
+              <div className="archiveImageFrame">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                />
+              </div>
+
+              <div className="archiveMeta">
+                <span>{item.number}</span>
+
+                <h3>{item.title}</h3>
+
+                <p>{item.subtitle}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
       </section>
+
     </main>
   );
 }
