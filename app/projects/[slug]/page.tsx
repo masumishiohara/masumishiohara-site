@@ -63,7 +63,7 @@ export default function ProjectPage({
         </div>
       </section>
 
-      <section className="relatedArchive reveal">
+      <section className="relatedArchive">
         <div className="archiveHeader">
           <p className="smallLabel">
             RELATED COLLECTIONS
