@@ -163,13 +163,22 @@ export default function ProjectPage({
           <aside className="frameControlPanel">
             <p className="smallLabel">FRAME CONTROL</p>
 
-            <div className="controlPreview">
-              <img src={selectedWork.image} alt={selectedWork.title} />
-              <div>
-                <strong>{selectedWork.title}</strong>
-                <span>{selectedWork.latin}</span>
-              </div>
-            </div>
+            <div className={`controlPreview framedPreview ${frameClass}`}>
+  <div className="previewFrame">
+    <div className="previewBottomMat">
+      <div className="previewTopMat">
+        <div className="previewGroove" />
+        <img src={selectedWork.image} alt={selectedWork.title} />
+        <div className="previewPlate" />
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <strong>{selectedWork.title}</strong>
+    <span>{selectedWork.latin}</span>
+  </div>
+</div>
 
             <div className="controlGroup">
               <h4>Frame Style</h4>
