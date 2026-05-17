@@ -1,405 +1,200 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  background: #050403;
-  color: #f3eadb;
-  scroll-behavior: smooth;
-}
-
-body {
-  background: #050403;
-  color: #f3eadb;
-  font-family:
-    "Bodoni Moda",
-    "Cormorant Garamond",
-    serif;
-  overflow-x: hidden;
-}
-
-/* HERO */
-
-.heroLuxury {
-  position: relative;
-  min-height: 100vh;
-  overflow: hidden;
-  background: #050403;
-}
-
-.heroImage {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.58;
-  filter:
-    grayscale(100%)
-    contrast(1.08)
-    brightness(0.88);
-}
-
-.heroDarkLayer {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(0,0,0,0.62),
-      rgba(0,0,0,0.76)
-    );
-}
+/* =========================
+   LUXURY ATMOSPHERIC LIGHT
+========================= */
 
 .heroGoldMist {
   position: absolute;
   inset: 0;
+
   background:
     radial-gradient(
       circle at 78% 34%,
-      rgba(173,130,58,0.18),
-      transparent 34%
+      rgba(180,140,70,0.14),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 62% 48%,
+      rgba(214,190,120,0.08),
+      transparent 24%
     );
+
   mix-blend-mode: screen;
+  filter: blur(18px);
+
+  animation:
+    luxuryGoldPulse 11s ease-in-out infinite;
+}
+
+@keyframes luxuryGoldPulse {
+  0% {
+    opacity: 0.22;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.42;
+    transform: scale(1.04);
+  }
+
+  100% {
+    opacity: 0.22;
+    transform: scale(1);
+  }
 }
 
 .heroGreenMist {
   position: absolute;
   inset: 0;
+
   background:
     radial-gradient(
       circle at 24% 72%,
-      rgba(96,140,88,0.14),
+      rgba(74,120,74,0.12),
       transparent 30%
+    ),
+    radial-gradient(
+      circle at 36% 38%,
+      rgba(120,160,110,0.08),
+      transparent 22%
     );
+
   mix-blend-mode: screen;
+  filter: blur(22px);
+
+  animation:
+    botanicalMist 14s ease-in-out infinite;
 }
 
-.heroLightSweep {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(
-      120deg,
-      transparent 0%,
-      rgba(255,245,210,0.06) 48%,
-      transparent 68%
-    );
-  animation: shimmer 7s ease-in-out infinite;
-}
-
-@keyframes shimmer {
+@keyframes botanicalMist {
   0% {
-    transform: translateX(-14%);
-    opacity: 0;
+    opacity: 0.18;
+    transform: translateY(0px);
   }
 
-  45% {
-    opacity: 1;
+  50% {
+    opacity: 0.34;
+    transform: translateY(-12px);
   }
 
   100% {
-    transform: translateX(18%);
-    opacity: 0;
+    opacity: 0.18;
+    transform: translateY(0px);
   }
 }
 
-.topBar {
-  position: relative;
-  z-index: 5;
+/* =========================
+   PROJECT LIGHT ENVIRONMENT
+========================= */
 
-  display: flex;
-  justify-content: space-between;
+.projectSection {
+  position: relative;
+  overflow: hidden;
 
   padding:
-    44px
-    86px;
-}
-
-.brandThin {
-  letter-spacing: 0.42em;
-  font-size: 11px;
-  font-weight: 300;
-  opacity: 0.82;
-}
-
-.heroContent {
-  position: relative;
-  z-index: 5;
-
-  max-width: 760px;
-
-  padding:
-    12vh
-    86px
-    16vh;
-}
-
-.smallLabel {
-  letter-spacing: 0.32em;
-  font-size: 12px;
-  opacity: 0.62;
-  margin-bottom: 34px;
-}
-
-.heroContent h1 {
-  font-size: clamp(96px, 11vw, 196px);
-  line-height: 0.88;
-  font-weight: 400;
-  letter-spacing: -0.06em;
-}
-
-.heroLead {
-  margin-top: 44px;
-
-  max-width: 620px;
-
-  color: rgba(243,234,219,0.82);
-
-  line-height: 1.9;
-  font-size: 21px;
-  font-weight: 300;
-}
-
-/* MUSEUM */
-
-.museumSection {
-  position: relative;
-
-  padding:
-    180px
+    160px
     86px;
 
   background:
     linear-gradient(
       to bottom,
-      #050403,
-      #0a0807
+      rgba(7,6,5,1),
+      rgba(11,9,8,1)
     );
 }
 
-.museumGrid {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 120px;
-  align-items: center;
-}
+.projectSection::before {
+  content: "";
 
-.museumText h2 {
-  font-size: clamp(42px, 4vw, 74px);
-  line-height: 1.12;
-  font-weight: 400;
-  letter-spacing: -0.04em;
-
-  max-width: 900px;
-}
-
-.museumText p:last-child {
-  margin-top: 34px;
-
-  max-width: 620px;
-
-  line-height: 2;
-  color: rgba(243,234,219,0.74);
-}
-
-.museumFrame {
-  position: relative;
-
-  padding: 24px;
-
-  border:
-    1px solid
-    rgba(212,188,132,0.16);
+  position: absolute;
+  inset: -10%;
 
   background:
-    rgba(255,255,255,0.02);
+    radial-gradient(
+      circle at 72% 22%,
+      rgba(193,160,88,0.10),
+      transparent 22%
+    ),
+    radial-gradient(
+      circle at 18% 78%,
+      rgba(96,140,88,0.08),
+      transparent 26%
+    );
 
-  backdrop-filter: blur(12px);
+  filter: blur(34px);
+
+  pointer-events: none;
+
+  animation:
+    floatingLuxuryLight 16s ease-in-out infinite;
 }
 
-.museumFrame img {
-  width: 100%;
-  display: block;
+@keyframes floatingLuxuryLight {
+  0% {
+    opacity: 0.22;
+    transform: translateX(0px);
+  }
+
+  50% {
+    opacity: 0.44;
+    transform: translateX(18px);
+  }
+
+  100% {
+    opacity: 0.22;
+    transform: translateX(0px);
+  }
 }
 
-/* PROJECT */
+/* =========================
+   REMBRANDT LIGHT REFINED
+========================= */
 
-.projectSection {
-  padding:
-    120px
-    86px;
-}
+.rembrandtLight {
+  position: absolute;
+  inset: 0;
 
-.projectGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 120px;
-  align-items: center;
-}
-
-.projectGrid.reverse .projectImageFrame {
-  order: 2;
-}
-
-.projectGrid.reverse .projectText {
-  order: 1;
-}
-
-.projectImageFrame {
-  position: relative;
-
-  overflow: hidden;
-
-  border:
-    1px solid
-    rgba(212,188,132,0.12);
+  z-index: 2;
 
   background:
-    rgba(255,255,255,0.02);
+    linear-gradient(
+      126deg,
+      rgba(241,216,160,0.18) 0%,
+      rgba(168,193,130,0.08) 18%,
+      rgba(0,0,0,0) 44%
+    );
+
+  mix-blend-mode: screen;
+
+  opacity: 0.62;
 }
 
-.projectImageFrame img {
-  width: 100%;
-  display: block;
+/* =========================
+   BOTANICAL JEWEL COLOR
+========================= */
 
-  transition:
-    transform 2s ease,
-    filter 2s ease;
+.workImageBox img {
+  position: relative;
+  z-index: 1;
+
+  height: 82vh;
+
+  object-fit: cover;
 
   filter:
-    grayscale(100%)
-    contrast(1.04);
-}
-
-.projectImageFrame:hover img {
-  transform: scale(1.03);
-}
-
-.projectText h3 {
-  font-size: clamp(54px, 5vw, 110px);
-  line-height: 0.96;
-  font-weight: 400;
-  letter-spacing: -0.05em;
-}
-
-.projectText p:last-child {
-  margin-top: 28px;
-
-  max-width: 560px;
-
-  line-height: 2;
-  color: rgba(243,234,219,0.72);
-}
-
-/* FOOTER */
-
-.luxuryFooter {
-  padding:
-    180px
-    86px;
-}
-
-.footerFrame {
-  border:
-    1px solid
-    rgba(212,188,132,0.12);
-
-  padding:
-    90px;
-
-  background:
-    rgba(255,255,255,0.02);
-
-  backdrop-filter: blur(10px);
-}
-
-.footerFrame h2 {
-  font-size: 54px;
-  font-weight: 400;
-}
-
-.footerFrame a {
-  display: inline-block;
-
-  margin-top: 28px;
-
-  color: #d4bc84;
-  text-decoration: none;
-}
-
-/* REVEAL */
-
-.reveal {
-  opacity: 0;
-  transform: translateY(72px);
+    brightness(0.99)
+    contrast(1.035)
+    saturate(0.34);
 
   transition:
-    opacity 1.5s ease,
-    transform 1.5s cubic-bezier(0.22, 1, 0.36, 1);
-
-  will-change:
-    opacity,
-    transform;
+    transform 2.2s ease,
+    filter 2.2s ease;
 }
 
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+.workBlock:hover img {
+  transform: scale(1.025);
 
-/* MOBILE */
-
-@media (max-width: 900px) {
-  .topBar,
-  .heroContent,
-  .museumSection,
-  .projectSection,
-  .luxuryFooter {
-    padding-left: 28px;
-    padding-right: 28px;
-  }
-
-  .heroImage {
-    opacity: 0.82;
-    filter:
-      grayscale(100%)
-      contrast(1.04)
-      brightness(0.96);
-  }
-
-  .heroContent {
-    padding-top: 18vh;
-  }
-
-  .heroContent h1 {
-    font-size: 82px;
-  }
-
-  .heroLead {
-    font-size: 16px;
-    line-height: 1.9;
-  }
-
-  .museumGrid,
-  .projectGrid {
-    grid-template-columns: 1fr;
-    gap: 52px;
-  }
-
-  .projectGrid.reverse .projectImageFrame,
-  .projectGrid.reverse .projectText {
-    order: initial;
-  }
-
-  .museumText h2,
-  .projectText h3 {
-    font-size: 52px;
-  }
-
-  .footerFrame {
-    padding: 52px 34px;
-  }
+  filter:
+    brightness(1.035)
+    contrast(1.055)
+    saturate(0.46);
 }
