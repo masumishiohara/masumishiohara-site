@@ -37,7 +37,6 @@ export default function Home() {
       <section className="luxuryHero">
         <img src="/images/hero.jpg" alt="Masumi Shiohara" className="heroImage" />
         <div className="heroShade" />
-        <div className="mist mistHero" />
 
         <header className="luxuryHeader">
           <span>Masumi Shiohara</span>
@@ -61,7 +60,6 @@ export default function Home() {
       </section>
 
       <section className="luxuryIntro">
-        <div className="mist mistLeft" />
         <p className="smallLabel">Statement</p>
         <h2>
           A practice where fruit is treated not as produce, but as a rare object
@@ -70,7 +68,6 @@ export default function Home() {
       </section>
 
       <section className="signaturePanel">
-        <div className="mist mistRight" />
         <div>
           <p className="smallLabel">Signature</p>
           <h2>Cultivated Form</h2>
@@ -86,7 +83,6 @@ export default function Home() {
 
         {works.map((work) => (
           <article className="workBlock" key={work.title}>
-            <div className="mist workMist" />
             <div className="workImageBox">
               <img src={work.image} alt={work.title} />
             </div>
@@ -101,7 +97,6 @@ export default function Home() {
       </section>
 
       <section className="privateSection">
-        <div className="mist mistLeft" />
         <p className="smallLabel">Private Viewing</p>
         <h2>
           Works are presented for exhibitions, publications, curatorial review,
@@ -113,4 +108,9 @@ export default function Home() {
         <p className="smallLabel">Contact</p>
         <h2>Masumi Shiohara</h2>
         <a href="mailto:contact@masumishiohara.com">
-          contact@masum
+          contact@masumishiohara.com
+        </a>
+      </footer>
+    </main>
+  );
+}
