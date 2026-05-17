@@ -1,3 +1,5 @@
+import Link from "next/link";
+import { projects } from "./project-data";
 "use client";
 
 import { useEffect } from "react";
@@ -92,91 +94,37 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ================= PROJECT I ================= */}
+     <section className="works">
+  {projects.map((work) => (
+    <article className="workBlock reveal" key={work.title}>
+      <div className="workImageBox">
+        <div className="rembrandtLight" />
+        <div className="heroGoldMist" />
+        <div className="heroGreenMist" />
 
-      <section className="projectSection reveal">
-        <div className="projectGrid">
-          <div className="projectImageFrame">
-            <div className="rembrandtLight" />
-            <div className="heroGoldMist" />
-            <div className="heroGreenMist" />
+        <img
+          src={work.image}
+          alt={work.title}
+        />
+      </div>
 
-            <img
-              src="/images/growth.jpg"
-              alt="Growth Process"
-            />
-          </div>
+      <div className="workCopy">
+        <span>{work.number}</span>
 
-          <div className="projectText">
-            <p className="smallLabel">Archive I</p>
+        <h3>{work.title}</h3>
 
-            <h3>Growth Process</h3>
+        <p>{work.subtitle}</p>
 
-            <p>
-              Seasonal transformation recorded through
-              cultivation, pruning, timing, and biological
-              uncertainty.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ================= PROJECT II ================= */}
-
-      <section className="projectSection reveal">
-        <div className="projectGrid reverse">
-          <div className="projectImageFrame">
-            <div className="rembrandtLight" />
-            <div className="heroGoldMist" />
-            <div className="heroGreenMist" />
-
-            <img
-              src="/images/sculptural.jpg"
-              alt="Sculptural Fruit"
-            />
-          </div>
-
-          <div className="projectText">
-            <p className="smallLabel">Archive II</p>
-
-            <h3>Sculptural Fruit</h3>
-
-            <p>
-              Fruit guided into forms suspended between
-              botanical specimen, sculpture, and fiction.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ================= PROJECT III ================= */}
-
-      <section className="projectSection reveal">
-        <div className="projectGrid">
-          <div className="projectImageFrame">
-            <div className="rembrandtLight" />
-            <div className="heroGoldMist" />
-            <div className="heroGreenMist" />
-
-            <img
-              src="/images/vellum.jpg"
-              alt="Vellum Prints"
-            />
-          </div>
-
-          <div className="projectText">
-            <p className="smallLabel">Archive III</p>
-
-            <h3>Vellum Prints</h3>
-
-            <p>
-              Botanical works printed with material depth
-              inspired by archival luxury editions and
-              museum collections.
-            </p>
-          </div>
-        </div>
-      </section>
+        <Link
+          href={`/projects/${work.slug}`}
+          className="collectionLink"
+        >
+          View Collection
+        </Link>
+      </div>
+    </article>
+  ))}
+</section>
 
       {/* ================= FOOTER ================= */}
 
