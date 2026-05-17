@@ -26,6 +26,8 @@ export default function Home() {
 
   return (
     <main>
+      {/* ================= HERO ================= */}
+
       <section className="heroLuxury">
         <img
           src="/images/hero.jpg"
@@ -40,11 +42,13 @@ export default function Home() {
 
         <header className="topBar">
           <div className="brandThin">MASUMI SHIOHARA</div>
-          <div className="brandThin">BOTANICAL ARCHIVE</div>
+          <div className="brandThin">BOTANICAL LUXURY</div>
         </header>
 
         <div className="heroContent reveal">
-          <p className="smallLabel">OFFICIAL BOTANICAL ARCHIVE</p>
+          <p className="smallLabel">
+            OFFICIAL BOTANICAL LUXURY ARCHIVE
+          </p>
 
           <h1>
             Cultivated
@@ -54,11 +58,13 @@ export default function Home() {
 
           <p className="heroLead">
             Fruit, cultivation, breeding, vellum, and photography —
-            a botanical world where living forms are treated with
-            the gravity of jewels.
+            botanical forms treated with the atmosphere of
+            rare jewels and couture objects.
           </p>
         </div>
       </section>
+
+      {/* ================= INTRO ================= */}
 
       <section className="museumSection reveal">
         <div className="museumGrid">
@@ -66,17 +72,18 @@ export default function Home() {
             <p className="smallLabel">Practice</p>
 
             <h2>
-              Botanical forms observed through season,
-              gravity, light, intervention, and disappearance.
+              Botanical forms shaped through season,
+              intervention, light, gravity, and time.
             </h2>
 
             <p>
-              The archive treats cultivated fruit not as agricultural
-              produce alone, but as sculptural botanical presence.
+              Cultivated fruit becomes sculpture,
+              archive, and photographic presence.
             </p>
           </div>
 
           <div className="museumFrame">
+            <div className="rembrandtLight" />
             <img
               src="/images/botanical.jpg"
               alt="Botanical Portrait"
@@ -85,10 +92,19 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ================= PROJECT I ================= */}
+
       <section className="projectSection reveal">
         <div className="projectGrid">
           <div className="projectImageFrame">
-            <img src="/images/growth.jpg" alt="Growth Process" />
+            <div className="rembrandtLight" />
+            <div className="heroGoldMist" />
+            <div className="heroGreenMist" />
+
+            <img
+              src="/images/growth.jpg"
+              alt="Growth Process"
+            />
           </div>
 
           <div className="projectText">
@@ -97,17 +113,27 @@ export default function Home() {
             <h3>Growth Process</h3>
 
             <p>
-              Seasonal transformation recorded through cultivation,
-              pruning, timing, and biological uncertainty.
+              Seasonal transformation recorded through
+              cultivation, pruning, timing, and biological
+              uncertainty.
             </p>
           </div>
         </div>
       </section>
 
+      {/* ================= PROJECT II ================= */}
+
       <section className="projectSection reveal">
         <div className="projectGrid reverse">
           <div className="projectImageFrame">
-            <img src="/images/sculptural.jpg" alt="Sculptural Fruit" />
+            <div className="rembrandtLight" />
+            <div className="heroGoldMist" />
+            <div className="heroGreenMist" />
+
+            <img
+              src="/images/sculptural.jpg"
+              alt="Sculptural Fruit"
+            />
           </div>
 
           <div className="projectText">
@@ -116,17 +142,26 @@ export default function Home() {
             <h3>Sculptural Fruit</h3>
 
             <p>
-              Fruit shaped into forms suspended between botanical
-              specimen, sculpture, and photographic fiction.
+              Fruit guided into forms suspended between
+              botanical specimen, sculpture, and fiction.
             </p>
           </div>
         </div>
       </section>
 
+      {/* ================= PROJECT III ================= */}
+
       <section className="projectSection reveal">
         <div className="projectGrid">
           <div className="projectImageFrame">
-            <img src="/images/vellum.jpg" alt="Vellum Prints" />
+            <div className="rembrandtLight" />
+            <div className="heroGoldMist" />
+            <div className="heroGreenMist" />
+
+            <img
+              src="/images/vellum.jpg"
+              alt="Vellum Prints"
+            />
           </div>
 
           <div className="projectText">
@@ -135,12 +170,15 @@ export default function Home() {
             <h3>Vellum Prints</h3>
 
             <p>
-              Botanical images printed with material depth inspired
-              by archival luxury editions and museum collections.
+              Botanical works printed with material depth
+              inspired by archival luxury editions and
+              museum collections.
             </p>
           </div>
         </div>
       </section>
+
+      {/* ================= FOOTER ================= */}
 
       <footer className="luxuryFooter reveal">
         <div className="footerFrame">
