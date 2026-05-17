@@ -1797,3 +1797,210 @@ main {
     width: calc(100% - 32px);
   }
 }
+/* =========================================
+   FRAME PROPORTION + CONTROL PREVIEW FIX
+========================================= */
+
+.maisonGrid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 64px 44px;
+}
+
+.maisonOuterFrame {
+  height: auto !important;
+  aspect-ratio: 1 / 1.12;
+  padding: 14px;
+}
+
+.maisonShadowBox {
+  padding: 16px;
+}
+
+.maisonBottomMat {
+  padding: 14px;
+}
+
+.maisonTopMat {
+  padding: 16px 16px 30px;
+}
+
+.maisonPrintWindow {
+  height: auto;
+  aspect-ratio: 4 / 5.25;
+  overflow: hidden;
+}
+
+.maisonPrintWindow img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #050403;
+}
+
+/* マットに作品が隠れないようにする */
+.maisonArtwork,
+.maisonPrintWindow {
+  overflow: visible;
+}
+
+/* 金属プレートは小さく控えめ */
+.maisonPlate {
+  width: 56px;
+  height: 8px;
+  bottom: 10px;
+  opacity: 0.62;
+}
+
+/* キャプションを読みやすく */
+.maisonMeta {
+  margin-top: 18px;
+  min-height: 150px;
+}
+
+.maisonMeta h3 {
+  font-size: 24px;
+}
+
+/* コントロールパネル上部の額装プレビュー */
+.controlPreview.framedPreview {
+  display: block;
+}
+
+.previewFrame {
+  width: 100%;
+  aspect-ratio: 1 / 1.15;
+  padding: 10px;
+  background: linear-gradient(145deg, #2b1d10, #7b5527, #1d140d, #9a7038);
+  border: 1px solid rgba(215, 180, 92, 0.34);
+  margin-bottom: 14px;
+}
+
+.previewBottomMat {
+  height: 100%;
+  padding: 10px;
+  background: var(--bottom-mat);
+}
+
+.previewTopMat {
+  position: relative;
+  height: 100%;
+  padding: 12px 12px 24px;
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba(0,0,0,0.018) 0,
+      rgba(0,0,0,0.018) 1px,
+      transparent 1px,
+      transparent 6px
+    ),
+    var(--top-mat);
+}
+
+.previewGroove {
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(140, 110, 58, 0.35);
+  pointer-events: none;
+}
+
+.previewTopMat img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #050403;
+}
+
+.previewPlate {
+  position: absolute;
+  left: 50%;
+  bottom: 8px;
+  width: 36px;
+  height: 5px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, #725522, #c8aa5d, #80612a);
+  opacity: 0.65;
+}
+
+/* 3種の額装差を明確化 */
+
+/* Elegant：細い金線＋深い木質 */
+.frame-elegant .maisonOuterFrame,
+.frame-elegant .previewFrame {
+  background:
+    linear-gradient(145deg, #24180c, #8b642f 28%, #14100a 54%, #b18a46 82%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,225,155,0.06) 0,
+      transparent 5px,
+      rgba(0,0,0,0.12) 9px
+    );
+}
+
+/* Modern：黒檀・直線的・控えめ */
+.frame-modern .maisonOuterFrame,
+.frame-modern .previewFrame {
+  background:
+    linear-gradient(145deg, #050505, #1b1b1a 45%, #090909);
+  border-color: rgba(230,230,220,0.18);
+  box-shadow:
+    0 28px 80px rgba(0,0,0,0.72),
+    inset 0 0 0 1px rgba(255,255,255,0.04);
+}
+
+/* Antique：赤みのある古材＋鈍い金 */
+.frame-antique .maisonOuterFrame,
+.frame-antique .previewFrame {
+  background:
+    linear-gradient(145deg, #3a2414, #9a6a35 22%, #1f130b 48%, #c09a58 72%, #2d1b0f),
+    repeating-linear-gradient(
+      18deg,
+      rgba(255,235,180,0.08) 0,
+      rgba(255,235,180,0.02) 2px,
+      transparent 8px,
+      rgba(0,0,0,0.18) 14px
+    );
+  filter: saturate(0.9) contrast(1.05);
+}
+
+/* Modern時はマットも少し締める */
+.frame-modern .maisonBottomMat,
+.frame-modern .previewBottomMat {
+  background: #111820 !important;
+}
+
+.frame-modern .maisonTopMat,
+.frame-modern .previewTopMat {
+  background: #e7e2d4 !important;
+}
+
+/* Antique時は生成AI感を避けるため彩度を落とす */
+.frame-antique .maisonPrintWindow img {
+  filter: brightness(0.96) contrast(1.02) saturate(0.76);
+}
+
+/* スマホ崩れ防止 */
+@media (max-width: 1300px) {
+  .maisonGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .maisonGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .maisonOuterFrame {
+    aspect-ratio: 1 / 1.15;
+  }
+}
+
+@media (max-width: 560px) {
+  .maisonGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .maisonOuterFrame {
+    aspect-ratio: 1 / 1.12;
+  }
+}
