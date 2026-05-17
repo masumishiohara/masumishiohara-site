@@ -1,421 +1,455 @@
-/* =========================================
-   BREATHING LUXURY ATMOSPHERE
-========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 html {
-  background: #050505;
+  background: #050403;
+  color: #f2eadf;
+  scroll-behavior: smooth;
 }
 
 body {
-  background:
-    radial-gradient(
-      circle at top,
-      rgba(26, 24, 20, 0.38),
-      transparent 44%
-    ),
-    #050505;
-
-  color: #ece6dc;
-
+  background: #050403;
+  color: #f2eadf;
+  font-family: "Bodoni 72", "Bodoni MT", Didot, Georgia, "Times New Roman", serif;
   overflow-x: hidden;
-
-  font-family:
-    "Cormorant Garamond",
-    "Bodoni Moda",
-    serif;
-
-  letter-spacing: -0.015em;
 }
 
-/* =========================================
-   HERO SPACE
-========================================= */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+main {
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 80% 8%, rgba(184, 145, 74, 0.08), transparent 34%),
+    radial-gradient(circle at 16% 42%, rgba(94, 128, 82, 0.055), transparent 34%),
+    linear-gradient(180deg, #050403 0%, #090806 46%, #050403 100%);
+}
+
+/* HERO */
 
 .heroLuxury {
   position: relative;
-
   min-height: 100vh;
-
   overflow: hidden;
-
-  background: #050505;
+  background: #050403;
 }
-
-/* =========================================
-   IMAGE DEPTH
-========================================= */
 
 .heroImage {
   position: absolute;
   inset: 0;
-
-  width: 100%;
   height: 100%;
-
   object-fit: cover;
-  object-position: center center;
-
-  filter:
-    brightness(0.58)
-    contrast(1.02)
-    saturate(0.34);
-
-  opacity: 0.92;
-
+  object-position: 62% center;
+  opacity: 0.76;
+  filter: brightness(0.9) contrast(1.04) saturate(0.36);
   transform: scale(1.01);
 }
-
-/* =========================================
-   BLACK DEPTH
-========================================= */
 
 .heroDarkLayer {
   position: absolute;
   inset: 0;
-
+  z-index: 1;
   background:
     linear-gradient(
-      to right,
-      rgba(5,5,5,0.94) 0%,
-      rgba(5,5,5,0.66) 38%,
-      rgba(5,5,5,0.28) 64%,
-      rgba(5,5,5,0.52) 100%
-    );
-
-  z-index: 1;
-}
-
-/* =========================================
-   GOLD BREATH
-========================================= */
-
-.heroGoldMist {
-  position: absolute;
-  inset: 0;
-
-  z-index: 2;
-
-  background:
-    radial-gradient(
-      circle at 76% 42%,
-      rgba(186,145,84,0.12),
-      transparent 24%
+      90deg,
+      rgba(5, 4, 3, 0.86),
+      rgba(5, 4, 3, 0.54) 38%,
+      rgba(5, 4, 3, 0.22) 68%,
+      rgba(5, 4, 3, 0.46)
     ),
-    radial-gradient(
-      circle at 68% 58%,
-      rgba(214,188,120,0.05),
-      transparent 18%
+    linear-gradient(
+      180deg,
+      rgba(5, 4, 3, 0.06),
+      rgba(5, 4, 3, 0.58)
     );
-
-  filter: blur(42px);
-
-  mix-blend-mode: screen;
-
-  animation:
-    breathingGold 18s ease-in-out infinite;
 }
 
-@keyframes breathingGold {
-  0% {
-    opacity: 0.14;
-    transform: translateX(0px) translateY(0px);
-  }
-
-  50% {
-    opacity: 0.28;
-    transform: translateX(-18px) translateY(8px);
-  }
-
-  100% {
-    opacity: 0.14;
-    transform: translateX(0px) translateY(0px);
-  }
-}
-
-/* =========================================
-   BOTANICAL HUMIDITY
-========================================= */
-
-.heroGreenMist {
-  position: absolute;
-  inset: 0;
-
-  z-index: 2;
-
-  background:
-    radial-gradient(
-      circle at 24% 72%,
-      rgba(78,116,74,0.10),
-      transparent 24%
-    ),
-    radial-gradient(
-      circle at 42% 36%,
-      rgba(132,166,118,0.06),
-      transparent 18%
-    );
-
-  filter: blur(52px);
-
-  mix-blend-mode: screen;
-
-  animation:
-    breathingBotanical 22s ease-in-out infinite;
-}
-
-@keyframes breathingBotanical {
-  0% {
-    opacity: 0.10;
-    transform: translateY(0px);
-  }
-
-  50% {
-    opacity: 0.22;
-    transform: translateY(-16px);
-  }
-
-  100% {
-    opacity: 0.10;
-    transform: translateY(0px);
-  }
-}
-
-/* =========================================
-   REMBRANDT LIGHT
-========================================= */
-
+.heroGoldMist,
+.heroGreenMist,
 .heroLightSweep {
   position: absolute;
   inset: 0;
+  pointer-events: none;
+}
 
+.heroGoldMist {
+  z-index: 2;
+  background:
+    radial-gradient(circle at 78% 38%, rgba(190, 148, 78, 0.12), transparent 26%),
+    radial-gradient(circle at 60% 58%, rgba(218, 194, 132, 0.055), transparent 20%);
+  filter: blur(38px);
+  mix-blend-mode: screen;
+  animation: breathingGold 18s ease-in-out infinite;
+}
+
+.heroGreenMist {
+  z-index: 2;
+  background:
+    radial-gradient(circle at 24% 72%, rgba(76, 116, 74, 0.1), transparent 26%),
+    radial-gradient(circle at 42% 36%, rgba(138, 170, 118, 0.055), transparent 20%);
+  filter: blur(48px);
+  mix-blend-mode: screen;
+  animation: breathingGreen 22s ease-in-out infinite;
+}
+
+.heroLightSweep {
   z-index: 3;
-
   background:
     linear-gradient(
       118deg,
-      rgba(255,235,190,0.12) 0%,
-      rgba(168,192,124,0.05) 16%,
-      rgba(0,0,0,0) 36%
+      rgba(255, 235, 190, 0.1) 0%,
+      rgba(160, 190, 122, 0.04) 16%,
+      transparent 36%
     );
-
+  opacity: 0.28;
   mix-blend-mode: screen;
-
-  opacity: 0.34;
 }
-
-/* =========================================
-   TOP BAR
-========================================= */
 
 .topBar {
   position: relative;
   z-index: 5;
-
   display: flex;
   justify-content: space-between;
-
-  padding:
-    42px
-    86px;
-
-  letter-spacing: 0.28em;
-
-  font-size: 11px;
-
-  color: rgba(236,230,220,0.72);
+  padding: 42px 7vw;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: rgba(242, 234, 223, 0.62);
 }
-
-/* =========================================
-   HERO CONTENT
-========================================= */
 
 .heroContent {
   position: relative;
   z-index: 5;
-
-  width: min(720px, 82vw);
-
-  padding-top: 18vh;
-  padding-left: 86px;
+  width: min(780px, 78vw);
+  padding: 13vh 0 16vh 7vw;
 }
 
 .smallLabel {
-  margin-bottom: 24px;
-
-  font-size: 11px;
-
-  letter-spacing: 0.34em;
-
-  color: rgba(236,230,220,0.48);
+  margin-bottom: 28px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: rgba(242, 234, 223, 0.52);
 }
-
-/* =========================================
-   MAIN TYPOGRAPHY
-========================================= */
 
 .heroContent h1 {
-  font-family:
-    "Bodoni Moda",
-    "Cormorant Garamond",
-    serif;
-
+  font-size: clamp(86px, 10vw, 176px);
+  line-height: 0.9;
   font-weight: 300;
-
-  font-size: clamp(112px, 13vw, 220px);
-
-  line-height: 0.92;
-
-  letter-spacing: -0.065em;
-
-  color: #f3ede3;
-
-  text-wrap: balance;
-
-  max-width: 880px;
+  letter-spacing: -0.055em;
+  color: #f6eee3;
 }
-
-/* =========================================
-   BREATHING SPACE
-========================================= */
 
 .heroLead {
-  margin-top: 56px;
-
-  max-width: 640px;
-
-  font-size: 22px;
-
-  line-height: 1.82;
-
-  font-weight: 300;
-
-  color: rgba(236,230,220,0.76);
+  margin-top: 48px;
+  max-width: 620px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  line-height: 1.9;
+  color: rgba(242, 234, 223, 0.76);
 }
 
-/* =========================================
-   MUSEUM GRID
-========================================= */
+/* SECTIONS */
 
-.museumSection {
+.museumSection,
+.projectSection,
+.luxuryFooter {
   position: relative;
-
-  padding:
-    220px
-    86px;
-
-  background:
-    linear-gradient(
-      to bottom,
-      #050505,
-      #090807
-    );
+  padding: 170px 7vw;
 }
 
-.museumGrid {
+.museumGrid,
+.projectGrid {
   display: grid;
-
-  grid-template-columns:
-    0.92fr
-    1.08fr;
-
-  gap: 120px;
-
+  grid-template-columns: 1fr 1fr;
+  gap: 8vw;
   align-items: center;
 }
 
-/* =========================================
-   GLASS FRAME
-========================================= */
+.projectGrid.reverse .projectImageFrame {
+  order: 2;
+}
 
-.museumFrame {
+.projectGrid.reverse .projectText {
+  order: 1;
+}
+
+.museumText h2,
+.projectText h3 {
+  font-size: clamp(44px, 4.8vw, 86px);
+  line-height: 1;
+  font-weight: 300;
+  letter-spacing: -0.06em;
+}
+
+.museumText p:last-child,
+.projectText p:last-child {
+  margin-top: 30px;
+  max-width: 560px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.9;
+  color: rgba(242, 234, 223, 0.7);
+}
+
+.museumFrame,
+.projectImageFrame,
+.footerFrame {
   position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(242, 234, 223, 0.11);
+  background: rgba(255, 255, 255, 0.018);
+  box-shadow: 0 50px 150px rgba(0, 0, 0, 0.5);
+}
 
-  border:
-    1px solid rgba(255,255,255,0.06);
-
-  background:
-    rgba(255,255,255,0.018);
-
-  backdrop-filter: blur(18px);
-
+.museumFrame,
+.footerFrame {
   padding: 28px;
 }
 
+.projectImageFrame img,
 .museumFrame img {
-  width: 100%;
-
-  display: block;
-
-  filter:
-    brightness(0.92)
-    contrast(1.02)
-    saturate(0.46);
+  height: 78vh;
+  object-fit: cover;
+  filter: brightness(0.98) contrast(1.03) saturate(0.36);
 }
 
-/* =========================================
-   REVEAL
-========================================= */
+.rembrandtLight {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      126deg,
+      rgba(244, 219, 164, 0.16) 0%,
+      rgba(166, 196, 132, 0.065) 18%,
+      transparent 44%
+    );
+  mix-blend-mode: screen;
+}
+
+.footerFrame h2 {
+  font-size: clamp(54px, 6vw, 112px);
+  line-height: 0.95;
+  font-weight: 300;
+  letter-spacing: -0.055em;
+}
+
+.footerFrame a {
+  display: inline-block;
+  margin-top: 32px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  color: rgba(242, 234, 223, 0.78);
+  border-bottom: 1px solid rgba(242, 234, 223, 0.38);
+  padding-bottom: 8px;
+}
+
+/* REVEAL */
 
 .reveal {
   opacity: 0;
-
-  transform:
-    translateY(46px);
-
+  transform: translateY(44px);
   transition:
-    opacity 1.8s ease,
-    transform 1.8s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 1.6s ease,
+    transform 1.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .reveal.visible {
   opacity: 1;
-
-  transform:
-    translateY(0);
+  transform: translateY(0);
 }
 
-/* =========================================
-   MOBILE
-========================================= */
+@keyframes breathingGold {
+  0% {
+    opacity: 0.16;
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    opacity: 0.3;
+    transform: translateX(-14px) translateY(8px);
+  }
+  100% {
+    opacity: 0.16;
+    transform: translateX(0) translateY(0);
+  }
+}
+
+@keyframes breathingGreen {
+  0% {
+    opacity: 0.12;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 0.24;
+    transform: translateY(-12px);
+  }
+  100% {
+    opacity: 0.12;
+    transform: translateY(0);
+  }
+}
+
+/* MOBILE FIX */
 
 @media (max-width: 900px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .heroLuxury {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .heroImage {
+    object-position: 54% center;
+    opacity: 0.7;
+    filter: brightness(0.82) contrast(1.02) saturate(0.34);
+    transform: scale(1);
+  }
+
+  .heroDarkLayer {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(5, 4, 3, 0.12),
+        rgba(5, 4, 3, 0.26) 38%,
+        rgba(5, 4, 3, 0.74) 100%
+      ),
+      linear-gradient(
+        90deg,
+        rgba(5, 4, 3, 0.28),
+        rgba(5, 4, 3, 0.08) 58%
+      );
+  }
+
+  .heroGoldMist {
+    background:
+      radial-gradient(circle at 76% 30%, rgba(190, 148, 78, 0.09), transparent 30%);
+    filter: blur(34px);
+  }
+
+  .heroGreenMist {
+    background:
+      radial-gradient(circle at 28% 72%, rgba(76, 116, 74, 0.08), transparent 32%);
+    filter: blur(38px);
+  }
+
+  .heroLightSweep {
+    opacity: 0.18;
+  }
 
   .topBar {
-    padding:
-      28px
-      24px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 26px 24px;
+    font-size: 9px;
+    letter-spacing: 0.3em;
+  }
+
+  .topBar .brandThin:last-child {
+    display: none;
   }
 
   .heroContent {
-    padding-top: 20vh;
-    padding-left: 24px;
-    padding-right: 24px;
+    width: 100%;
+    padding: 0 24px 12vh 24px;
+  }
+
+  .smallLabel {
+    font-size: 9px;
+    letter-spacing: 0.28em;
+    margin-bottom: 22px;
   }
 
   .heroContent h1 {
-    font-size: 92px;
-
-    line-height: 0.9;
-
-    letter-spacing: -0.07em;
+    font-size: clamp(58px, 17vw, 82px);
+    line-height: 0.92;
+    letter-spacing: -0.045em;
+    max-width: 92vw;
   }
 
   .heroLead {
-    font-size: 16px;
-
-    line-height: 1.7;
-
-    margin-top: 36px;
+    margin-top: 28px;
+    max-width: 92vw;
+    font-size: 14px;
+    line-height: 1.75;
   }
 
-  .museumSection {
-    padding:
-      120px
-      24px;
+  .museumSection,
+  .projectSection,
+  .luxuryFooter {
+    padding: 110px 24px;
   }
 
-  .museumGrid {
+  .museumGrid,
+  .projectGrid,
+  .projectGrid.reverse {
     grid-template-columns: 1fr;
+    gap: 46px;
+  }
 
-    gap: 64px;
+  .projectGrid.reverse .projectImageFrame,
+  .projectGrid.reverse .projectText {
+    order: initial;
+  }
+
+  .museumText h2,
+  .projectText h3 {
+    font-size: clamp(38px, 12vw, 54px);
+    line-height: 1.02;
+    letter-spacing: -0.045em;
+  }
+
+  .museumText p:last-child,
+  .projectText p:last-child {
+    font-size: 14px;
+    line-height: 1.85;
+  }
+
+  .museumFrame,
+  .projectImageFrame {
+    width: 100%;
+    padding: 0;
+  }
+
+  .museumFrame img,
+  .projectImageFrame img {
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+  }
+
+  .footerFrame {
+    padding: 42px 28px;
+  }
+
+  .footerFrame h2 {
+    font-size: clamp(42px, 12vw, 64px);
+  }
+
+  .footerFrame a {
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    word-break: break-all;
   }
 }
