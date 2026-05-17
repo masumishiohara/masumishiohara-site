@@ -1,115 +1,157 @@
-const works = [
-  {
-    number: "01",
-    title: "Botanical Portraits",
-    text: "Fruit presented as portrait, object, and presence.",
-    image: "/images/botanical.jpg",
-  },
-  {
-    number: "02",
-    title: "Growth Process",
-    text: "Seasonal transformation shaped by cultivation and time.",
-    image: "/images/growth.jpg",
-  },
-  {
-    number: "03",
-    title: "Sculptural Fruit",
-    text: "Forms guided by gravity, intervention, and growth.",
-    image: "/images/sculptural.jpg",
-  },
-  {
-    number: "04",
-    title: "Vellum Prints",
-    text: "Botanical works printed on calf vellum.",
-    image: "/images/vellum.jpg",
-  },
-  {
-    number: "05",
-    title: "Breeding Archive",
-    text: "Selection, disappearance, and record.",
-    image: "/images/archive.jpg",
-  },
-];
+"use client";
+
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => {
+    const reveals = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      {
+        threshold: 0.12,
+      }
+    );
+
+    reveals.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <main>
-      <section className="luxuryHero">
-        <img src="/images/hero.jpg" alt="Masumi Shiohara" className="heroImage" />
-        <div className="heroShade" />
+      <section className="heroLuxury">
+        <img
+          src="/images/hero.jpg"
+          alt="Masumi Shiohara"
+          className="heroImage"
+        />
 
-        <header className="luxuryHeader">
-          <span>Masumi Shiohara</span>
-          <span>Official Site</span>
+        <div className="heroDarkLayer" />
+        <div className="heroGoldMist" />
+        <div className="heroGreenMist" />
+        <div className="heroLightSweep" />
+
+        <header className="topBar">
+          <div className="brandThin">MASUMI SHIOHARA</div>
+          <div className="brandThin">BOTANICAL ARCHIVE</div>
         </header>
 
-        <div className="heroContent">
-          <p className="smallLabel">Fruit / Cultivation / Photography</p>
+        <div className="heroContent reveal">
+          <p className="smallLabel">OFFICIAL BOTANICAL ARCHIVE</p>
+
           <h1>
-            Rare
+            Cultivated
             <br />
-            Botanical
-            <br />
-            Works
+            Form
           </h1>
+
           <p className="heroLead">
-            Fruit cultivated, selected, photographed, and transformed into
-            works of quiet luxury.
+            Fruit, cultivation, breeding, vellum, and photography —
+            a botanical world where living forms are treated with
+            the gravity of jewels.
           </p>
         </div>
       </section>
 
-      <section className="luxuryIntro">
-        <p className="smallLabel">Statement</p>
-        <h2>
-          A practice where fruit is treated not as produce, but as a rare object
-          shaped by season, hand, time, and light.
-        </h2>
-      </section>
+      <section className="museumSection reveal">
+        <div className="museumGrid">
+          <div className="museumText">
+            <p className="smallLabel">Practice</p>
 
-      <section className="signaturePanel">
-        <div>
-          <p className="smallLabel">Signature</p>
-          <h2>Cultivated Form</h2>
+            <h2>
+              Botanical forms observed through season,
+              gravity, light, intervention, and disappearance.
+            </h2>
+
+            <p>
+              The archive treats cultivated fruit not as agricultural
+              produce alone, but as sculptural botanical presence.
+            </p>
+          </div>
+
+          <div className="museumFrame">
+            <img
+              src="/images/botanical.jpg"
+              alt="Botanical Portrait"
+            />
+          </div>
         </div>
-        <p>
-          Each work begins in the field and reaches completion through selection,
-          photography, and material presentation.
-        </p>
       </section>
 
-      <section className="worksSection">
-        <p className="smallLabel">Collections</p>
+      <section className="projectSection reveal">
+        <div className="projectGrid">
+          <div className="projectImageFrame">
+            <img src="/images/growth.jpg" alt="Growth Process" />
+          </div>
 
-        {works.map((work) => (
-          <article className="workBlock" key={work.title}>
-            <div className="workImageBox">
-              <img src={work.image} alt={work.title} />
-            </div>
+          <div className="projectText">
+            <p className="smallLabel">Archive I</p>
 
-            <div className="workCopy">
-              <span>{work.number}</span>
-              <h3>{work.title}</h3>
-              <p>{work.text}</p>
-            </div>
-          </article>
-        ))}
+            <h3>Growth Process</h3>
+
+            <p>
+              Seasonal transformation recorded through cultivation,
+              pruning, timing, and biological uncertainty.
+            </p>
+          </div>
+        </div>
       </section>
 
-      <section className="privateSection">
-        <p className="smallLabel">Private Viewing</p>
-        <h2>
-          Works are presented for exhibitions, publications, curatorial review,
-          and selected private enquiries.
-        </h2>
+      <section className="projectSection reveal">
+        <div className="projectGrid reverse">
+          <div className="projectImageFrame">
+            <img src="/images/sculptural.jpg" alt="Sculptural Fruit" />
+          </div>
+
+          <div className="projectText">
+            <p className="smallLabel">Archive II</p>
+
+            <h3>Sculptural Fruit</h3>
+
+            <p>
+              Fruit shaped into forms suspended between botanical
+              specimen, sculpture, and photographic fiction.
+            </p>
+          </div>
+        </div>
       </section>
 
-      <footer className="luxuryFooter">
-        <p className="smallLabel">Contact</p>
-        <h2>Masumi Shiohara</h2>
-        <a href="mailto:contact@masumishiohara.com">
-          contact@masumishiohara.com
-        </a>
+      <section className="projectSection reveal">
+        <div className="projectGrid">
+          <div className="projectImageFrame">
+            <img src="/images/vellum.jpg" alt="Vellum Prints" />
+          </div>
+
+          <div className="projectText">
+            <p className="smallLabel">Archive III</p>
+
+            <h3>Vellum Prints</h3>
+
+            <p>
+              Botanical images printed with material depth inspired
+              by archival luxury editions and museum collections.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <footer className="luxuryFooter reveal">
+        <div className="footerFrame">
+          <p className="smallLabel">Contact</p>
+
+          <h2>Masumi Shiohara</h2>
+
+          <a href="mailto:contact@masumishiohara.com">
+            contact@masumishiohara.com
+          </a>
+        </div>
       </footer>
     </main>
   );
