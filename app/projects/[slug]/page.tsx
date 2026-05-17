@@ -1,12 +1,28 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { projects } from "../../project-data";
 
 type FrameStyle = "elegant" | "modern" | "antique";
 type MatMode = "single" | "double";
 type GrooveMode = "none" | "single" | "double";
+
+type FrameSetting = {
+  frameStyle: FrameStyle;
+  matMode: MatMode;
+  grooveMode: GrooveMode;
+  topMat: string;
+  bottomMat: string;
+};
+
+const defaultSetting: FrameSetting = {
+  frameStyle: "elegant",
+  matMode: "double",
+  grooveMode: "double",
+  topMat: "#eee5d2",
+  bottomMat: "#17140f",
+};
 
 const botanicalWorks = [
   ["01", "Vitis vinifera", "Kerner", "White wine grape cultivar presented as a botanical specimen."],
@@ -44,36 +60,38 @@ export default function ProjectPage({
 }: {
   params: { slug: string };
 }) {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const [selectedWork, setSelectedWork] = useState(botanicalWorks[0]);
-  const [frameStyle, setFrameStyle] = useState<FrameStyle>("elegant");
-  const [matMode, setMatMode] = useState<MatMode>("double");
-  const [grooveMode, setGrooveMode] = useState<GrooveMode>("double");
-  const [topMat, setTopMat] = useState("#eee8d8");
-  const [bottomMat, setBottomMat] = useState("#101827");
-
   const project = projects.find((item) => item.slug === params.slug);
 
-  const frameClass = useMemo(
-    () =>
-      `frame-${frameStyle} mat-${matMode} groove-${grooveMode}`,
-    [frameStyle, matMode, grooveMode]
-  );
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedWork, setSelectedWork] = useState(botanicalWorks[0]);
+  const [savedSettings, setSavedSettings] = useState<Record<string, FrameSetting>>({});
+  const [draftSetting, setDraftSetting] = useState<FrameSetting>(defaultSetting);
 
   if (!project) {
     return <main>Project not found.</main>;
   }
 
+  const openDesignPanel = (work: (typeof botanicalWorks)[number]) => {
+    setSelectedWork(work);
+    setDraftSetting(savedSettings[work.id] || defaultSetting);
+  };
+
+  const saveDesign = () => {
+    setSavedSettings((prev) => ({
+      ...prev,
+      [selectedWork.id]: draftSetting,
+    }));
+  };
+
+  const resetDesign = () => {
+    setDraftSetting(defaultSetting);
+  };
+
+  const frameClass = (setting: FrameSetting) =>
+    `frame-${setting.frameStyle} mat-${setting.matMode} groove-${setting.grooveMode}`;
+
   return (
-    <main
-      className="projectLuxuryPage"
-      style={
-        {
-          "--top-mat": topMat,
-          "--bottom-mat": bottomMat,
-        } as React.CSSProperties
-      }
-    >
+    <main className="projectLuxuryPage">
       <section className="projectHero">
         <div className="projectHeroGrid">
           <div className="projectHeroCopy">
@@ -111,101 +129,149 @@ export default function ProjectPage({
 
         <div className="maisonLayout">
           <div className="maisonGrid">
-            {botanicalWorks.map((work) => (
-              <article className="maisonWork" key={work.id}>
-                <button
-                  className={`maisonCard ${frameClass}`}
-                  onClick={() => setSelectedImage(work.image)}
-                  aria-label={`Open ${work.title}`}
+            {botanicalWorks.map((work) => {
+              const setting = savedSettings[work.id] || defaultSetting;
+
+              return (
+                <article
+                  className="maisonWork"
+                  key={work.id}
+                  style={
+                    {
+                      "--top-mat": setting.topMat,
+                      "--bottom-mat": setting.bottomMat,
+                    } as React.CSSProperties
+                  }
                 >
-                  <div className="maisonSpotlight" />
+                  <button
+                    className={`maisonCard ${frameClass(setting)}`}
+                    onClick={() => setSelectedImage(work.image)}
+                    aria-label={`Open ${work.title}`}
+                  >
+                    <div className="maisonSpotlight" />
 
-                  <div className="maisonOuterFrame">
-                    <div className="maisonWoodGrain" />
+                    <div className="maisonOuterFrame">
+                      <div className="maisonWoodGrain" />
 
-                    <div className="maisonShadowBox">
-                      <div className="maisonBottomMat">
-                        <div className="maisonTopMat">
-                          <div className="maisonVGroove" />
+                      <div className="maisonShadowBox">
+                        <div className="maisonBottomMat">
+                          <div className="maisonTopMat">
+                            <div className="maisonVGroove" />
 
-                          <div className="maisonPrintWindow">
-                            <img src={work.image} alt={work.title} />
-                          </div>
+                            <div className="maisonPrintWindow">
+                              <img src={work.image} alt={work.title} />
+                            </div>
 
-                          <div className="maisonPlate">
-                            <span>
-                              {work.title} / {work.latin}
-                            </span>
+                            <div className="maisonPlate">
+                              <span>
+                                {work.title} / {work.latin}
+                              </span>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </button>
-
-                <div className="maisonMeta">
-                  <span>{work.id}</span>
-                  <p className="maisonLatin">{work.latin}</p>
-                  <h3>{work.title}</h3>
-                  <p>{work.caption}</p>
-
-                  <button
-                    className="designButton"
-                    onClick={() => setSelectedWork(work)}
-                  >
-                    Design Frame
                   </button>
-                </div>
-              </article>
-            ))}
+
+                  <div className="maisonMeta">
+                    <span>{work.id}</span>
+                    <p className="maisonLatin">{work.latin}</p>
+                    <h3>{work.title}</h3>
+                    <p>{work.caption}</p>
+
+                    <button
+                      className="designButton"
+                      onClick={() => openDesignPanel(work)}
+                    >
+                      DESIGN FRAME
+                    </button>
+                  </div>
+                </article>
+              );
+            })}
           </div>
 
-          <aside className="frameControlPanel">
+          <aside
+            className="frameControlPanel"
+            style={
+              {
+                "--top-mat": draftSetting.topMat,
+                "--bottom-mat": draftSetting.bottomMat,
+              } as React.CSSProperties
+            }
+          >
             <p className="smallLabel">FRAME CONTROL</p>
 
-            <div className={`controlPreview framedPreview ${frameClass}`}>
-  <div className="previewFrame">
-    <div className="previewBottomMat">
-      <div className="previewTopMat">
-        <div className="previewGroove" />
-        <img src={selectedWork.image} alt={selectedWork.title} />
-        <div className="previewPlate" />
-      </div>
-    </div>
-  </div>
+            <div className="controlPreview">
+              <div className={`previewFrame ${frameClass(draftSetting)}`}>
+                <div className="maisonOuterFrame">
+                  <div className="maisonWoodGrain" />
+                  <div className="maisonShadowBox">
+                    <div className="maisonBottomMat">
+                      <div className="maisonTopMat">
+                        <div className="maisonVGroove" />
+                        <div className="maisonPrintWindow">
+                          <img src={selectedWork.image} alt={selectedWork.title} />
+                        </div>
+                        <div className="maisonPlate">
+                          <span>
+                            {selectedWork.title} / {selectedWork.latin}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-  <div>
-    <strong>{selectedWork.title}</strong>
-    <span>{selectedWork.latin}</span>
-  </div>
-</div>
+              <strong>{selectedWork.title}</strong>
+              <span>{selectedWork.latin}</span>
+            </div>
 
             <div className="controlGroup">
               <h4>Frame Style</h4>
-              <button onClick={() => setFrameStyle("elegant")}>Elegant</button>
-              <button onClick={() => setFrameStyle("modern")}>Modern</button>
-              <button onClick={() => setFrameStyle("antique")}>Antique</button>
+              <button onClick={() => setDraftSetting({ ...draftSetting, frameStyle: "elegant" })}>
+                Elegant
+              </button>
+              <button onClick={() => setDraftSetting({ ...draftSetting, frameStyle: "modern" })}>
+                Modern
+              </button>
+              <button onClick={() => setDraftSetting({ ...draftSetting, frameStyle: "antique" })}>
+                Antique
+              </button>
             </div>
 
             <div className="controlGroup">
               <h4>Mat Structure</h4>
-              <button onClick={() => setMatMode("single")}>Single</button>
-              <button onClick={() => setMatMode("double")}>Double</button>
+              <button onClick={() => setDraftSetting({ ...draftSetting, matMode: "single" })}>
+                Single
+              </button>
+              <button onClick={() => setDraftSetting({ ...draftSetting, matMode: "double" })}>
+                Double
+              </button>
             </div>
 
             <div className="controlGroup">
               <h4>V-Groove</h4>
-              <button onClick={() => setGrooveMode("none")}>None</button>
-              <button onClick={() => setGrooveMode("single")}>Single</button>
-              <button onClick={() => setGrooveMode("double")}>Double</button>
+              <button onClick={() => setDraftSetting({ ...draftSetting, grooveMode: "none" })}>
+                None
+              </button>
+              <button onClick={() => setDraftSetting({ ...draftSetting, grooveMode: "single" })}>
+                Single
+              </button>
+              <button onClick={() => setDraftSetting({ ...draftSetting, grooveMode: "double" })}>
+                Double
+              </button>
             </div>
 
             <div className="controlGroup">
               <h4>Top Mat Color</h4>
               <input
                 type="color"
-                value={topMat}
-                onChange={(e) => setTopMat(e.target.value)}
+                value={draftSetting.topMat}
+                onChange={(e) =>
+                  setDraftSetting({ ...draftSetting, topMat: e.target.value })
+                }
               />
             </div>
 
@@ -213,9 +279,18 @@ export default function ProjectPage({
               <h4>Bottom Mat Color</h4>
               <input
                 type="color"
-                value={bottomMat}
-                onChange={(e) => setBottomMat(e.target.value)}
+                value={draftSetting.bottomMat}
+                onChange={(e) =>
+                  setDraftSetting({ ...draftSetting, bottomMat: e.target.value })
+                }
               />
+            </div>
+
+            <div className="controlActions">
+              <button onClick={resetDesign}>Reset</button>
+              <button className="saveDesignButton" onClick={saveDesign}>
+                Save
+              </button>
             </div>
           </aside>
         </div>
