@@ -1,165 +1,43 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Link from "next/link";
 import { projects } from "../../project-data";
 
+type FrameStyle = "elegant" | "modern" | "antique";
+type MatMode = "single" | "double";
+type GrooveMode = "none" | "single" | "double";
+
 const botanicalWorks = [
-  {
-    id: "01",
-    image: "/images/botanical-portraits/01.jpg",
-    latin: "Vitis vinifera",
-    title: "Kerner",
-    caption: "White wine grape cultivar presented as a botanical specimen.",
-  },
-  {
-    id: "02",
-    image: "/images/botanical-portraits/02.jpg",
-    latin: "Pyrus communis",
-    title: "European Pear",
-    caption: "Fruit, flower, leaf, and stem arranged as cultivated form.",
-  },
-  {
-    id: "03",
-    image: "/images/botanical-portraits/03.jpg",
-    latin: "Prunus persica",
-    title: "Garden Peach",
-    caption: "Stone fruit with foliage and flowering branch.",
-  },
-  {
-    id: "04",
-    image: "/images/botanical-portraits/04.jpg",
-    latin: "Vitis vinifera",
-    title: "Chardonnay",
-    caption: "Classic white wine grape with characteristic foliage.",
-  },
-  {
-    id: "05",
-    image: "/images/botanical-portraits/05.jpg",
-    latin: "Malus domestica",
-    title: "Apple Study",
-    caption: "Cultivated apple form documented as botanical archive.",
-  },
-  {
-    id: "06",
-    image: "/images/botanical-portraits/06.jpg",
-    latin: "Vitis vinifera",
-    title: "Muscat Form",
-    caption: "Grape composition shaped by seasonal cultivation.",
-  },
-  {
-    id: "07",
-    image: "/images/botanical-portraits/07.jpg",
-    latin: "Prunus domestica",
-    title: "Plum Structure",
-    caption: "Botanical arrangement focused on fruit and branch balance.",
-  },
-  {
-    id: "08",
-    image: "/images/botanical-portraits/08.jpg",
-    latin: "Pyrus pyrifolia",
-    title: "Asian Pear",
-    caption: "Japanese pear specimen presented in museum framing.",
-  },
-  {
-    id: "09",
-    image: "/images/botanical-portraits/09.jpg",
-    latin: "Vitis vinifera",
-    title: "Botanical Grape",
-    caption: "Cultivated grape form preserved as photographic specimen.",
-  },
-  {
-    id: "10",
-    image: "/images/botanical-portraits/10.jpg",
-    latin: "Prunus armeniaca",
-    title: "Apricot Study",
-    caption: "Stone fruit, leaf, and flowering elements arranged for record.",
-  },
-  {
-    id: "11",
-    image: "/images/botanical-portraits/11.jpg",
-    latin: "Vitis vinifera",
-    title: "Vine Form",
-    caption: "A grape cultivar studied through fruit, leaf, and structure.",
-  },
-  {
-    id: "12",
-    image: "/images/botanical-portraits/12.jpg",
-    latin: "Pyrus communis",
-    title: "Pear Form",
-    caption: "Cultivated pear presented as a quiet botanical object.",
-  },
-  {
-    id: "13",
-    image: "/images/botanical-portraits/13.jpg",
-    latin: "Malus domestica",
-    title: "Apple Branch",
-    caption: "Fruit and foliage arranged as an archival botanical portrait.",
-  },
-  {
-    id: "14",
-    image: "/images/botanical-portraits/14.jpg",
-    latin: "Prunus domestica",
-    title: "Plum Study",
-    caption: "Fruit, leaf, and seasonal growth recorded as cultivated form.",
-  },
-  {
-    id: "15",
-    image: "/images/botanical-portraits/15.jpg",
-    latin: "Vitis vinifera",
-    title: "Grape Study",
-    caption: "Botanical grape form photographed with archival restraint.",
-  },
-  {
-    id: "16",
-    image: "/images/botanical-portraits/16.jpg",
-    latin: "Pyrus communis",
-    title: "Pear Specimen",
-    caption: "A cultivated pear study arranged with botanical clarity.",
-  },
-  {
-    id: "17",
-    image: "/images/botanical-portraits/17.jpg",
-    latin: "Prunus persica",
-    title: "Peach Form",
-    caption: "A stone fruit study shaped by season, light, and care.",
-  },
-  {
-    id: "18",
-    image: "/images/botanical-portraits/18.jpg",
-    latin: "Vitis vinifera",
-    title: "Vine Archive",
-    caption: "Grape, leaf, and stem preserved as cultivated memory.",
-  },
-  {
-    id: "19",
-    image: "/images/botanical-portraits/19.jpg",
-    latin: "Malus domestica",
-    title: "Apple Specimen",
-    caption: "Cultivated fruit arranged as a formal botanical portrait.",
-  },
-  {
-    id: "20",
-    image: "/images/botanical-portraits/20.jpg",
-    latin: "Pyrus pyrifolia",
-    title: "Pear Archive",
-    caption: "Fruit and foliage documented as a botanical archive object.",
-  },
-  {
-    id: "21",
-    image: "/images/botanical-portraits/21.jpg",
-    latin: "Vitis vinifera",
-    title: "Cultivated Vine",
-    caption: "A grape form preserved through photographic presentation.",
-  },
-  {
-    id: "22",
-    image: "/images/botanical-portraits/22.jpg",
-    latin: "Botanical Specimen",
-    title: "Cultivated Form",
-    caption: "A botanical work preserved as photographic archive.",
-  },
-];
+  ["01", "Vitis vinifera", "Kerner", "White wine grape cultivar presented as a botanical specimen."],
+  ["02", "Pyrus communis", "European Pear", "Fruit, flower, leaf, and stem arranged as cultivated form."],
+  ["03", "Prunus persica", "Garden Peach", "Stone fruit with foliage and flowering branch."],
+  ["04", "Vitis vinifera", "Chardonnay", "Classic white wine grape with characteristic foliage."],
+  ["05", "Malus domestica", "Apple Study", "Cultivated apple form documented as botanical archive."],
+  ["06", "Vitis vinifera", "Muscat Form", "Grape composition shaped by seasonal cultivation."],
+  ["07", "Prunus domestica", "Plum Structure", "Botanical arrangement focused on fruit and branch balance."],
+  ["08", "Pyrus pyrifolia", "Asian Pear", "Japanese pear specimen presented in museum framing."],
+  ["09", "Vitis vinifera", "Botanical Grape", "Cultivated grape form preserved as photographic specimen."],
+  ["10", "Prunus armeniaca", "Apricot Study", "Stone fruit, leaf, and flowering elements arranged for record."],
+  ["11", "Vitis vinifera", "Vine Form", "A grape cultivar studied through fruit, leaf, and structure."],
+  ["12", "Pyrus communis", "Pear Form", "Cultivated pear presented as a quiet botanical object."],
+  ["13", "Malus domestica", "Apple Branch", "Fruit and foliage arranged as an archival botanical portrait."],
+  ["14", "Prunus domestica", "Plum Study", "Fruit, leaf, and seasonal growth recorded as cultivated form."],
+  ["15", "Vitis vinifera", "Grape Study", "Botanical grape form photographed with archival restraint."],
+  ["16", "Pyrus communis", "Pear Specimen", "A cultivated pear study arranged with botanical clarity."],
+  ["17", "Prunus persica", "Peach Form", "A stone fruit study shaped by season, light, and care."],
+  ["18", "Vitis vinifera", "Vine Archive", "Grape, leaf, and stem preserved as cultivated memory."],
+  ["19", "Malus domestica", "Apple Specimen", "Cultivated fruit arranged as a formal botanical portrait."],
+  ["20", "Pyrus pyrifolia", "Pear Archive", "Fruit and foliage documented as a botanical archive object."],
+  ["21", "Vitis vinifera", "Cultivated Vine", "A grape form preserved through photographic presentation."],
+  ["22", "Botanical Specimen", "Cultivated Form", "A botanical work preserved as photographic archive."],
+].map(([id, latin, title, caption]) => ({
+  id,
+  latin,
+  title,
+  caption,
+  image: `/images/botanical-portraits/${id}.jpg`,
+}));
 
 export default function ProjectPage({
   params,
@@ -167,17 +45,35 @@ export default function ProjectPage({
   params: { slug: string };
 }) {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedWork, setSelectedWork] = useState(botanicalWorks[0]);
+  const [frameStyle, setFrameStyle] = useState<FrameStyle>("elegant");
+  const [matMode, setMatMode] = useState<MatMode>("double");
+  const [grooveMode, setGrooveMode] = useState<GrooveMode>("double");
+  const [topMat, setTopMat] = useState("#eee8d8");
+  const [bottomMat, setBottomMat] = useState("#101827");
 
   const project = projects.find((item) => item.slug === params.slug);
+
+  const frameClass = useMemo(
+    () =>
+      `frame-${frameStyle} mat-${matMode} groove-${grooveMode}`,
+    [frameStyle, matMode, grooveMode]
+  );
 
   if (!project) {
     return <main>Project not found.</main>;
   }
 
-  const related = projects.filter((item) => item.slug !== project.slug);
-
   return (
-    <main className="projectLuxuryPage">
+    <main
+      className="projectLuxuryPage"
+      style={
+        {
+          "--top-mat": topMat,
+          "--bottom-mat": bottomMat,
+        } as React.CSSProperties
+      }
+    >
       <section className="projectHero">
         <div className="projectHeroGrid">
           <div className="projectHeroCopy">
@@ -186,11 +82,8 @@ export default function ProjectPage({
             </Link>
 
             <p className="smallLabel">BOTANICAL ARCHIVE</p>
-
             <h1>{project.title}</h1>
-
             <p className="projectLead">{project.subtitle}</p>
-
             <div className="projectBody">{project.body}</div>
           </div>
 
@@ -198,7 +91,6 @@ export default function ProjectPage({
             <div className="rembrandtLight" />
             <div className="heroGoldMist" />
             <div className="heroGreenMist" />
-
             <img src={project.image} alt={project.title} />
           </div>
         </div>
@@ -206,89 +98,123 @@ export default function ProjectPage({
 
       <section className="collectionGallery maisonGallery">
         <div className="collectionIntro">
-          <div className="collectionIntroLeft">
+          <div>
             <p className="smallLabel">COLLECTION WORKS</p>
-
             <h2>Botanical Portraits 01–22</h2>
           </div>
 
-          <div className="collectionIntroRight">
-            <p>
-              A private botanical archive of cultivated forms, arranged as
-              framed specimens under warm museum light.
-            </p>
-          </div>
+          <p className="galleryStatement">
+            A private botanical archive of cultivated forms, arranged as framed
+            specimens under warm museum light.
+          </p>
         </div>
 
-        <div className="maisonGrid">
-          {botanicalWorks.map((work) => (
-            <button
-              className="maisonCard"
-              key={work.id}
-              onClick={() => setSelectedImage(work.image)}
-            >
-              <div className="maisonSpotlight" />
+        <div className="maisonLayout">
+          <div className="maisonGrid">
+            {botanicalWorks.map((work) => (
+              <article className="maisonWork" key={work.id}>
+                <button
+                  className={`maisonCard ${frameClass}`}
+                  onClick={() => setSelectedImage(work.image)}
+                  aria-label={`Open ${work.title}`}
+                >
+                  <div className="maisonSpotlight" />
 
-              <div className="maisonFrame">
-                <div className="maisonOuterFrame">
-                  <div className="maisonInnerShadow">
-                    <div className="maisonMat">
-                      <div className="maisonMatInset">
-                        <div className="maisonArtwork">
-                          <img src={work.image} alt={work.title} />
+                  <div className="maisonOuterFrame">
+                    <div className="maisonWoodGrain" />
+
+                    <div className="maisonShadowBox">
+                      <div className="maisonBottomMat">
+                        <div className="maisonTopMat">
+                          <div className="maisonVGroove" />
+
+                          <div className="maisonPrintWindow">
+                            <img src={work.image} alt={work.title} />
+                          </div>
+
+                          <div className="maisonPlate">
+                            <span>
+                              {work.title} / {work.latin}
+                            </span>
+                          </div>
                         </div>
                       </div>
                     </div>
-
-                    <div className="maisonPlate" />
                   </div>
+                </button>
+
+                <div className="maisonMeta">
+                  <span>{work.id}</span>
+                  <p className="maisonLatin">{work.latin}</p>
+                  <h3>{work.title}</h3>
+                  <p>{work.caption}</p>
+
+                  <button
+                    className="designButton"
+                    onClick={() => setSelectedWork(work)}
+                  >
+                    Design Frame
+                  </button>
                 </div>
+              </article>
+            ))}
+          </div>
+
+          <aside className="frameControlPanel">
+            <p className="smallLabel">FRAME CONTROL</p>
+
+            <div className="controlPreview">
+              <img src={selectedWork.image} alt={selectedWork.title} />
+              <div>
+                <strong>{selectedWork.title}</strong>
+                <span>{selectedWork.latin}</span>
               </div>
+            </div>
 
-              <div className="maisonMeta">
-                <span className="maisonNumber">{work.id}</span>
+            <div className="controlGroup">
+              <h4>Frame Style</h4>
+              <button onClick={() => setFrameStyle("elegant")}>Elegant</button>
+              <button onClick={() => setFrameStyle("modern")}>Modern</button>
+              <button onClick={() => setFrameStyle("antique")}>Antique</button>
+            </div>
 
-                <p className="maisonLatin">{work.latin}</p>
+            <div className="controlGroup">
+              <h4>Mat Structure</h4>
+              <button onClick={() => setMatMode("single")}>Single</button>
+              <button onClick={() => setMatMode("double")}>Double</button>
+            </div>
 
-                <h3>{work.title}</h3>
+            <div className="controlGroup">
+              <h4>V-Groove</h4>
+              <button onClick={() => setGrooveMode("none")}>None</button>
+              <button onClick={() => setGrooveMode("single")}>Single</button>
+              <button onClick={() => setGrooveMode("double")}>Double</button>
+            </div>
 
-                <p className="maisonCaption">{work.caption}</p>
-              </div>
-            </button>
-          ))}
-        </div>
-      </section>
+            <div className="controlGroup">
+              <h4>Top Mat Color</h4>
+              <input
+                type="color"
+                value={topMat}
+                onChange={(e) => setTopMat(e.target.value)}
+              />
+            </div>
 
-      <section className="relatedArchive">
-        <div className="archiveHeader">
-          <p className="smallLabel">RELATED COLLECTIONS</p>
-        </div>
-
-        <div className="archiveStrip">
-          {related.map((item) => (
-            <Link
-              href={`/projects/${item.slug}`}
-              className="archiveCard"
-              key={item.slug}
-            >
-              <div className="archiveImage">
-                <img src={item.image} alt={item.title} />
-              </div>
-
-              <div className="archiveMeta">
-                <span>{item.number}</span>
-
-                <h3>{item.title}</h3>
-
-                <p>{item.subtitle}</p>
-              </div>
-            </Link>
-          ))}
+            <div className="controlGroup">
+              <h4>Bottom Mat Color</h4>
+              <input
+                type="color"
+                value={bottomMat}
+                onChange={(e) => setBottomMat(e.target.value)}
+              />
+            </div>
+          </aside>
         </div>
       </section>
 
       {selectedImage && (
         <div className="lightbox" onClick={() => setSelectedImage(null)}>
+          <button className="modalClose">×</button>
           <img src={selectedImage} alt="" />
         </div>
       )}
