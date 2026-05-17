@@ -30,7 +30,7 @@ export default function ProjectPage({
         </span>
       </div>
 
-      <section className="projectHero reveal">
+      <section className="projectHero">
         <div className="projectHeroGrid">
 
           <div className="projectHeroText">
