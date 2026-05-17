@@ -1,7 +1,6 @@
+"use client";
 import Link from "next/link";
 import { projects } from "./project-data";
-"use client";
-
 import { useEffect } from "react";
 
 export default function Home() {
