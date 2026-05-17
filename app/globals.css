@@ -453,3 +453,37 @@ main {
     word-break: break-all;
   }
 }
+/* =========================
+   GOLD TYPOGRAPHY ACCENT
+========================= */
+
+.topBar .brandThin:first-child {
+  color: #d7b97a;
+
+  text-shadow:
+    0 0 12px rgba(215,185,122,0.18);
+
+  opacity: 0.96;
+}
+
+.footerFrame a {
+  color: #d7b97a;
+
+  border-bottom:
+    1px solid rgba(215,185,122,0.42);
+
+  text-shadow:
+    0 0 10px rgba(215,185,122,0.12);
+
+  transition:
+    color 0.5s ease,
+    border-color 0.5s ease,
+    opacity 0.5s ease;
+}
+
+.footerFrame a:hover {
+  color: #f1d39a;
+
+  border-bottom:
+    1px solid rgba(241,211,154,0.72);
+}
