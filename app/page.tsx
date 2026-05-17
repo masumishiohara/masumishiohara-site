@@ -67,61 +67,34 @@ export default function Home() {
 
       {/* ================= INTRO ================= */}
 
-      <section className="museumSection reveal">
-        <div className="museumGrid">
-          <div className="museumText">
-            <p className="smallLabel">Practice</p>
+     <section className="worksSection">
+  {projects.map((work, index) => (
+    <section className="projectSection reveal" key={work.title}>
+      <div className={`projectGrid ${index % 2 === 1 ? "reverse" : ""}`}>
+        <div className="projectImageFrame">
+          <div className="rembrandtLight" />
+          <div className="heroGoldMist" />
+          <div className="heroGreenMist" />
 
-            <h2>
-              Botanical forms shaped through season,
-              intervention, light, gravity, and time.
-            </h2>
-
-            <p>
-              Cultivated fruit becomes sculpture,
-              archive, and photographic presence.
-            </p>
-          </div>
-
-          <div className="museumFrame">
-            <div className="rembrandtLight" />
-            <img
-              src="/images/botanical.jpg"
-              alt="Botanical Portrait"
-            />
-          </div>
+          <img src={work.image} alt={work.title} />
         </div>
-      </section>
 
-     <section className="works">
-  {projects.map((work) => (
-    <article className="workBlock reveal" key={work.title}>
-      <div className="workImageBox">
-        <div className="rembrandtLight" />
-        <div className="heroGoldMist" />
-        <div className="heroGreenMist" />
+        <div className="projectText">
+          <p className="smallLabel">Archive {work.number}</p>
 
-        <img
-          src={work.image}
-          alt={work.title}
-        />
+          <h3>{work.title}</h3>
+
+          <p>{work.subtitle}</p>
+
+          <Link
+            href={`/projects/${work.slug}`}
+            className="collectionLink"
+          >
+            View Collection
+          </Link>
+        </div>
       </div>
-
-      <div className="workCopy">
-        <span>{work.number}</span>
-
-        <h3>{work.title}</h3>
-
-        <p>{work.subtitle}</p>
-
-        <Link
-          href={`/projects/${work.slug}`}
-          className="collectionLink"
-        >
-          View Collection
-        </Link>
-      </div>
-    </article>
+    </section>
   ))}
 </section>
 
