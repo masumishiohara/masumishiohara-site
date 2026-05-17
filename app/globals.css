@@ -963,3 +963,322 @@ main {
     height: auto;
   }
 }
+/* =========================================
+   MAISON BOTANICAL GALLERY
+========================================= */
+
+.collectionGallery.maisonGallery {
+  width: min(1680px, 94%);
+  margin: 130px auto 190px;
+}
+
+.collectionGalleryHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 60px;
+  margin-bottom: 70px;
+}
+
+.collectionGalleryHeader h2 {
+  margin-top: 14px;
+  font-size: clamp(30px, 3vw, 56px);
+  font-weight: 300;
+  letter-spacing: -0.045em;
+  color: #f3eadb;
+}
+
+.galleryStatement {
+  max-width: 460px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 1.9;
+  color: rgba(243,234,219,0.58);
+}
+
+.maisonGalleryGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 82px 46px;
+}
+
+.maisonWork {
+  position: relative;
+}
+
+.maisonFrameButton {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  color: inherit;
+}
+
+.wallSpotlight {
+  position: absolute;
+  left: 50%;
+  top: -58px;
+  width: 86%;
+  height: 150px;
+  transform: translateX(-50%);
+  background:
+    radial-gradient(
+      ellipse at top,
+      rgba(230, 191, 112, 0.22),
+      rgba(230, 191, 112, 0.08) 34%,
+      transparent 74%
+    );
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+.maisonFrame {
+  position: relative;
+  padding: 9px;
+  background:
+    linear-gradient(145deg, #17130c, #4f3f20 24%, #11140e 48%, #8d7134 72%, #15100a);
+  border: 1px solid rgba(212, 176, 89, 0.34);
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.62),
+    inset 0 0 0 1px rgba(255, 240, 180, 0.10);
+}
+
+.outerGoldLine {
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(207, 166, 76, 0.28);
+  pointer-events: none;
+}
+
+.doubleMat {
+  position: relative;
+  padding: 13px;
+  background:
+    linear-gradient(180deg, #090907, #15140f);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 238, 190, 0.06);
+}
+
+.darkTexturedMat {
+  position: relative;
+  padding: 25px 24px 40px;
+  background:
+    radial-gradient(circle at 28% 18%, rgba(255,255,255,0.035), transparent 24%),
+    linear-gradient(135deg, rgba(255,255,255,0.018) 25%, transparent 25%),
+    linear-gradient(225deg, rgba(255,255,255,0.012) 25%, transparent 25%),
+    #171612;
+  background-size:
+    auto,
+    8px 8px,
+    8px 8px,
+    auto;
+  border: 1px solid rgba(216, 190, 126, 0.16);
+  box-shadow:
+    inset 0 0 34px rgba(0, 0, 0, 0.58);
+}
+
+.matGroove {
+  position: absolute;
+  inset: 14px;
+  border: 1px solid rgba(208, 174, 92, 0.22);
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.56);
+  pointer-events: none;
+}
+
+.warmInnerMat {
+  position: relative;
+  padding: 12px;
+  background:
+    linear-gradient(180deg, #e6ddbd, #cec39e);
+  border: 1px solid rgba(78, 88, 58, 0.42);
+  box-shadow:
+    inset 0 0 0 4px rgba(255,255,238,0.22),
+    inset 0 0 0 6px rgba(52,76,45,0.38);
+}
+
+.printWindow {
+  position: relative;
+  overflow: hidden;
+  background: #050403;
+  border: 1px solid rgba(35, 54, 34, 0.46);
+}
+
+.printWindow img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: contain;
+  display: block;
+  background: #050403;
+  filter:
+    brightness(0.96)
+    contrast(1.03)
+    saturate(0.74);
+  transition:
+    transform 2.8s ease,
+    filter 5.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.maisonFrameButton:hover .printWindow img {
+  transform: scale(1.012);
+  filter:
+    brightness(1)
+    contrast(1.04)
+    saturate(0.96);
+}
+
+.flatMetalPlate {
+  position: absolute;
+  left: 50%;
+  bottom: 13px;
+  width: 38px;
+  height: 7px;
+  transform: translateX(-50%);
+  background:
+    linear-gradient(90deg, #7a5b24, #d3b765 44%, #8a682b);
+  border: 1px solid rgba(236, 208, 126, 0.34);
+  opacity: 0.72;
+  box-shadow:
+    0 3px 8px rgba(0,0,0,0.42);
+}
+
+.maisonCaption {
+  margin-top: 18px;
+  padding-left: 2px;
+}
+
+.maisonCaption span {
+  display: block;
+  margin-bottom: 6px;
+  font-family: Georgia, serif;
+  font-size: 11px;
+  font-style: italic;
+  color: #c8a760;
+}
+
+.latinName {
+  font-family: Georgia, serif;
+  font-size: 13px;
+  font-style: italic;
+  color: rgba(243,234,219,0.64);
+}
+
+.maisonCaption h3 {
+  margin-top: 4px;
+  font-size: 22px;
+  line-height: 1.05;
+  font-weight: 300;
+  color: #d7b97a;
+}
+
+.maisonCaption p:last-child {
+  margin-top: 10px;
+  max-width: 230px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 1.65;
+  color: rgba(243,234,219,0.62);
+}
+
+/* MODAL */
+
+.imageModal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  padding: 42px;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(12px);
+}
+
+.imageModal img {
+  max-width: 92vw;
+  max-height: 90vh;
+  object-fit: contain;
+  box-shadow: 0 44px 160px rgba(0, 0, 0, 0.86);
+}
+
+.modalClose {
+  position: fixed;
+  top: 26px;
+  right: 34px;
+  z-index: 10000;
+  border: 0;
+  background: transparent;
+  color: #d7b97a;
+  font-size: 42px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1300px) {
+  .maisonGalleryGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 920px) {
+  .collectionGallery.maisonGallery {
+    width: calc(100% - 48px);
+    margin: 90px auto 140px;
+  }
+
+  .collectionGalleryHeader {
+    display: block;
+    margin-bottom: 50px;
+  }
+
+  .galleryStatement {
+    margin-top: 22px;
+  }
+
+  .maisonGalleryGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 56px 24px;
+  }
+
+  .darkTexturedMat {
+    padding: 20px 18px 34px;
+  }
+
+  .warmInnerMat {
+    padding: 9px;
+  }
+
+  .maisonCaption h3 {
+    font-size: 19px;
+  }
+
+  .maisonCaption p:last-child {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 560px) {
+  .maisonGalleryGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .collectionGallery.maisonGallery {
+    width: calc(100% - 36px);
+  }
+
+  .darkTexturedMat {
+    padding: 22px 20px 36px;
+  }
+
+  .printWindow img {
+    aspect-ratio: auto;
+  }
+
+  .imageModal {
+    padding: 20px;
+  }
+}
