@@ -3973,3 +3973,115 @@ main {
     width: 62%;
   }
 }
+/* ===================================
+   REAL FRAME ASSET SYSTEM
+   portrait / square / landscape ready
+=================================== */
+
+.museumOuterFrame {
+  position: relative;
+  isolation: isolate;
+}
+
+/* 実写パーツ用レイヤー */
+.museumOuterFrame::before,
+.museumOuterFrame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 角・辺を将来ここで実写化する */
+.museumFrameShell.modern .museumOuterFrame {
+  background:
+    url("/frame-assets/modern-texture.jpg"),
+    linear-gradient(145deg, #2b2b2b, #050505 46%, #1c1c1c);
+  background-size: 420px auto, cover;
+  background-blend-mode: overlay, normal;
+}
+
+.museumFrameShell.antique .museumOuterFrame {
+  background:
+    url("/frame-assets/antique-texture.jpg"),
+    radial-gradient(circle at 20% 15%, rgba(180,118,58,0.28), transparent 24%),
+    linear-gradient(145deg, #6b4328, #21130b 46%, #8a5a32);
+  background-size: 460px auto, cover, cover;
+  background-blend-mode: multiply, normal, normal;
+}
+
+.museumFrameShell.elegant .museumOuterFrame {
+  background:
+    url("/frame-assets/elegant-texture.jpg"),
+    radial-gradient(circle at 24% 18%, rgba(255,225,170,0.22), transparent 28%),
+    linear-gradient(145deg, #7a552f, #26180d 48%, #b08346);
+  background-size: 430px auto, cover, cover;
+  background-blend-mode: soft-light, normal, normal;
+}
+
+/* 実写フレーム風の内外段差 */
+.museumOuterFrame::before {
+  inset: 10px;
+  border: 1px solid rgba(255,255,255,0.16);
+  box-shadow:
+    inset 0 0 18px rgba(255,255,255,0.08),
+    inset 0 0 34px rgba(0,0,0,0.32);
+}
+
+.museumOuterFrame::after {
+  inset: 22px;
+  border: 1px solid rgba(0,0,0,0.55);
+  box-shadow:
+    inset 0 2px 4px rgba(255,255,255,0.14),
+    inset 0 -5px 12px rgba(0,0,0,0.38);
+}
+
+/* 比率別に額縁全体を制御 */
+.museumFrameShell.portrait {
+  max-width: 560px;
+}
+
+.museumFrameShell.square {
+  max-width: 560px;
+}
+
+.museumFrameShell.landscape {
+  max-width: 760px;
+}
+
+/* 作品窓は作品比率に追従 */
+.museumFrameShell.portrait .museumArtworkWindow {
+  aspect-ratio: 4 / 5;
+}
+
+.museumFrameShell.square .museumArtworkWindow {
+  aspect-ratio: 1 / 1;
+}
+
+.museumFrameShell.landscape .museumArtworkWindow {
+  aspect-ratio: 16 / 10;
+}
+
+/* 作品は絶対に切らない */
+.museumArtworkWindow img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain !important;
+  display: block;
+}
+
+/* 額縁の存在感を強める */
+.museumFrameShell {
+  transform-style: preserve-3d;
+}
+
+.museumFrameShell:hover {
+  transform: translateY(-8px);
+}
+
+/* プレート位置安定化 */
+.museumPlate {
+  position: relative;
+  z-index: 3;
+}
