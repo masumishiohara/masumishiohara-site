@@ -3754,3 +3754,222 @@ main {
   text-decoration: none;
   font-weight: 300;
 }
+/* ===================================
+   RESPONSIVE LUXURY FRAME SYSTEM
+=================================== */
+
+.frameControlPanel {
+  width: min(1320px, 88%);
+  margin: 0 auto;
+  padding: 42px 0 10px;
+}
+
+.frameControlInner {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: center;
+  border-top: 1px solid rgba(201,168,106,0.22);
+  border-bottom: 1px solid rgba(201,168,106,0.22);
+  padding: 24px 0;
+}
+
+.frameControlInner p {
+  font-size: 11px;
+  letter-spacing: 0.26em;
+  color: #c9a86a;
+}
+
+.frameButtons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.frameButtons button {
+  background: rgba(255,255,255,0.04);
+  color: rgba(239,231,216,0.72);
+  border: 1px solid rgba(201,168,106,0.24);
+  padding: 10px 18px;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  cursor: pointer;
+}
+
+.frameButtons button.active {
+  color: #050403;
+  background: #c9a86a;
+}
+
+.museumFrameShell {
+  position: relative;
+  margin: 0 auto;
+  filter: drop-shadow(0 40px 90px rgba(0,0,0,0.62));
+}
+
+.museumFrameShell.portrait {
+  width: min(100%, 520px);
+}
+
+.museumFrameShell.square {
+  width: min(100%, 520px);
+}
+
+.museumFrameShell.landscape {
+  width: min(100%, 680px);
+}
+
+.museumOuterFrame {
+  position: relative;
+  padding: clamp(24px, 4vw, 46px);
+  background:
+    linear-gradient(145deg, #2c2018, #0d0a08 48%, #3a2a1e);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.08),
+    inset 0 0 22px rgba(255,255,255,0.05),
+    0 36px 120px rgba(0,0,0,0.58);
+}
+
+.museumInnerFrame {
+  position: relative;
+  padding: clamp(26px, 4vw, 54px);
+  background: #f1eadc;
+  box-shadow:
+    inset 0 0 0 1px rgba(90,70,45,0.18),
+    inset 0 0 28px rgba(90,70,45,0.12);
+}
+
+.museumTopMat {
+  padding: clamp(18px, 3vw, 36px);
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255,255,255,0.65), transparent 32%),
+    linear-gradient(135deg, #f6f1e7, #ded2bd);
+}
+
+.museumBottomMat {
+  padding: clamp(12px, 2vw, 22px);
+  background: #11151d;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.08),
+    inset 0 0 0 7px rgba(201,168,106,0.08);
+}
+
+.museumArtworkWindow {
+  position: relative;
+  background: #050505;
+  overflow: hidden;
+}
+
+.museumFrameShell.portrait .museumArtworkWindow {
+  aspect-ratio: 4 / 5;
+}
+
+.museumFrameShell.square .museumArtworkWindow {
+  aspect-ratio: 1 / 1;
+}
+
+.museumFrameShell.landscape .museumArtworkWindow {
+  aspect-ratio: 5 / 3.4;
+}
+
+.museumArtworkWindow::before {
+  content: "";
+  position: absolute;
+  inset: -14px;
+  border: 1px solid rgba(255,255,255,0.42);
+  pointer-events: none;
+}
+
+.museumArtworkWindow img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  background: #050505;
+}
+
+.museumPlate {
+  margin: 22px auto 0;
+  width: 46%;
+  min-height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    linear-gradient(180deg, #d8c28a, #8c7138 55%, #d6bd78);
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,0.5),
+    0 8px 18px rgba(0,0,0,0.22);
+}
+
+.museumPlate span {
+  font-size: 7px;
+  letter-spacing: 0.14em;
+  color: rgba(20,14,8,0.76);
+}
+
+/* lighting */
+.museumFrameShell::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -54px;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 160px;
+  background:
+    radial-gradient(
+      ellipse at top,
+      rgba(236,194,112,0.34),
+      rgba(236,194,112,0.1) 45%,
+      transparent 78%
+    );
+  filter: blur(20px);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.museumArtworkCard {
+  padding-bottom: 46px;
+  transition: transform 1.2s ease;
+}
+
+.museumArtworkCard:hover {
+  transform: translateY(-8px);
+}
+
+/* modern */
+.museumFrameShell.modern .museumOuterFrame {
+  background:
+    linear-gradient(145deg, #2b2b2b, #050505 46%, #1c1c1c);
+}
+
+/* antique */
+.museumFrameShell.antique .museumOuterFrame {
+  background:
+    radial-gradient(circle at 20% 15%, rgba(180,118,58,0.25), transparent 24%),
+    linear-gradient(145deg, #6b4328, #21130b 46%, #8a5a32);
+}
+
+/* elegant */
+.museumFrameShell.elegant .museumOuterFrame {
+  background:
+    radial-gradient(circle at 24% 18%, rgba(255,225,170,0.22), transparent 28%),
+    linear-gradient(145deg, #7a552f, #26180d 48%, #b08346);
+}
+
+@media (max-width: 760px) {
+  .frameControlInner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .museumInnerFrame {
+    padding: 28px;
+  }
+
+  .museumPlate {
+    width: 62%;
+  }
+}
