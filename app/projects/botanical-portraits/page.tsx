@@ -35,19 +35,23 @@ export default function BotanicalPortraitsPage() {
               />
             </div>
 
-            <div className="museumArtworkMeta">
-              <p>
-                Vitis vinifera
-              </p>
+           <div className="museumArtworkMeta">
+  <p className="museumLatin">
+    Vitis vinifera
+  </p>
 
-              <h2>
-                Botanical Study {index + 1}
-              </h2>
+  <h2>
+    Botanical Study {index + 1}
+  </h2>
 
-              <span>
-                Archival pigment print
-              </span>
-            </div>
+  <span className="museumMedium">
+    Archival pigment print
+  </span>
+
+  <div className="museumWallLabel">
+    Collection of Maison Botanique Archive
+  </div>
+</div>
           </div>
         ))}
       </section>
