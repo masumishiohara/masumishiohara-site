@@ -1,113 +1,85 @@
-import Image from 'next/image'
-import Link from 'next/link'
-
-type Room = {
-  title: string
-  subtitle: string
-  image: string
-  imageAlt: string
-  href: string
-  description: string
-}
-
-const rooms: Room[] = [
-  {
-    title: 'Botanical Portraits',
-    subtitle: '植物肖像室',
-    image: '/images/botanical.jpg',
-    imageAlt: 'A cultivated fruit presented as a botanical portrait against a dark background.',
-    href: '/projects/botanical-portraits',
-    description:
-      'Cultivated fruit presented as botanical portrait, specimen, and archive.',
-  },
-  {
-    title: 'Portrait of Fruits',
-    subtitle: '果実人物画室',
-    image: '/images/portrait-fruits.jpg',
-    imageAlt: 'Cultivated fruits arranged to suggest a human presence and portrait-like symbolism.',
-    href: '/projects/portrait-of-fruits',
-    description:
-      'Human presence represented through cultivated fruits and symbolic forms.',
-  },
-  {
-    title: 'Cultivated Forms',
-    subtitle: '栽培造形室',
-    image: '/images/sculptural.jpg',
-    imageAlt: 'Intervened fruit forms shown as sculptural botanical objects.',
-    href: '/projects/sculptural-fruit',
-    description:
-      'Intervened growth forms presented as sculptural botanical objects.',
-  },
-  {
-    title: 'Breeding Archive',
-    subtitle: '育種収蔵室',
-    image: '/images/archive.jpg',
-    imageAlt: 'Archive-like documentation of selection, disappearance, and agricultural memory.',
-    href: '/projects/breeding-archive',
-    description:
-      'Selection, disappearance, memory, and cultivated agricultural history.',
-  },
-  {
-    title: 'Canvas Sheet Works',
-    subtitle: '素材研究室',
-    image: '/images/canvas-study.jpg',
-    imageAlt: 'A canvas-based print work emphasizing surface texture and material presence.',
-    href: '/projects/material-studies',
-    description:
-      'Surface, print object, canvas texture, and material presence.',
-  },
-  {
-    title: 'Tools of Cultivation',
-    subtitle: '農具収蔵庫',
-    image: '/images/tools.jpg',
-    imageAlt: 'Agricultural tools presented as a record of labor, memory, and cultivation.',
-    href: '/projects/tools-of-cultivation',
-    description:
-      'Agricultural memory, tools, labor, and cultivated civilization.',
-  },
-]
-
 export default function RoomsPage() {
+  const rooms = [
+    {
+      label: "I",
+      title: "Farm",
+      jp: "農園",
+      href: "/projects/farm",
+      text: "The origin of cultivation, labor, seasons, and the field.",
+    },
+    {
+      label: "II",
+      title: "Botanical Portraits",
+      jp: "植物",
+      href: "/projects/botanical-portraits",
+      text: "Cultivated fruit presented as botanical portraits and specimens.",
+    },
+    {
+      label: "III",
+      title: "Portrait of Fruits",
+      jp: "人物",
+      href: "/projects/portrait-of-fruits",
+      text: "Human presence expressed through fruit, form, and composition.",
+    },
+    {
+      label: "IV",
+      title: "Archive",
+      jp: "収蔵",
+      href: "/projects/archive",
+      text: "Breeding records, vanished lines, tools, memory, and agricultural time.",
+    },
+    {
+      label: "V",
+      title: "Object Works",
+      jp: "object",
+      href: "/projects/object-works",
+      text: "Color, monochrome, canvas, vellum, and material object studies.",
+    },
+    {
+      label: "VI",
+      title: "Framing Study",
+      jp: "額装研究室",
+      href: "/framing-study",
+      text: "A study room for frames, mats, lighting, surfaces, and exhibition presence.",
+    },
+  ];
+
   return (
-    <main className="roomsPage">
-      <section className="roomsHero" aria-labelledby="rooms-title">
-        <div className="roomsHeroInner">
-          <p className="roomsLabel">MAISON BOTANIQUE ARCHIVE</p>
+    <main className="museumRoomsPage">
+      <section className="museumRoomsHero">
+        <p className="museumEyebrow">MAISON BOTANIQUE ARCHIVE</p>
 
-          <h1 id="rooms-title">Exhibition Rooms</h1>
+        <h1>
+          A Private Museum of
+          <br />
+          Cultivated Forms
+        </h1>
 
-          <p className="roomsLead">
-            A private archive of cultivated forms, botanical portraits,
-            agricultural memory, and material studies.
-          </p>
+        <p className="museumLead">
+          From farm to plant, from plant to portrait, from portrait to archive,
+          and from archive to object.
+        </p>
+      </section>
+
+      <section className="museumSequence">
+        <div className="museumSequenceLine">
+          農園 <span /> 植物 <span /> 人物 <span /> 収蔵 <span /> object
         </div>
       </section>
 
-      <section className="roomsGridSection" aria-label="Exhibition room list">
-        <div className="roomsGrid">
-          {rooms.map((room) => (
-            <Link key={room.href} href={room.href} className="roomCard">
-              <div className="roomImageWrap">
-                <div className="roomLight" aria-hidden="true" />
+      <section className="museumRoomGrid">
+        {rooms.map((room) => (
+          <a href={room.href} className="museumRoomCard" key={room.title}>
+            <div className="museumRoomNumber">{room.label}</div>
 
-                <Image
-                  src={room.image}
-                  alt={room.imageAlt}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 33vw"
-                  className="roomImage"
-                />
-              </div>
-
-              <div className="roomMeta">
-                <p className="roomSubtitle">{room.subtitle}</p>
-                <h2>{room.title}</h2>
-                <p className="roomDescription">{room.description}</p>
-              </div>
-            </Link>
-          ))}
-        </div>
+            <div>
+              <p className="museumRoomJp">{room.jp}</p>
+              <h2>{room.title}</h2>
+              <p>{room.text}</p>
+            </div>
+          </a>
+        ))}
       </section>
     </main>
-  )
+  );
 }
