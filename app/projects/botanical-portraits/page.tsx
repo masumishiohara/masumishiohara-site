@@ -55,6 +55,15 @@ export default function BotanicalPortraitsPage() {
           </div>
         ))}
       </section>
+    <section className="museumNextRoom">
+  <p>
+    NEXT ROOM
+  </p>
+
+  <a href="/projects/portrait-of-fruits">
+    Portrait of Fruits
+  </a>
+</section>
     </main>
   );
 }
