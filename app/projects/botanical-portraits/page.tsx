@@ -1,13 +1,12 @@
 export default function BotanicalPortraitsPage() {
-  const works = [
-    "/images/botanical/01.jpg",
-    "/images/botanical/02.jpg",
-    "/images/botanical/03.jpg",
-    "/images/botanical/04.jpg",
-    "/images/botanical/05.jpg",
-    "/images/botanical/06.jpg",
-  ];
-
+ const works = [
+  "/01 (1).jpg",
+  "/02 (2).jpg",
+  "/03 (21).jpg",
+  "/01 (6).jpg",
+  "/02 (7).jpg",
+  "/01 (19).jpg",
+];
   return (
     <main className="museumProjectPage">
       <section className="museumProjectHero">
