@@ -3703,3 +3703,18 @@ main {
     contrast(1.04)
     saturate(1.02);
 }
+@media (max-width: 900px) {
+  .museumArtworkGrid {
+    grid-template-columns: 1fr;
+    gap: 90px;
+    padding: 80px 0 140px;
+  }
+
+  .museumArtworkFrame {
+    padding: 22px;
+  }
+
+  .museumProjectHero {
+    padding: 110px 0 64px;
+  }
+}
