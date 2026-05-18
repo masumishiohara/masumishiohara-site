@@ -2,8 +2,6 @@ export default function BotanicalPortraitsPage() {
  const works = [
   "/botanical.jpg",
   "/vellum.jpg",
-  "/growth.jpg",
-  "/archive.jpg",
   "/sculptural.jpg",
   "/hero.jpg",
 ];
