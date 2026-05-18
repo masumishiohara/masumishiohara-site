@@ -3473,3 +3473,35 @@ main {
     line-height: 2.2;
   }
 }
+.museumEntranceBlock {
+  width: min(1180px, 88%);
+  margin: 120px auto 160px;
+  padding: 70px 0;
+  border-top: 1px solid rgba(201,168,106,0.35);
+  border-bottom: 1px solid rgba(201,168,106,0.35);
+  text-align: center;
+  color: #efe7d8;
+}
+
+.museumEntranceBlock p {
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  color: #c9a86a;
+}
+
+.museumEntranceBlock h2 {
+  margin: 24px 0 30px;
+  font-size: clamp(38px, 6vw, 86px);
+  font-weight: 300;
+  letter-spacing: -0.06em;
+}
+
+.museumEntranceBlock a {
+  color: #c9a86a;
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(201,168,106,0.55);
+  padding-bottom: 8px;
+}
