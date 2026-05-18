@@ -2534,3 +2534,165 @@ main {
   background: linear-gradient(90deg, #6f5729, #b99d58, #71582a);
   opacity: 0.72;
 }
+/* =========================================
+   REAL GALLERY FRAME OVERRIDE
+   modern / elegant / antique
+   put this at the VERY BOTTOM of globals.css
+========================================= */
+
+/* 共通：CG的な金ベタを弱める */
+.maisonOuterFrame {
+  box-shadow:
+    0 18px 42px rgba(0,0,0,0.62),
+    inset 0 0 0 1px rgba(255,255,255,0.05) !important;
+}
+
+/* ======================
+   MODERN
+   IMG_6704.jpeg方向：
+   黒細額・白マット・実展示風
+====================== */
+
+.frame-modern .maisonOuterFrame {
+  padding: 8px !important;
+  background:
+    linear-gradient(180deg, #222 0%, #060606 45%, #1a1a1a 100%) !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+}
+
+.frame-modern .maisonWoodGrain {
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,0.05) 0,
+      rgba(255,255,255,0.015) 1px,
+      transparent 3px,
+      transparent 10px
+    ) !important;
+  opacity: 0.22 !important;
+}
+
+.frame-modern .maisonShadowBox {
+  padding: 9px !important;
+  background: #050505 !important;
+}
+
+.frame-modern .maisonBottomMat {
+  padding: 8px !important;
+  background: #f1eee5 !important;
+}
+
+.frame-modern .maisonTopMat {
+  padding: 22px 22px 38px !important;
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba(0,0,0,0.018) 0,
+      rgba(0,0,0,0.018) 1px,
+      transparent 1px,
+      transparent 7px
+    ),
+    #eee9dc !important;
+}
+
+.frame-modern .maisonPrintWindow {
+  border: 3px solid #111 !important;
+  background: #050403 !important;
+}
+
+.frame-modern .maisonVGroove {
+  inset: 13px !important;
+  border-color: rgba(0,0,0,0.28) !important;
+}
+
+.frame-modern .maisonPlate {
+  background: linear-gradient(90deg, #6a5428, #b99d58, #6a5428) !important;
+  opacity: 0.72 !important;
+}
+
+/* ======================
+   ELEGANT
+   黒〜鈍金、細い高級額
+====================== */
+
+.frame-elegant .maisonOuterFrame {
+  padding: 10px !important;
+  background:
+    linear-gradient(180deg, #1a1712, #070707 44%, #211a10 100%) !important;
+  border: 1px solid rgba(202,168,86,0.48) !important;
+}
+
+.frame-elegant .maisonWoodGrain {
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(214,180,96,0.08) 0,
+      rgba(214,180,96,0.02) 2px,
+      transparent 8px
+    ) !important;
+  opacity: 0.28 !important;
+}
+
+.frame-elegant .maisonBottomMat {
+  background: #15120d !important;
+}
+
+.frame-elegant .maisonTopMat {
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba(0,0,0,0.016) 0,
+      rgba(0,0,0,0.016) 1px,
+      transparent 1px,
+      transparent 7px
+    ),
+    #eee5d2 !important;
+}
+
+/* ======================
+   ANTIQUE
+   赤茶・古材・細装飾
+====================== */
+
+.frame-antique .maisonOuterFrame {
+  padding: 12px !important;
+  background:
+    linear-gradient(145deg, #2a1409, #6e351d 22%, #1d0f08 46%, #8a5a31 72%, #2b160b) !important;
+  border: 1px solid rgba(191,139,72,0.55) !important;
+}
+
+.frame-antique .maisonWoodGrain {
+  background:
+    repeating-linear-gradient(
+      18deg,
+      rgba(255,220,160,0.08) 0,
+      rgba(255,220,160,0.02) 2px,
+      transparent 7px,
+      rgba(0,0,0,0.18) 14px
+    ) !important;
+  opacity: 0.45 !important;
+}
+
+.frame-antique .maisonOuterFrame::after {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 1px solid rgba(210,160,92,0.36);
+  pointer-events: none;
+}
+
+.frame-antique .maisonBottomMat {
+  background: #201711 !important;
+}
+
+.frame-antique .maisonTopMat {
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba(80,50,20,0.018) 0,
+      rgba(80,50,20,0.018) 1px,
+      transparent 1px,
+      transparent 7px
+    ),
+    #e5dac5 !important;
+}
