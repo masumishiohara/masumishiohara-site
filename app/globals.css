@@ -3320,3 +3320,156 @@ main {
   color: #f3eadb;
   border-bottom-color: #f3eadb;
 }
+/* ================================
+   MAISON BOTANIQUE / ROOMS
+================================ */
+
+.museumRoomsPage {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(205, 164, 92, 0.16), transparent 32%),
+    linear-gradient(180deg, #070604 0%, #0d0b08 48%, #050403 100%);
+  color: #efe7d8;
+}
+
+.museumRoomsHero {
+  width: min(1320px, 88%);
+  margin: 0 auto;
+  padding: 150px 0 86px;
+  border-bottom: 1px solid rgba(218, 186, 126, 0.28);
+}
+
+.museumEyebrow {
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  color: #c9a86a;
+  margin-bottom: 30px;
+}
+
+.museumRoomsHero h1 {
+  font-size: clamp(48px, 8vw, 126px);
+  line-height: 0.94;
+  font-weight: 300;
+  letter-spacing: -0.07em;
+  margin: 0;
+}
+
+.museumLead {
+  max-width: 620px;
+  margin-top: 38px;
+  font-size: 15px;
+  line-height: 2;
+  color: rgba(239, 231, 216, 0.66);
+}
+
+.museumSequence {
+  width: min(1320px, 88%);
+  margin: 0 auto;
+  padding: 44px 0 30px;
+}
+
+.museumSequenceLine {
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  color: rgba(239, 231, 216, 0.62);
+}
+
+.museumSequenceLine span::before {
+  content: "—";
+  margin: 0 18px;
+  color: rgba(201, 168, 106, 0.58);
+}
+
+.museumRoomGrid {
+  width: min(1320px, 88%);
+  margin: 0 auto;
+  padding: 30px 0 160px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.museumRoomCard {
+  min-height: 340px;
+  padding: 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+  color: inherit;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.015)),
+    rgba(255,255,255,0.025);
+  border: 1px solid rgba(218, 186, 126, 0.22);
+  box-shadow: 0 34px 100px rgba(0,0,0,0.38);
+  transition: transform 0.8s ease, border-color 0.8s ease, background 0.8s ease;
+}
+
+.museumRoomCard:hover {
+  transform: translateY(-6px);
+  border-color: rgba(218, 186, 126, 0.58);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.018)),
+    rgba(255,255,255,0.035);
+}
+
+.museumRoomNumber {
+  font-size: 13px;
+  color: #c9a86a;
+  letter-spacing: 0.22em;
+}
+
+.museumRoomJp {
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  color: #c9a86a;
+  margin-bottom: 14px;
+}
+
+.museumRoomCard h2 {
+  font-size: clamp(30px, 3vw, 48px);
+  line-height: 1;
+  font-weight: 300;
+  letter-spacing: -0.045em;
+  margin: 0 0 18px;
+}
+
+.museumRoomCard p {
+  font-size: 13px;
+  line-height: 1.9;
+  color: rgba(239, 231, 216, 0.62);
+  max-width: 330px;
+}
+
+@media (max-width: 1000px) {
+  .museumRoomGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .museumRoomsHero {
+    width: calc(100% - 40px);
+    padding: 96px 0 56px;
+  }
+
+  .museumSequence,
+  .museumRoomGrid {
+    width: calc(100% - 40px);
+  }
+
+  .museumRoomGrid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding-bottom: 100px;
+  }
+
+  .museumRoomCard {
+    min-height: 280px;
+    padding: 28px;
+  }
+
+  .museumSequenceLine {
+    line-height: 2.2;
+  }
+}
