@@ -3718,3 +3718,30 @@ main {
     padding: 110px 0 64px;
   }
 }
+/* ===================================
+   NEXT ROOM
+=================================== */
+
+.museumNextRoom {
+  width: min(1180px, 88%);
+  margin: 0 auto 180px;
+  padding-top: 80px;
+  border-top: 1px solid rgba(201,168,106,0.24);
+}
+
+.museumNextRoom p {
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  color: #c9a86a;
+}
+
+.museumNextRoom a {
+  display: inline-block;
+  margin-top: 24px;
+  font-size: clamp(36px, 5vw, 82px);
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+  color: #efe7d8;
+  text-decoration: none;
+  font-weight: 300;
+}
