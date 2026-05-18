@@ -3304,3 +3304,19 @@ main {
     aspect-ratio: 4 / 4.7;
   }
 }
+.museumEntryLink {
+  display: inline-block;
+  margin-top: 34px;
+  color: #d7b97a;
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(215,185,122,0.42);
+  padding-bottom: 8px;
+}
+
+.museumEntryLink:hover {
+  color: #f3eadb;
+  border-bottom-color: #f3eadb;
+}
