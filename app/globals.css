@@ -2696,3 +2696,459 @@ main {
     ),
     #e5dac5 !important;
 }
+/* =========================================
+   REALISTIC LUXURY FRAME SYSTEM
+   add to bottom of app/globals.css
+========================================= */
+
+.collectionGallery.maisonGallery {
+  width: min(1720px, 94%);
+  margin: 48px auto 180px;
+}
+
+.collectionIntro {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 80px;
+  align-items: end;
+  margin-bottom: 42px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid rgba(214,178,95,0.26);
+}
+
+.collectionIntro h2 {
+  margin-top: 18px;
+  font-size: clamp(42px, 5vw, 86px);
+  line-height: 0.95;
+  font-weight: 300;
+  letter-spacing: -0.06em;
+}
+
+.galleryStatement {
+  max-width: 520px;
+  margin-left: auto;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.9;
+  color: rgba(243,234,219,0.64);
+}
+
+.maisonLayout {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 48px;
+  align-items: start;
+}
+
+.maisonGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 72px 44px;
+}
+
+.maisonCard {
+  position: relative;
+  width: 100%;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+}
+
+.galleryLight {
+  position: absolute;
+  left: 50%;
+  top: -44px;
+  width: 78%;
+  height: 150px;
+  transform: translateX(-50%);
+  background: radial-gradient(
+    ellipse at top,
+    rgba(235,190,105,0.26),
+    rgba(235,190,105,0.07) 42%,
+    transparent 76%
+  );
+  filter: blur(18px);
+  pointer-events: none;
+}
+
+.realFrame {
+  position: relative;
+  aspect-ratio: 1 / 1.18;
+  padding: 12px;
+  overflow: hidden;
+  box-shadow:
+    0 34px 90px rgba(0,0,0,0.6),
+    inset 0 0 0 1px rgba(255,255,255,0.06);
+}
+
+/* modern: 黒細額・実展示風 */
+.frame-modern .realFrame {
+  background:
+    linear-gradient(180deg, #181818, #050505 52%, #171717);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+/* antique: 赤茶古材・細装飾 */
+.frame-antique .realFrame {
+  background:
+    linear-gradient(145deg, #351d10, #8a5a2d 22%, #21120a 48%, #b7894d 74%, #2a170d);
+  border: 1px solid rgba(202,145,75,0.5);
+}
+
+/* elegant: 黒×鈍金・木彫風 */
+.frame-elegant .realFrame {
+  background:
+    linear-gradient(145deg, #19130c, #6d5128 24%, #0b0a08 52%, #a98545 78%, #18110a);
+  border: 1px solid rgba(214,178,95,0.42);
+}
+
+.frameTexture {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.34;
+  mix-blend-mode: screen;
+  background:
+    repeating-linear-gradient(
+      16deg,
+      rgba(255,235,180,0.06) 0,
+      rgba(255,235,180,0.018) 2px,
+      transparent 7px,
+      rgba(0,0,0,0.16) 15px
+    );
+}
+
+.frame-modern .frameTexture {
+  opacity: 0.18;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,0.05) 0,
+      rgba(255,255,255,0.012) 1px,
+      transparent 4px,
+      transparent 12px
+    );
+}
+
+.shadowBox {
+  position: relative;
+  height: 100%;
+  padding: 14px;
+  background: #070707;
+  box-shadow:
+    inset 0 0 32px rgba(0,0,0,0.86),
+    inset 0 0 0 1px rgba(255,255,255,0.04);
+}
+
+.bottomMat {
+  height: 100%;
+  padding: 14px;
+  background:
+    radial-gradient(circle at 28% 18%, rgba(255,255,255,0.035), transparent 24%),
+    var(--bottom-mat);
+  box-shadow:
+    inset 0 0 0 1px rgba(214,178,95,0.13),
+    inset 0 0 30px rgba(0,0,0,0.45);
+}
+
+.mat-single .bottomMat {
+  padding: 0;
+}
+
+.topMat {
+  position: relative;
+  height: 100%;
+  padding: 16px 16px 34px;
+  background:
+    radial-gradient(circle at 25% 20%, rgba(255,255,255,0.20), transparent 18%),
+    repeating-linear-gradient(
+      45deg,
+      rgba(0,0,0,0.014) 0,
+      rgba(0,0,0,0.014) 1px,
+      transparent 1px,
+      transparent 6px
+    ),
+    var(--top-mat);
+  box-shadow:
+    inset 0 0 0 1px rgba(70,58,38,0.18),
+    inset 0 0 18px rgba(0,0,0,0.08);
+}
+
+.vGroove {
+  position: absolute;
+  inset: 10px;
+  border: 1px solid rgba(132,106,52,0.34);
+  pointer-events: none;
+}
+
+.groove-none .vGroove {
+  display: none;
+}
+
+.groove-double .vGroove::after {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 1px solid rgba(24,38,60,0.44);
+}
+
+.printWindow {
+  position: relative;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #050403;
+  border: 1px solid rgba(18,28,42,0.58);
+}
+
+.printWindow img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  filter: brightness(0.98) contrast(1.03) saturate(0.86);
+}
+
+.glassReflection {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    118deg,
+    transparent 0%,
+    rgba(255,255,255,0.12) 18%,
+    transparent 36%
+  );
+  opacity: 0.16;
+  pointer-events: none;
+}
+
+.glass-off .glassReflection {
+  display: none;
+}
+
+.brassPlate {
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  width: 64px;
+  height: 9px;
+  transform: translateX(-50%);
+  overflow: hidden;
+  background: linear-gradient(90deg, #705220, #c8aa5d 45%, #80612a);
+  border: 1px solid rgba(232,202,120,0.34);
+  opacity: 0.76;
+}
+
+.brassPlate span {
+  display: block;
+  white-space: nowrap;
+  font-size: 3px;
+  line-height: 9px;
+  text-align: center;
+  color: rgba(20,14,7,0.7);
+}
+
+.plate-off .brassPlate {
+  display: none;
+}
+
+.maisonMeta {
+  margin-top: 18px;
+}
+
+.maisonMeta span {
+  color: #d7b97a;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+}
+
+.maisonLatin {
+  margin-top: 6px;
+  font-family: Georgia, serif;
+  font-style: italic;
+  color: rgba(243,234,219,0.66);
+}
+
+.maisonMeta h3 {
+  margin-top: 4px;
+  font-size: 25px;
+  font-weight: 300;
+  color: #d7b97a;
+}
+
+.maisonMeta p:last-of-type {
+  margin-top: 10px;
+  max-width: 250px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 1.7;
+  color: rgba(243,234,219,0.62);
+}
+
+.designButton {
+  margin-top: 14px;
+  padding: 9px 14px;
+  border: 1px solid rgba(215,185,122,0.34);
+  background: rgba(255,255,255,0.025);
+  color: #d7b97a;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* control panel */
+
+.frameControlPanel {
+  position: sticky;
+  top: 24px;
+  padding: 24px;
+  border: 1px solid rgba(215,185,122,0.22);
+  background: linear-gradient(180deg, rgba(22,20,16,0.96), rgba(8,8,7,0.96));
+  box-shadow: 0 30px 100px rgba(0,0,0,0.54);
+}
+
+.controlPreview {
+  margin: 24px 0;
+}
+
+.controlLargeFrame .realFrame {
+  aspect-ratio: 1 / 1.18;
+  margin-bottom: 16px;
+}
+
+.controlPreview strong {
+  display: block;
+  color: #d7b97a;
+  font-weight: 300;
+}
+
+.controlPreview span {
+  display: block;
+  margin-top: 4px;
+  font-family: Georgia, serif;
+  font-style: italic;
+  color: rgba(243,234,219,0.58);
+}
+
+.controlGroup {
+  margin-top: 22px;
+}
+
+.controlGroup h4 {
+  margin-bottom: 10px;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: rgba(243,234,219,0.62);
+  text-transform: uppercase;
+}
+
+.controlGroup button {
+  margin: 0 8px 8px 0;
+  padding: 8px 12px;
+  border: 1px solid rgba(215,185,122,0.28);
+  background: rgba(255,255,255,0.025);
+  color: rgba(243,234,219,0.78);
+  cursor: pointer;
+}
+
+.controlGroup input[type="color"] {
+  width: 100%;
+  height: 36px;
+  background: transparent;
+  border: 1px solid rgba(215,185,122,0.24);
+}
+
+.controlActions {
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.controlActions button {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid rgba(215,185,122,0.24);
+  background: rgba(255,255,255,0.03);
+  color: rgba(243,234,219,0.84);
+}
+
+.saveDesignButton {
+  background: #d7b97a !important;
+  color: #111 !important;
+}
+
+/* modal */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  background: rgba(0,0,0,0.92);
+  padding: 32px;
+}
+
+.lightbox img {
+  max-width: 92vw;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
+.modalClose {
+  position: fixed;
+  top: 26px;
+  right: 34px;
+  border: 0;
+  background: transparent;
+  color: #d7b97a;
+  font-size: 42px;
+  cursor: pointer;
+}
+
+/* responsive */
+
+@media (max-width: 1300px) {
+  .maisonLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .frameControlPanel {
+    position: relative;
+    top: auto;
+    order: -1;
+  }
+
+  .maisonGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .collectionIntro {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .galleryStatement {
+    margin-left: 0;
+  }
+
+  .maisonGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 54px 22px;
+  }
+}
+
+@media (max-width: 560px) {
+  .maisonGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .collectionGallery.maisonGallery {
+    width: calc(100% - 32px);
+  }
+}
