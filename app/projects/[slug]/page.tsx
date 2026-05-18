@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Link from "next/link";
 import { projects } from "../../project-data";
 
-type FrameStyle = "elegant" | "modern" | "antique";
+type FrameStyle = "modern" | "antique" | "elegant";
 type MatMode = "single" | "double";
 type GrooveMode = "none" | "single" | "double";
+type LightingMode = "museum" | "evening" | "soft";
 
 type FrameSetting = {
   frameStyle: FrameStyle;
@@ -14,14 +15,20 @@ type FrameSetting = {
   grooveMode: GrooveMode;
   topMat: string;
   bottomMat: string;
+  lighting: LightingMode;
+  glass: boolean;
+  plate: boolean;
 };
 
 const defaultSetting: FrameSetting = {
-  frameStyle: "elegant",
+  frameStyle: "modern",
   matMode: "double",
   grooveMode: "double",
-  topMat: "#eee5d2",
+  topMat: "#eee8da",
   bottomMat: "#17140f",
+  lighting: "museum",
+  glass: true,
+  plate: true,
 };
 
 const botanicalWorks = [
@@ -67,9 +74,19 @@ export default function ProjectPage({
   const [savedSettings, setSavedSettings] = useState<Record<string, FrameSetting>>({});
   const [draftSetting, setDraftSetting] = useState<FrameSetting>(defaultSetting);
 
+  const related = useMemo(
+    () => projects.filter((item) => item.slug !== params.slug),
+    [params.slug]
+  );
+
   if (!project) {
-    return <main>Project not found.</main>;
+    return <main className="projectLuxuryPage">Project not found.</main>;
   }
+
+  const classNameFor = (setting: FrameSetting) =>
+    `frame-${setting.frameStyle} mat-${setting.matMode} groove-${setting.grooveMode} light-${setting.lighting} ${
+      setting.glass ? "glass-on" : "glass-off"
+    } ${setting.plate ? "plate-on" : "plate-off"}`;
 
   const openDesignPanel = (work: (typeof botanicalWorks)[number]) => {
     setSelectedWork(work);
@@ -82,13 +99,6 @@ export default function ProjectPage({
       [selectedWork.id]: draftSetting,
     }));
   };
-
-  const resetDesign = () => {
-    setDraftSetting(defaultSetting);
-  };
-
-  const frameClass = (setting: FrameSetting) =>
-    `frame-${setting.frameStyle} mat-${setting.matMode} groove-${setting.grooveMode}`;
 
   return (
     <main className="projectLuxuryPage">
@@ -144,29 +154,29 @@ export default function ProjectPage({
                   }
                 >
                   <button
-                    className={`maisonCard ${frameClass(setting)}`}
+                    className={`maisonCard ${classNameFor(setting)}`}
                     onClick={() => setSelectedImage(work.image)}
                     aria-label={`Open ${work.title}`}
                   >
-                    <div className="maisonSpotlight" />
-
-                    <div className="maisonOuterFrame">
-                      <div className="maisonWoodGrain" />
-
-                      <div className="maisonShadowBox">
-                        <div className="maisonBottomMat">
-                          <div className="maisonTopMat">
-                            <div className="maisonVGroove" />
-
-                            <div className="maisonPrintWindow">
+                    <div className="galleryLight" />
+                    <div className="realFrame">
+                      <div className="frameTexture" />
+                      <div className="shadowBox">
+                        <div className="bottomMat">
+                          <div className="topMat">
+                            <div className="vGroove" />
+                            <div className="printWindow">
                               <img src={work.image} alt={work.title} />
+                              <div className="glassReflection" />
                             </div>
 
-                            <div className="maisonPlate">
-                              <span>
-                                {work.title} / {work.latin}
-                              </span>
-                            </div>
+                            {setting.plate && (
+                              <div className="brassPlate">
+                                <span>
+                                  {work.title} / {work.latin}
+                                </span>
+                              </div>
+                            )}
                           </div>
                         </div>
                       </div>
@@ -179,10 +189,7 @@ export default function ProjectPage({
                     <h3>{work.title}</h3>
                     <p>{work.caption}</p>
 
-                    <button
-                      className="designButton"
-                      onClick={() => openDesignPanel(work)}
-                    >
+                    <button className="designButton" onClick={() => openDesignPanel(work)}>
                       DESIGN FRAME
                     </button>
                   </div>
@@ -203,21 +210,26 @@ export default function ProjectPage({
             <p className="smallLabel">FRAME CONTROL</p>
 
             <div className="controlPreview">
-              <div className={`previewFrame ${frameClass(draftSetting)}`}>
-                <div className="maisonOuterFrame">
-                  <div className="maisonWoodGrain" />
-                  <div className="maisonShadowBox">
-                    <div className="maisonBottomMat">
-                      <div className="maisonTopMat">
-                        <div className="maisonVGroove" />
-                        <div className="maisonPrintWindow">
+              <div className={`controlLargeFrame ${classNameFor(draftSetting)}`}>
+                <div className="galleryLight" />
+                <div className="realFrame">
+                  <div className="frameTexture" />
+                  <div className="shadowBox">
+                    <div className="bottomMat">
+                      <div className="topMat">
+                        <div className="vGroove" />
+                        <div className="printWindow">
                           <img src={selectedWork.image} alt={selectedWork.title} />
+                          <div className="glassReflection" />
                         </div>
-                        <div className="maisonPlate">
-                          <span>
-                            {selectedWork.title} / {selectedWork.latin}
-                          </span>
-                        </div>
+
+                        {draftSetting.plate && (
+                          <div className="brassPlate">
+                            <span>
+                              {selectedWork.title} / {selectedWork.latin}
+                            </span>
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -230,14 +242,14 @@ export default function ProjectPage({
 
             <div className="controlGroup">
               <h4>Frame Style</h4>
-              <button onClick={() => setDraftSetting({ ...draftSetting, frameStyle: "elegant" })}>
-                Elegant
-              </button>
               <button onClick={() => setDraftSetting({ ...draftSetting, frameStyle: "modern" })}>
                 Modern
               </button>
               <button onClick={() => setDraftSetting({ ...draftSetting, frameStyle: "antique" })}>
                 Antique
+              </button>
+              <button onClick={() => setDraftSetting({ ...draftSetting, frameStyle: "elegant" })}>
+                Elegant
               </button>
             </div>
 
@@ -265,6 +277,19 @@ export default function ProjectPage({
             </div>
 
             <div className="controlGroup">
+              <h4>Lighting</h4>
+              <button onClick={() => setDraftSetting({ ...draftSetting, lighting: "museum" })}>
+                Museum
+              </button>
+              <button onClick={() => setDraftSetting({ ...draftSetting, lighting: "evening" })}>
+                Evening
+              </button>
+              <button onClick={() => setDraftSetting({ ...draftSetting, lighting: "soft" })}>
+                Soft
+              </button>
+            </div>
+
+            <div className="controlGroup">
               <h4>Top Mat Color</h4>
               <input
                 type="color"
@@ -286,13 +311,45 @@ export default function ProjectPage({
               />
             </div>
 
+            <div className="controlGroup">
+              <h4>Glass / Plate</h4>
+              <button onClick={() => setDraftSetting({ ...draftSetting, glass: !draftSetting.glass })}>
+                Glass {draftSetting.glass ? "On" : "Off"}
+              </button>
+              <button onClick={() => setDraftSetting({ ...draftSetting, plate: !draftSetting.plate })}>
+                Plate {draftSetting.plate ? "On" : "Off"}
+              </button>
+            </div>
+
             <div className="controlActions">
-              <button onClick={resetDesign}>Reset</button>
+              <button onClick={() => setDraftSetting(defaultSetting)}>Reset</button>
               <button className="saveDesignButton" onClick={saveDesign}>
-                Save
+                Save Design
               </button>
             </div>
           </aside>
+        </div>
+      </section>
+
+      <section className="relatedArchive">
+        <div className="archiveHeader">
+          <p className="smallLabel">RELATED COLLECTIONS</p>
+        </div>
+
+        <div className="archiveStrip">
+          {related.map((item) => (
+            <Link href={`/projects/${item.slug}`} className="archiveCard" key={item.slug}>
+              <div className="archiveImageFrame">
+                <img src={item.image} alt={item.title} />
+              </div>
+
+              <div className="archiveMeta">
+                <span>{item.number}</span>
+                <h3>{item.title}</h3>
+                <p>{item.subtitle}</p>
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
 
