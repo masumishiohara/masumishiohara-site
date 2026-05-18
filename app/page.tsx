@@ -58,6 +58,9 @@ export default function Home() {
           </h1>
 
           <p className="heroLead">
+            <a href="/rooms" className="museumEntryLink">
+  Enter Exhibition Rooms
+</a>
             Fruit, cultivation, breeding, vellum, and photography —
             botanical forms treated with the atmosphere of
             rare jewels and couture objects.
