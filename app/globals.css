@@ -3648,3 +3648,52 @@ main {
   letter-spacing: 0.16em;
   color: rgba(239,231,216,0.55);
 }
+/* ===================================
+   MUSEUM LIGHTING
+=================================== */
+
+.museumArtworkFrame {
+  position: relative;
+  overflow: visible;
+}
+
+.museumArtworkFrame::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -36px;
+  transform: translateX(-50%);
+  width: 78%;
+  height: 120px;
+  background:
+    radial-gradient(
+      ellipse at top,
+      rgba(232, 191, 116, 0.28),
+      rgba(232, 191, 116, 0.08) 46%,
+      transparent 76%
+    );
+  filter: blur(18px);
+  pointer-events: none;
+}
+
+.museumArtworkCard {
+  transition: transform 1.2s ease;
+}
+
+.museumArtworkCard:hover {
+  transform: translateY(-8px);
+}
+
+.museumArtworkFrame img {
+  transition:
+    transform 1.8s ease,
+    filter 1.8s ease;
+}
+
+.museumArtworkCard:hover .museumArtworkFrame img {
+  transform: scale(1.012);
+  filter:
+    brightness(1.03)
+    contrast(1.04)
+    saturate(1.02);
+}
