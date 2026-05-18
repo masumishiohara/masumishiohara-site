@@ -114,6 +114,11 @@ export default function Home() {
           </a>
         </div>
       </footer>
+      <section className="museumEntranceBlock">
+  <p>MAISON BOTANIQUE ARCHIVE</p>
+  <h2>Enter the Private Museum</h2>
+  <a href="/rooms">Enter Exhibition Rooms</a>
+</section>
     </main>
   );
 }
