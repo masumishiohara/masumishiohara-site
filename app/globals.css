@@ -3558,16 +3558,25 @@ main {
 .museumArtworkCard {
   display: flex;
   flex-direction: column;
+  padding-bottom: 40px;
 }
 
 .museumArtworkFrame {
   position: relative;
+  overflow: visible;
   padding: 30px;
   background:
-    linear-gradient(145deg, #3a2a1d 0%, #1b130d 100%);
+    linear-gradient(
+      145deg,
+      #3f2d1f 0%,
+      #241810 42%,
+      #130d09 100%
+    );
+  border: 1px solid rgba(255,255,255,0.05);
   box-shadow:
-    0 24px 80px rgba(0,0,0,0.45),
-    inset 0 0 0 1px rgba(255,255,255,0.06);
+    0 34px 120px rgba(0,0,0,0.55),
+    0 0 0 1px rgba(201,168,106,0.08),
+    inset 0 0 0 1px rgba(255,255,255,0.04);
 }
 
 .museumArtworkFrame::before {
