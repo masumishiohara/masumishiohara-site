@@ -70,16 +70,35 @@ const rooms = [
       </section>
 
       <section className="museumRoomGrid">
-        {rooms.map((room) => (
-          <a href={room.href} className="museumRoomCard" key={room.title}>
-            <div className="museumRoomNumber">{room.label}</div>
+       <Link
+  key={room.href}
+  href={room.href}
+  className="museumRoomCard"
+>
+  <div>
+    <p className="museumRoomNumber">
+      {room.label}
+    </p>
 
-            <div>
-              <p className="museumRoomJp">{room.jp}</p>
-              <h2>{room.title}</h2>
-              <p>{room.text}</p>
-            </div>
-          </a>
+    <h2 className="museumRoomTitle">
+      {room.title}
+    </h2>
+
+    <p className="museumRoomJP">
+      {room.jp}
+    </p>
+  </div>
+
+  <div>
+    <p className="museumRoomText">
+      {room.text}
+    </p>
+
+    <span className="museumRoomArrow">
+      Enter Room
+    </span>
+  </div>
+</Link>
         ))}
       </section>
     </main>
