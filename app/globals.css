@@ -3390,6 +3390,15 @@ main {
 }
 
 .museumRoomCard {
+  backdrop-filter: blur(8px);
+
+background:
+  linear-gradient(
+    180deg,
+    rgba(255,255,255,0.045),
+    rgba(255,255,255,0.015)
+  ),
+  rgba(255,255,255,0.018);
   min-height: 340px;
   padding: 34px;
   display: flex;
