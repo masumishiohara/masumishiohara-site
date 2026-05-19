@@ -59,7 +59,7 @@ export default function BotanicalPortraitsPage() {
     useState<FrameStyle>("modern");
 
   return (
-    <main className="museumProjectPage">
+    <main className="museumProjectPage room-bp">
       <section className="museumProjectHero">
 
         <div className="museumCollectionHeader">
