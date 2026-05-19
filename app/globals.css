@@ -12123,3 +12123,106 @@ button:focus-visible {
       72px
     ) !important;
 }
+/* ===================================
+   IMAGE SIZING SYSTEM
+=================================== */
+
+/* portrait */
+
+.realFrame.portrait {
+
+  width:
+    min(
+      100%,
+      560px
+    ) !important;
+}
+
+/* square */
+
+.realFrame.square {
+
+  width:
+    min(
+      100%,
+      620px
+    ) !important;
+}
+
+/* landscape */
+
+.realFrame.landscape {
+
+  width:
+    min(
+      100%,
+      820px
+    ) !important;
+}
+
+/* normalize visual volume */
+
+.realFrame.portrait
+.realWindow {
+
+  aspect-ratio:
+    4 / 5 !important;
+}
+
+.realFrame.square
+.realWindow {
+
+  aspect-ratio:
+    1 / 1 !important;
+}
+
+.realFrame.landscape
+.realWindow {
+
+  aspect-ratio:
+    16 / 10 !important;
+}
+
+/* visual balance */
+
+.realFrame.landscape {
+
+  margin-left:
+    auto;
+
+  margin-right:
+    auto;
+}
+
+/* square = slightly quieter */
+
+.realFrame.square {
+
+  transform:
+    scale(0.96);
+}
+
+/* portrait emphasis */
+
+.realFrame.portrait {
+
+  transform:
+    scale(1);
+}
+
+/* landscape breathing */
+
+.realFrame.landscape {
+
+  transform:
+    scale(0.98);
+}
+
+/* hover normalization */
+
+.realFrame:hover {
+
+  transform:
+    translateY(-6px)
+    scale(1.01) !important;
+}
