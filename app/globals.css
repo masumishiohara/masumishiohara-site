@@ -10640,3 +10640,22 @@ body {
     translateY(-6px)
     scale(1.01) !important;
 }
+/* ===================================
+   MUSEUM CLOSING STATEMENT
+=================================== */
+
+.museumClosingStatement {
+  width: min(980px, 84%);
+  margin: 0 auto 220px;
+  padding-top: 100px;
+  border-top: 1px solid rgba(201,168,106,0.16);
+}
+
+.museumClosingStatement p {
+  font-family: "Times New Roman", serif;
+  font-size: clamp(34px, 4vw, 72px);
+  line-height: 1.05;
+  letter-spacing: -0.055em;
+  font-weight: 300;
+  color: rgba(239,231,216,0.82);
+}
