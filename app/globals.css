@@ -11822,3 +11822,80 @@ button:focus-visible {
 * {
   -webkit-tap-highlight-color: transparent;
 }
+/* ===================================
+   MOBILE MUSEUM OPTIMIZATION
+=================================== */
+
+@media (max-width: 760px) {
+
+  /* landing */
+
+  .museumLandingHero {
+    width: calc(100% - 40px);
+  }
+
+  .museumLanding h1 {
+    line-height: 0.88 !important;
+    letter-spacing: -0.07em !important;
+  }
+
+  .museumLandingLead {
+    font-size: 14px !important;
+    line-height: 2 !important;
+  }
+
+  .museumEntranceButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* rooms */
+
+  .museumRoomGrid {
+    width: calc(100% - 32px) !important;
+  }
+
+  .museumRoomCard {
+    min-height: 300px !important;
+    padding: 30px !important;
+  }
+
+  .museumRoomTitle {
+    font-size: clamp(38px, 11vw, 62px) !important;
+  }
+
+  /* project hero */
+
+  .museumProjectHero {
+    width: calc(100% - 40px) !important;
+  }
+
+  .museumProjectHero h1 {
+    font-size: clamp(54px, 16vw, 92px) !important;
+    line-height: 0.9 !important;
+  }
+
+  /* artwork */
+
+  .museumArtworkGrid {
+    width: calc(100% - 28px) !important;
+  }
+
+  .realFrame {
+    padding: 46px !important;
+  }
+
+  .realPlate {
+    width: 58% !important;
+  }
+
+  /* archive text */
+
+  .museumArchiveStatement {
+    width: calc(100% - 40px) !important;
+  }
+
+  .museumCuratorialText {
+    width: calc(100% - 40px) !important;
+  }
+}
