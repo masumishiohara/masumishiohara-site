@@ -1,6 +1,6 @@
 export default function CabinetPage() {
   return (
-    <main className="museumProjectPage">
+    <main className="museumProjectPage room-cb">
       <section className="museumProjectHero">
 
         <div className="museumCollectionHeader">
