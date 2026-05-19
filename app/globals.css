@@ -11116,3 +11116,81 @@ body {
     opacity: 0.82;
   }
 }
+/* ===================================
+   ROOM SIGNAGE SYSTEM
+=================================== */
+
+.museumCollectionHeader {
+  position: relative;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+  padding:
+    12px
+    18px;
+
+  border:
+    1px solid
+    rgba(201,168,106,0.12);
+
+  background:
+    rgba(255,255,255,0.018);
+
+  backdrop-filter:
+    blur(12px);
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.28);
+}
+
+/* subtle gold line */
+
+.museumCollectionHeader::before {
+
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+  width: 1px;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent,
+      rgba(201,168,106,0.82),
+      transparent
+    );
+}
+
+/* room number refinement */
+
+.museumEyebrow {
+
+  margin: 0 !important;
+
+  font-size:
+    10px !important;
+
+  letter-spacing:
+    0.32em !important;
+
+  color:
+    rgba(201,168,106,0.72) !important;
+}
+
+/* taxonomy refinement */
+
+.museumCollectionCode {
+
+  position: relative;
+
+  top: -1px;
+}
