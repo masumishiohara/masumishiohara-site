@@ -1,5 +1,5 @@
 import Link from "next/link";
-export default function RoomsPage() {
+
 const rooms = [
   {
     label: "ROOM I",
@@ -47,20 +47,22 @@ const rooms = [
   },
 ];
 
+export default function RoomsPage() {
   return (
-    <main className="museumRoomsPage">
-      <section className="museumRoomsHero">
-        <p className="museumEyebrow">MAISON BOTANIQUE ARCHIVE</p>
+    <main className="museumProjectPage">
+      <section className="museumHero">
+        <p className="museumEyebrow">
+          MAISON BOTANIQUE ARCHIVE
+        </p>
 
         <h1>
-          A Private Museum of
-          <br />
-          Cultivated Forms
+          Exhibition Rooms
         </h1>
 
         <p className="museumLead">
-          From farm to plant, from plant to portrait, from portrait to archive,
-          and from archive to object.
+          From farm to plant, from plant to portrait,
+          from portrait to archive, and from archive
+          to object.
         </p>
       </section>
 
@@ -71,35 +73,36 @@ const rooms = [
       </section>
 
       <section className="museumRoomGrid">
-       <Link
-  key={room.href}
-  href={room.href}
-  className="museumRoomCard"
->
-  <div>
-    <p className="museumRoomNumber">
-      {room.label}
-    </p>
+        {rooms.map((room) => (
+          <Link
+            key={room.href}
+            href={room.href}
+            className="museumRoomCard"
+          >
+            <div>
+              <p className="museumRoomNumber">
+                {room.label}
+              </p>
 
-    <h2 className="museumRoomTitle">
-      {room.title}
-    </h2>
+              <h2 className="museumRoomTitle">
+                {room.title}
+              </h2>
 
-    <p className="museumRoomJP">
-      {room.jp}
-    </p>
-  </div>
+              <p className="museumRoomJP">
+                {room.jp}
+              </p>
+            </div>
 
-  <div>
-    <p className="museumRoomText">
-      {room.text}
-    </p>
+            <div>
+              <p className="museumRoomText">
+                {room.text}
+              </p>
 
-    <span className="museumRoomArrow">
-      Enter Room
-    </span>
-  </div>
-</Link>
+              <span className="museumRoomArrow">
+                Enter Room
+              </span>
+            </div>
+          </Link>
         ))}
       </section>
     </main>
