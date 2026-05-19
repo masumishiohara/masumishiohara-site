@@ -75,29 +75,10 @@ export default function BotanicalPortraitsPage() {
               <img className="realCorner bl" src={`/frame-assets/${frameStyle}/corner-tl.png`} alt="" />
               <img className="realCorner br" src={`/frame-assets/${frameStyle}/corner-tl.png`} alt="" />
 
-              <img
-  className="realEdge top"
-  src={`/frame-assets/${frameStyle}/edge-horizontal.png`}
-  alt=""
-/>
-
-<img
-  className="realEdge bottom"
-  src={`/frame-assets/${frameStyle}/edge-horizontal.png`}
-  alt=""
-/>
-
-<img
-  className="realEdge left"
-  src={`/frame-assets/${frameStyle}/edge-vertical.png`}
-  alt=""
-/>
-
-<img
-  className="realEdge right"
-  src={`/frame-assets/${frameStyle}/edge-vertical.png`}
-  alt=""
-/>
+              <img className="realEdge top" src={`/frame-assets/${frameStyle}/edge-horizontal.png`} alt="" />
+              <img className="realEdge bottom" src={`/frame-assets/${frameStyle}/edge-horizontal.png`} alt="" />
+              <img className="realEdge left" src={`/frame-assets/${frameStyle}/edge-vertical.png`} alt="" />
+              <img className="realEdge right" src={`/frame-assets/${frameStyle}/edge-vertical.png`} alt="" />
 
               <div className="realMat">
                 <div className="realInnerMat">
