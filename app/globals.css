@@ -11721,3 +11721,75 @@ body {
     padding-left: 0 !important;
   }
 }
+/* ===================================
+   MUSEUM LOADING SCREEN
+=================================== */
+
+.museumLoader {
+
+  position: fixed;
+
+  inset: 0;
+
+  background:
+    #050403;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  z-index: 9999;
+
+  pointer-events: none;
+
+  animation:
+    museumLoaderFade 2.2s ease forwards;
+}
+
+.museumLoaderInner p {
+
+  font-size:
+    11px;
+
+  letter-spacing:
+    0.42em;
+
+  color:
+    rgba(201,168,106,0.72);
+
+  animation:
+    loaderBreathing 2s ease-in-out infinite;
+}
+
+@keyframes museumLoaderFade {
+
+  0% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes loaderBreathing {
+
+  0% {
+    opacity: 0.42;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.42;
+  }
+}
