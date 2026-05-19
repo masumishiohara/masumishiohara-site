@@ -11793,3 +11793,32 @@ body {
     opacity: 0.42;
   }
 }
+/* ===================================
+   MUSEUM CURSOR SYSTEM
+=================================== */
+
+a,
+button,
+.museumRoomCard,
+.museumEntranceButton {
+  cursor: pointer;
+}
+
+.museumProjectPage,
+.museumLanding {
+  cursor: default;
+}
+
+/* quiet focus state */
+
+a:focus-visible,
+button:focus-visible {
+  outline: 1px solid rgba(201,168,106,0.72);
+  outline-offset: 6px;
+}
+
+/* remove harsh tap highlight */
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
