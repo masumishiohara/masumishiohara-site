@@ -10495,3 +10495,45 @@ body {
   text-rendering:
     geometricPrecision;
 }
+/* ===================================
+   COLLECTION TAXONOMY
+=================================== */
+
+.museumCollectionHeader {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+}
+
+.museumCollectionCode {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  padding:
+    6px
+    12px;
+
+  border:
+    1px solid
+    rgba(201,168,106,0.18);
+
+  background:
+    rgba(255,255,255,0.025);
+
+  font-size:
+    10px;
+
+  letter-spacing:
+    0.22em;
+
+  color:
+    rgba(201,168,106,0.76);
+
+  backdrop-filter:
+    blur(8px);
+}
