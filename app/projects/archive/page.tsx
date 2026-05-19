@@ -2,9 +2,16 @@ export default function ArchivePage() {
   return (
     <main className="museumProjectPage">
       <section className="museumProjectHero">
-        <p className="museumEyebrow">
-          ROOM IV
-        </p>
+
+        <div className="museumCollectionHeader">
+          <p className="museumEyebrow">
+            ROOM IV
+          </p>
+
+          <span className="museumCollectionCode">
+            MBA-AR
+          </span>
+        </div>
 
         <h1>
           Archive
@@ -12,8 +19,7 @@ export default function ArchivePage() {
 
         <p className="museumProjectLead">
           Breeding records, agricultural memory,
-          vanished cultivars, tools of cultivation,
-          and the archive of time.
+          vanished cultivars, and cultivated time.
         </p>
       </section>
 
@@ -24,16 +30,17 @@ export default function ArchivePage() {
           </h2>
 
           <p>
-            The archive contains not only successful forms,
-            but also selections removed from advancement,
-            damaged objects, agricultural tools,
-            experimental structures, and traces of labor.
+            The archive contains records,
+            selections removed from advancement,
+            experimental structures,
+            and traces of cultivation.
           </p>
         </div>
 
         <div>
           <p>
-            These records are presented not as nostalgia,
+            These records are presented
+            not as nostalgia,
             but as fragments of cultivated civilization.
           </p>
         </div>
