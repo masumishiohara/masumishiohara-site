@@ -111,6 +111,27 @@ export default function BotanicalPortraitsPage() {
         </div>
       </section>
 
+      <section className="museumCuratorialText">
+  <div>
+    <p className="museumCuratorialLabel">
+      CURATORIAL NOTE
+    </p>
+
+    <h2>
+      Botanical portrait is treated here not as documentation,
+      but as cultivated presence.
+    </h2>
+  </div>
+
+  <div>
+    <p>
+      The works emerge through cultivation, breeding, intervention,
+      and seasonal time. The photograph records a temporary state
+      within a longer agricultural process.
+    </p>
+  </div>
+</section>
+      
       <section className="museumArtworkGrid">
         {works.map((work) => (
           <article
