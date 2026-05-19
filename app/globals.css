@@ -11971,3 +11971,63 @@ button:focus-visible {
       blur(0);
   }
 }
+/* ===================================
+   NAVIGATION REDUCTION
+=================================== */
+
+/* reduce visible UI */
+
+.museumRoomArrow {
+
+  opacity: 0.42;
+
+  transition:
+    opacity 1.2s ease,
+    transform 1.2s ease;
+}
+
+.museumRoomCard:hover
+.museumRoomArrow {
+
+  opacity: 1;
+
+  transform:
+    translateX(8px);
+}
+
+/* quieter labels */
+
+.museumRoomNumber,
+.museumCollectionCode,
+.museumEyebrow {
+
+  opacity:
+    0.72;
+}
+
+/* reduce visual weight */
+
+.museumWallLabel {
+
+  opacity:
+    0.82;
+}
+
+/* softer room separators */
+
+.museumNextRoom,
+.museumArchiveStatement,
+.museumCuratorialText {
+
+  border-color:
+    rgba(201,168,106,0.1) !important;
+}
+
+/* darker quiet */
+
+.museumProjectPage {
+
+  background-blend-mode:
+    normal,
+    multiply !important;
+}
