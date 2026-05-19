@@ -57,17 +57,16 @@ export default function BotanicalPortraitsPage() {
   return (
     <main className="museumProjectPage">
       <section className="museumProjectHero">
+
         <div className="museumCollectionHeader">
+          <p className="museumEyebrow">
+            ROOM II
+          </p>
 
-  <p className="museumEyebrow">
-    ROOM II
-  </p>
-
-  <span className="museumCollectionCode">
-    MBA-BP
-  </span>
-
-</div>
+          <span className="museumCollectionCode">
+            MBA-BP
+          </span>
+        </div>
 
         <h1>
           Botanical Portraits
