@@ -1,6 +1,6 @@
 export default function FarmPage() {
   return (
-    <main className="museumProjectPage">
+    <main className="museumProjectPage room-farm">
       <section className="museumProjectHero">
         <div className="museumCollectionHeader">
           <p className="museumEyebrow">ROOM I</p>
