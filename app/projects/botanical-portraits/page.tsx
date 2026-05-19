@@ -2,8 +2,15 @@
 
 import { useState } from "react";
 
-type FrameStyle = "modern" | "antique" | "elegant";
-type Aspect = "portrait" | "square" | "landscape";
+type FrameStyle =
+  | "modern"
+  | "antique"
+  | "elegant";
+
+type Aspect =
+  | "portrait"
+  | "square"
+  | "landscape";
 
 const works = [
   {
@@ -42,28 +49,53 @@ const works = [
     aspect: "square" as Aspect,
   },
 ];
+
 export default function BotanicalPortraitsPage() {
-  const [frameStyle, setFrameStyle] = useState<FrameStyle>("modern");
+  const [frameStyle, setFrameStyle] =
+    useState<FrameStyle>("modern");
 
   return (
     <main className="museumProjectPage">
       <section className="museumProjectHero">
-        <p className="museumEyebrow">ROOM II</p>
-        <h1>Botanical Portraits</h1>
+        <p className="museumEyebrow">
+          ROOM II
+        </p>
+
+        <h1>
+          Botanical Portraits
+        </h1>
+
         <p className="museumProjectLead">
-          Cultivated fruit presented as botanical portrait, specimen, and archival form.
+          Cultivated fruit presented
+          as botanical portrait,
+          specimen, and archival form.
         </p>
       </section>
 
       <section className="frameControlPanel">
         <div className="frameControlInner">
-          <p>FRAME STUDY</p>
+          <p>
+            FRAME STUDY
+          </p>
+
           <div className="frameButtons">
-            {(["modern", "antique", "elegant"] as FrameStyle[]).map((style) => (
+            {(
+              [
+                "modern",
+                "antique",
+                "elegant",
+              ] as FrameStyle[]
+            ).map((style) => (
               <button
                 key={style}
-                onClick={() => setFrameStyle(style)}
-                className={frameStyle === style ? "active" : ""}
+                onClick={() =>
+                  setFrameStyle(style)
+                }
+                className={
+                  frameStyle === style
+                    ? "active"
+                    : ""
+                }
               >
                 {style.toUpperCase()}
               </button>
@@ -74,22 +106,20 @@ export default function BotanicalPortraitsPage() {
 
       <section className="museumArtworkGrid">
         {works.map((work) => (
-          <article className="museumArtworkCard" key={work.title}>
-            <div className={`realFrame ${frameStyle} ${work.aspect}`}>
-              <img className="realCorner tl" src={`/frame-assets/${frameStyle}/corner-tl.png`} alt="" />
-              <img className="realCorner tr" src={`/frame-assets/${frameStyle}/corner-tl.png`} alt="" />
-              <img className="realCorner bl" src={`/frame-assets/${frameStyle}/corner-tl.png`} alt="" />
-              <img className="realCorner br" src={`/frame-assets/${frameStyle}/corner-tl.png`} alt="" />
-
-              <img className="realEdge top" src={`/frame-assets/${frameStyle}/edge-horizontal.png`} alt="" />
-              <img className="realEdge bottom" src={`/frame-assets/${frameStyle}/edge-horizontal.png`} alt="" />
-              <img className="realEdge left" src={`/frame-assets/${frameStyle}/edge-vertical.png`} alt="" />
-              <img className="realEdge right" src={`/frame-assets/${frameStyle}/edge-vertical.png`} alt="" />
-
+          <article
+            className="museumArtworkCard"
+            key={work.id}
+          >
+            <div
+              className={`realFrame ${frameStyle} ${work.aspect}`}
+            >
               <div className="realMat">
                 <div className="realInnerMat">
                   <div className="realWindow">
-                    <img src={work.image} alt={work.title} />
+                    <img
+                      src={work.image}
+                      alt={work.title}
+                    />
                   </div>
                 </div>
               </div>
@@ -102,20 +132,34 @@ export default function BotanicalPortraitsPage() {
             </div>
 
             <div className="museumArtworkMeta">
-              <p className="museumLatin">{work.latin}</p>
-              <h2>{work.title}</h2>
-              <span className="museumMedium">{work.medium}</span>
+              <p className="museumLatin">
+                {work.latin}
+              </p>
+
+              <h2>
+                {work.title}
+              </h2>
+
+              <span className="museumMedium">
+                {work.medium}
+              </span>
+
               <div className="museumWallLabel">
-  {work.id}
-</div>
+                {work.id}
+              </div>
             </div>
           </article>
         ))}
       </section>
 
       <section className="museumNextRoom">
-        <p>NEXT ROOM</p>
-        <a href="/projects/portrait-of-fruits">Portrait of Fruits</a>
+        <p>
+          NEXT ROOM
+        </p>
+
+        <a href="/projects/portrait-of-fruits">
+          Portrait of Fruits
+        </a>
       </section>
     </main>
   );
