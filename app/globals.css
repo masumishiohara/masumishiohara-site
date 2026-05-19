@@ -10897,3 +10897,46 @@ body {
   margin-bottom: 34px;
   background: rgba(201,168,106,0.34);
 }
+/* ===================================
+   ROOM TRANSITION ATMOSPHERE
+=================================== */
+
+.museumNextRoom {
+  overflow: hidden;
+}
+
+.museumNextRoom a {
+  position: relative;
+}
+
+.museumNextRoom a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -14px;
+  width: 0%;
+  height: 1px;
+  background: rgba(201,168,106,0.34);
+  transition: width 1.4s ease;
+}
+
+.museumNextRoom a:hover::after {
+  width: 100%;
+}
+
+.museumNextRoom::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -120px;
+  transform: translateX(-50%);
+  width: 140%;
+  height: 240px;
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(255,220,150,0.04),
+      transparent 72%
+    );
+  pointer-events: none;
+}
