@@ -9927,3 +9927,109 @@ main {
     filter: blur(0);
   }
 }
+/* ===================================
+   INSTITUTIONAL SILENCE
+=================================== */
+
+body {
+  cursor: default;
+}
+
+/* page breathing */
+
+.museumProjectPage {
+  isolation: isolate;
+}
+
+/* reduce visual noise */
+
+.museumProjectPage * {
+  text-rendering:
+    geometricPrecision;
+}
+
+/* slow image presence */
+
+.realFrame img,
+.museumRoomCard,
+.museumArtworkCard {
+
+  transition:
+    opacity 1.6s ease,
+    transform 1.6s ease,
+    filter 1.6s ease;
+}
+
+/* typography silence */
+
+.museumProjectPage h1,
+.museumProjectPage h2 {
+
+  font-weight: 300;
+
+  letter-spacing:
+    -0.055em;
+}
+
+/* dark air */
+
+.museumProjectPage::after {
+
+  content: "";
+
+  position: fixed;
+
+  inset: 0;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      transparent 52%,
+      rgba(0,0,0,0.18) 100%
+    );
+
+  pointer-events: none;
+
+  z-index: 0;
+}
+
+/* remove harsh whites */
+
+.museumProjectPage {
+
+  color:
+    rgba(239,231,216,0.92);
+}
+
+/* gold refinement */
+
+.museumEyebrow,
+.museumRoomNumber,
+.museumRoomArrow {
+
+  color:
+    rgba(201,168,106,0.82);
+}
+
+/* subtle hover */
+
+.museumRoomCard:hover,
+.realFrame:hover {
+
+  filter:
+    brightness(1.02);
+}
+
+/* reduce aggressive movement */
+
+.museumRoomCard:hover {
+
+  transform:
+    translateY(-4px);
+}
+
+.realFrame:hover {
+
+  transform:
+    translateY(-6px);
+}
