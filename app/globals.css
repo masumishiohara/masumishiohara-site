@@ -12226,3 +12226,90 @@ button:focus-visible {
     translateY(-6px)
     scale(1.01) !important;
 }
+/* ===================================
+   DARKNESS LAYERING SYSTEM
+=================================== */
+
+/* back darkness */
+
+.museumProjectPage {
+
+  background:
+    radial-gradient(
+      ellipse at top,
+      rgba(255,240,210,0.03),
+      transparent 40%
+    ),
+
+    linear-gradient(
+      180deg,
+      #090806 0%,
+      #050403 42%,
+      #020202 100%
+    ) !important;
+}
+
+/* middle air */
+
+.museumProjectPage::before {
+
+  content: "";
+
+  position: fixed;
+
+  inset: 0;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      transparent 48%,
+      rgba(0,0,0,0.18) 100%
+    );
+
+  pointer-events: none;
+
+  z-index: 0;
+}
+
+/* foreground darkness */
+
+.museumProjectPage::after {
+
+  content: "";
+
+  position: fixed;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,0.18),
+      transparent 18%,
+      transparent 82%,
+      rgba(0,0,0,0.28)
+    );
+
+  pointer-events: none;
+
+  z-index: 0;
+}
+
+/* artwork isolation */
+
+.realFrame {
+
+  isolation: isolate;
+
+  box-shadow:
+    0 80px 180px rgba(0,0,0,0.72),
+    0 0 120px rgba(0,0,0,0.22) !important;
+}
+
+/* wall breathing */
+
+.museumArtworkCard::before {
+
+  opacity:
+    0.42 !important;
+}
