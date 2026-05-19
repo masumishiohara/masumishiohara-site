@@ -10195,3 +10195,30 @@ body {
   box-shadow:
     0 0 12px rgba(201,168,106,0.42);
 }
+/* ===================================
+   ROOM TRANSITION / QUIET FADE
+=================================== */
+
+.museumProjectPage,
+.museumHero,
+.museumRoomGrid,
+.museumArtworkGrid,
+.museumArchiveStatement,
+.museumNextRoom {
+  animation:
+    quietRoomFade 1.7s ease both;
+}
+
+@keyframes quietRoomFade {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
