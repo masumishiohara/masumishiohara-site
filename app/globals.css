@@ -11668,3 +11668,56 @@ body {
       #030303 100%
     ) !important;
 }
+/* ===================================
+   CURATORIAL IMBALANCE
+=================================== */
+
+/* FARM */
+
+.room-farm .museumProjectHero {
+  padding-left: 4vw;
+}
+
+/* BOTANICAL */
+
+.room-bp .museumCuratorialText {
+  transform: translateX(-2vw);
+}
+
+/* PORTRAIT */
+
+.room-pf .museumProjectLead {
+  max-width: 620px;
+}
+
+/* ARCHIVE */
+
+.room-ar .museumArchiveStatement {
+  transform: translateX(3vw);
+}
+
+/* OBJECT */
+
+.room-ow .museumArchiveStatement h2 {
+  max-width: 520px;
+}
+
+/* CABINET */
+
+.room-cb .museumProjectHero {
+  padding-top: 18vh;
+}
+
+/* subtle asymmetry */
+
+@media (max-width: 980px) {
+
+  .room-farm .museumProjectHero,
+  .room-bp .museumCuratorialText,
+  .room-ar .museumArchiveStatement {
+
+    transform: none !important;
+
+    padding-left: 0 !important;
+  }
+}
