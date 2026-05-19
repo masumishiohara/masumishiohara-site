@@ -12031,3 +12031,95 @@ button:focus-visible {
     normal,
     multiply !important;
 }
+/* ===================================
+   MUSEUM SPACING SYSTEM
+=================================== */
+
+/* room rhythm */
+
+.museumProjectHero {
+
+  padding-top:
+    clamp(
+      120px,
+      14vh,
+      220px
+    ) !important;
+
+  padding-bottom:
+    clamp(
+      120px,
+      14vh,
+      220px
+    ) !important;
+}
+
+/* artwork distance */
+
+.museumArtworkGrid {
+
+  padding-top:
+    clamp(
+      140px,
+      16vh,
+      240px
+    ) !important;
+
+  padding-bottom:
+    clamp(
+      220px,
+      24vh,
+      360px
+    ) !important;
+}
+
+/* curatorial wall text */
+
+.museumCuratorialText,
+.museumArchiveStatement {
+
+  padding-top:
+    clamp(
+      100px,
+      12vh,
+      180px
+    ) !important;
+
+  padding-bottom:
+    clamp(
+      120px,
+      14vh,
+      220px
+    ) !important;
+}
+
+/* next room distance */
+
+.museumNextRoom {
+
+  margin-top:
+    clamp(
+      120px,
+      14vh,
+      220px
+    ) !important;
+
+  margin-bottom:
+    clamp(
+      140px,
+      18vh,
+      260px
+    ) !important;
+}
+
+/* room card rhythm */
+
+.museumRoomGrid {
+
+  gap:
+    clamp(
+      28px,
+      4vw,
+      72px
+    ) !important;
+}
