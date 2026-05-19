@@ -1,6 +1,6 @@
 export default function ArchivePage() {
   return (
-    <main className="museumProjectPage">
+    <main className="museumProjectPage room-ar">
       <section className="museumProjectHero">
 
         <div className="museumCollectionHeader">
