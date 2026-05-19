@@ -1,6 +1,6 @@
 export default function ObjectWorksPage() {
   return (
-    <main className="museumProjectPage">
+    <main className="museumProjectPage room-ow">
       <section className="museumProjectHero">
 
         <div className="museumCollectionHeader">
