@@ -10559,3 +10559,19 @@ body {
   letter-spacing: 0.22em;
   color: rgba(201,168,106,0.76);
 }
+/* ===================================
+   ROOM CARD CODE ALIGNMENT
+=================================== */
+
+.museumRoomTopline {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.museumRoomCard .museumCollectionCode {
+  font-size: 9px !important;
+  letter-spacing: 0.2em !important;
+  padding: 5px 10px;
+}
