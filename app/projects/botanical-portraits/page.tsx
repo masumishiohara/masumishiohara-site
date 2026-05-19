@@ -15,6 +15,7 @@ type Aspect =
 const works = [
   {
     id: "MBA-BP-0001",
+    year: "2026",
     image: "/botanical.jpg",
     title: "Botanical Study I",
     latin: "Pyrus communis",
@@ -24,6 +25,7 @@ const works = [
 
   {
     id: "MBA-BP-0002",
+    year: "2026",
     image: "/vellum.jpg",
     title: "Botanical Study II",
     latin: "Prunus persica",
@@ -33,6 +35,7 @@ const works = [
 
   {
     id: "MBA-BP-0003",
+    year: "2026",
     image: "/hero.jpg",
     title: "Cultivated Form",
     latin: "Vitis vinifera",
@@ -42,6 +45,7 @@ const works = [
 
   {
     id: "MBA-BP-0004",
+    year: "2026",
     image: "/sculptural.jpg",
     title: "Object Form",
     latin: "Malus domestica",
