@@ -5,42 +5,34 @@ import { useState } from "react";
 type FrameStyle = "modern" | "antique" | "elegant";
 type Aspect = "portrait" | "square" | "landscape";
 
-type Artwork = {
-  image: string;
-  title: string;
-  latin: string;
-  medium: string;
-  aspect: Aspect;
-};
-
-const works: Artwork[] = [
+const works = [
   {
     image: "/botanical.jpg",
     title: "Botanical Study I",
     latin: "Pyrus communis",
     medium: "Archival pigment print",
-    aspect: "portrait",
+    aspect: "portrait" as Aspect,
   },
   {
     image: "/vellum.jpg",
     title: "Botanical Study II",
     latin: "Prunus persica",
     medium: "Archival pigment print",
-    aspect: "portrait",
+    aspect: "portrait" as Aspect,
   },
   {
     image: "/hero.jpg",
     title: "Cultivated Form",
     latin: "Vitis vinifera",
     medium: "Archival pigment print",
-    aspect: "landscape",
+    aspect: "landscape" as Aspect,
   },
   {
     image: "/sculptural.jpg",
     title: "Object Form",
     latin: "Malus domestica",
     medium: "Canvas print object",
-    aspect: "square",
+    aspect: "square" as Aspect,
   },
 ];
 
@@ -60,7 +52,6 @@ export default function BotanicalPortraitsPage() {
       <section className="frameControlPanel">
         <div className="frameControlInner">
           <p>FRAME STUDY</p>
-
           <div className="frameButtons">
             {(["modern", "antique", "elegant"] as FrameStyle[]).map((style) => (
               <button
@@ -78,28 +69,30 @@ export default function BotanicalPortraitsPage() {
       <section className="museumArtworkGrid">
         {works.map((work) => (
           <article className="museumArtworkCard" key={work.title}>
-            <div className={`assetFrame ${frameStyle} ${work.aspect}`}>
-              <div className="frameCorner tl" />
-              <div className="frameCorner tr" />
-              <div className="frameCorner bl" />
-              <div className="frameCorner br" />
+            <div className={`realFrame ${frameStyle} ${work.aspect}`}>
+              <img className="realCorner tl" src={`/frame-assets/${frameStyle}/corner-tl.png`} alt="" />
+              <img className="realCorner tr" src={`/frame-assets/${frameStyle}/corner-tl.png`} alt="" />
+              <img className="realCorner bl" src={`/frame-assets/${frameStyle}/corner-tl.png`} alt="" />
+              <img className="realCorner br" src={`/frame-assets/${frameStyle}/corner-tl.png`} alt="" />
 
-              <div className="frameEdge top" />
-              <div className="frameEdge bottom" />
-              <div className="frameEdge left" />
-              <div className="frameEdge right" />
+              <div className="realEdge top" />
+              <div className="realEdge bottom" />
+              <div className="realEdge left" />
+              <div className="realEdge right" />
 
-              <div className="frameMat">
-                <div className="frameInnerMat">
-                  <div className="frameWindow">
+              <div className="realMat">
+                <div className="realInnerMat">
+                  <div className="realWindow">
                     <img src={work.image} alt={work.title} />
                   </div>
                 </div>
               </div>
 
-              <div className="framePlate">
-                <span>{work.latin}</span>
-              </div>
+              <img
+                className="realPlate"
+                src={`/frame-assets/${frameStyle}/plate.png`}
+                alt=""
+              />
             </div>
 
             <div className="museumArtworkMeta">
