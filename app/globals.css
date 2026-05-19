@@ -9892,3 +9892,13 @@ main {
     min-height: 340px;
   }
 }
+/* ===================================
+   LUXURY ROOM TRANSITION
+=================================== */
+
+.museumProjectPage,
+.museumRoomsPage,
+.museumHero,
+.museumRoomGrid,
+.museumArtworkGrid {
+  animation
