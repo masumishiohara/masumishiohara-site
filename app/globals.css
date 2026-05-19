@@ -4320,119 +4320,152 @@ main {
     width: 62%;
   }
 }
-"use client";
+/* ===================================
+   REAL FRAME FIX / IMG EDGES
+=================================== */
 
-import { useState } from "react";
+.realFrame {
+  position: relative !important;
+  margin: 0 auto !important;
+  padding: 110px !important;
+  background: rgba(5, 4, 3, 0.95) !important;
+  overflow: hidden !important;
+}
 
-type FrameStyle = "modern" | "antique" | "elegant";
-type Aspect = "portrait" | "square" | "landscape";
+.realFrame.portrait,
+.realFrame.square {
+  width: min(100%, 620px) !important;
+}
 
-const works = [
-  {
-    image: "/botanical.jpg",
-    title: "Botanical Study I",
-    latin: "Pyrus communis",
-    medium: "Archival pigment print",
-    aspect: "portrait" as Aspect,
-  },
-  {
-    image: "/vellum.jpg",
-    title: "Botanical Study II",
-    latin: "Prunus persica",
-    medium: "Archival pigment print",
-    aspect: "portrait" as Aspect,
-  },
-  {
-    image: "/hero.jpg",
-    title: "Cultivated Form",
-    latin: "Vitis vinifera",
-    medium: "Archival pigment print",
-    aspect: "landscape" as Aspect,
-  },
-  {
-    image: "/sculptural.jpg",
-    title: "Object Form",
-    latin: "Malus domestica",
-    medium: "Canvas print object",
-    aspect: "square" as Aspect,
-  },
-];
+.realFrame.landscape {
+  width: min(100%, 820px) !important;
+}
 
-export default function BotanicalPortraitsPage() {
-  const [frameStyle, setFrameStyle] = useState<FrameStyle>("modern");
+.realCorner {
+  position: absolute !important;
+  width: 132px !important;
+  height: 132px !important;
+  object-fit: contain !important;
+  z-index: 12 !important;
+  pointer-events: none !important;
+}
 
-  return (
-    <main className="museumProjectPage">
-      <section className="museumProjectHero">
-        <p className="museumEyebrow">ROOM II</p>
-        <h1>Botanical Portraits</h1>
-        <p className="museumProjectLead">
-          Cultivated fruit presented as botanical portrait, specimen, and archival form.
-        </p>
-      </section>
+.realCorner.tl { top: 0 !important; left: 0 !important; }
+.realCorner.tr { top: 0 !important; right: 0 !important; transform: scaleX(-1) !important; }
+.realCorner.bl { bottom: 0 !important; left: 0 !important; transform: scaleY(-1) !important; }
+.realCorner.br { bottom: 0 !important; right: 0 !important; transform: scale(-1, -1) !important; }
 
-      <section className="frameControlPanel">
-        <div className="frameControlInner">
-          <p>FRAME STUDY</p>
-          <div className="frameButtons">
-            {(["modern", "antique", "elegant"] as FrameStyle[]).map((style) => (
-              <button
-                key={style}
-                onClick={() => setFrameStyle(style)}
-                className={frameStyle === style ? "active" : ""}
-              >
-                {style.toUpperCase()}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
+.realEdge {
+  position: absolute !important;
+  z-index: 10 !important;
+  pointer-events: none !important;
+  object-fit: fill !important;
+}
 
-      <section className="museumArtworkGrid">
-        {works.map((work) => (
-          <article className="museumArtworkCard" key={work.title}>
-            <div className={`realFrame ${frameStyle} ${work.aspect}`}>
-              <img className="realCorner tl" src={`/frame-assets/${frameStyle}/corner-tl.png`} alt="" />
-              <img className="realCorner tr" src={`/frame-assets/${frameStyle}/corner-tl.png`} alt="" />
-              <img className="realCorner bl" src={`/frame-assets/${frameStyle}/corner-tl.png`} alt="" />
-              <img className="realCorner br" src={`/frame-assets/${frameStyle}/corner-tl.png`} alt="" />
+.realEdge.top,
+.realEdge.bottom {
+  left: 116px !important;
+  right: 116px !important;
+  width: calc(100% - 232px) !important;
+  height: 110px !important;
+}
 
-              <img className="realEdge top" src={`/frame-assets/${frameStyle}/edge-horizontal.png`} alt="" />
-              <img className="realEdge bottom" src={`/frame-assets/${frameStyle}/edge-horizontal.png`} alt="" />
-              <img className="realEdge left" src={`/frame-assets/${frameStyle}/edge-vertical.png`} alt="" />
-              <img className="realEdge right" src={`/frame-assets/${frameStyle}/edge-vertical.png`} alt="" />
+.realEdge.top {
+  top: 0 !important;
+}
 
-              <div className="realMat">
-                <div className="realInnerMat">
-                  <div className="realWindow">
-                    <img src={work.image} alt={work.title} />
-                  </div>
-                </div>
-              </div>
+.realEdge.bottom {
+  bottom: 0 !important;
+  transform: scaleY(-1) !important;
+}
 
-              <img
-                className="realPlate"
-                src={`/frame-assets/${frameStyle}/plate.png`}
-                alt=""
-              />
-            </div>
+.realEdge.left,
+.realEdge.right {
+  top: 116px !important;
+  bottom: 116px !important;
+  width: 110px !important;
+  height: calc(100% - 232px) !important;
+}
 
-            <div className="museumArtworkMeta">
-              <p className="museumLatin">{work.latin}</p>
-              <h2>{work.title}</h2>
-              <span className="museumMedium">{work.medium}</span>
-              <div className="museumWallLabel">
-                Collection of Maison Botanique Archive
-              </div>
-            </div>
-          </article>
-        ))}
-      </section>
+.realEdge.left {
+  left: 0 !important;
+}
 
-      <section className="museumNextRoom">
-        <p>NEXT ROOM</p>
-        <a href="/projects/portrait-of-fruits">Portrait of Fruits</a>
-      </section>
-    </main>
-  );
+.realEdge.right {
+  right: 0 !important;
+  transform: scaleX(-1) !important;
+}
+
+.realMat {
+  position: relative !important;
+  z-index: 3 !important;
+  padding: clamp(34px, 5vw, 62px) !important;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255,255,255,0.75), transparent 32%),
+    linear-gradient(135deg, #f3eadb, #d8c9ae) !important;
+}
+
+.realInnerMat {
+  padding: clamp(14px, 2.2vw, 26px) !important;
+  background: #10131a !important;
+}
+
+.realWindow {
+  background: #050505 !important;
+  overflow: hidden !important;
+}
+
+.realFrame.portrait .realWindow {
+  aspect-ratio: 4 / 5 !important;
+}
+
+.realFrame.square .realWindow {
+  aspect-ratio: 1 / 1 !important;
+}
+
+.realFrame.landscape .realWindow {
+  aspect-ratio: 16 / 10 !important;
+}
+
+.realWindow img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+
+.realPlate {
+  position: relative !important;
+  z-index: 15 !important;
+  display: block !important;
+  width: 34% !important;
+  min-width: 120px !important;
+  margin: 24px auto 0 !important;
+}
+
+@media (max-width: 760px) {
+  .realFrame {
+    padding: 68px !important;
+  }
+
+  .realCorner {
+    width: 82px !important;
+    height: 82px !important;
+  }
+
+  .realEdge.top,
+  .realEdge.bottom {
+    left: 76px !important;
+    right: 76px !important;
+    width: calc(100% - 152px) !important;
+    height: 68px !important;
+  }
+
+  .realEdge.left,
+  .realEdge.right {
+    top: 76px !important;
+    bottom: 76px !important;
+    width: 68px !important;
+    height: calc(100% - 152px) !important;
+  }
 }
