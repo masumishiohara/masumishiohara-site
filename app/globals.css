@@ -10318,3 +10318,92 @@ body {
   transform:
     translateX(8px);
 }
+/* ===================================
+   MUSEUM SILENCE / EMPTY SPACE
+=================================== */
+
+/* larger vertical breathing */
+
+.museumProjectHero {
+
+  padding-bottom:
+    180px !important;
+}
+
+/* artwork isolation */
+
+.museumArtworkCard {
+
+  margin-bottom:
+    120px !important;
+}
+
+/* room air */
+
+.museumArtworkGrid {
+
+  padding-top:
+    180px !important;
+
+  padding-bottom:
+    320px !important;
+}
+
+/* visual silence */
+
+.museumProjectLead {
+
+  max-width:
+    720px;
+
+  font-size:
+    16px !important;
+
+  line-height:
+    2.2 !important;
+
+  color:
+    rgba(239,231,216,0.54) !important;
+}
+
+/* reduce noise */
+
+.museumArtworkMeta span,
+.museumArtworkMeta p {
+
+  opacity:
+    0.82;
+}
+
+/* long room fade */
+
+.museumProjectPage {
+
+  animation:
+    longMuseumFade 2.4s ease both;
+}
+
+@keyframes longMuseumFade {
+
+  0% {
+
+    opacity: 0;
+
+    transform:
+      translateY(28px);
+
+    filter:
+      blur(14px);
+  }
+
+  100% {
+
+    opacity: 1;
+
+    transform:
+      translateY(0);
+
+    filter:
+      blur(0);
+  }
+}
