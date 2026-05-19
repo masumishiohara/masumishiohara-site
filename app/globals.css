@@ -10861,3 +10861,39 @@ body {
     font-size: clamp(64px, 18vw, 120px);
   }
 }
+/* ===================================
+   LANDING ACCESS REFINEMENT
+=================================== */
+
+.museumEntranceButton {
+  position: relative;
+  overflow: hidden;
+}
+
+.museumEntranceButton::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      120deg,
+      transparent 0%,
+      rgba(255,255,255,0.08) 48%,
+      transparent 100%
+    );
+  transform: translateX(-120%);
+  transition: transform 1.6s ease;
+}
+
+.museumEntranceButton:hover::before {
+  transform: translateX(120%);
+}
+
+.museumLandingLead::before {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 1px;
+  margin-bottom: 34px;
+  background: rgba(201,168,106,0.34);
+}
