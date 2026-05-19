@@ -11443,3 +11443,42 @@ body:has(.museumCollectionCode:contains("MBA-OW"))
       transparent 78%
     ) !important;
 }
+/* ===================================
+   SILENT SCROLL EXPERIENCE
+=================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overscroll-behavior: none;
+}
+
+.museumProjectPage,
+.museumLanding,
+.museumRoomGrid {
+  scroll-behavior: smooth;
+}
+
+/* reduce abrupt visual jumps */
+
+.museumArtworkCard,
+.museumRoomCard,
+.museumArchiveStatement,
+.museumCuratorialText,
+.museumNextRoom {
+  will-change: transform, opacity;
+}
+
+/* mobile comfort */
+
+@media (max-width: 760px) {
+  .museumArtworkGrid {
+    gap: 110px !important;
+  }
+
+  .museumProjectHero {
+    padding-top: 110px !important;
+  }
+}
