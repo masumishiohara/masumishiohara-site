@@ -1,48 +1,50 @@
 export default function RoomsPage() {
-  const rooms = [
-    {
-      label: "I",
-      title: "Farm",
-      jp: "農園",
-      href: "/projects/farm",
-      text: "The origin of cultivation, labor, seasons, and the field.",
-    },
-    {
-      label: "II",
-      title: "Botanical Portraits",
-      jp: "植物",
-      href: "/projects/botanical-portraits",
-      text: "Cultivated fruit presented as botanical portraits and specimens.",
-    },
-    {
-      label: "III",
-      title: "Portrait of Fruits",
-      jp: "人物",
-      href: "/projects/portrait-of-fruits",
-      text: "Human presence expressed through fruit, form, and composition.",
-    },
-    {
-      label: "IV",
-      title: "Archive",
-      jp: "収蔵",
-      href: "/projects/archive",
-      text: "Breeding records, vanished lines, tools, memory, and agricultural time.",
-    },
-    {
-      label: "V",
-      title: "Object Works",
-      jp: "object",
-      href: "/projects/object-works",
-      text: "Color, monochrome, canvas, vellum, and material object studies.",
-    },
-    {
-      label: "VI",
-      title: "Framing Study",
-      jp: "額装研究室",
-      href: "/framing-study",
-      text: "A study room for frames, mats, lighting, surfaces, and exhibition presence.",
-    },
-  ];
+const rooms = [
+  {
+    label: "ROOM I",
+    title: "Farm",
+    jp: "農園",
+    href: "/projects/farm",
+    text:
+      "Cultivation, labor, breeding, field memory, and agricultural time.",
+  },
+
+  {
+    label: "ROOM II",
+    title: "Botanical Portraits",
+    jp: "植物",
+    href: "/projects/botanical-portraits",
+    text:
+      "Cultivated fruit presented as botanical portrait and archival specimen.",
+  },
+
+  {
+    label: "ROOM III",
+    title: "Portrait of Fruits",
+    jp: "人物",
+    href: "/projects/portrait-of-fruits",
+    text:
+      "Human presence represented through cultivated forms and symbolic arrangements.",
+  },
+
+  {
+    label: "ROOM IV",
+    title: "Archive",
+    jp: "収蔵",
+    href: "/projects/archive",
+    text:
+      "Breeding records, agricultural tools, vanished selections, and memory.",
+  },
+
+  {
+    label: "ROOM V",
+    title: "Object Works",
+    jp: "object",
+    href: "/projects/object-works",
+    text:
+      "Canvas objects, monochrome forms, vellum works, and material studies.",
+  },
+];
 
   return (
     <main className="museumRoomsPage">
