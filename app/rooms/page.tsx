@@ -108,3 +108,11 @@ export default function RoomsPage() {
     </main>
   );
 }
+{
+  label: "CABINET",
+  title: "Cabinet",
+  jp: "収蔵庫",
+  href: "/projects/cabinet",
+  text:
+    "Tools, fragments, process records, damaged forms, and reserved objects.",
+},
