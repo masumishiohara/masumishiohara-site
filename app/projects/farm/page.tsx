@@ -2,13 +2,16 @@ export default function FarmPage() {
   return (
     <main className="museumProjectPage">
       <section className="museumProjectHero">
-        <p className="museumEyebrow">ROOM I</p>
+        <div className="museumCollectionHeader">
+          <p className="museumEyebrow">ROOM I</p>
+          <span className="museumCollectionCode">MBA-FM</span>
+        </div>
 
         <h1>Farm</h1>
 
         <p className="museumProjectLead">
-          The origin of cultivation, labor, seasons, soil, breeding, and the
-          field from which the works emerge.
+          The origin of cultivation, labor, seasons, breeding, and the field
+          from which the works emerge.
         </p>
       </section>
 
@@ -17,16 +20,16 @@ export default function FarmPage() {
           <h2>Origin of Cultivation</h2>
 
           <p>
-            This room presents the farm not as background, but as the primary
-            site of formation. The field, the seasons, the tools, and the act of
-            cultivation are inseparable from the works.
+            The field is not background. It is the primary site of formation.
+            Cultivation, weather, labor, breeding, and agricultural time are
+            inseparable from the works.
           </p>
         </div>
 
         <div>
           <p>
-            The archive begins here: before the photograph, before the object,
-            before the frame.
+            Before the photograph, before the object, before the archive, there
+            is cultivation.
           </p>
         </div>
       </section>
