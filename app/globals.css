@@ -10940,3 +10940,67 @@ body {
     );
   pointer-events: none;
 }
+/* ===================================
+   MUSEUM HANGING SYSTEM
+=================================== */
+
+.museumArtworkGrid {
+  align-items: start !important;
+}
+
+/* hanging variation */
+
+.museumArtworkCard:nth-child(1) {
+  margin-top: 0;
+}
+
+.museumArtworkCard:nth-child(2) {
+  margin-top: 120px;
+}
+
+.museumArtworkCard:nth-child(3) {
+  margin-top: -40px;
+}
+
+.museumArtworkCard:nth-child(4) {
+  margin-top: 180px;
+}
+
+/* asymmetric wall rhythm */
+
+@media (min-width: 981px) {
+
+  .museumArtworkGrid {
+
+    grid-template-columns:
+      1.08fr
+      0.92fr !important;
+  }
+}
+
+/* breathing distance */
+
+.museumArtworkCard {
+  padding-bottom: 140px !important;
+}
+
+/* soft wall atmosphere */
+
+.museumArtworkCard::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -80px;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(255,255,255,0.015),
+      transparent 72%
+    );
+
+  pointer-events: none;
+
+  z-index: 0;
+}
