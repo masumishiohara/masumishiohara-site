@@ -3392,13 +3392,14 @@ main {
 .museumRoomCard {
   backdrop-filter: blur(8px);
 
-background:
-  linear-gradient(
-    180deg,
-    rgba(255,255,255,0.045),
-    rgba(255,255,255,0.015)
-  ),
-  rgba(255,255,255,0.018);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.045),
+      rgba(255,255,255,0.015)
+    ),
+    rgba(255,255,255,0.018);
+
   min-height: 340px;
   padding: 34px;
   display: flex;
@@ -3406,14 +3407,17 @@ background:
   justify-content: space-between;
   text-decoration: none;
   color: inherit;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.015)),
-    rgba(255,255,255,0.025);
-  border: 1px solid rgba(218, 186, 126, 0.22);
-  box-shadow: 0 34px 100px rgba(0,0,0,0.38);
-  transition: transform 0.8s ease, border-color 0.8s ease, background 0.8s ease;
-}
 
+  border: 1px solid rgba(218, 186, 126, 0.22);
+
+  box-shadow:
+    0 34px 100px rgba(0,0,0,0.38);
+
+  transition:
+    transform 0.8s ease,
+    border-color 0.8s ease,
+    background 0.8s ease;
+}
 .museumRoomCard:hover {
   transform: translateY(-6px);
   border-color: rgba(218, 186, 126, 0.58);
