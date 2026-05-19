@@ -11330,3 +11330,43 @@ body:has([href="/projects/cabinet"]) .museumProjectPage {
       #030303 100%
     ) !important;
 }
+/* ===================================
+   MUSEUM ACCESSION LABEL
+=================================== */
+
+.museumWallLabel {
+
+  display: inline-flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+
+  min-width: 240px;
+}
+
+.museumLabelTop {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  font-size: 10px;
+
+  letter-spacing: 0.18em;
+
+  color:
+    rgba(239,231,216,0.62);
+}
+
+.museumLabelBottom {
+
+  font-size: 11px;
+
+  letter-spacing: 0.12em;
+
+  color:
+    rgba(201,168,106,0.72);
+}
