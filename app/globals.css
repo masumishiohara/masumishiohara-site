@@ -10033,3 +10033,24 @@ body {
   transform:
     translateY(-6px);
 }
+/* ===================================
+   HERO SCALE REFINEMENT
+=================================== */
+
+.museumHero {
+  padding-bottom: 120px !important;
+}
+
+.museumHero h1 {
+  font-size: clamp(88px, 12vw, 240px) !important;
+  line-height: 0.82 !important;
+  letter-spacing: -0.08em !important;
+  font-weight: 300 !important;
+  max-width: 1400px !important;
+  margin-top: 26px !important;
+}
+
+.museumEyebrow {
+  letter-spacing: 0.34em !important;
+  opacity: 0.72 !important;
+}
