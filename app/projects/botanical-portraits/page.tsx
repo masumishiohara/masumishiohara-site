@@ -177,8 +177,17 @@ export default function BotanicalPortraitsPage() {
               </span>
 
               <div className="museumWallLabel">
-                {work.id}
-              </div>
+
+  <div className="museumLabelTop">
+    <span>{work.id}</span>
+    <span>{work.year}</span>
+  </div>
+
+  <div className="museumLabelBottom">
+    {work.medium}
+  </div>
+
+</div>
             </div>
           </article>
         ))}
