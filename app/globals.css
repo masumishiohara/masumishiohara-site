@@ -10054,3 +10054,87 @@ body {
   letter-spacing: 0.34em !important;
   opacity: 0.72 !important;
 }
+/* ===================================
+   ORIGIN ROOM EMPHASIS
+=================================== */
+
+.museumRoomCard:first-child {
+
+  grid-column:
+    span 2;
+
+  min-height:
+    520px !important;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.06),
+      rgba(255,255,255,0.018)
+    ),
+    rgba(255,255,255,0.02) !important;
+
+  border:
+    1px solid
+    rgba(201,168,106,0.28) !important;
+
+  box-shadow:
+    0 60px 180px rgba(0,0,0,0.52);
+}
+
+.museumRoomCard:first-child
+.museumRoomTitle {
+
+  font-size:
+    clamp(
+      58px,
+      5vw,
+      120px
+    ) !important;
+
+  margin-top: 30px;
+}
+
+.museumRoomCard:first-child
+.museumRoomText {
+
+  max-width: 720px;
+
+  font-size: 15px;
+
+  line-height: 2.1;
+}
+
+/* subtle light */
+
+.museumRoomCard:first-child::after {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    radial-gradient(
+      ellipse at top,
+      rgba(255,220,150,0.08),
+      transparent 62%
+    );
+
+  pointer-events: none;
+}
+
+/* mobile */
+
+@media (max-width: 980px) {
+
+  .museumRoomCard:first-child {
+
+    grid-column:
+      span 1;
+
+    min-height:
+      380px !important;
+  }
+}
