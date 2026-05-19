@@ -7,27 +7,34 @@ type Aspect = "portrait" | "square" | "landscape";
 
 const works = [
   {
+    id: "MBA-BP-0001",
     image: "/botanical.jpg",
     title: "Botanical Study I",
     latin: "Pyrus communis",
     medium: "Archival pigment print",
     aspect: "portrait" as Aspect,
   },
+
   {
+    id: "MBA-BP-0002",
     image: "/vellum.jpg",
     title: "Botanical Study II",
     latin: "Prunus persica",
     medium: "Archival pigment print",
     aspect: "portrait" as Aspect,
   },
+
   {
+    id: "MBA-BP-0003",
     image: "/hero.jpg",
     title: "Cultivated Form",
     latin: "Vitis vinifera",
     medium: "Archival pigment print",
     aspect: "landscape" as Aspect,
   },
+
   {
+    id: "MBA-BP-0004",
     image: "/sculptural.jpg",
     title: "Object Form",
     latin: "Malus domestica",
@@ -35,7 +42,6 @@ const works = [
     aspect: "square" as Aspect,
   },
 ];
-
 export default function BotanicalPortraitsPage() {
   const [frameStyle, setFrameStyle] = useState<FrameStyle>("modern");
 
