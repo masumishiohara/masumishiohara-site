@@ -1,6 +1,6 @@
 export default function PortraitOfFruitsPage() {
   return (
-    <main className="museumProjectPage">
+    <main className="museumProjectPage room-pf">
       <section className="museumProjectHero">
 
         <div className="museumCollectionHeader">
