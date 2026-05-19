@@ -10575,3 +10575,68 @@ body {
   letter-spacing: 0.2em !important;
   padding: 5px 10px;
 }
+/* ===================================
+   CURATORIAL HIERARCHY
+=================================== */
+
+/* ROOM I / origin chamber */
+
+.museumRoomCard:first-child {
+
+  transform:
+    scale(1.015);
+
+  z-index: 2;
+}
+
+/* CABINET */
+
+.museumRoomCard:last-child {
+
+  opacity: 0.82;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.028),
+      rgba(255,255,255,0.008)
+    ),
+    rgba(255,255,255,0.012) !important;
+
+  border:
+    1px solid
+    rgba(201,168,106,0.1) !important;
+}
+
+/* cabinet typography */
+
+.museumRoomCard:last-child
+.museumRoomTitle {
+
+  opacity: 0.88;
+}
+
+/* subtle room depth */
+
+.museumRoomCard:nth-child(2),
+.museumRoomCard:nth-child(3) {
+
+  transform:
+    translateY(10px);
+}
+
+.museumRoomCard:nth-child(4),
+.museumRoomCard:nth-child(5) {
+
+  transform:
+    translateY(30px);
+}
+
+/* hover recovery */
+
+.museumRoomCard:hover {
+
+  transform:
+    translateY(-6px)
+    scale(1.01) !important;
+}
