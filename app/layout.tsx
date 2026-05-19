@@ -1,9 +1,9 @@
 import "./globals.css";
+import type { Metadata } from "next";
 
-export const metadata = {
-  title: "Masumi Shiohara | Botanical Archive",
-  description:
-    "Masumi Shiohara official archive. Fruit cultivation, breeding, botanical photography, sculptural forms, and vellum works.",
+export const metadata: Metadata = {
+  title: "Maison Botanique Archive",
+  description: "A Private Museum of Cultivated Forms",
 };
 
 export default function RootLayout({
@@ -13,7 +13,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+
+        <div className="museumLoader">
+          <div className="museumLoaderInner">
+            <p>MAISON BOTANIQUE ARCHIVE</p>
+          </div>
+        </div>
+
+        {children}
+
+      </body>
     </html>
   );
 }
