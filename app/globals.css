@@ -10407,3 +10407,91 @@ body {
       blur(0);
   }
 }
+/* ===================================
+   MUSEUM TYPOGRAPHY REFINEMENT
+=================================== */
+
+/* hero titles */
+
+.museumHero h1,
+.museumProjectHero h1 {
+
+  font-family:
+    "Times New Roman",
+    serif;
+
+  font-weight:
+    300 !important;
+
+  letter-spacing:
+    -0.07em !important;
+
+  text-wrap:
+    balance;
+}
+
+/* room titles */
+
+.museumRoomTitle,
+.museumNextRoom a {
+
+  font-family:
+    "Times New Roman",
+    serif;
+
+  font-weight:
+    300 !important;
+
+  text-wrap:
+    balance;
+}
+
+/* institutional small text */
+
+.museumEyebrow,
+.museumRoomNumber,
+.museumRoomJP,
+.museumWallLabel,
+.museumRoomArrow {
+
+  text-transform:
+    uppercase;
+
+  font-size:
+    10px !important;
+
+  letter-spacing:
+    0.28em !important;
+}
+
+/* paragraph rhythm */
+
+.museumProjectLead,
+.museumRoomText,
+.museumArchiveStatement p {
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size:
+    14px !important;
+
+  line-height:
+    2.1 !important;
+
+  color:
+    rgba(239,231,216,0.56);
+}
+
+/* reduce visual density */
+
+.museumProjectPage {
+
+  -webkit-font-smoothing:
+    antialiased;
+
+  text-rendering:
+    geometricPrecision;
+}
