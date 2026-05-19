@@ -106,8 +106,8 @@ export default function BotanicalPortraitsPage() {
               <h2>{work.title}</h2>
               <span className="museumMedium">{work.medium}</span>
               <div className="museumWallLabel">
-                Collection of Maison Botanique Archive
-              </div>
+  {work.id}
+</div>
             </div>
           </article>
         ))}
