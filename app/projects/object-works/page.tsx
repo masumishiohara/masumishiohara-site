@@ -2,18 +2,24 @@ export default function ObjectWorksPage() {
   return (
     <main className="museumProjectPage">
       <section className="museumProjectHero">
-        <p className="museumEyebrow">
-          ROOM V
-        </p>
+
+        <div className="museumCollectionHeader">
+          <p className="museumEyebrow">
+            ROOM V
+          </p>
+
+          <span className="museumCollectionCode">
+            MBA-OW
+          </span>
+        </div>
 
         <h1>
           Object Works
         </h1>
 
         <p className="museumProjectLead">
-          Color objects, monochrome forms,
-          canvas sheet works, vellum prints,
-          and sculptural studies.
+          Canvas objects, monochrome forms,
+          vellum works, and material studies.
         </p>
       </section>
 
@@ -25,16 +31,19 @@ export default function ObjectWorksPage() {
 
           <p>
             These works move beyond the image.
-            They exist as surfaces, cultivated forms,
-            print objects, and material structures.
+            They exist as surfaces,
+            print objects,
+            and cultivated structures.
           </p>
         </div>
 
         <div>
           <p>
             The object room connects photography
-            with sculpture, cultivation,
-            surface, and memory.
+            with sculpture,
+            cultivation,
+            surface,
+            and material memory.
           </p>
         </div>
       </section>
