@@ -4625,3 +4625,60 @@ main {
     width: 46% !important;
   }
 }
+/* REAL FRAME SECOND ALIGNMENT FIX */
+
+.realFrame {
+  padding: 84px !important;
+}
+
+.realCorner {
+  width: 96px !important;
+  height: 96px !important;
+  object-fit: cover !important;
+}
+
+.realEdge.top,
+.realEdge.bottom {
+  left: 78px !important;
+  right: 78px !important;
+  width: calc(100% - 156px) !important;
+  height: 54px !important;
+  object-fit: fill !important;
+  z-index: 9 !important;
+}
+
+.realEdge.top {
+  top: 24px !important;
+}
+
+.realEdge.bottom {
+  bottom: 24px !important;
+}
+
+.realEdge.left,
+.realEdge.right {
+  top: 78px !important;
+  bottom: 78px !important;
+  width: 54px !important;
+  height: calc(100% - 156px) !important;
+  object-fit: fill !important;
+  z-index: 9 !important;
+}
+
+.realEdge.left {
+  left: 24px !important;
+}
+
+.realEdge.right {
+  right: 24px !important;
+}
+
+.realMat {
+  margin: 0 !important;
+  padding: clamp(38px, 5vw, 58px) !important;
+}
+
+.realPlate {
+  margin-top: 20px !important;
+  width: 24% !important;
+}
