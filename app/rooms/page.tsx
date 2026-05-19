@@ -91,6 +91,12 @@ export default function RoomsPage() {
           </Link>
         ))}
       </section>
+    <section className="museumClosingStatement">
+  <p>
+    Maison Botanique Archive is not a portfolio, but a private institution of
+    cultivated forms.
+  </p>
+</section>
     </main>
   );
 }
