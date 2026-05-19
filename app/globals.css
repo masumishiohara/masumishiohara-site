@@ -10222,3 +10222,99 @@ body {
     filter: blur(0);
   }
 }
+/* ===================================
+   ROOM DISTANCE / MUSEUM DEPTH
+=================================== */
+
+.museumNextRoom {
+
+  position: relative;
+
+  width:
+    min(1280px, 88%);
+
+  margin:
+    0 auto 220px;
+
+  padding-top:
+    120px;
+
+  border-top:
+    1px solid
+    rgba(201,168,106,0.16);
+}
+
+/* next room air */
+
+.museumNextRoom::before {
+
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: -120px;
+
+  transform:
+    translateX(-50%);
+
+  width: 120%;
+  height: 240px;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(255,220,150,0.04),
+      transparent 72%
+    );
+
+  pointer-events: none;
+}
+
+.museumNextRoom p {
+
+  font-size: 11px;
+
+  letter-spacing: 0.26em;
+
+  color:
+    rgba(201,168,106,0.72);
+}
+
+.museumNextRoom a {
+
+  display: inline-block;
+
+  margin-top: 34px;
+
+  font-size:
+    clamp(
+      44px,
+      5vw,
+      96px
+    );
+
+  line-height: 0.9;
+
+  letter-spacing:
+    -0.06em;
+
+  font-weight: 300;
+
+  color:
+    rgba(239,231,216,0.92);
+
+  text-decoration: none;
+
+  transition:
+    opacity 1.2s ease,
+    transform 1.2s ease;
+}
+
+.museumNextRoom a:hover {
+
+  opacity: 0.82;
+
+  transform:
+    translateX(8px);
+}
