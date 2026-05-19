@@ -11194,3 +11194,70 @@ body {
 
   top: -1px;
 }
+/* ===================================
+   WALL VIGNETTE / ROOM DEPTH
+=================================== */
+
+.museumProjectPage {
+  position: relative;
+}
+
+.museumProjectPage::after {
+  content: "";
+
+  position: fixed;
+
+  inset: 0;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      transparent 44%,
+      rgba(0,0,0,0.18) 100%
+    );
+
+  pointer-events: none;
+
+  z-index: 0;
+}
+
+/* upper darkness */
+
+.museumProjectPage::before {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,0.24) 0%,
+      transparent 28%
+    ),
+
+    radial-gradient(
+      ellipse at top,
+      rgba(255,240,210,0.03),
+      transparent 60%
+    ) !important;
+}
+
+/* floor darkness */
+
+.museumArtworkGrid::after {
+
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: -120px;
+
+  height: 260px;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent,
+      rgba(0,0,0,0.32)
+    );
+
+  pointer-events: none;
+}
