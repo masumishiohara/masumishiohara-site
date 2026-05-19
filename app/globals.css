@@ -11899,3 +11899,75 @@ button:focus-visible {
     width: calc(100% - 40px) !important;
   }
 }
+/* ===================================
+   IMAGE REVEAL SYSTEM
+=================================== */
+
+.realWindow {
+  overflow: hidden;
+}
+
+.realWindow img {
+
+  opacity: 0;
+
+  transform:
+    scale(1.04);
+
+  filter:
+    blur(10px);
+
+  animation:
+    artworkReveal 2.2s ease forwards;
+
+  animation-delay:
+    0.2s;
+}
+
+/* stagger */
+
+.museumArtworkCard:nth-child(2)
+.realWindow img {
+
+  animation-delay:
+    0.4s;
+}
+
+.museumArtworkCard:nth-child(3)
+.realWindow img {
+
+  animation-delay:
+    0.6s;
+}
+
+.museumArtworkCard:nth-child(4)
+.realWindow img {
+
+  animation-delay:
+    0.8s;
+}
+
+@keyframes artworkReveal {
+
+  0% {
+
+    opacity: 0;
+
+    transform:
+      scale(1.04);
+
+    filter:
+      blur(10px);
+  }
+
+  100% {
+
+    opacity: 1;
+
+    transform:
+      scale(1);
+
+    filter:
+      blur(0);
+  }
+}
