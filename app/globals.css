@@ -11261,3 +11261,72 @@ body {
 
   pointer-events: none;
 }
+/* ===================================
+   CURATORIAL CLIMATE
+=================================== */
+
+/* FARM = warmer */
+
+body:has([href="/projects/farm"]) .museumProjectPage {
+
+  background:
+    radial-gradient(
+      circle at 50% -10%,
+      rgba(220,170,90,0.16),
+      transparent 34%
+    ),
+
+    linear-gradient(
+      180deg,
+      #100d09 0%,
+      #090705 100%
+    ) !important;
+}
+
+/* ARCHIVE = colder */
+
+body:has([href="/projects/archive"]) .museumProjectPage {
+
+  background:
+    radial-gradient(
+      circle at 50% -10%,
+      rgba(150,170,210,0.08),
+      transparent 34%
+    ),
+
+    linear-gradient(
+      180deg,
+      #07080a 0%,
+      #040506 100%
+    ) !important;
+}
+
+/* OBJECT WORKS = darker */
+
+body:has([href="/projects/object-works"]) .museumProjectPage {
+
+  background:
+    radial-gradient(
+      circle at 50% -10%,
+      rgba(255,255,255,0.04),
+      transparent 34%
+    ),
+
+    linear-gradient(
+      180deg,
+      #050505 0%,
+      #020202 100%
+    ) !important;
+}
+
+/* CABINET = silent */
+
+body:has([href="/projects/cabinet"]) .museumProjectPage {
+
+  background:
+    linear-gradient(
+      180deg,
+      #060606 0%,
+      #030303 100%
+    ) !important;
+}
