@@ -10808,3 +10808,56 @@ body {
   background:
     rgba(255,255,255,0.04);
 }
+/* ===================================
+   LANDING DEPTH REFINEMENT
+=================================== */
+
+.museumLanding::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse at center,
+      transparent 48%,
+      rgba(0,0,0,0.24) 100%
+    );
+  pointer-events: none;
+}
+
+.museumLandingHero {
+  position: relative;
+  z-index: 2;
+  animation: landingSlowReveal 2.4s ease both;
+}
+
+@keyframes landingSlowReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+    filter: blur(14px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.museumEntranceButton::after {
+  content: "→";
+  margin-left: 18px;
+  opacity: 0.72;
+}
+
+@media (max-width: 700px) {
+  .museumLanding {
+    align-items: flex-start;
+    padding-top: 110px;
+  }
+
+  .museumLanding h1 {
+    font-size: clamp(64px, 18vw, 120px);
+  }
+}
