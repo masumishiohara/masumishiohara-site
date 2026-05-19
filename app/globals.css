@@ -11370,3 +11370,76 @@ body:has([href="/projects/cabinet"]) .museumProjectPage {
   color:
     rgba(201,168,106,0.72);
 }
+/* ===================================
+   CURATORIAL LIGHT TEMPERATURE
+=================================== */
+
+/* FARM = warm agricultural light */
+
+body:has(.museumCollectionCode:contains("MBA-FM"))
+.realFrame::before {
+
+  background:
+    radial-gradient(
+      ellipse at top,
+      rgba(255,210,130,0.42),
+      rgba(255,210,130,0.12) 46%,
+      transparent 78%
+    ) !important;
+}
+
+/* BOTANICAL = neutral museum */
+
+body:has(.museumCollectionCode:contains("MBA-BP"))
+.realFrame::before {
+
+  background:
+    radial-gradient(
+      ellipse at top,
+      rgba(236,194,112,0.34),
+      rgba(236,194,112,0.1) 45%,
+      transparent 78%
+    ) !important;
+}
+
+/* PORTRAIT = slightly romantic */
+
+body:has(.museumCollectionCode:contains("MBA-PF"))
+.realFrame::before {
+
+  background:
+    radial-gradient(
+      ellipse at top,
+      rgba(255,190,170,0.26),
+      rgba(255,190,170,0.08) 45%,
+      transparent 78%
+    ) !important;
+}
+
+/* ARCHIVE = colder */
+
+body:has(.museumCollectionCode:contains("MBA-AR"))
+.realFrame::before {
+
+  background:
+    radial-gradient(
+      ellipse at top,
+      rgba(180,200,255,0.18),
+      rgba(180,200,255,0.04) 45%,
+      transparent 78%
+    ) !important;
+}
+
+/* OBJECT = darker focused */
+
+body:has(.museumCollectionCode:contains("MBA-OW"))
+.realFrame::before {
+
+  background:
+    radial-gradient(
+      ellipse at top,
+      rgba(255,255,255,0.12),
+      rgba(255,255,255,0.02) 45%,
+      transparent 78%
+    ) !important;
+}
