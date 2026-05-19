@@ -12313,3 +12313,114 @@ button:focus-visible {
   opacity:
     0.42 !important;
 }
+/* ===================================
+   ARCHITECTURAL ROOM NUMBERING
+=================================== */
+
+.museumCollectionHeader {
+
+  position: relative;
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  gap:
+    22px;
+
+  padding:
+    16px
+    22px;
+
+  border:
+    1px solid
+    rgba(201,168,106,0.12);
+
+  background:
+    rgba(255,255,255,0.018);
+
+  backdrop-filter:
+    blur(12px);
+
+  box-shadow:
+    0 24px 80px rgba(0,0,0,0.28);
+}
+
+/* vertical line */
+
+.museumCollectionHeader::before {
+
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+  width: 1px;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent,
+      rgba(201,168,106,0.82),
+      transparent
+    );
+}
+
+/* room number */
+
+.museumEyebrow {
+
+  font-size:
+    10px !important;
+
+  letter-spacing:
+    0.34em !important;
+
+  color:
+    rgba(201,168,106,0.72) !important;
+
+  margin:
+    0 !important;
+}
+
+/* taxonomy */
+
+.museumCollectionCode {
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  min-width:
+    84px;
+
+  padding:
+    6px
+    12px;
+
+  border:
+    1px solid
+    rgba(201,168,106,0.16);
+
+  background:
+    rgba(255,255,255,0.02);
+
+  font-size:
+    9px !important;
+
+  letter-spacing:
+    0.24em !important;
+
+  color:
+    rgba(239,231,216,0.68);
+}
