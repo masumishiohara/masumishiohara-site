@@ -11563,3 +11563,108 @@ body {
       transparent 78%
     ) !important;
 }
+/* ===================================
+   ROOM WALL PIGMENT
+=================================== */
+
+/* FARM */
+
+.room-farm {
+
+  background:
+    radial-gradient(
+      circle at 50% -10%,
+      rgba(220,170,90,0.12),
+      transparent 34%
+    ),
+
+    linear-gradient(
+      180deg,
+      #100d09 0%,
+      #090705 100%
+    ) !important;
+}
+
+/* BOTANICAL */
+
+.room-bp {
+
+  background:
+    radial-gradient(
+      circle at 50% -10%,
+      rgba(205,164,92,0.14),
+      transparent 34%
+    ),
+
+    linear-gradient(
+      180deg,
+      #0c0a08 0%,
+      #060504 100%
+    ) !important;
+}
+
+/* PORTRAIT */
+
+.room-pf {
+
+  background:
+    radial-gradient(
+      circle at 50% -10%,
+      rgba(255,180,170,0.08),
+      transparent 34%
+    ),
+
+    linear-gradient(
+      180deg,
+      #0d0909 0%,
+      #060404 100%
+    ) !important;
+}
+
+/* ARCHIVE */
+
+.room-ar {
+
+  background:
+    radial-gradient(
+      circle at 50% -10%,
+      rgba(170,190,220,0.06),
+      transparent 34%
+    ),
+
+    linear-gradient(
+      180deg,
+      #07080a 0%,
+      #040506 100%
+    ) !important;
+}
+
+/* OBJECT */
+
+.room-ow {
+
+  background:
+    radial-gradient(
+      circle at 50% -10%,
+      rgba(255,255,255,0.03),
+      transparent 34%
+    ),
+
+    linear-gradient(
+      180deg,
+      #050505 0%,
+      #020202 100%
+    ) !important;
+}
+
+/* CABINET */
+
+.room-cb {
+
+  background:
+    linear-gradient(
+      180deg,
+      #060606 0%,
+      #030303 100%
+    ) !important;
+}
