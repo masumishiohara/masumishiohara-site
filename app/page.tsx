@@ -25,6 +25,19 @@ export default function HomePage() {
           </p>
         </div>
 
+<section className="museumEditorialQuote">
+
+  <p className="museumEditorialLabel">
+    CURATORIAL POSITION
+  </p>
+
+  <blockquote>
+    “The archive does not document agriculture.
+    It transforms cultivation into cultural form.”
+  </blockquote>
+
+</section>
+        
         <a
           href="/rooms"
           className="museumEntranceButton"
