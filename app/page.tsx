@@ -52,6 +52,13 @@ export default function HomePage() {
   </span>
 
 </div>
+
+<div className="museumAppointmentNote">
+  <p>
+    Private appointments, curatorial presentations,
+    and installation studies may be arranged upon request.
+  </p>
+</div>
         
       </section>
     </main>
