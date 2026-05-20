@@ -13796,3 +13796,92 @@ button {
 .museumLandingDirectory a:hover {
   border-color: rgba(201,168,106,0.34) !important;
 }
+/* ===================================
+   POMOLOGICAL MAGNIFICENCE
+=================================== */
+
+/* poetic glow */
+
+.museumEditorialQuote blockquote,
+.museumInstitutionalEvidence h2,
+.museumCollectorMode h2,
+.museumViewingPolicy h2 {
+
+  text-shadow:
+    0 0 40px rgba(201,168,106,0.04),
+    0 0 120px rgba(201,168,106,0.03);
+}
+
+/* orchard atmosphere */
+
+.museumLanding::before {
+
+  background:
+    radial-gradient(
+      ellipse at top,
+      rgba(255,240,210,0.03),
+      transparent 60%
+    ),
+
+    radial-gradient(
+      circle at 80% 18%,
+      rgba(201,168,106,0.05),
+      transparent 26%
+    ),
+
+    radial-gradient(
+      circle at 18% 82%,
+      rgba(120,90,55,0.08),
+      transparent 28%
+    ) !important;
+}
+
+/* cultivated gold */
+
+.museumCollectionCode,
+.museumRoomNumber,
+.museumEyebrow {
+
+  color:
+    rgba(201,168,106,0.78) !important;
+}
+
+/* softer magnificence */
+
+.museumLanding h1,
+.museumProjectHero h1 {
+
+  text-shadow:
+    0 60px 140px rgba(0,0,0,0.62),
+    0 0 80px rgba(201,168,106,0.04);
+}
+
+/* van cleef style quiet elegance */
+
+.museumLandingDirectory a,
+.museumEntranceButton,
+.museumCollectorMode a,
+.museumPressAccess a {
+
+  border:
+    1px solid
+    rgba(201,168,106,0.12) !important;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.024),
+      rgba(255,255,255,0.006)
+    ),
+    rgba(255,255,255,0.01) !important;
+}
+
+/* poetic silence */
+
+.museumProjectLead,
+.museumRoomText,
+.museumExhibitionNote {
+
+  color:
+    rgba(239,231,216,0.52) !important;
+}
