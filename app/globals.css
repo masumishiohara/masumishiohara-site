@@ -12945,3 +12945,55 @@ button:focus-visible {
   color:
     rgba(239,231,216,0.52);
 }
+/* ===================================
+   EXHIBITION EDITORIAL SYSTEM
+=================================== */
+
+.room-exhibitions {
+
+  background:
+    radial-gradient(
+      circle at 50% -10%,
+      rgba(220,180,120,0.08),
+      transparent 34%
+    ),
+
+    linear-gradient(
+      180deg,
+      #080706 0%,
+      #030303 100%
+    ) !important;
+}
+
+.museumExhibitionType {
+
+  margin-top:
+    18px;
+
+  font-size:
+    11px;
+
+  letter-spacing:
+    0.22em;
+
+  color:
+    rgba(201,168,106,0.72);
+}
+
+.museumExhibitionNote {
+
+  margin-top:
+    18px;
+
+  max-width:
+    720px;
+
+  font-size:
+    14px;
+
+  line-height:
+    2;
+
+  color:
+    rgba(239,231,216,0.56);
+}
