@@ -1,6 +1,6 @@
 export default function AboutPage() {
   return (
-    <main className="museumProjectPage">
+    <main className="museumProjectPage room-about">
       <section className="museumProjectHero">
         <div className="museumCollectionHeader">
           <p className="museumEyebrow">ABOUT</p>
@@ -10,9 +10,9 @@ export default function AboutPage() {
         <h1>About the Archive</h1>
 
         <p className="museumProjectLead">
-          Maison Botanique Archive is a private institution of cultivated forms,
-          developed through agriculture, breeding, photography, object making,
-          and exhibition research.
+          Maison Botanique Archive is a private institution of cultivated fruit
+          forms, developed through pomology, agriculture, breeding, photography,
+          object making, and exhibition research.
         </p>
       </section>
 
@@ -25,14 +25,14 @@ export default function AboutPage() {
 
         <div>
           <p>
-            The works emerge from the field before they enter the image.
+            The works emerge from the orchard before they enter the image.
             Fruit, branch, surface, weather, selection, and time are treated as
             materials within a single artistic practice.
           </p>
 
           <p>
-            The archive brings together botanical portraiture, cultivated
-            objects, material studies, and installation research.
+            The archive brings together fruit portraiture, cultivated objects,
+            pomological studies, material presence, and installation research.
           </p>
         </div>
       </section>
