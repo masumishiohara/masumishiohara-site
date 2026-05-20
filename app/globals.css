@@ -13996,3 +13996,28 @@ button {
   text-shadow:
     0 0 40px rgba(201,168,106,0.03);
 }
+/* ===================================
+   FRAMING ATELIER REFINEMENT
+=================================== */
+
+.frameControlPanel {
+  opacity: 0.82;
+}
+
+.frameControlInner p {
+  font-family: "Times New Roman", serif;
+  font-size: 13px !important;
+  letter-spacing: 0.28em !important;
+  color: rgba(201,168,106,0.72) !important;
+}
+
+.frameButtons button {
+  border-radius: 0;
+  text-transform: none !important;
+  opacity: 0.72;
+}
+
+.frameButtons button.active {
+  background: rgba(201,168,106,0.72) !important;
+  color: #050403 !important;
+}
