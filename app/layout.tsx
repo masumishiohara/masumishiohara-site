@@ -28,6 +28,7 @@ export default function RootLayout({
 
           <nav className="museumGlobalNav">
             <a href="/rooms">Rooms</a>
+            <a href="/philosophy">Philosophy</a>
             <a href="/space">Studies</a>
             <a href="/exhibitions">Exhibitions</a>
             <a href="/private-preview">Private Preview</a>
@@ -52,6 +53,7 @@ export default function RootLayout({
 
             <nav className="museumFooterNav">
               <a href="/rooms">Rooms</a>
+              <a href="/philosophy">Philosophy</a>
               <a href="/space">Installation Studies</a>
               <a href="/exhibitions">Exhibitions</a>
               <a href="/publications">Publications</a>
