@@ -79,6 +79,19 @@ export default function HomePage() {
           </p>
         </div>
       </section>
+
+      <section className="museumLandingDirectory">
+
+  <a href="/rooms">
+    Exhibition Rooms
+  </a>
+
+  <a href="/space">
+    Installation Studies
+  </a>
+
+</section>
+      
     </main>
   );
 }
