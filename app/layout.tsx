@@ -3,7 +3,8 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Maison Botanique Archive",
-  description: "A Private Museum of Cultivated Forms",
+  description:
+    "A Private Museum of Cultivated Fruit Forms — pomology, orchard time, fruit portraiture, archive, object, and exhibition research.",
 };
 
 export default function RootLayout({
@@ -44,8 +45,8 @@ export default function RootLayout({
               </p>
 
               <p className="museumFooterStatement">
-                Cultivation, archive, botanical portrait, object, and exhibition
-                research.
+                Cultivated fruit forms, pomological archive, object, and
+                exhibition research.
               </p>
             </div>
 
