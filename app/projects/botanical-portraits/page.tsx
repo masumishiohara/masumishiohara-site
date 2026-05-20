@@ -88,8 +88,7 @@ export default function FruitPortraitsPage() {
 
       <section className="frameControlPanel">
         <div className="frameControlInner">
-          <p>FRAME STUDY</p>
-
+         <p>FRAMING ATELIER</p>
           <div className="frameButtons">
             {(["modern", "antique", "elegant"] as FrameStyle[]).map((style) => (
               <button
