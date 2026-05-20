@@ -13902,3 +13902,26 @@ button {
       #030302 100%
     ) !important;
 }
+/* ===================================
+   PHILOSOPHY REFINEMENT
+=================================== */
+
+.room-philosophy .museumProjectHero h1 {
+  max-width: 1180px;
+}
+
+.room-philosophy .museumArchiveStatement h2 {
+  color: rgba(239,231,216,0.86);
+  text-shadow:
+    0 0 80px rgba(201,168,106,0.06);
+}
+
+.room-philosophy .museumArchiveStatement p {
+  color: rgba(239,231,216,0.58);
+}
+
+.room-philosophy .museumNextRoom {
+  border-top:
+    1px solid
+    rgba(201,168,106,0.14);
+}
