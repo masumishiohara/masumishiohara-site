@@ -58,6 +58,21 @@ export default function HomePage() {
 <section className="museumDossierBlock">
   <section className="museumPressAccess">
     <section className="museumInstitutionalAccess">
+     <section className="museumViewingPolicy">
+
+  <p className="museumEditorialLabel">
+    VIEWING POLICY
+  </p>
+
+  <h2>
+    Certain studies,
+    installation materials,
+    and archival works
+    are accessible
+    by appointment only.
+  </h2>
+
+</section> 
 
   <p className="museumEditorialLabel">
     INSTITUTIONAL ACCESS
