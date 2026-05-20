@@ -13663,3 +13663,43 @@ button {
     display: none;
   }
 }
+/* ===================================
+   GLOBAL HEADER REFINEMENT
+=================================== */
+
+.museumGlobalHeader {
+  mix-blend-mode: normal;
+  backdrop-filter: blur(6px);
+}
+
+.museumGlobalHeader::after {
+  content: "";
+  position: absolute;
+  left: 4vw;
+  right: 4vw;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(201,168,106,0.18),
+    transparent 70%
+  );
+}
+
+.museumGlobalLogo {
+  opacity: 0.78;
+  transition: opacity 1.2s ease;
+}
+
+.museumGlobalLogo:hover {
+  opacity: 1;
+}
+
+.museumGlobalNav a {
+  opacity: 0.62;
+  transition: opacity 1.2s ease, color 1.2s ease;
+}
+
+.museumGlobalNav a:hover {
+  opacity: 1;
+}
