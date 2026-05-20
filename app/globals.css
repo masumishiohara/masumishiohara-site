@@ -12739,3 +12739,72 @@ button:focus-visible {
     font-size: clamp(34px, 10vw, 64px) !important;
   }
 }
+/* ===================================
+   LANDING DIRECTORY
+=================================== */
+
+.museumLandingDirectory {
+
+  width:
+    min(1280px, 88%);
+
+  margin:
+    0 auto 220px;
+
+  display:
+    flex;
+
+  flex-wrap:
+    wrap;
+
+  gap:
+    28px;
+}
+
+.museumLandingDirectory a {
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  padding:
+    18px
+    26px;
+
+  border:
+    1px solid
+    rgba(201,168,106,0.14);
+
+  background:
+    rgba(255,255,255,0.018);
+
+  backdrop-filter:
+    blur(10px);
+
+  text-decoration:
+    none;
+
+  color:
+    rgba(239,231,216,0.78);
+
+  font-size:
+    11px;
+
+  letter-spacing:
+    0.24em;
+
+  transition:
+    transform 1.2s ease,
+    background 1.2s ease;
+}
+
+.museumLandingDirectory a:hover {
+
+  transform:
+    translateY(-4px);
+
+  background:
+    rgba(255,255,255,0.04);
+}
