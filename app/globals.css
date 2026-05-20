@@ -13166,3 +13166,98 @@ button {
     opacity: 1 !important;
   }
 }
+/* ===================================
+   COLLECTOR MODE
+=================================== */
+
+.museumCollectorMode {
+
+  margin-top:
+    120px;
+
+  max-width:
+    980px;
+}
+
+.museumCollectorMode h2 {
+
+  margin-top:
+    26px;
+
+  font-family:
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      36px,
+      4vw,
+      82px
+    );
+
+  line-height:
+    1;
+
+  letter-spacing:
+    -0.06em;
+
+  font-weight:
+    300;
+
+  max-width:
+    900px;
+
+  color:
+    rgba(239,231,216,0.82);
+}
+
+.museumCollectorMode a {
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  margin-top:
+    42px;
+
+  padding:
+    18px
+    26px;
+
+  border:
+    1px solid
+    rgba(201,168,106,0.14);
+
+  background:
+    rgba(255,255,255,0.018);
+
+  backdrop-filter:
+    blur(10px);
+
+  text-decoration:
+    none;
+
+  color:
+    rgba(239,231,216,0.82);
+
+  font-size:
+    11px;
+
+  letter-spacing:
+    0.24em;
+
+  transition:
+    transform 1.2s ease,
+    background 1.2s ease;
+}
+
+.museumCollectorMode a:hover {
+
+  transform:
+    translateY(-4px);
+
+  background:
+    rgba(255,255,255,0.04);
+}
