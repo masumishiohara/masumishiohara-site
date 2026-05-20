@@ -12997,3 +12997,22 @@ button:focus-visible {
   color:
     rgba(239,231,216,0.56);
 }
+/* ===================================
+   PUBLICATIONS
+=================================== */
+
+.room-publications {
+
+  background:
+    radial-gradient(
+      circle at 50% -10%,
+      rgba(220,200,160,0.08),
+      transparent 34%
+    ),
+
+    linear-gradient(
+      180deg,
+      #090806 0%,
+      #030303 100%
+    ) !important;
+}
