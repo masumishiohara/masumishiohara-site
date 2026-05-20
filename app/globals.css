@@ -12569,3 +12569,59 @@ button:focus-visible {
   font-weight: 300;
   color: rgba(239,231,216,0.78);
 }
+/* ===================================
+   EDITORIAL AUTHORITY
+=================================== */
+
+.museumEditorialQuote {
+
+  margin-top:
+    90px;
+
+  max-width:
+    980px;
+}
+
+.museumEditorialLabel {
+
+  font-size:
+    10px;
+
+  letter-spacing:
+    0.32em;
+
+  color:
+    rgba(201,168,106,0.68);
+}
+
+.museumEditorialQuote blockquote {
+
+  margin-top:
+    28px;
+
+  font-family:
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      32px,
+      3.6vw,
+      74px
+    );
+
+  line-height:
+    1.04;
+
+  letter-spacing:
+    -0.06em;
+
+  font-weight:
+    300;
+
+  color:
+    rgba(239,231,216,0.82);
+
+  max-width:
+    960px;
+}
