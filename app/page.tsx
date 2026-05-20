@@ -54,6 +54,24 @@ export default function HomePage() {
         </div>
 
         <div className="museumAppointmentNote">
+          <section className="museumCollectorMode">
+
+  <p className="museumEditorialLabel">
+    COLLECTOR MODE
+  </p>
+
+  <h2>
+    Works may also be viewed
+    through architectural placement,
+    collector installation,
+    and curatorial study.
+  </h2>
+
+  <a href="/space">
+    Open Installation Studies
+  </a>
+
+</section>
           <p>
             Private appointments,
             curatorial presentations,
