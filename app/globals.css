@@ -12808,3 +12808,54 @@ button:focus-visible {
   background:
     rgba(255,255,255,0.04);
 }
+/* ===================================
+   EDITORIAL FOOTER
+=================================== */
+
+.museumEditorialFooter {
+
+  width:
+    min(1280px, 88%);
+
+  margin:
+    0 auto 180px;
+
+  padding-top:
+    80px;
+
+  border-top:
+    1px solid
+    rgba(201,168,106,0.12);
+}
+
+.museumEditorialStatement {
+
+  margin-top:
+    24px;
+
+  max-width:
+    760px;
+
+  font-family:
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      28px,
+      3vw,
+      58px
+    );
+
+  line-height:
+    1.08;
+
+  letter-spacing:
+    -0.05em;
+
+  font-weight:
+    300;
+
+  color:
+    rgba(239,231,216,0.74);
+}
