@@ -13128,3 +13128,41 @@ button {
       blur(0);
   }
 }
+/* ===================================
+   EDITORIAL IMAGE SEQUENCING
+=================================== */
+
+.museumArtworkCard.large {
+  transform: scale(1.04);
+}
+
+.museumArtworkCard.medium {
+  transform: scale(0.96);
+}
+
+.museumArtworkCard.wide {
+  transform: scale(1);
+  margin-top: 140px;
+}
+
+.museumArtworkCard.small {
+  transform: scale(0.82);
+  opacity: 0.92;
+}
+
+.museumArtworkCard:hover {
+  transform:
+    translateY(-6px)
+    scale(1.01) !important;
+}
+
+@media (max-width: 980px) {
+  .museumArtworkCard.large,
+  .museumArtworkCard.medium,
+  .museumArtworkCard.wide,
+  .museumArtworkCard.small {
+    transform: none !important;
+    margin-top: 0 !important;
+    opacity: 1 !important;
+  }
+}
