@@ -196,6 +196,10 @@ export default function HomePage() {
           About the Archive
         </a>
 
+        <a href="/private-preview">
+  Private Preview
+</a>
+
       </section>
 
       <section className="museumEditorialFooter">
