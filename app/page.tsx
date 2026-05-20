@@ -2,7 +2,9 @@ export default function HomePage() {
   return (
     <main className="museumLanding">
       <section className="museumLandingHero">
-        <p className="museumLandingEyebrow">MAISON BOTANIQUE ARCHIVE</p>
+        <p className="museumLandingEyebrow">
+          MAISON BOTANIQUE ARCHIVE
+        </p>
 
         <h1>
           A Private Museum
@@ -22,7 +24,9 @@ export default function HomePage() {
         </div>
 
         <section className="museumEditorialQuote">
-          <p className="museumEditorialLabel">POMOLOGICAL POETICS</p>
+          <p className="museumEditorialLabel">
+            POMOLOGICAL POETICS
+          </p>
 
           <blockquote>
             “A fruit becomes magnificent when cultivation, patience, form,
@@ -37,7 +41,9 @@ export default function HomePage() {
 
       <section className="museumInstitutionalEvidence">
         <div>
-          <p className="museumEditorialLabel">INSTITUTIONAL PRESENCE</p>
+          <p className="museumEditorialLabel">
+            INSTITUTIONAL PRESENCE
+          </p>
 
           <h2>
             Exhibition, publication, cultivation, and archive are treated here as
@@ -58,6 +64,7 @@ export default function HomePage() {
         <a href="/rooms">Exhibition Rooms</a>
         <a href="/philosophy">Philosophy</a>
         <a href="/space">Installation Studies</a>
+        <a href="/framing-study">Framing Atelier</a>
         <a href="/exhibitions">Exhibitions & Publications</a>
         <a href="/publications">Publications</a>
         <a href="/conversations">Conversations</a>
