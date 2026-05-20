@@ -7,15 +7,15 @@ const rooms = [
     title: "Farm",
     jp: "農園",
     href: "/projects/farm",
-    text: "Cultivation, labor, breeding, field memory, and agricultural time.",
+    text: "Cultivation, breeding, orchard time, field memory, and the origin of the works.",
   },
   {
     label: "ROOM II",
     code: "MBA-BP",
-    title: "Botanical Portraits",
-    jp: "植物",
+    title: "Fruit Portraits",
+    jp: "果実",
     href: "/projects/botanical-portraits",
-    text: "Cultivated fruit presented as botanical portrait and archival specimen.",
+    text: "Cultivated fruit presented as portrait, specimen, and pomological form.",
   },
   {
     label: "ROOM III",
@@ -23,7 +23,7 @@ const rooms = [
     title: "Portrait of Fruits",
     jp: "人物",
     href: "/projects/portrait-of-fruits",
-    text: "Human presence represented through cultivated forms and symbolic arrangements.",
+    text: "Human presence represented through cultivated fruit forms and symbolic arrangements.",
   },
   {
     label: "ROOM IV",
@@ -31,7 +31,7 @@ const rooms = [
     title: "Archive",
     jp: "収蔵",
     href: "/projects/archive",
-    text: "Breeding records, agricultural memory, and cultivated time.",
+    text: "Breeding records, cultivated memory, selected forms, and agricultural time.",
   },
   {
     label: "ROOM V",
@@ -64,16 +64,18 @@ export default function RoomsPage() {
     <main className="museumProjectPage">
       <section className="museumHero">
         <p className="museumEyebrow">MAISON BOTANIQUE ARCHIVE</p>
+
         <h1>Exhibition Rooms</h1>
+
         <p className="museumLead">
-          From farm to plant, from plant to portrait, from portrait to archive,
+          From orchard to fruit, from fruit to portrait, from portrait to archive,
           and from archive to object.
         </p>
       </section>
 
       <section className="museumSequence">
         <div className="museumSequenceLine">
-          農園 <span /> 植物 <span /> 人物 <span /> 収蔵 <span /> object
+          農園 <span /> 果実 <span /> 人物 <span /> 収蔵 <span /> object
         </div>
       </section>
 
