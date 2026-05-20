@@ -13925,3 +13925,74 @@ button {
     1px solid
     rgba(201,168,106,0.14);
 }
+/* ===================================
+   FRUIT PORTRAITS MAGNIFICENCE
+=================================== */
+
+.room-bp .museumProjectHero h1 {
+
+  text-shadow:
+    0 60px 140px rgba(0,0,0,0.62),
+    0 0 120px rgba(201,168,106,0.05);
+
+  max-width:
+    1200px;
+}
+
+/* orchard glow */
+
+.room-bp::before {
+
+  background:
+    radial-gradient(
+      ellipse at top,
+      rgba(255,220,150,0.04),
+      transparent 60%
+    ),
+
+    radial-gradient(
+      circle at 78% 18%,
+      rgba(201,168,106,0.05),
+      transparent 26%
+    ),
+
+    radial-gradient(
+      circle at 18% 82%,
+      rgba(120,90,55,0.08),
+      transparent 28%
+    ) !important;
+}
+
+/* cultivated gold */
+
+.room-bp .museumCollectionCode,
+.room-bp .museumEyebrow {
+
+  color:
+    rgba(201,168,106,0.82) !important;
+}
+
+/* poetic wall labels */
+
+.room-bp .museumWallLabel {
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.028),
+      rgba(255,255,255,0.008)
+    ),
+    rgba(255,255,255,0.012) !important;
+
+  border:
+    1px solid
+    rgba(201,168,106,0.14) !important;
+}
+
+/* van cleef style silence */
+
+.room-bp .museumArtworkMeta h2 {
+
+  text-shadow:
+    0 0 40px rgba(201,168,106,0.03);
+}
