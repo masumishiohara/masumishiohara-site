@@ -13478,3 +13478,20 @@ button {
   text-wrap:
     balance;
 }
+/* ===================================
+   PRIVATE PREVIEW
+=================================== */
+
+.room-private {
+  background:
+    radial-gradient(
+      circle at 50% -10%,
+      rgba(201,168,106,0.07),
+      transparent 34%
+    ),
+    linear-gradient(
+      180deg,
+      #050403 0%,
+      #020202 100%
+    ) !important;
+}
