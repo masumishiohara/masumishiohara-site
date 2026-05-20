@@ -13051,3 +13051,80 @@ button:focus-visible {
     min-height: 78px;
   }
 }
+/* ===================================
+   INSTITUTIONAL TEMPO
+=================================== */
+
+/* slower interaction */
+
+a,
+button {
+
+  transition:
+    opacity 1.2s ease,
+    transform 1.2s ease,
+    background 1.2s ease,
+    border-color 1.2s ease !important;
+}
+
+/* breathing hover */
+
+.museumLandingDirectory a:hover,
+.museumEntranceButton:hover,
+.museumRoomCard:hover {
+
+  transform:
+    translateY(-4px)
+    scale(1.003) !important;
+}
+
+/* reduce visual aggression */
+
+.museumLandingDirectory a,
+.museumEntranceButton {
+
+  box-shadow:
+    0 24px 80px rgba(0,0,0,0.18);
+}
+
+/* slow opacity */
+
+.museumLandingDirectory a:hover {
+
+  opacity:
+    0.92;
+}
+
+/* institutional silence */
+
+.museumLanding,
+.museumProjectPage {
+
+  animation:
+    institutionalReveal 2.8s ease both;
+}
+
+@keyframes institutionalReveal {
+
+  0% {
+
+    opacity: 0;
+
+    transform:
+      translateY(20px);
+
+    filter:
+      blur(12px);
+  }
+
+  100% {
+
+    opacity: 1;
+
+    transform:
+      translateY(0);
+
+    filter:
+      blur(0);
+  }
+}
