@@ -12481,3 +12481,72 @@ button:focus-visible {
   opacity:
     0.18 !important;
 }
+/* ===================================
+   INSTITUTIONAL BREADCRUMB
+=================================== */
+
+.museumInstitutionBar {
+
+  width:
+    min(1480px, 92%);
+
+  margin:
+    0 auto;
+
+  padding-top:
+    28px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  gap:
+    24px;
+
+  font-size:
+    10px;
+
+  letter-spacing:
+    0.28em;
+
+  color:
+    rgba(201,168,106,0.62);
+}
+
+.museumInstitutionBarLeft {
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    18px;
+}
+
+.museumInstitutionDot {
+
+  width:
+    4px;
+
+  height:
+    4px;
+
+  border-radius:
+    50%;
+
+  background:
+    rgba(201,168,106,0.72);
+}
+
+.museumInstitutionBarRight {
+
+  opacity:
+    0.52;
+}
