@@ -100,3 +100,12 @@ export default function RoomsPage() {
     </main>
   );
 }
+{
+  label: "RESEARCH",
+  code: "MBA-RW",
+  title: "Research Wing",
+  jp: "研究棟",
+  href: "/space",
+  text:
+    "Framing studies, installation studies, spatial research, and curatorial visualization.",
+},
