@@ -12443,3 +12443,41 @@ button:focus-visible {
       #030303 100%
     ) !important;
 }
+/* ===================================
+   RESEARCH WING
+=================================== */
+
+.museumRoomCard:last-child {
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.03),
+      rgba(255,255,255,0.008)
+    ),
+    rgba(255,255,255,0.01) !important;
+
+  border:
+    1px solid
+    rgba(201,168,106,0.12) !important;
+
+  opacity:
+    0.92;
+}
+
+/* quieter typography */
+
+.museumRoomCard:last-child
+.museumRoomTitle {
+
+  font-style:
+    italic;
+}
+
+/* research atmosphere */
+
+.museumRoomCard:last-child::before {
+
+  opacity:
+    0.18 !important;
+}
