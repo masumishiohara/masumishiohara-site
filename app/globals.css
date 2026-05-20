@@ -13703,3 +13703,20 @@ button {
 .museumGlobalNav a:hover {
   opacity: 1;
 }
+/* ===================================
+   CONTACT / INSTITUTIONAL ACCESS
+=================================== */
+
+.room-contact {
+  background:
+    radial-gradient(
+      circle at 50% -10%,
+      rgba(201,168,106,0.06),
+      transparent 34%
+    ),
+    linear-gradient(
+      180deg,
+      #060504 0%,
+      #020202 100%
+    ) !important;
+}
