@@ -12859,3 +12859,89 @@ button:focus-visible {
   color:
     rgba(239,231,216,0.74);
 }
+/* ===================================
+   EXHIBITIONS / PUBLICATIONS
+=================================== */
+
+.museumExhibitionList {
+
+  width:
+    min(1280px, 88%);
+
+  margin:
+    0 auto;
+
+  padding-bottom:
+    240px;
+}
+
+.museumExhibitionItem {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    160px
+    1fr;
+
+  gap:
+    40px;
+
+  padding:
+    42px
+    0;
+
+  border-top:
+    1px solid
+    rgba(201,168,106,0.12);
+}
+
+.museumExhibitionYear {
+
+  font-size:
+    11px;
+
+  letter-spacing:
+    0.28em;
+
+  color:
+    rgba(201,168,106,0.72);
+}
+
+.museumExhibitionMain h2 {
+
+  font-family:
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      36px,
+      4vw,
+      74px
+    );
+
+  line-height:
+    1;
+
+  letter-spacing:
+    -0.06em;
+
+  font-weight:
+    300;
+}
+
+.museumExhibitionMain p {
+
+  margin-top:
+    18px;
+
+  font-size:
+    12px;
+
+  letter-spacing:
+    0.18em;
+
+  color:
+    rgba(239,231,216,0.52);
+}
