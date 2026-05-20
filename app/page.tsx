@@ -44,6 +44,15 @@ export default function HomePage() {
         >
           Enter Exhibition Rooms
         </a>
+
+       <div className="museumPrivateViewing">
+
+  <span>
+    Private Viewing Available
+  </span>
+
+</div>
+        
       </section>
     </main>
   );
