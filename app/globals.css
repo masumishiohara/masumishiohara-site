@@ -14133,3 +14133,97 @@ body::before {
   color:
     rgba(239,231,216,0.5) !important;
 }
+/* ===================================
+   MAISON SIGNATURE
+=================================== */
+
+/* recurring maison gold */
+
+:root {
+
+  --mba-gold:
+    rgba(201,168,106,0.82);
+
+  --mba-soft:
+    rgba(239,231,216,0.82);
+
+  --mba-dark:
+    #050403;
+}
+
+/* signature line */
+
+.museumEditorialLabel,
+.museumEyebrow,
+.museumCollectionCode,
+.museumRoomNumber {
+
+  color:
+    var(--mba-gold) !important;
+}
+
+/* maison typography */
+
+.museumLanding h1,
+.museumProjectHero h1,
+.museumRoomTitle,
+.museumEditorialQuote blockquote,
+.museumInstitutionalEvidence h2 {
+
+  font-family:
+    "Times New Roman",
+    serif;
+
+  font-weight:
+    300 !important;
+
+  letter-spacing:
+    -0.065em !important;
+}
+
+/* recurring elegance */
+
+.museumLandingDirectory a,
+.museumEntranceButton,
+.museumCollectorMode a,
+.museumPressAccess a,
+.museumFooterNav a,
+.frameButtons button {
+
+  border:
+    1px solid
+    rgba(201,168,106,0.14) !important;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.024),
+      rgba(255,255,255,0.006)
+    ),
+    rgba(255,255,255,0.01) !important;
+}
+
+/* signature shadow */
+
+.museumLanding h1,
+.museumProjectHero h1 {
+
+  text-shadow:
+    0 0 140px rgba(201,168,106,0.04),
+    0 60px 160px rgba(0,0,0,0.74);
+}
+
+/* cultivated silence */
+
+.museumProjectLead,
+.museumRoomText,
+.museumExhibitionNote,
+.museumFooterStatement,
+.museumArchiveStatement p {
+
+  line-height:
+    2.15 !important;
+
+  color:
+    rgba(239,231,216,0.52) !important;
+}
