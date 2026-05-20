@@ -30,6 +30,7 @@ export default function RootLayout({
             <a href="/space">Studies</a>
             <a href="/exhibitions">Exhibitions</a>
             <a href="/private-preview">Private Preview</a>
+            <a href="/contact">Contact</a>
           </nav>
         </header>
 
@@ -55,6 +56,7 @@ export default function RootLayout({
               <a href="/publications">Publications</a>
               <a href="/private-preview">Private Preview</a>
               <a href="/about">About</a>
+              <a href="/contact">Contact</a>
             </nav>
           </div>
         </footer>
