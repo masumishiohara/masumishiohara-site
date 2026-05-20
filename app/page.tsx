@@ -25,19 +25,17 @@ export default function HomePage() {
           </p>
         </div>
 
-<section className="museumEditorialQuote">
+        <section className="museumEditorialQuote">
+          <p className="museumEditorialLabel">
+            CURATORIAL POSITION
+          </p>
 
-  <p className="museumEditorialLabel">
-    CURATORIAL POSITION
-  </p>
+          <blockquote>
+            “The archive does not document agriculture.
+            It transforms cultivation into cultural form.”
+          </blockquote>
+        </section>
 
-  <blockquote>
-    “The archive does not document agriculture.
-    It transforms cultivation into cultural form.”
-  </blockquote>
-
-</section>
-        
         <a
           href="/rooms"
           className="museumEntranceButton"
@@ -45,21 +43,41 @@ export default function HomePage() {
           Enter Exhibition Rooms
         </a>
 
-       <div className="museumPrivateViewing">
+        <div className="museumPrivateViewing">
+          <span>
+            Private Viewing Available
+          </span>
+        </div>
 
-  <span>
-    Private Viewing Available
-  </span>
+        <div className="museumAppointmentNote">
+          <p>
+            Private appointments, curatorial presentations,
+            and installation studies may be arranged upon request.
+          </p>
+        </div>
+      </section>
 
-</div>
+      <section className="museumInstitutionalEvidence">
+        <div>
+          <p className="museumEditorialLabel">
+            INSTITUTIONAL PRESENCE
+          </p>
 
-<div className="museumAppointmentNote">
-  <p>
-    Private appointments, curatorial presentations,
-    and installation studies may be arranged upon request.
-  </p>
-</div>
-        
+          <h2>
+            Exhibition, publication,
+            cultivation, and archive
+            are treated here
+            as a single practice.
+          </h2>
+        </div>
+
+        <div>
+          <p>
+            The archive is developed through agricultural production,
+            breeding, botanical study, object construction,
+            and exhibition research.
+          </p>
+        </div>
       </section>
     </main>
   );
