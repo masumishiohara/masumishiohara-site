@@ -7,26 +7,26 @@ export default function HomePage() {
         <h1>
           A Private Museum
           <br />
-          of Cultivated Forms
+          of Cultivated Fruit Forms
         </h1>
 
         <p className="museumLandingLead">
-          Cultivation, botanical portrait, archive, object, and material presence.
+          Pomology, cultivation, fruit portraiture, archive, object, and material presence.
         </p>
 
         <div className="museumLandingManifesto">
           <p>
-            Fruits are not treated here as produce, but as cultivated forms
+            Fruit is not treated here as produce, but as a cultivated form
             shaped by time, selection, weather, and human intervention.
           </p>
         </div>
 
         <section className="museumEditorialQuote">
-          <p className="museumEditorialLabel">POETIC BOTANY</p>
+          <p className="museumEditorialLabel">POMOLOGICAL POETICS</p>
 
           <blockquote>
-            “A botanical homage becomes magnificent when cultivation, form,
-            patience, and light are held in a single image.”
+            “A fruit becomes magnificent when cultivation, patience, form,
+            light, and human intervention are held in a single image.”
           </blockquote>
         </section>
 
@@ -47,7 +47,7 @@ export default function HomePage() {
 
         <div>
           <p>
-            The archive develops a visual language where nature is not merely
+            The archive develops a visual language where fruit is not merely
             observed, but cultivated, selected, composed, and transformed into
             cultural form.
           </p>
@@ -67,12 +67,11 @@ export default function HomePage() {
 
       <section className="museumEditorialFooter">
         <p className="museumEditorialLabel">
-          CULTIVATED FORM / BOTANICAL HOMAGE / MATERIAL / OBJECT
+          CULTIVATED FRUIT / POMOLOGICAL FORM / ARCHIVE / OBJECT
         </p>
 
         <p className="museumEditorialStatement">
-          The archive exists between agriculture, image, object, poetry, and
-          exhibition.
+          The archive exists between agriculture, image, object, poetry, and exhibition.
         </p>
       </section>
     </main>
