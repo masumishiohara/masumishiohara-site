@@ -12625,3 +12625,64 @@ button:focus-visible {
   max-width:
     960px;
 }
+/* ===================================
+   PRIVATE VIEWING MODE
+=================================== */
+
+.museumPrivateViewing {
+
+  margin-top:
+    34px;
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  gap:
+    12px;
+
+  padding:
+    10px
+    16px;
+
+  border:
+    1px solid
+    rgba(201,168,106,0.14);
+
+  background:
+    rgba(255,255,255,0.018);
+
+  backdrop-filter:
+    blur(10px);
+
+  font-size:
+    10px;
+
+  letter-spacing:
+    0.24em;
+
+  color:
+    rgba(201,168,106,0.74);
+}
+
+.museumPrivateViewing::before {
+
+  content: "";
+
+  width:
+    5px;
+
+  height:
+    5px;
+
+  border-radius:
+    50%;
+
+  background:
+    rgba(201,168,106,0.82);
+
+  box-shadow:
+    0 0 12px rgba(201,168,106,0.42);
+}
