@@ -57,6 +57,21 @@ export default function HomePage() {
           <section className="museumCollectorMode">
 <section className="museumDossierBlock">
   <section className="museumPressAccess">
+    <section className="museumInstitutionalAccess">
+
+  <p className="museumEditorialLabel">
+    INSTITUTIONAL ACCESS
+  </p>
+
+  <h2>
+    Curatorial dialogue,
+    exhibition inquiries,
+    editorial correspondence,
+    and institutional access
+    may be arranged privately.
+  </h2>
+
+</section>
   <p className="museumEditorialLabel">
     EDITORIAL ACCESS
   </p>
