@@ -56,6 +56,21 @@ export default function HomePage() {
         <div className="museumAppointmentNote">
           <section className="museumCollectorMode">
 <section className="museumDossierBlock">
+  <section className="museumPressAccess">
+  <p className="museumEditorialLabel">
+    EDITORIAL ACCESS
+  </p>
+
+  <h2>
+    Editorial inquiries, image requests,
+    and curatorial correspondence
+    are handled as institutional communication.
+  </h2>
+
+  <a href="/conversations">
+    Open Conversations
+  </a>
+</section>
   <p className="museumEditorialLabel">
     PRIVATE DOSSIER
   </p>
