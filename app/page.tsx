@@ -22,28 +22,17 @@ export default function HomePage() {
         </div>
 
         <section className="museumEditorialQuote">
-          <p className="museumEditorialLabel">CURATORIAL POSITION</p>
+          <p className="museumEditorialLabel">POETIC BOTANY</p>
 
           <blockquote>
-            “The archive does not document agriculture. It transforms cultivation
-            into cultural form.”
+            “A botanical homage becomes magnificent when cultivation, form,
+            patience, and light are held in a single image.”
           </blockquote>
         </section>
 
         <a href="/rooms" className="museumEntranceButton">
           Enter Exhibition Rooms
         </a>
-
-        <div className="museumPrivateViewing">
-          <span>Private Viewing Available</span>
-        </div>
-
-        <div className="museumAppointmentNote">
-          <p>
-            Private appointments, curatorial presentations, and installation
-            studies may be arranged upon request.
-          </p>
-        </div>
       </section>
 
       <section className="museumInstitutionalEvidence">
@@ -58,8 +47,9 @@ export default function HomePage() {
 
         <div>
           <p>
-            The archive is developed through agricultural production, breeding,
-            botanical study, object construction, and exhibition research.
+            The archive develops a visual language where nature is not merely
+            observed, but cultivated, selected, composed, and transformed into
+            cultural form.
           </p>
         </div>
       </section>
@@ -77,11 +67,12 @@ export default function HomePage() {
 
       <section className="museumEditorialFooter">
         <p className="museumEditorialLabel">
-          CULTIVATED FORM / ARCHIVE / MATERIAL / OBJECT
+          CULTIVATED FORM / BOTANICAL HOMAGE / MATERIAL / OBJECT
         </p>
 
         <p className="museumEditorialStatement">
-          The archive exists between agriculture, image, object, and exhibition.
+          The archive exists between agriculture, image, object, poetry, and
+          exhibition.
         </p>
       </section>
     </main>
