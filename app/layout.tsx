@@ -30,6 +30,7 @@ export default function RootLayout({
             <a href="/rooms">Rooms</a>
             <a href="/philosophy">Philosophy</a>
             <a href="/space">Studies</a>
+            <a href="/framing-study">Framing</a>
             <a href="/exhibitions">Exhibitions</a>
             <a href="/private-preview">Private Preview</a>
             <a href="/contact">Contact</a>
@@ -46,8 +47,8 @@ export default function RootLayout({
               </p>
 
               <p className="museumFooterStatement">
-                Cultivated fruit forms, pomological archive, object, and
-                exhibition research.
+                Cultivated fruit forms, pomological archive, object, framing,
+                and exhibition research.
               </p>
             </div>
 
@@ -55,6 +56,7 @@ export default function RootLayout({
               <a href="/rooms">Rooms</a>
               <a href="/philosophy">Philosophy</a>
               <a href="/space">Installation Studies</a>
+              <a href="/framing-study">Framing Atelier</a>
               <a href="/exhibitions">Exhibitions</a>
               <a href="/publications">Publications</a>
               <a href="/private-preview">Private Preview</a>
