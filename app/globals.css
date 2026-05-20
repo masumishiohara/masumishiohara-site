@@ -12550,3 +12550,22 @@ button:focus-visible {
   opacity:
     0.52;
 }
+/* ===================================
+   LANDING MANIFESTO
+=================================== */
+
+.museumLandingManifesto {
+  margin-top: 54px;
+  max-width: 860px;
+  padding-left: 34px;
+  border-left: 1px solid rgba(201,168,106,0.28);
+}
+
+.museumLandingManifesto p {
+  font-family: "Times New Roman", serif;
+  font-size: clamp(28px, 3.2vw, 62px);
+  line-height: 1.05;
+  letter-spacing: -0.055em;
+  font-weight: 300;
+  color: rgba(239,231,216,0.78);
+}
