@@ -13016,3 +13016,38 @@ button:focus-visible {
       #030303 100%
     ) !important;
 }
+/* ===================================
+   LANDING DIRECTORY REFINEMENT
+=================================== */
+
+.museumLandingDirectory {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px !important;
+}
+
+.museumLandingDirectory a {
+  min-height: 96px;
+  justify-content: space-between;
+  position: relative;
+}
+
+.museumLandingDirectory a::after {
+  content: "→";
+  opacity: 0.5;
+  margin-left: 24px;
+}
+
+.museumLandingDirectory a:hover::after {
+  opacity: 1;
+}
+
+@media (max-width: 900px) {
+  .museumLandingDirectory {
+    grid-template-columns: 1fr !important;
+  }
+
+  .museumLandingDirectory a {
+    min-height: 78px;
+  }
+}
