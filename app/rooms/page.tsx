@@ -11,7 +11,7 @@ const rooms = [
   },
   {
     label: "ROOM II",
-    code: "MBA-BP",
+    code: "MBA-FP",
     title: "Fruit Portraits",
     jp: "果実",
     href: "/projects/botanical-portraits",
