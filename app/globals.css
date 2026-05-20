@@ -13429,3 +13429,52 @@ button {
   max-width:
     860px;
 }
+/* ===================================
+   INSTITUTIONAL LANGUAGE ATMOSPHERE
+=================================== */
+
+/* remove commercial feel */
+
+.museumEntranceButton,
+.museumLandingDirectory a,
+.museumCollectorMode a,
+.museumPressAccess a {
+
+  text-transform:
+    none !important;
+
+  font-weight:
+    400;
+
+  letter-spacing:
+    0.18em !important;
+}
+
+/* quieter interaction */
+
+button {
+
+  text-transform:
+    none !important;
+}
+
+/* museum pacing */
+
+.museumProjectLead,
+.museumRoomText,
+.museumExhibitionNote {
+
+  max-width:
+    720px;
+}
+
+/* editorial density */
+
+.museumEditorialQuote blockquote,
+.museumEditorialStatement,
+.museumInstitutionalAccess h2,
+.museumViewingPolicy h2 {
+
+  text-wrap:
+    balance;
+}
