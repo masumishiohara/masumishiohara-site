@@ -1,27 +1,27 @@
 export default function SpacePage() {
   const spaces = [
     {
-      title: "Private Museum",
+      title: "Museum Installation",
       description:
-        "Dark institutional gallery with controlled museum lighting.",
+        "Controlled institutional exhibition environment for curatorial placement studies.",
     },
 
     {
       title: "Collector Residence",
       description:
-        "Architectural residential installation with quiet natural light.",
+        "Architectural placement study within private residential environments.",
     },
 
     {
       title: "White Cube",
       description:
-        "Contemporary exhibition room for curatorial installation studies.",
+        "Spatial study for contemporary gallery installation and visual rhythm.",
     },
 
     {
-      title: "Luxury Salon",
+      title: "Architectural Salon",
       description:
-        "Private salon environment with warm architectural atmosphere.",
+        "Warm spatial study for luxury hospitality and collector interiors.",
     },
   ];
 
@@ -31,7 +31,7 @@ export default function SpacePage() {
 
         <div className="museumCollectionHeader">
           <p className="museumEyebrow">
-            SPACE VISUALIZER
+            INSTALLATION STUDIES
           </p>
 
           <span className="museumCollectionCode">
@@ -40,15 +40,38 @@ export default function SpacePage() {
         </div>
 
         <h1>
-          Exhibition Spaces
+          Installation Studies
         </h1>
 
         <p className="museumProjectLead">
-          Visualization studies for exhibition,
+          Spatial research for exhibition,
           collector placement,
           architectural installation,
-          and museum environments.
+          and museum atmosphere.
         </p>
+      </section>
+
+      <section className="museumCuratorialText">
+        <div>
+          <p className="museumCuratorialLabel">
+            SPATIAL RESEARCH
+          </p>
+
+          <h2>
+            The placement of a work changes
+            the meaning of the work itself.
+          </h2>
+        </div>
+
+        <div>
+          <p>
+            These studies examine distance,
+            wall atmosphere,
+            lighting temperature,
+            architectural scale,
+            and spatial silence.
+          </p>
+        </div>
       </section>
 
       <section className="museumRoomGrid">
@@ -59,7 +82,7 @@ export default function SpacePage() {
           >
             <div>
               <p className="museumRoomNumber">
-                SPACE
+                STUDY
               </p>
 
               <h2 className="museumRoomTitle">
@@ -73,7 +96,7 @@ export default function SpacePage() {
               </p>
 
               <span className="museumRoomArrow">
-                Visualization Study
+                Open Study
               </span>
             </div>
           </article>
