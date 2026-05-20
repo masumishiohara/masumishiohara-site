@@ -14038,3 +14038,98 @@ button {
       #030303 100%
     ) !important;
 }
+/* ===================================
+   COLLECTOR SALON ATMOSPHERE
+=================================== */
+
+/* soft nocturnal glow */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 82% 12%,
+      rgba(201,168,106,0.06),
+      transparent 24%
+    ),
+
+    radial-gradient(
+      circle at 18% 78%,
+      rgba(120,90,55,0.08),
+      transparent 28%
+    );
+
+  z-index: 0;
+}
+
+/* salon depth */
+
+.museumProjectPage,
+.museumLanding {
+  position: relative;
+  isolation: isolate;
+}
+
+/* poetic darkness */
+
+.museumLanding h1,
+.museumProjectHero h1,
+.museumEditorialQuote blockquote,
+.museumInstitutionalEvidence h2 {
+
+  text-shadow:
+    0 0 120px rgba(201,168,106,0.04),
+    0 40px 120px rgba(0,0,0,0.72);
+}
+
+/* jewel-like highlights */
+
+.museumCollectionCode,
+.museumWallLabel::before,
+.museumInstitutionDot {
+
+  box-shadow:
+    0 0 18px rgba(201,168,106,0.34);
+}
+
+/* silent elegance */
+
+.museumLandingDirectory a,
+.museumEntranceButton,
+.museumCollectorMode a,
+.museumPressAccess a,
+.museumFooterNav a {
+
+  transition:
+    opacity 1.4s ease,
+    transform 1.4s ease,
+    border-color 1.4s ease,
+    background 1.4s ease !important;
+}
+
+/* quiet hover */
+
+.museumLandingDirectory a:hover,
+.museumEntranceButton:hover {
+
+  border-color:
+    rgba(201,168,106,0.32) !important;
+
+  background:
+    rgba(255,255,255,0.03) !important;
+}
+
+/* editorial silence */
+
+.museumProjectLead,
+.museumRoomText,
+.museumExhibitionNote,
+.museumFooterStatement {
+
+  color:
+    rgba(239,231,216,0.5) !important;
+}
