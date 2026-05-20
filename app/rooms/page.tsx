@@ -64,9 +64,7 @@ export default function RoomsPage() {
     <main className="museumProjectPage">
       <section className="museumHero">
         <p className="museumEyebrow">MAISON BOTANIQUE ARCHIVE</p>
-
         <h1>Exhibition Rooms</h1>
-
         <p className="museumLead">
           From farm to plant, from plant to portrait, from portrait to archive,
           and from archive to object.
