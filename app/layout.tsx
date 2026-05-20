@@ -20,6 +20,19 @@ export default function RootLayout({
           </div>
         </div>
 
+        <header className="museumGlobalHeader">
+          <a href="/" className="museumGlobalLogo">
+            MAISON BOTANIQUE ARCHIVE
+          </a>
+
+          <nav className="museumGlobalNav">
+            <a href="/rooms">Rooms</a>
+            <a href="/space">Studies</a>
+            <a href="/exhibitions">Exhibitions</a>
+            <a href="/private-preview">Private Preview</a>
+          </nav>
+        </header>
+
         {children}
 
         <footer className="museumFooter">
