@@ -55,7 +55,21 @@ export default function HomePage() {
 
         <div className="museumAppointmentNote">
           <section className="museumCollectorMode">
+<section className="museumDossierBlock">
+  <p className="museumEditorialLabel">
+    PRIVATE DOSSIER
+  </p>
 
+  <h2>
+    A private dossier for galleries,
+    curators, editors, and collectors
+    may be prepared upon request.
+  </h2>
+
+  <a href="/about">
+    Request Institutional Context
+  </a>
+</section>
   <p className="museumEditorialLabel">
     COLLECTOR MODE
   </p>
