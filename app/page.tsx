@@ -91,6 +91,19 @@ export default function HomePage() {
   </a>
 
 </section>
+
+      <section className="museumEditorialFooter">
+
+  <p className="museumEditorialLabel">
+    CULTIVATED FORM / ARCHIVE / MATERIAL / OBJECT
+  </p>
+
+  <p className="museumEditorialStatement">
+    The archive exists between agriculture,
+    image, object, and exhibition.
+  </p>
+
+</section>
       
     </main>
   );
