@@ -13885,3 +13885,20 @@ button {
   color:
     rgba(239,231,216,0.52) !important;
 }
+/* ===================================
+   PHILOSOPHY
+=================================== */
+
+.room-philosophy {
+  background:
+    radial-gradient(
+      circle at 50% -10%,
+      rgba(201,168,106,0.09),
+      transparent 34%
+    ),
+    linear-gradient(
+      180deg,
+      #080604 0%,
+      #030302 100%
+    ) !important;
+}
