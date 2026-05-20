@@ -1,12 +1,8 @@
 export default function HomePage() {
   return (
     <main className="museumLanding">
-
       <section className="museumLandingHero">
-
-        <p className="museumLandingEyebrow">
-          MAISON BOTANIQUE ARCHIVE
-        </p>
+        <p className="museumLandingEyebrow">MAISON BOTANIQUE ARCHIVE</p>
 
         <h1>
           A Private Museum
@@ -15,206 +11,79 @@ export default function HomePage() {
         </h1>
 
         <p className="museumLandingLead">
-          Cultivation, botanical portrait,
-          archive, object, and material presence.
+          Cultivation, botanical portrait, archive, object, and material presence.
         </p>
 
         <div className="museumLandingManifesto">
           <p>
-            Fruits are not treated here as produce,
-            but as cultivated forms shaped by time,
-            selection, weather, and human intervention.
+            Fruits are not treated here as produce, but as cultivated forms
+            shaped by time, selection, weather, and human intervention.
           </p>
         </div>
 
         <section className="museumEditorialQuote">
-
-          <p className="museumEditorialLabel">
-            CURATORIAL POSITION
-          </p>
+          <p className="museumEditorialLabel">CURATORIAL POSITION</p>
 
           <blockquote>
-            “The archive does not document agriculture.
-            It transforms cultivation into cultural form.”
+            “The archive does not document agriculture. It transforms cultivation
+            into cultural form.”
           </blockquote>
-
         </section>
 
-        <a
-          href="/rooms"
-          className="museumEntranceButton"
-        >
+        <a href="/rooms" className="museumEntranceButton">
           Enter Exhibition Rooms
         </a>
 
         <div className="museumPrivateViewing">
-          <span>
-            Private Viewing Available
-          </span>
+          <span>Private Viewing Available</span>
         </div>
 
         <div className="museumAppointmentNote">
-          <section className="museumCollectorMode">
-<section className="museumDossierBlock">
-  <section className="museumPressAccess">
-    <section className="museumInstitutionalAccess">
-     <section className="museumViewingPolicy">
-
-  <p className="museumEditorialLabel">
-    VIEWING POLICY
-  </p>
-
-  <h2>
-    Certain studies,
-    installation materials,
-    and archival works
-    are accessible
-    by appointment only.
-  </h2>
-
-</section> 
-
-  <p className="museumEditorialLabel">
-    INSTITUTIONAL ACCESS
-  </p>
-
-  <h2>
-    Curatorial dialogue,
-    exhibition inquiries,
-    editorial correspondence,
-    and institutional access
-    may be arranged privately.
-  </h2>
-
-</section>
-  <p className="museumEditorialLabel">
-    EDITORIAL ACCESS
-  </p>
-
-  <h2>
-    Editorial inquiries, image requests,
-    and curatorial correspondence
-    are handled as institutional communication.
-  </h2>
-
-  <a href="/conversations">
-    Open Conversations
-  </a>
-</section>
-  <p className="museumEditorialLabel">
-    PRIVATE DOSSIER
-  </p>
-
-  <h2>
-    A private dossier for galleries,
-    curators, editors, and collectors
-    may be prepared upon request.
-  </h2>
-
-  <a href="/about">
-    Request Institutional Context
-  </a>
-</section>
-  <p className="museumEditorialLabel">
-    COLLECTOR MODE
-  </p>
-
-  <h2>
-    Works may also be viewed
-    through architectural placement,
-    collector installation,
-    and curatorial study.
-  </h2>
-
-  <a href="/space">
-    Open Installation Studies
-  </a>
-
-</section>
           <p>
-            Private appointments,
-            curatorial presentations,
-            and installation studies
-            may be arranged upon request.
+            Private appointments, curatorial presentations, and installation
+            studies may be arranged upon request.
           </p>
         </div>
-
       </section>
 
       <section className="museumInstitutionalEvidence">
-
         <div>
-
-          <p className="museumEditorialLabel">
-            INSTITUTIONAL PRESENCE
-          </p>
+          <p className="museumEditorialLabel">INSTITUTIONAL PRESENCE</p>
 
           <h2>
-            Exhibition, publication,
-            cultivation, and archive
-            are treated here as a single practice.
+            Exhibition, publication, cultivation, and archive are treated here as
+            a single practice.
           </h2>
-
         </div>
 
         <div>
-
           <p>
-            The archive is developed through agricultural production,
-            breeding, botanical study,
-            object construction,
-            and exhibition research.
+            The archive is developed through agricultural production, breeding,
+            botanical study, object construction, and exhibition research.
           </p>
-
         </div>
-
       </section>
 
       <section className="museumLandingDirectory">
-
-        <a href="/rooms">
-          Exhibition Rooms
-        </a>
-
-        <a href="/space">
-          Installation Studies
-        </a>
-
-        <a href="/exhibitions">
-          Exhibitions & Publications
-        </a>
-
-        <a href="/publications">
-          Publications
-        </a>
-
-        <a href="/conversations">
-          Conversations
-        </a>
-
-        <a href="/about">
-          About the Archive
-        </a>
-
-        <a href="/private-preview">
-  Private Preview
-</a>
-
+        <a href="/rooms">Exhibition Rooms</a>
+        <a href="/space">Installation Studies</a>
+        <a href="/exhibitions">Exhibitions & Publications</a>
+        <a href="/publications">Publications</a>
+        <a href="/conversations">Conversations</a>
+        <a href="/about">About the Archive</a>
+        <a href="/private-preview">Private Preview</a>
+        <a href="/contact">Institutional Contact</a>
       </section>
 
       <section className="museumEditorialFooter">
-
         <p className="museumEditorialLabel">
           CULTIVATED FORM / ARCHIVE / MATERIAL / OBJECT
         </p>
 
         <p className="museumEditorialStatement">
-          The archive exists between agriculture,
-          image, object, and exhibition.
+          The archive exists between agriculture, image, object, and exhibition.
         </p>
-
       </section>
-
     </main>
   );
 }
