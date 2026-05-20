@@ -56,6 +56,7 @@ export default function HomePage() {
 
       <section className="museumLandingDirectory">
         <a href="/rooms">Exhibition Rooms</a>
+        <a href="/philosophy">Philosophy</a>
         <a href="/space">Installation Studies</a>
         <a href="/exhibitions">Exhibitions & Publications</a>
         <a href="/publications">Publications</a>
