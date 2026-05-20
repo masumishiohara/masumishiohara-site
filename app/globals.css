@@ -14227,3 +14227,57 @@ body::before {
   color:
     rgba(239,231,216,0.52) !important;
 }
+/* ===================================
+   CULTURAL POSITION
+=================================== */
+
+.museumCulturalPosition {
+
+  width:
+    min(1280px, 88%);
+
+  margin:
+    0 auto 180px;
+
+  padding-top:
+    100px;
+
+  border-top:
+    1px solid
+    rgba(201,168,106,0.12);
+}
+
+.museumCulturalPosition h2 {
+
+  margin-top:
+    26px;
+
+  max-width:
+    1100px;
+
+  font-family:
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      36px,
+      4vw,
+      82px
+    );
+
+  line-height:
+    1.02;
+
+  letter-spacing:
+    -0.06em;
+
+  font-weight:
+    300;
+
+  color:
+    rgba(239,231,216,0.82);
+
+  text-shadow:
+    0 0 120px rgba(201,168,106,0.03);
+}
