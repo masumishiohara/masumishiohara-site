@@ -12686,3 +12686,18 @@ button:focus-visible {
   box-shadow:
     0 0 12px rgba(201,168,106,0.42);
 }
+/* ===================================
+   APPOINTMENT NOTE
+=================================== */
+
+.museumAppointmentNote {
+  margin-top: 22px;
+  max-width: 520px;
+}
+
+.museumAppointmentNote p {
+  font-size: 12px;
+  line-height: 1.9;
+  letter-spacing: 0.08em;
+  color: rgba(239,231,216,0.46);
+}
