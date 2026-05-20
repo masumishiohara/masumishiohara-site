@@ -13575,3 +13575,25 @@ button {
   color:
     rgba(201,168,106,0.58);
 }
+/* ===================================
+   FOOTER NAVIGATION
+=================================== */
+
+.museumFooterNav {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  max-width: 760px;
+}
+
+.museumFooterNav a {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: rgba(201,168,106,0.58);
+  text-decoration: none;
+}
+
+.museumFooterNav a:hover {
+  color: rgba(239,231,216,0.86);
+}
