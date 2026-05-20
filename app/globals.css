@@ -13378,3 +13378,54 @@ button {
   max-width:
     920px;
 }
+/* ===================================
+   VIEWING POLICY
+=================================== */
+
+.museumViewingPolicy {
+
+  margin-top:
+    140px;
+
+  max-width:
+    920px;
+
+  padding-top:
+    80px;
+
+  border-top:
+    1px solid
+    rgba(201,168,106,0.1);
+}
+
+.museumViewingPolicy h2 {
+
+  margin-top:
+    24px;
+
+  font-family:
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      34px,
+      4vw,
+      78px
+    );
+
+  line-height:
+    1.02;
+
+  letter-spacing:
+    -0.06em;
+
+  font-weight:
+    300;
+
+  color:
+    rgba(239,231,216,0.78);
+
+  max-width:
+    860px;
+}
