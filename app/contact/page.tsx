@@ -4,32 +4,31 @@ export default function ContactPage() {
       <section className="museumProjectHero">
         <div className="museumCollectionHeader">
           <p className="museumEyebrow">CONTACT</p>
-          <span className="museumCollectionCode">MBA-CT</span>
+          <span className="museumCollectionCode">MS-CT</span>
         </div>
 
         <h1>
-          Institutional
-          <br />
           Contact
         </h1>
 
         <p className="museumProjectLead">
-          For curatorial dialogue, editorial correspondence, exhibition inquiries,
-          private viewing, and institutional presentations.
+          For exhibitions, editorial inquiries, gallery correspondence,
+          curatorial dialogue, and institutional presentations.
         </p>
       </section>
 
       <section className="museumArchiveStatement">
         <div>
           <h2>
-            Correspondence is handled as part of the archive’s institutional context.
+            Masumi Shiohara
           </h2>
         </div>
 
         <div>
           <p>
-            Please contact for exhibitions, editorial requests, gallery discussions,
-            installation studies, private previews, and publication-related matters.
+            Please contact for exhibition proposals, editorial features,
+            image requests, portfolio review, gallery discussions, and
+            publication-related matters.
           </p>
 
           <p>
@@ -39,8 +38,8 @@ export default function ContactPage() {
       </section>
 
       <section className="museumNextRoom">
-        <p>RETURN</p>
-        <a href="/">Maison Botanique Archive</a>
+        <p>VIEW</p>
+        <a href="/projects/botanical-portraits">Works</a>
       </section>
     </main>
   );
