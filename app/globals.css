@@ -15354,3 +15354,64 @@ body::before {
   text-shadow:
     0 0 120px rgba(201,168,106,0.03);
 }
+/* ===================================
+   IMAGE FIRST REFINEMENT
+=================================== */
+
+/* overlay quieter */
+
+.heroWorkOverlay {
+
+  left:
+    46px !important;
+
+  bottom:
+    40px !important;
+
+  max-width:
+    520px !important;
+}
+
+/* remove explanation */
+
+.heroWorkOverlay p {
+
+  display:
+    none;
+}
+
+/* typography */
+
+.heroWorkOverlay h2 {
+
+  margin-top:
+    12px !important;
+
+  font-size:
+    clamp(
+      38px,
+      4vw,
+      92px
+    ) !important;
+
+  line-height:
+    0.98 !important;
+}
+
+/* quieter artist name */
+
+.heroWorkOverlay span {
+
+  opacity:
+    0.82;
+}
+
+/* image more important */
+
+.heroWorkCard img {
+
+  filter:
+    brightness(0.78)
+    saturate(0.9)
+    contrast(1.03) !important;
+}
