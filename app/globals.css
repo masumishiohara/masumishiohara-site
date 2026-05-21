@@ -10693,7 +10693,7 @@ body {
 .museumLandingHero {
 
   width:
-    min(1400px, 88%);
+  min(1380px, 84%);
 
   padding-bottom:
     80px;
@@ -10717,12 +10717,12 @@ body {
   font-family: "Times New Roman", serif;
   font-size:
   clamp(
-    58px,
-    7vw,
-    132px
+    54px,
+    6.2vw,
+    118px
   );
   line-height:
-  0.96;
+  1.02;
   letter-spacing: -0.06em;
   font-weight: 300;
   color: rgba(239,231,216,0.94);
@@ -14267,4 +14267,19 @@ body::before {
 
 .museumLanding {
   overflow-x: hidden;
+}
+/* ===================================
+   MONUMENTAL BALANCE
+=================================== */
+
+.museumLanding {
+
+  padding-left:
+    3vw;
+}
+
+.museumLandingHero {
+
+  padding-top:
+    180px;
 }
