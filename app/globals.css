@@ -16392,3 +16392,62 @@ body::before {
   font-size: 14px !important;
   line-height: 2.15 !important;
 }
+/* ===================================
+   EXHIBITIONS EDITORIAL REFINEMENT
+=================================== */
+
+.room-exhibitions .museumProjectHero {
+  width: min(1120px, 84%) !important;
+  padding-top: 170px !important;
+  padding-bottom: 120px !important;
+}
+
+.room-exhibitions .museumProjectHero h1 {
+  font-size: clamp(58px, 6vw, 118px) !important;
+  line-height: 0.98 !important;
+}
+
+.room-exhibitions .museumProjectLead {
+  max-width: 560px !important;
+  font-size: 14px !important;
+  line-height: 2 !important;
+  color: rgba(239,231,216,0.50) !important;
+}
+
+/* quieter list */
+
+.room-exhibitions .museumExhibitionList {
+  width: min(1120px, 84%) !important;
+  padding-bottom: 220px !important;
+}
+
+/* more editorial spacing */
+
+.room-exhibitions .museumExhibitionItem {
+  padding: 54px 0 !important;
+  border-top:
+    1px solid
+    rgba(201,168,106,0.08) !important;
+}
+
+/* year quieter */
+
+.room-exhibitions .museumExhibitionYear {
+  font-size: 10px !important;
+  opacity: 0.62;
+}
+
+/* titles calmer */
+
+.room-exhibitions .museumExhibitionMain h2 {
+  font-size: clamp(32px, 3vw, 62px) !important;
+  line-height: 1.02 !important;
+}
+
+/* note quieter */
+
+.room-exhibitions .museumExhibitionNote {
+  max-width: 560px !important;
+  line-height: 2 !important;
+  color: rgba(239,231,216,0.50) !important;
+}
