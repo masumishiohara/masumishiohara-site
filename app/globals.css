@@ -15533,3 +15533,53 @@ body::before {
 .silentStatement h2 {
   max-width: 820px !important;
 }
+/* ===================================
+   HERO SIGNATURE
+=================================== */
+
+.heroWorkSignature {
+
+  margin-top:
+    18px;
+
+  font-size:
+    10px;
+
+  letter-spacing:
+    0.22em;
+
+  line-height:
+    1.8;
+
+  color:
+    rgba(239,231,216,0.52);
+
+  text-transform:
+    uppercase;
+}
+
+/* quieter overlay */
+
+.heroWorkOverlay {
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent,
+      rgba(0,0,0,0.28)
+    );
+
+  padding:
+    40px
+    40px
+    34px;
+}
+
+/* signature glow */
+
+.heroWorkOverlay h2 {
+
+  text-shadow:
+    0 0 80px rgba(201,168,106,0.04),
+    0 40px 100px rgba(0,0,0,0.72);
+}
