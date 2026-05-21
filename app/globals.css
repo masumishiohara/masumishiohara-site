@@ -10717,9 +10717,9 @@ body {
   font-family: "Times New Roman", serif;
   font-size:
   clamp(
-    54px,
-    6.2vw,
-    118px
+    48px,
+    5.4vw,
+    104px
   );
   line-height:
   1.02;
