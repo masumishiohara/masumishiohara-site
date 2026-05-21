@@ -15415,3 +15415,20 @@ body::before {
     saturate(0.9)
     contrast(1.03) !important;
 }
+/* ===================================
+   SIMPLE FOOTER LINKS REFINEMENT
+=================================== */
+
+.simpleFooterLinks {
+  border-top: 1px solid rgba(201,168,106,0.12);
+  padding-top: 34px;
+}
+
+.simpleFooterLinks a {
+  opacity: 0.72;
+  transition: opacity 1.2s ease, color 1.2s ease;
+}
+
+.simpleFooterLinks a:hover {
+  opacity: 1;
+}
