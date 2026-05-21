@@ -15991,3 +15991,28 @@ body::before {
     margin-bottom: 80px !important;
   }
 }
+/* ===================================
+   WORKS TEXT QUIET REFINEMENT
+=================================== */
+
+.room-bp .museumProjectLead {
+  max-width: 680px !important;
+  font-size: 14px !important;
+  line-height: 2.05 !important;
+  color: rgba(239,231,216,0.52) !important;
+}
+
+.room-bp .museumCuratorialText {
+  padding-top: 90px !important;
+  padding-bottom: 90px !important;
+}
+
+.room-bp .museumCuratorialText h2 {
+  font-size: clamp(32px, 3.2vw, 60px) !important;
+  line-height: 1.08 !important;
+  max-width: 720px !important;
+}
+
+.room-bp .museumCuratorialText p {
+  max-width: 560px !important;
+}
