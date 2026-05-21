@@ -30,9 +30,22 @@ export default function HomePage() {
           </a>
         </div>
 
-        <div className="refinedHeroImage">
-          <img src="/botanical.jpg" alt="Cultivated fruit form" />
-        </div>
+       <div className="refinedHeroImage">
+
+  <div className="refinedImageFrame">
+
+    <div className="refinedImageMat">
+
+      <img
+        src="/botanical.jpg"
+        alt="Cultivated fruit form"
+      />
+
+    </div>
+
+  </div>
+
+</div>
       </section>
 
       <section className="refinedStatement">
