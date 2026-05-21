@@ -15908,3 +15908,57 @@ body::before {
     display: none !important;
   }
 }
+/* ===================================
+   BREATHING REFINEMENT
+=================================== */
+
+/* more air above hero */
+
+.simpleWorksHero {
+  padding-top: 40px;
+}
+
+/* more silence below image */
+
+.simpleWorksGrid {
+  margin-bottom: 220px !important;
+}
+
+/* quieter footer links */
+
+.simpleFooterLinks {
+  margin-top: 140px !important;
+  padding-top: 22px !important;
+  border-top:
+    1px solid
+    rgba(201,168,106,0.08) !important;
+}
+
+/* reduce visual noise */
+
+.simpleFooterLinks a {
+  opacity: 0.58 !important;
+}
+
+.simpleFooterLinks a:hover {
+  opacity: 1 !important;
+}
+
+/* more gallery-like spacing */
+
+.heroWorkOverlay {
+  left: 54px !important;
+  bottom: 46px !important;
+}
+
+/* quieter statement */
+
+.silentStatement {
+  margin-top: 220px !important;
+}
+
+/* reduce density */
+
+.artistSignature {
+  margin-top: 120px !important;
+}
