@@ -17229,3 +17229,22 @@ body {
     font-size: 9px !important;
   }
 }
+/* ===================================
+   SIMPLIFIED SITE STRUCTURE PASS
+=================================== */
+
+.museumProjectPage .museumProjectHero {
+  min-height: auto !important;
+}
+
+.museumNextRoom {
+  opacity: 0.92;
+}
+
+.museumNextRoom a {
+  transition: color 1.2s ease, opacity 1.2s ease;
+}
+
+.museumNextRoom a:hover {
+  color: rgba(201,168,106,0.86) !important;
+}
