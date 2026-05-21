@@ -15,14 +15,24 @@ export const metadata: Metadata = {
     "pomology",
     "orchard art",
     "contemporary photography",
-    "photographic works",
   ],
+  authors: [{ name: "Masumi Shiohara" }],
+  creator: "Masumi Shiohara",
+  publisher: "Masumi Shiohara",
   openGraph: {
     title: "Masumi Shiohara | Cultivated Fruit Works",
     description:
       "Photographic works formed through cultivation, breeding, orchard time, and fruit.",
     type: "website",
-    images: ["/botanical.jpg"],
+    siteName: "Masumi Shiohara",
+    images: [
+      {
+        url: "/botanical.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Cultivated fruit work by Masumi Shiohara",
+      },
+    ],
   },
 };
 
