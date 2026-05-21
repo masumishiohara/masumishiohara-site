@@ -17,7 +17,7 @@ export default function HomePage() {
         </h1>
 
         <p className="simpleArtistText">
-          Japanese fruit grower,
+          Masumi Shiohara is a Japanese fruit grower,
           breeder,
           and artist.
         </p>
@@ -57,30 +57,6 @@ export default function HomePage() {
           </div>
 
         </a>
-
-      </section>
-
-      <section className="silentStatement">
-
-        <p className="museumEditorialLabel">
-          ORCHARD TIME
-        </p>
-
-        <h2>
-          The orchard is where the work begins.
-        </h2>
-
-      </section>
-
-      <section className="artistSignature">
-
-        <p className="museumEditorialLabel">
-          MASUMI SHIOHARA
-        </p>
-
-        <blockquote>
-          “Cultivation itself is already part of the work.”
-        </blockquote>
 
       </section>
 
