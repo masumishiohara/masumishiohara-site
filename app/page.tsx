@@ -1,36 +1,24 @@
-export default function HomePage() {
+export default function RoomsPage() {
   return (
-    <main className="simpleWorksPage">
-      <section className="simpleWorksHero">
-        <p className="simpleArtistName">MASUMI SHIOHARA</p>
+    <main className="museumProjectPage">
+      <section className="museumProjectHero">
+        <p className="museumEyebrow">WORKS</p>
 
         <h1>
-          Cultivated
+          Masumi
           <br />
-          Fruit Works
+          Shiohara
         </h1>
 
-        <p className="simpleArtistText">
-          Fruit grower, breeder, and artist based in Japan.
+        <p className="museumProjectLead">
+          The site has been simplified around the work of Masumi Shiohara.
+          Please continue to the works page.
         </p>
       </section>
 
-      <section className="simpleWorksGrid">
-        <a href="/projects/botanical-portraits" className="heroWorkCard">
-          <img src="/botanical.jpg" alt="Fruit artwork by Masumi Shiohara" />
-
-          <div className="heroWorkOverlay">
-            <span>MASUMI SHIOHARA</span>
-            <h2>Fruit Portraits</h2>
-          </div>
-        </a>
-      </section>
-
-      <section className="simpleFooterLinks">
+      <section className="museumNextRoom">
+        <p>VIEW</p>
         <a href="/projects/botanical-portraits">Works</a>
-        <a href="/about">About</a>
-        <a href="/exhibitions">Exhibitions</a>
-        <a href="/contact">Contact</a>
       </section>
     </main>
   );
