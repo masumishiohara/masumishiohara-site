@@ -14,31 +14,26 @@ export default function AboutPage() {
         </h1>
 
         <p className="museumProjectLead">
-          Masumi Shiohara is a fruit grower, breeder, and artist based in Japan.
-          His practice transforms cultivated fruit into photographic works,
-          objects, archives, and exhibition forms.
+          Fruit grower, breeder, and artist based in Japan.
         </p>
       </section>
 
       <section className="museumArchiveStatement">
         <div>
           <h2>
-            The work begins in the orchard.
+            His work begins in the orchard.
           </h2>
         </div>
 
         <div>
           <p>
-            Shiohara cultivates and breeds fruit while developing a photographic
-            practice rooted in agricultural time. Fruit is treated not only as a
-            subject, but as a form shaped by weather, selection, growth,
-            intervention, and harvest.
+            Shiohara works with cultivated fruit as photographic form, object,
+            archive, and exhibition material.
           </p>
 
           <p>
-            His work connects fruit growing, breeding, botanical observation,
-            sculptural form, and photographic presentation into a single artistic
-            language.
+            Fruit is shaped by time, weather, selection, breeding,
+            intervention, and harvest before it enters the image.
           </p>
         </div>
       </section>
