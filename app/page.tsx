@@ -4,7 +4,7 @@ export default function HomePage() {
       <section className="refinedHero">
         <div className="refinedHeroText">
           <p className="museumLandingEyebrow">
-            MAISON BOTANIQUE ARCHIVE
+            MASUMI SHIOHARA
           </p>
 
           <h1>
@@ -14,14 +14,15 @@ export default function HomePage() {
           </h1>
 
           <p className="museumLandingLead">
-            A private archive of fruit portraiture, orchard time,
-            pomological form, and exhibition research.
+            Masumi Shiohara is a fruit grower, breeder, and artist working with
+            cultivated fruit as photographic form, object, archive, and
+            exhibition material.
           </p>
 
           <div className="museumLandingManifesto">
             <p>
               Fruit is treated not as produce, but as a cultivated presence
-              shaped by time, selection, weather, and human intervention.
+              shaped by orchard time, selection, weather, and human intervention.
             </p>
           </div>
 
@@ -30,32 +31,22 @@ export default function HomePage() {
           </a>
         </div>
 
-       <div className="refinedHeroImage">
-
-  <div className="refinedImageFrame">
-
-    <div className="refinedImageMat">
-
-      <img
-        src="/botanical.jpg"
-        alt="Cultivated fruit form"
-      />
-
-    </div>
-
-  </div>
-
-</div>
+        <figure className="refinedHeroImage">
+          <img src="/botanical.jpg" alt="Fruit artwork by Masumi Shiohara" />
+          <figcaption>
+            Maison Botanique Archive / Masumi Shiohara
+          </figcaption>
+        </figure>
       </section>
 
       <section className="refinedStatement">
         <p className="museumEditorialLabel">
-          POMOLOGICAL POETICS
+          ARTIST / ORCHARD / ARCHIVE
         </p>
 
         <h2>
-          The archive exists between agriculture,
-          image, object, and exhibition.
+          A practice where cultivation, breeding, photography, and fruit forms
+          become a single artistic language.
         </h2>
       </section>
 
@@ -65,6 +56,7 @@ export default function HomePage() {
         <a href="/philosophy">Philosophy</a>
         <a href="/exhibitions">Exhibitions</a>
         <a href="/space">Installation Studies</a>
+        <a href="/about">About Masumi Shiohara</a>
         <a href="/contact">Institutional Contact</a>
       </section>
     </main>
