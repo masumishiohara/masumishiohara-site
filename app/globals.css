@@ -17248,3 +17248,16 @@ body {
 .museumNextRoom a:hover {
   color: rgba(201,168,106,0.86) !important;
 }
+/* ===================================
+   CONTACT EMAIL LINK
+=================================== */
+
+.room-contact .museumArchiveStatement a {
+  color: rgba(201,168,106,0.86);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(201,168,106,0.28);
+}
+
+.room-contact .museumArchiveStatement a:hover {
+  color: rgba(239,231,216,0.92);
+}
