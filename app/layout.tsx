@@ -7,13 +7,15 @@ export const metadata: Metadata = {
     "Masumi Shiohara is a Japanese fruit grower, breeder, and artist creating photographic works from cultivated fruit, orchard time, selection, and intervention.",
   keywords: [
     "Masumi Shiohara",
-    "fruit photography",
+    "Masumi Shiohara artist",
+    "Japanese fruit grower artist",
     "cultivated fruit works",
-    "Japanese artist",
+    "fruit photography",
     "botanical photography",
     "pomology",
     "orchard art",
     "contemporary photography",
+    "photographic works",
   ],
   openGraph: {
     title: "Masumi Shiohara | Cultivated Fruit Works",
