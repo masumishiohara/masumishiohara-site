@@ -4,42 +4,48 @@ export default function AboutPage() {
       <section className="museumProjectHero">
         <div className="museumCollectionHeader">
           <p className="museumEyebrow">ABOUT</p>
-          <span className="museumCollectionCode">MBA-AB</span>
+          <span className="museumCollectionCode">MS-AB</span>
         </div>
 
-        <h1>About the Archive</h1>
+        <h1>
+          Masumi
+          <br />
+          Shiohara
+        </h1>
 
         <p className="museumProjectLead">
-          Maison Botanique Archive is a private institution of cultivated fruit
-          forms, developed through pomology, agriculture, breeding, photography,
-          object making, and exhibition research.
+          Masumi Shiohara is a fruit grower, breeder, and artist based in Japan.
+          His practice transforms cultivated fruit into photographic works,
+          objects, archives, and exhibition forms.
         </p>
       </section>
 
       <section className="museumArchiveStatement">
         <div>
           <h2>
-            Cultivation is treated as a form of authorship.
+            The work begins in the orchard.
           </h2>
         </div>
 
         <div>
           <p>
-            The works emerge from the orchard before they enter the image.
-            Fruit, branch, surface, weather, selection, and time are treated as
-            materials within a single artistic practice.
+            Shiohara cultivates and breeds fruit while developing a photographic
+            practice rooted in agricultural time. Fruit is treated not only as a
+            subject, but as a form shaped by weather, selection, growth,
+            intervention, and harvest.
           </p>
 
           <p>
-            The archive brings together fruit portraiture, cultivated objects,
-            pomological studies, material presence, and installation research.
+            His work connects fruit growing, breeding, botanical observation,
+            sculptural form, and photographic presentation into a single artistic
+            language.
           </p>
         </div>
       </section>
 
       <section className="museumNextRoom">
-        <p>ENTER</p>
-        <a href="/rooms">Exhibition Rooms</a>
+        <p>VIEW</p>
+        <a href="/projects/botanical-portraits">Works</a>
       </section>
     </main>
   );
