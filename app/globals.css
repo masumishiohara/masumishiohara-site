@@ -18054,3 +18054,112 @@ body::after,
     grid-template-columns: 1fr;
   }
 }
+/* ===================================
+   EMERGENCY WORKS SERIES LAYOUT FIX
+=================================== */
+
+.room-bp .seriesGrid {
+  width: min(1180px, 84%) !important;
+  margin: 0 auto 160px !important;
+
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 34px !important;
+}
+
+.room-bp .seriesCard {
+  display: block !important;
+  border: 1px solid rgba(201,168,106,0.10) !important;
+  background: rgba(255,255,255,0.014) !important;
+  overflow: hidden !important;
+}
+
+.room-bp .seriesCard a {
+  display: block !important;
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+.room-bp .seriesImage {
+  width: 100% !important;
+  background: #050403 !important;
+}
+
+.room-bp .seriesImage img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 4 / 3 !important;
+  object-fit: cover !important;
+
+  filter:
+    brightness(0.82)
+    saturate(0.88)
+    contrast(1.03) !important;
+}
+
+.room-bp .seriesMeta {
+  padding: 24px !important;
+}
+
+.room-bp .seriesMeta span {
+  display: block !important;
+  font-size: 10px !important;
+  letter-spacing: 0.22em !important;
+  color: rgba(201,168,106,0.66) !important;
+}
+
+.room-bp .seriesMeta h2 {
+  margin-top: 14px !important;
+
+  font-family: "Times New Roman", serif !important;
+  font-size: clamp(26px, 2.3vw, 42px) !important;
+  line-height: 1.02 !important;
+  letter-spacing: -0.045em !important;
+  font-weight: 300 !important;
+
+  color: rgba(239,231,216,0.88) !important;
+}
+
+.room-bp .seriesJp {
+  margin-top: 10px !important;
+  font-size: 12px !important;
+  color: rgba(201,168,106,0.58) !important;
+}
+
+.room-bp .seriesMeta p {
+  margin-top: 14px !important;
+  font-size: 12px !important;
+  line-height: 1.9 !important;
+  color: rgba(239,231,216,0.48) !important;
+}
+
+/* Works heading adjustment */
+
+.room-bp .museumProjectHero {
+  width: min(1120px, 84%) !important;
+  margin: 0 auto !important;
+  padding-top: 150px !important;
+  padding-bottom: 110px !important;
+}
+
+.room-bp .museumProjectHero h1 {
+  font-size: clamp(58px, 6vw, 118px) !important;
+  line-height: 0.98 !important;
+  letter-spacing: -0.06em !important;
+}
+
+/* mobile */
+
+@media (max-width: 1000px) {
+  .room-bp .seriesGrid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .room-bp .seriesGrid {
+    width: calc(100% - 40px) !important;
+    grid-template-columns: 1fr !important;
+  }
+}
