@@ -42,6 +42,20 @@ export default function HomePage() {
         </a>
       </section>
 
+
+<section className="silentStatement">
+
+  <p className="museumEditorialLabel">
+    ORCHARD TIME
+  </p>
+
+  <h2>
+    The orchard is not background.
+    It is where the work begins.
+  </h2>
+
+</section>
+      
       <section className="simpleFooterLinks">
         <a href="/projects/botanical-portraits">Works</a>
         <a href="/about">About Masumi Shiohara</a>
