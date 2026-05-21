@@ -17261,3 +17261,20 @@ body {
 .room-contact .museumArchiveStatement a:hover {
   color: rgba(239,231,216,0.92);
 }
+/* ===================================
+   SEO / ACCESSIBILITY FINAL PASS
+=================================== */
+
+img {
+  max-width: 100%;
+}
+
+a:focus-visible {
+  outline: 1px solid rgba(201,168,106,0.72);
+  outline-offset: 6px;
+}
+
+::selection {
+  background: rgba(201,168,106,0.28);
+  color: rgba(239,231,216,0.96);
+}
