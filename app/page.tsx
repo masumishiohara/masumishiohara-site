@@ -70,20 +70,7 @@ export default function HomePage() {
         <a href="/contact">Institutional Contact</a>
       </section>
 
-<section className="museumCulturalPosition">
 
-  <p className="museumEditorialLabel">
-    CULTURAL POSITION
-  </p>
-
-  <h2>
-    The archive is not structured
-    as commercial inventory,
-    but as a long-term cultural practice
-    centered on cultivated fruit forms.
-  </h2>
-
-</section>
       
       <section className="museumEditorialFooter">
         <p className="museumEditorialLabel">
