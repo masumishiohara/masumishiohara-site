@@ -17506,3 +17506,51 @@ body {
 .museumGlobalNav a {
   pointer-events: auto !important;
 }
+/* ===================================
+   EMERGENCY SCROLL RESTORE
+=================================== */
+
+html {
+  height: auto !important;
+  min-height: 100% !important;
+  overflow-y: scroll !important;
+  overflow-x: hidden !important;
+  position: static !important;
+}
+
+body {
+  height: auto !important;
+  min-height: 100% !important;
+  overflow-y: visible !important;
+  overflow-x: hidden !important;
+  position: static !important;
+  touch-action: auto !important;
+  overscroll-behavior: auto !important;
+}
+
+/* fixed overlay を一旦無効化 */
+body::before,
+body::after,
+.museumLoader {
+  display: none !important;
+}
+
+/* ページ本体のスクロールを復旧 */
+.simpleWorksPage,
+.museumProjectPage {
+  height: auto !important;
+  min-height: 120vh !important;
+  overflow: visible !important;
+  position: relative !important;
+}
+
+/* ヘッダーがスクロールを邪魔しないように */
+.museumGlobalHeader {
+  pointer-events: none !important;
+}
+
+.museumGlobalLogo,
+.museumGlobalNav,
+.museumGlobalNav a {
+  pointer-events: auto !important;
+}
