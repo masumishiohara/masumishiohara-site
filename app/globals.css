@@ -17638,3 +17638,419 @@ body::after,
   text-shadow:
     0 0 42px rgba(201,168,106,0.12) !important;
 }
+/* ===================================
+   PRIVATE GALLERY CUSTOMIZER
+=================================== */
+
+.privateGalleryPage {
+  min-height: 100vh;
+  padding: 150px 0 140px;
+  background:
+    radial-gradient(
+      circle at 72% 12%,
+      rgba(201,168,106,0.05),
+      transparent 28%
+    ),
+    linear-gradient(
+      180deg,
+      #060504 0%,
+      #020202 100%
+    );
+  color: rgba(239,231,216,0.92);
+  overflow-x: hidden;
+}
+
+.privateGalleryHero {
+  width: min(1180px, 84%);
+  margin: 0 auto 120px;
+}
+
+.privateGalleryHero h1 {
+  font-family: "Times New Roman", serif;
+  font-size: clamp(58px, 6vw, 118px);
+  line-height: 0.98;
+  letter-spacing: -0.06em;
+  font-weight: 300;
+}
+
+.privateGalleryHero p:last-child {
+  margin-top: 32px;
+  max-width: 720px;
+  font-size: 14px;
+  line-height: 2.05;
+  color: rgba(239,231,216,0.52);
+}
+
+/* stage */
+
+.privateViewingStage {
+  position: relative;
+  width: min(1320px, 88%);
+  min-height: 780px;
+  margin: 0 auto 160px;
+  padding: 110px 0 90px;
+  overflow: hidden;
+  border: 1px solid rgba(201,168,106,0.08);
+  background:
+    radial-gradient(
+      ellipse at top,
+      rgba(255,240,210,0.055),
+      transparent 38%
+    ),
+    linear-gradient(
+      180deg,
+      #090807,
+      #020202
+    );
+}
+
+.privateViewingStage.room-residence {
+  background:
+    radial-gradient(
+      ellipse at top,
+      rgba(190,150,105,0.08),
+      transparent 38%
+    ),
+    linear-gradient(
+      180deg,
+      #120e0a,
+      #050403
+    );
+}
+
+.privateViewingStage.room-gallery {
+  background:
+    linear-gradient(
+      180deg,
+      #d8d2c8,
+      #b8b1a6
+    );
+}
+
+.privateViewingStage.room-gallery .privateWorkText,
+.privateViewingStage.room-gallery .privateWorkText h2 {
+  color: #14110f;
+}
+
+.privateViewingStage.room-hotel {
+  background:
+    radial-gradient(
+      ellipse at top,
+      rgba(210,170,110,0.10),
+      transparent 42%
+    ),
+    linear-gradient(
+      180deg,
+      #100c09,
+      #030202
+    );
+}
+
+.customRoomImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.55) saturate(0.85);
+  opacity: 0.78;
+}
+
+/* framed work */
+
+.framedWork {
+  position: relative;
+  z-index: 2;
+  width: min(620px, 72%);
+  margin: 0 auto;
+}
+
+.frameShell {
+  padding: 38px;
+  background: #111;
+  border: 1px solid rgba(201,168,106,0.14);
+  box-shadow:
+    0 90px 220px rgba(0,0,0,0.58),
+    inset 0 0 0 1px rgba(255,255,255,0.04);
+}
+
+.frame-modern .frameShell {
+  background:
+    linear-gradient(145deg, #151515, #050505 48%, #1c1c1c);
+}
+
+.frame-elegant .frameShell {
+  background:
+    linear-gradient(145deg, #17130f, #050403 48%, #1f1a12);
+  box-shadow:
+    0 90px 220px rgba(0,0,0,0.58),
+    inset 0 0 0 2px rgba(201,168,106,0.20),
+    inset 0 0 0 9px rgba(0,0,0,0.55);
+}
+
+.frame-antique .frameShell {
+  background:
+    linear-gradient(145deg, #2a1b10, #0d0704 48%, #3a2818);
+  box-shadow:
+    0 90px 220px rgba(0,0,0,0.60),
+    inset 0 0 0 2px rgba(201,168,106,0.18);
+}
+
+.frame-chic .frameShell {
+  background:
+    linear-gradient(145deg, #11100e, #060504 48%, #181612);
+}
+
+.frame-urban .frameShell {
+  background:
+    linear-gradient(145deg, #202020, #070707 48%, #101010);
+}
+
+.frame-carved .frameShell {
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #22150c 0,
+      #2c1c10 12px,
+      #160d07 24px
+    );
+}
+
+.doubleMat {
+  position: relative;
+  padding: 44px 44px 82px;
+  background: #e5d9c3;
+}
+
+.mat-stone .doubleMat {
+  background: #e8e5dd;
+}
+
+.mat-dark .doubleMat {
+  background: #171717;
+}
+
+.vCutWindow {
+  overflow: hidden;
+  background: #050403;
+  box-shadow:
+    inset 0 0 0 1px rgba(0,0,0,0.28),
+    0 24px 80px rgba(0,0,0,0.30);
+}
+
+.vCutWindow img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.brassPlate {
+  position: absolute;
+  left: 50%;
+  bottom: 26px;
+  transform: translateX(-50%);
+  min-width: 180px;
+  max-width: 78%;
+  padding: 8px 18px;
+  text-align: center;
+  background:
+    linear-gradient(
+      90deg,
+      #9d7435,
+      #d7b46d,
+      #8c642e
+    );
+  color: #160f06;
+  box-shadow:
+    0 12px 32px rgba(0,0,0,0.26),
+    inset 0 0 0 1px rgba(255,255,255,0.28);
+}
+
+.brassPlate span {
+  display: block;
+  font-family: "Times New Roman", serif;
+  font-size: clamp(10px, 1vw, 14px);
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  white-space: normal;
+}
+
+.privateWorkText {
+  position: relative;
+  z-index: 2;
+  width: min(620px, 72%);
+  margin: 34px auto 0;
+  text-align: center;
+}
+
+.privateWorkText p {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: rgba(201,168,106,0.72);
+}
+
+.privateWorkText h2 {
+  margin-top: 12px;
+  font-family: "Times New Roman", serif;
+  font-size: clamp(34px, 3.4vw, 68px);
+  line-height: 1;
+  letter-spacing: -0.055em;
+  font-weight: 300;
+}
+
+.privateWorkText span {
+  display: block;
+  margin-top: 14px;
+  font-size: 13px;
+  line-height: 1.9;
+  color: rgba(239,231,216,0.52);
+}
+
+/* customizer */
+
+.privateCustomizer {
+  width: min(1320px, 88%);
+  margin: 0 auto 170px;
+  padding-top: 90px;
+  border-top: 1px solid rgba(201,168,106,0.08);
+}
+
+.customizerHeader h2,
+.frameEngineNote h2 {
+  margin-top: 24px;
+  max-width: 920px;
+  font-family: "Times New Roman", serif;
+  font-size: clamp(34px, 3.6vw, 72px);
+  line-height: 1.05;
+  letter-spacing: -0.055em;
+  font-weight: 300;
+  color: rgba(239,231,216,0.84);
+}
+
+.customizerGrid {
+  margin-top: 70px;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1fr;
+  gap: 24px;
+}
+
+.customizerColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.customizerLabel {
+  margin-bottom: 8px;
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  color: rgba(201,168,106,0.68);
+}
+
+.roomLabel {
+  margin-top: 26px;
+}
+
+.customizerColumn button,
+.roomUpload,
+.customizerSave button {
+  width: 100%;
+  text-align: left;
+  padding: 16px 18px;
+  border: 1px solid rgba(201,168,106,0.10);
+  background: rgba(255,255,255,0.012);
+  color: rgba(239,231,216,0.72);
+  font-size: 12px;
+  line-height: 1.6;
+  cursor: pointer;
+}
+
+.customizerColumn button span {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: rgba(201,168,106,0.64);
+}
+
+.customizerColumn button.active {
+  border-color: rgba(201,168,106,0.44);
+  background: rgba(201,168,106,0.065);
+  color: rgba(239,231,216,0.92);
+}
+
+.roomUpload {
+  display: block;
+  margin-top: 12px;
+  color: rgba(201,168,106,0.74);
+}
+
+.roomUpload input {
+  display: none;
+}
+
+.customizerSave {
+  margin-top: 44px;
+  max-width: 620px;
+}
+
+.customizerSave button {
+  max-width: 280px;
+  text-align: center;
+  letter-spacing: 0.16em;
+  color: rgba(201,168,106,0.78);
+}
+
+.customizerSave p {
+  margin-top: 20px;
+  font-size: 12px;
+  line-height: 1.9;
+  color: rgba(239,231,216,0.44);
+}
+
+.frameEngineNote {
+  width: min(1120px, 84%);
+  margin: 0 auto 160px;
+  padding-top: 90px;
+  border-top: 1px solid rgba(201,168,106,0.08);
+}
+
+.frameEngineNote p:last-child {
+  margin-top: 24px;
+  max-width: 720px;
+  font-size: 14px;
+  line-height: 2.05;
+  color: rgba(239,231,216,0.50);
+}
+
+@media (max-width: 900px) {
+  .privateGalleryHero,
+  .privateCustomizer,
+  .frameEngineNote {
+    width: calc(100% - 40px);
+  }
+
+  .privateViewingStage {
+    width: calc(100% - 32px);
+    min-height: auto;
+    padding: 70px 0;
+  }
+
+  .framedWork,
+  .privateWorkText {
+    width: 84%;
+  }
+
+  .frameShell {
+    padding: 18px;
+  }
+
+  .doubleMat {
+    padding: 24px 24px 68px;
+  }
+
+  .customizerGrid {
+    grid-template-columns: 1fr;
+  }
+}
