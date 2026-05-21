@@ -15690,3 +15690,28 @@ body::before {
 .room-bp .museumArtworkCard {
   padding-bottom: 90px !important;
 }
+/* ===================================
+   WORKS PAGE ARTIST PRESENCE
+=================================== */
+
+.room-bp .museumProjectHero::after {
+  content: "MASUMI SHIOHARA";
+  display: block;
+  margin-top: 42px;
+  font-size: 10px;
+  letter-spacing: 0.34em;
+  color: rgba(201,168,106,0.68);
+}
+
+.room-bp .museumLatin {
+  color: rgba(201,168,106,0.62) !important;
+}
+
+.room-bp .museumMedium {
+  color: rgba(239,231,216,0.46) !important;
+}
+
+.room-bp .museumArtworkMeta {
+  padding-top: 22px !important;
+  border-top: 1px solid rgba(201,168,106,0.1);
+}
