@@ -39,6 +39,14 @@ export default function HomePage() {
     Fruit Portraits
   </h2>
 
+  <div className="heroWorkSignature">
+
+    Orchard Time /
+    Cultivated Form /
+    Pomological Archive
+
+  </div>
+
 </div>
         </a>
       </section>
