@@ -16488,3 +16488,84 @@ body::before {
   font-size: 14px !important;
   line-height: 2.15 !important;
 }
+/* ===================================
+   FINAL SILENCE SYSTEM
+=================================== */
+
+/* overall quiet */
+
+body {
+  background: #040302 !important;
+  color: rgba(239,231,216,0.92);
+}
+
+/* reduce UI feeling */
+
+a,
+button {
+  transition:
+    opacity 1.4s ease,
+    color 1.4s ease,
+    border-color 1.4s ease,
+    background 1.4s ease !important;
+}
+
+/* quieter hover */
+
+a:hover {
+  opacity: 0.92;
+}
+
+/* remove aggressive movement */
+
+.heroWorkCard:hover img,
+.realFrame:hover img {
+  transform: none !important;
+}
+
+/* typography calm */
+
+h1,
+h2,
+blockquote {
+  text-wrap: balance;
+}
+
+/* quieter sections */
+
+.museumProjectHero,
+.museumArchiveStatement,
+.simpleWorksHero,
+.simpleWorksGrid,
+.simpleFooterLinks {
+  position: relative;
+  z-index: 2;
+}
+
+/* subtle darkness */
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      transparent 52%,
+      rgba(0,0,0,0.18)
+    );
+
+  z-index: 0;
+}
+
+/* softer separators */
+
+.simpleFooterLinks,
+.museumArchiveStatement,
+.museumExhibitionItem,
+.museumNextRoom {
+  border-color:
+    rgba(201,168,106,0.06) !important;
+}
