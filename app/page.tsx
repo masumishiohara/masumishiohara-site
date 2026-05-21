@@ -17,10 +17,8 @@ export default function HomePage() {
         </h1>
 
         <p className="simpleArtistText">
-          Masumi Shiohara is a Japanese fruit grower,
-          breeder,
-          and artist.
-        </p>
+  Fruit grower, breeder, and artist based in Japan.
+</p>
 
       </section>
 
