@@ -10715,8 +10715,14 @@ body {
   margin-top: 30px;
   max-width: 1200px;
   font-family: "Times New Roman", serif;
-  font-size: clamp(64px, 8vw, 150px);
-  line-height: 0.92;
+  font-size:
+  clamp(
+    58px,
+    7vw,
+    132px
+  );
+  line-height:
+  0.96;
   letter-spacing: -0.06em;
   font-weight: 300;
   color: rgba(239,231,216,0.94);
