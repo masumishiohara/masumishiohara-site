@@ -16195,3 +16195,73 @@ body::before {
     saturate(0.84)
     contrast(1.02) !important;
 }
+/* ===================================
+   FINAL TOP BALANCE
+=================================== */
+
+.simpleWorksPage {
+  background:
+    radial-gradient(
+      circle at 72% 18%,
+      rgba(201,168,106,0.045),
+      transparent 28%
+    ),
+    linear-gradient(
+      180deg,
+      #070604 0%,
+      #030302 100%
+    ) !important;
+}
+
+.simpleWorksHero {
+  width: min(1120px, 84%) !important;
+  margin: 0 auto 90px !important;
+}
+
+.simpleWorksHero h1 {
+  font-size: clamp(56px, 5.8vw, 108px) !important;
+  line-height: 1 !important;
+  letter-spacing: -0.055em !important;
+  max-width: 760px !important;
+}
+
+.simpleArtistText {
+  max-width: 420px !important;
+  font-size: 13px !important;
+  line-height: 1.9 !important;
+  color: rgba(239,231,216,0.46) !important;
+}
+
+.simpleWorksGrid {
+  width: min(1240px, 86%) !important;
+  margin: 0 auto 180px !important;
+}
+
+.heroWorkCard img {
+  aspect-ratio: 16 / 9 !important;
+  filter:
+    brightness(0.78)
+    saturate(0.86)
+    contrast(1.03) !important;
+}
+
+.heroWorkOverlay {
+  left: 44px !important;
+  bottom: 36px !important;
+  padding: 0 !important;
+  background: none !important;
+}
+
+.heroWorkOverlay h2 {
+  font-size: clamp(34px, 3.8vw, 76px) !important;
+}
+
+.heroWorkSignature {
+  display: none !important;
+}
+
+.simpleFooterLinks {
+  width: min(1120px, 84%) !important;
+  margin: 0 auto 120px !important;
+  padding-top: 26px !important;
+}
