@@ -15715,3 +15715,78 @@ body::before {
   padding-top: 22px !important;
   border-top: 1px solid rgba(201,168,106,0.1);
 }
+/* ===================================
+   EDITORIAL SPREAD SYSTEM
+=================================== */
+
+/* asymmetrical rhythm */
+
+.room-bp .museumArtworkCard:nth-child(1) {
+  margin-top: 0 !important;
+}
+
+.room-bp .museumArtworkCard:nth-child(2) {
+  margin-top: 120px !important;
+}
+
+.room-bp .museumArtworkCard:nth-child(3) {
+  margin-top: -40px !important;
+}
+
+.room-bp .museumArtworkCard:nth-child(4) {
+  margin-top: 140px !important;
+}
+
+/* image isolation */
+
+.room-bp .museumArtworkCard {
+  position: relative;
+}
+
+.room-bp .museumArtworkCard::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -80px;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(255,255,255,0.012),
+      transparent 72%
+    );
+
+  pointer-events: none;
+
+  z-index: 0;
+}
+
+/* quieter metadata */
+
+.room-bp .museumArtworkMeta {
+  max-width: 480px;
+}
+
+/* monumental image feel */
+
+.room-bp .realFrame.landscape {
+  max-width: 760px !important;
+}
+
+.room-bp .realFrame.portrait {
+  max-width: 520px !important;
+}
+
+/* mobile reset */
+
+@media (max-width: 900px) {
+
+  .room-bp .museumArtworkCard:nth-child(1),
+  .room-bp .museumArtworkCard:nth-child(2),
+  .room-bp .museumArtworkCard:nth-child(3),
+  .room-bp .museumArtworkCard:nth-child(4) {
+
+    margin-top: 0 !important;
+  }
+}
