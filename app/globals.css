@@ -15962,3 +15962,32 @@ body::before {
 .artistSignature {
   margin-top: 120px !important;
 }
+/* ===================================
+   WORKS FIRST IMAGE REFINEMENT
+=================================== */
+
+.room-bp .museumArtworkCard:first-child {
+  grid-column: 1 / -1;
+  max-width: 920px;
+  margin: 0 auto 120px !important;
+}
+
+.room-bp .museumArtworkCard:first-child .realFrame {
+  max-width: 720px !important;
+}
+
+.room-bp .museumArtworkCard:first-child .museumArtworkMeta {
+  max-width: 720px !important;
+  margin-top: 34px !important;
+}
+
+.room-bp .museumArtworkCard:first-child .museumArtworkMeta h2 {
+  font-size: clamp(38px, 4vw, 72px) !important;
+}
+
+@media (max-width: 900px) {
+  .room-bp .museumArtworkCard:first-child {
+    max-width: none;
+    margin-bottom: 80px !important;
+  }
+}
