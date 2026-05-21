@@ -25,7 +25,10 @@ export default function ContactPage() {
           </p>
 
           <p>
-            Email: your-email@example.com
+            Email:{" "}
+            <a href="mailto:contact@masumishiohara.com">
+              contact@masumishiohara.com
+            </a>
           </p>
         </div>
       </section>
