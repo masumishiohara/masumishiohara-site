@@ -16056,3 +16056,33 @@ body::before {
   margin-top: 70px !important;
   margin-bottom: 260px !important;
 }
+/* ===================================
+   ORCHARD PRESENCE
+=================================== */
+
+.orchardPresence {
+
+  width:
+    min(1180px, 84%);
+
+  margin:
+    0 auto 160px;
+
+  max-width:
+    720px;
+}
+
+.orchardPresence p:last-child {
+
+  margin-top:
+    20px;
+
+  font-size:
+    14px;
+
+  line-height:
+    2.1;
+
+  color:
+    rgba(239,231,216,0.50);
+}
