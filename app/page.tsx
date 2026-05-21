@@ -1,8 +1,12 @@
 export default function HomePage() {
   return (
     <main className="simpleWorksPage">
+
       <section className="simpleWorksHero">
-        <p className="simpleArtistName">MASUMI SHIOHARA</p>
+
+        <p className="simpleArtistName">
+          MASUMI SHIOHARA
+        </p>
 
         <h1>
           Fruit,
@@ -12,90 +16,94 @@ export default function HomePage() {
           as Form
         </h1>
 
-       <p className="simpleArtistText">
-  Masumi Shiohara is a Japanese fruit grower, breeder, and artist.
-  His work transforms cultivated fruit into photographic form,
-  sculptural presence, and orchard memory.
-</p>
+        <p className="simpleArtistText">
+          Japanese fruit grower,
+          breeder,
+          and artist.
+        </p>
 
-        <div className="museumArtistRoles">
-          <span>Fruit Grower</span>
-          <span>Breeder</span>
-          <span>Artist</span>
-        </div>
       </section>
 
       <section className="simpleWorksGrid">
-        <a href="/projects/botanical-portraits" className="heroWorkCard">
-          <img src="/botanical.jpg" alt="Fruit artwork by Masumi Shiohara" />
+
+        <a
+          href="/projects/botanical-portraits"
+          className="heroWorkCard"
+        >
+
+          <img
+            src="/botanical.jpg"
+            alt="Fruit artwork by Masumi Shiohara"
+          />
 
           <div className="heroWorkOverlay">
 
-  <span>
-    MASUMI SHIOHARA
-  </span>
+            <span>
+              MASUMI SHIOHARA
+            </span>
 
-  <h2>
-    Fruit Portraits
-  </h2>
+            <h2>
+              Fruit Portraits
+            </h2>
 
-  <div className="heroWorkSignature">
+            <div className="heroWorkSignature">
 
-    Orchard Time /
-    Cultivated Form /
-    Pomological Archive
+              Orchard Time /
+              Cultivated Form /
+              Pomological Archive
 
-  </div>
+            </div>
 
-</div>
+          </div>
+
         </a>
+
       </section>
 
+      <section className="silentStatement">
 
-<section className="silentStatement">
+        <p className="museumEditorialLabel">
+          ORCHARD TIME
+        </p>
 
-  <p className="museumEditorialLabel">
-    ORCHARD TIME
-  </p>
+        <h2>
+          The orchard is where the work begins.
+        </h2>
 
-  <h2>
-    The orchard is not background.
-    It is where the work begins.
-  </h2>
+      </section>
 
-</section>
-
-
-      
       <section className="artistSignature">
 
-  <p className="museumEditorialLabel">
-    MASUMI SHIOHARA
-  </p>
+        <p className="museumEditorialLabel">
+          MASUMI SHIOHARA
+        </p>
 
-  <blockquote>
-    “Cultivation is not preparation for the work.
-    Cultivation itself is already part of the work.”
-  </blockquote>
+        <blockquote>
+          “Cultivation itself is already part of the work.”
+        </blockquote>
 
-</section>
+      </section>
+
       <section className="simpleFooterLinks">
-  <a href="/projects/botanical-portraits">
-    Works
-  </a>
 
-  <a href="/about">
-    About
-  </a>
+        <a href="/projects/botanical-portraits">
+          Works
+        </a>
 
-  <a href="/exhibitions">
-    Exhibitions
-  </a>
+        <a href="/about">
+          About
+        </a>
 
-  <a href="/contact">
-    Contact
-  </a>
-</section>
+        <a href="/exhibitions">
+          Exhibitions
+        </a>
+
+        <a href="/contact">
+          Contact
+        </a>
+
+      </section>
+
     </main>
   );
 }
