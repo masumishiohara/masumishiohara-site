@@ -65,21 +65,7 @@ export default function HomePage() {
 
 </section>
 
-<section className="orchardPresence">
 
-  <p className="museumEditorialLabel">
-    ORCHARD PRESENCE
-  </p>
-
-  <p>
-    The works emerge through cultivation,
-    breeding,
-    weather,
-    harvest,
-    and repeated agricultural observation.
-  </p>
-
-</section>
       
       <section className="artistSignature">
 
