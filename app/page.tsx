@@ -10,11 +10,15 @@ export default function HomePage() {
           Fruit Works
         </h1>
 
-        <p className="simpleArtistText">
-          Fruit grower, breeder, and artist. Masumi Shiohara creates photographic
-          works from cultivated fruit, shaped through orchard time, selection,
-          weather, and human intervention.
-        </p>
+        <p className="museumLandingLead">
+
+  Masumi Shiohara is a Japanese fruit grower,
+  breeder,
+  and artist whose work transforms cultivated fruit into photographic form,
+  sculptural presence,
+  and orchard archive.
+
+</p>
       </section>
 
       <section className="simpleWorksGrid">
