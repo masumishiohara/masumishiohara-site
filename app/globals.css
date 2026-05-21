@@ -19184,3 +19184,1125 @@ body::after,
       0.035em !important;
   }
 }
+/* ===================================
+   PRIVATE GALLERY COMPLETE FIX
+   hp1.zip class mismatch correction
+=================================== */
+
+/* page base */
+
+.privateGalleryPage {
+  min-height: 100vh !important;
+
+  padding:
+    150px
+    0
+    140px !important;
+
+  overflow-x: hidden !important;
+
+  background:
+    radial-gradient(
+      circle at 72% 14%,
+      rgba(201,168,106,0.05),
+      transparent 28%
+    ),
+    linear-gradient(
+      180deg,
+      #060504 0%,
+      #020202 100%
+    ) !important;
+
+  color:
+    rgba(239,231,216,0.92) !important;
+}
+
+.privateGalleryHero {
+  width:
+    min(1180px, 84%) !important;
+
+  margin:
+    0 auto 120px !important;
+}
+
+.privateGalleryHero h1 {
+  font-family:
+    "Times New Roman",
+    serif !important;
+
+  font-size:
+    clamp(
+      58px,
+      6vw,
+      118px
+    ) !important;
+
+  line-height:
+    0.98 !important;
+
+  letter-spacing:
+    -0.06em !important;
+
+  font-weight:
+    300 !important;
+
+  color:
+    rgba(239,231,216,0.94) !important;
+}
+
+.privateGalleryHero p:last-child {
+  margin-top:
+    32px !important;
+
+  max-width:
+    720px !important;
+
+  font-size:
+    14px !important;
+
+  line-height:
+    2.05 !important;
+
+  color:
+    rgba(239,231,216,0.52) !important;
+}
+
+/* ===================================
+   viewing stage
+=================================== */
+
+.pgStage {
+  position:
+    relative !important;
+
+  width:
+    min(1320px, 88%) !important;
+
+  min-height:
+    820px !important;
+
+  margin:
+    0 auto 170px !important;
+
+  padding:
+    110px
+    0
+    92px !important;
+
+  overflow:
+    hidden !important;
+
+  border:
+    1px solid
+    rgba(201,168,106,0.08) !important;
+
+  background:
+    radial-gradient(
+      ellipse at top,
+      rgba(255,240,210,0.055),
+      transparent 38%
+    ),
+    linear-gradient(
+      180deg,
+      #090807,
+      #020202
+    ) !important;
+}
+
+/* room variations */
+
+.pgRoom-salon {
+  background:
+    radial-gradient(
+      ellipse at top,
+      rgba(255,240,210,0.055),
+      transparent 38%
+    ),
+    linear-gradient(
+      180deg,
+      #090807,
+      #020202
+    ) !important;
+}
+
+.pgRoom-residence {
+  background:
+    radial-gradient(
+      ellipse at top,
+      rgba(190,150,105,0.08),
+      transparent 38%
+    ),
+    linear-gradient(
+      180deg,
+      #120e0a,
+      #050403
+    ) !important;
+}
+
+.pgRoom-gallery {
+  background:
+    linear-gradient(
+      180deg,
+      #d9d3c8,
+      #b8b1a6
+    ) !important;
+}
+
+.pgRoom-hotel {
+  background:
+    radial-gradient(
+      ellipse at top,
+      rgba(210,170,110,0.10),
+      transparent 42%
+    ),
+    linear-gradient(
+      180deg,
+      #100c09,
+      #030202
+    ) !important;
+}
+
+.pgRoom-custom {
+  background:
+    #050403 !important;
+}
+
+.pgCustomRoomImage {
+  position:
+    absolute !important;
+
+  inset:
+    0 !important;
+
+  width:
+    100% !important;
+
+  height:
+    100% !important;
+
+  object-fit:
+    cover !important;
+
+  filter:
+    brightness(0.50)
+    saturate(0.85) !important;
+
+  opacity:
+    0.82 !important;
+}
+
+/* spotlight */
+
+.pgSpotlight {
+  position:
+    absolute !important;
+
+  left:
+    50% !important;
+
+  top:
+    -110px !important;
+
+  transform:
+    translateX(-50%) !important;
+
+  width:
+    60% !important;
+
+  height:
+    330px !important;
+
+  background:
+    radial-gradient(
+      ellipse at top,
+      rgba(255,225,170,0.20),
+      rgba(255,225,170,0.055) 44%,
+      transparent 78%
+    ) !important;
+
+  filter:
+    blur(34px) !important;
+
+  pointer-events:
+    none !important;
+
+  z-index:
+    1 !important;
+}
+
+/* ===================================
+   framed work
+=================================== */
+
+.pgFramedWork {
+  position:
+    relative !important;
+
+  z-index:
+    2 !important;
+
+  width:
+    min(
+      var(--pg-frame-width, 620px),
+      78vw
+    ) !important;
+
+  margin:
+    0 auto !important;
+}
+
+.pgFrameShell {
+  position:
+    relative !important;
+
+  padding:
+    var(--pg-frame-thickness, 34px) !important;
+
+  background:
+    #111 !important;
+
+  box-shadow:
+    0 92px 220px rgba(0,0,0,0.58) !important;
+
+  isolation:
+    isolate !important;
+}
+
+/* modular frame parts */
+
+.pgFramePart {
+  position:
+    absolute !important;
+
+  pointer-events:
+    none !important;
+
+  z-index:
+    3 !important;
+}
+
+.pgCorner {
+  width:
+    var(--pg-corner-size, 62px) !important;
+
+  height:
+    var(--pg-corner-size, 62px) !important;
+}
+
+.pgCornerTL {
+  left: 0 !important;
+  top: 0 !important;
+}
+
+.pgCornerTR {
+  right: 0 !important;
+  top: 0 !important;
+}
+
+.pgCornerBL {
+  left: 0 !important;
+  bottom: 0 !important;
+}
+
+.pgCornerBR {
+  right: 0 !important;
+  bottom: 0 !important;
+}
+
+.pgEdgeTop,
+.pgEdgeBottom {
+  left:
+    var(--pg-corner-size, 62px) !important;
+
+  right:
+    var(--pg-corner-size, 62px) !important;
+
+  height:
+    var(--pg-frame-thickness, 34px) !important;
+}
+
+.pgEdgeTop {
+  top: 0 !important;
+}
+
+.pgEdgeBottom {
+  bottom: 0 !important;
+}
+
+.pgEdgeLeft,
+.pgEdgeRight {
+  top:
+    var(--pg-corner-size, 62px) !important;
+
+  bottom:
+    var(--pg-corner-size, 62px) !important;
+
+  width:
+    var(--pg-frame-thickness, 34px) !important;
+}
+
+.pgEdgeLeft {
+  left: 0 !important;
+}
+
+.pgEdgeRight {
+  right: 0 !important;
+}
+
+/* ===================================
+   six frame styles
+=================================== */
+
+/* Modern */
+
+.pgFrame-modern .pgFrameShell,
+.pgFrame-modern .pgFramePart {
+  background:
+    linear-gradient(
+      145deg,
+      #171717,
+      #050505 48%,
+      #202020
+    ) !important;
+}
+
+/* Elegant */
+
+.pgFrame-elegant .pgFrameShell,
+.pgFrame-elegant .pgFramePart {
+  background:
+    linear-gradient(
+      145deg,
+      #17130f,
+      #050403 48%,
+      #211a12
+    ) !important;
+}
+
+.pgFrame-elegant .pgFrameShell {
+  box-shadow:
+    0 92px 220px rgba(0,0,0,0.58),
+    inset 0 0 0 2px rgba(201,168,106,0.22),
+    inset 0 0 0 10px rgba(0,0,0,0.55) !important;
+}
+
+/* Antique */
+
+.pgFrame-antique .pgFrameShell,
+.pgFrame-antique .pgFramePart {
+  background:
+    linear-gradient(
+      145deg,
+      #2b1a0d,
+      #0b0603 48%,
+      #3b2918
+    ) !important;
+}
+
+/* Chic */
+
+.pgFrame-chic .pgFrameShell,
+.pgFrame-chic .pgFramePart {
+  background:
+    linear-gradient(
+      145deg,
+      #11100e,
+      #050403 48%,
+      #181612
+    ) !important;
+}
+
+/* Urban */
+
+.pgFrame-urban .pgFrameShell,
+.pgFrame-urban .pgFramePart {
+  background:
+    linear-gradient(
+      145deg,
+      #222,
+      #070707 48%,
+      #111
+    ) !important;
+}
+
+/* Wood carved */
+
+.pgFrame-carved .pgFrameShell,
+.pgFrame-carved .pgFramePart {
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #24160c 0,
+      #2f1d10 12px,
+      #150c06 24px
+    ) !important;
+}
+
+/* ===================================
+   double mat / V-cut
+=================================== */
+
+.pgDoubleMat {
+  position:
+    relative !important;
+
+  padding:
+    44px
+    44px
+    86px !important;
+
+  background:
+    #e5d9c3 !important;
+
+  z-index:
+    4 !important;
+}
+
+.pgMat-stone .pgDoubleMat {
+  background:
+    #e8e5dd !important;
+}
+
+.pgMat-dark .pgDoubleMat {
+  background:
+    #171717 !important;
+}
+
+.pgTopMat {
+  position:
+    relative !important;
+
+  padding:
+    12px !important;
+
+  background:
+    rgba(255,255,255,0.26) !important;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(80,60,36,0.14) !important;
+}
+
+.pgMat-dark .pgTopMat {
+  background:
+    rgba(255,255,255,0.04) !important;
+}
+
+.pgVCutWindow {
+  position:
+    relative !important;
+
+  overflow:
+    hidden !important;
+
+  background:
+    #050403 !important;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(0,0,0,0.35),
+    0 24px 80px rgba(0,0,0,0.30) !important;
+}
+
+.pgVCutWindow::before {
+  content:
+    "" !important;
+
+  position:
+    absolute !important;
+
+  inset:
+    0 !important;
+
+  box-shadow:
+    inset 0 0 0 8px rgba(255,255,255,0.06),
+    inset 0 0 0 10px rgba(0,0,0,0.18) !important;
+
+  pointer-events:
+    none !important;
+
+  z-index:
+    2 !important;
+}
+
+.pgVCutWindow img {
+  width:
+    100% !important;
+
+  display:
+    block !important;
+
+  aspect-ratio:
+    4 / 5 !important;
+
+  object-fit:
+    cover !important;
+}
+
+/* ===================================
+   brass plate auto layout
+=================================== */
+
+.pgBrassPlate {
+  position:
+    absolute !important;
+
+  left:
+    50% !important;
+
+  bottom:
+    26px !important;
+
+  transform:
+    translateX(-50%) !important;
+
+  width:
+    min(
+      var(--pg-plate-width, 320px),
+      88%
+    ) !important;
+
+  min-width:
+    180px !important;
+
+  max-width:
+    88% !important;
+
+  min-height:
+    34px !important;
+
+  padding:
+    var(--pg-plate-padding, 9px 18px) !important;
+
+  display:
+    flex !important;
+
+  align-items:
+    center !important;
+
+  justify-content:
+    center !important;
+
+  text-align:
+    center !important;
+
+  overflow:
+    hidden !important;
+
+  background:
+    linear-gradient(
+      90deg,
+      #8b642d,
+      #d8b76e 42%,
+      #f0d28b 52%,
+      #9a7030
+    ) !important;
+
+  color:
+    #171006 !important;
+
+  box-shadow:
+    0 12px 32px rgba(0,0,0,0.30),
+    inset 0 0 0 1px rgba(255,255,255,0.32),
+    inset 0 -8px 20px rgba(0,0,0,0.16) !important;
+}
+
+.pgBrassPlate span {
+  display:
+    block !important;
+
+  width:
+    100% !important;
+
+  max-width:
+    100% !important;
+
+  font-family:
+    "Times New Roman",
+    serif !important;
+
+  font-size:
+    var(--pg-plate-font-size, 12px) !important;
+
+  line-height:
+    1.18 !important;
+
+  letter-spacing:
+    var(--pg-plate-letter-spacing, 0.06em) !important;
+
+  white-space:
+    normal !important;
+
+  overflow-wrap:
+    anywhere !important;
+
+  word-break:
+    normal !important;
+
+  hyphens:
+    auto !important;
+
+  transform:
+    scaleX(0.96) !important;
+
+  transform-origin:
+    center !important;
+}
+
+/* ===================================
+   title / statement below framed work
+=================================== */
+
+.pgWorkText {
+  position:
+    relative !important;
+
+  z-index:
+    2 !important;
+
+  width:
+    min(
+      var(--pg-frame-width, 620px),
+      78vw
+    ) !important;
+
+  margin:
+    34px auto 0 !important;
+
+  text-align:
+    center !important;
+}
+
+.pgWorkText p {
+  font-size:
+    10px !important;
+
+  letter-spacing:
+    0.22em !important;
+
+  color:
+    rgba(201,168,106,0.72) !important;
+}
+
+.pgWorkText h2 {
+  margin-top:
+    12px !important;
+
+  font-family:
+    "Times New Roman",
+    serif !important;
+
+  font-size:
+    clamp(
+      34px,
+      3.4vw,
+      68px
+    ) !important;
+
+  line-height:
+    1 !important;
+
+  letter-spacing:
+    -0.055em !important;
+
+  font-weight:
+    300 !important;
+
+  color:
+    rgba(239,231,216,0.88) !important;
+}
+
+.pgWorkText span {
+  display:
+    block !important;
+
+  margin:
+    14px auto 0 !important;
+
+  max-width:
+    640px !important;
+
+  font-size:
+    13px !important;
+
+  line-height:
+    1.9 !important;
+
+  color:
+    rgba(239,231,216,0.52) !important;
+}
+
+.pgWorkText small {
+  display:
+    block !important;
+
+  margin-top:
+    14px !important;
+
+  font-size:
+    11px !important;
+
+  line-height:
+    1.8 !important;
+
+  color:
+    rgba(201,168,106,0.50) !important;
+}
+
+.pgRoom-gallery .pgWorkText h2,
+.pgRoom-gallery .pgWorkText span,
+.pgRoom-gallery .pgWorkText small {
+  color:
+    rgba(18,15,12,0.78) !important;
+}
+
+/* ===================================
+   customizer
+=================================== */
+
+.pgCustomizer {
+  width:
+    min(1320px, 88%) !important;
+
+  margin:
+    0 auto 170px !important;
+
+  padding-top:
+    90px !important;
+
+  border-top:
+    1px solid
+    rgba(201,168,106,0.08) !important;
+}
+
+.pgCustomizerHeader h2,
+.pgEngineSpec h2 {
+  margin-top:
+    24px !important;
+
+  max-width:
+    920px !important;
+
+  font-family:
+    "Times New Roman",
+    serif !important;
+
+  font-size:
+    clamp(
+      34px,
+      3.6vw,
+      72px
+    ) !important;
+
+  line-height:
+    1.05 !important;
+
+  letter-spacing:
+    -0.055em !important;
+
+  font-weight:
+    300 !important;
+
+  color:
+    rgba(239,231,216,0.84) !important;
+}
+
+.pgCustomizerGrid {
+  margin-top:
+    70px !important;
+
+  display:
+    grid !important;
+
+  grid-template-columns:
+    1.15fr
+    1fr
+    1fr !important;
+
+  gap:
+    24px !important;
+}
+
+.pgCustomizerColumn {
+  display:
+    flex !important;
+
+  flex-direction:
+    column !important;
+
+  gap:
+    10px !important;
+}
+
+.pgCustomizerLabel {
+  margin-bottom:
+    8px !important;
+
+  font-size:
+    10px !important;
+
+  letter-spacing:
+    0.24em !important;
+
+  color:
+    rgba(201,168,106,0.68) !important;
+}
+
+.pgSpaceLabel {
+  margin-top:
+    28px !important;
+}
+
+.pgCustomizerColumn button,
+.pgRoomUpload,
+.pgSaveArea button {
+  width:
+    100% !important;
+
+  text-align:
+    left !important;
+
+  padding:
+    16px
+    18px !important;
+
+  border:
+    1px solid
+    rgba(201,168,106,0.10) !important;
+
+  background:
+    rgba(255,255,255,0.012) !important;
+
+  color:
+    rgba(239,231,216,0.72) !important;
+
+  font-size:
+    12px !important;
+
+  line-height:
+    1.6 !important;
+
+  cursor:
+    pointer !important;
+}
+
+.pgCustomizerColumn button span {
+  display:
+    block !important;
+
+  margin-bottom:
+    4px !important;
+
+  font-size:
+    10px !important;
+
+  letter-spacing:
+    0.2em !important;
+
+  color:
+    rgba(201,168,106,0.64) !important;
+}
+
+.pgCustomizerColumn button.active {
+  border-color:
+    rgba(201,168,106,0.44) !important;
+
+  background:
+    rgba(201,168,106,0.065) !important;
+
+  color:
+    rgba(239,231,216,0.92) !important;
+}
+
+.pgRoomUpload {
+  display:
+    block !important;
+
+  margin-top:
+    12px !important;
+
+  color:
+    rgba(201,168,106,0.74) !important;
+}
+
+.pgRoomUpload input {
+  display:
+    none !important;
+}
+
+.pgSaveArea {
+  margin-top:
+    44px !important;
+
+  max-width:
+    640px !important;
+}
+
+.pgSaveArea button {
+  max-width:
+    280px !important;
+
+  text-align:
+    center !important;
+
+  letter-spacing:
+    0.16em !important;
+
+  color:
+    rgba(201,168,106,0.78) !important;
+}
+
+.pgSaveArea p {
+  margin-top:
+    20px !important;
+
+  font-size:
+    12px !important;
+
+  line-height:
+    1.9 !important;
+
+  color:
+    rgba(239,231,216,0.44) !important;
+}
+
+/* ===================================
+   frame engine specification
+=================================== */
+
+.pgEngineSpec {
+  width:
+    min(1120px, 84%) !important;
+
+  margin:
+    0 auto 160px !important;
+
+  padding-top:
+    90px !important;
+
+  border-top:
+    1px solid
+    rgba(201,168,106,0.08) !important;
+}
+
+.pgSpecGrid {
+  margin-top:
+    70px !important;
+
+  display:
+    grid !important;
+
+  grid-template-columns:
+    repeat(3, 1fr) !important;
+
+  gap:
+    22px !important;
+}
+
+.pgSpecGrid article {
+  padding:
+    26px !important;
+
+  border:
+    1px solid
+    rgba(201,168,106,0.08) !important;
+
+  background:
+    rgba(255,255,255,0.012) !important;
+}
+
+.pgSpecGrid h3 {
+  font-family:
+    "Times New Roman",
+    serif !important;
+
+  font-size:
+    28px !important;
+
+  line-height:
+    1.05 !important;
+
+  letter-spacing:
+    -0.045em !important;
+
+  font-weight:
+    300 !important;
+}
+
+.pgSpecGrid p {
+  margin-top:
+    16px !important;
+
+  font-size:
+    13px !important;
+
+  line-height:
+    1.9 !important;
+
+  color:
+    rgba(239,231,216,0.48) !important;
+}
+
+/* ===================================
+   mobile
+=================================== */
+
+@media (max-width: 900px) {
+  .privateGalleryHero,
+  .pgCustomizer,
+  .pgEngineSpec {
+    width:
+      calc(100% - 40px) !important;
+  }
+
+  .pgStage {
+    width:
+      calc(100% - 32px) !important;
+
+    min-height:
+      auto !important;
+
+    padding:
+      70px
+      0 !important;
+  }
+
+  .pgFramedWork,
+  .pgWorkText {
+    width:
+      84% !important;
+  }
+
+  .pgFrameShell {
+    padding:
+      18px !important;
+  }
+
+  .pgDoubleMat {
+    padding:
+      24px
+      24px
+      72px !important;
+  }
+
+  .pgBrassPlate {
+    width:
+      82% !important;
+
+    padding:
+      8px
+      14px !important;
+  }
+
+  .pgBrassPlate span {
+    font-size:
+      9px !important;
+
+    letter-spacing:
+      0.035em !important;
+  }
+
+  .pgCustomizerGrid,
+  .pgSpecGrid {
+    grid-template-columns:
+      1fr !important;
+  }
+}
