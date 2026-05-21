@@ -8,7 +8,7 @@ export default function ContactPage() {
 
         <p className="museumProjectLead">
           For exhibitions, editorial inquiries, gallery correspondence,
-          curatorial dialogue, and institutional presentations.
+          curatorial dialogue, image requests, and institutional presentations.
         </p>
       </section>
 
@@ -20,10 +20,13 @@ export default function ContactPage() {
         <div>
           <p>
             Please contact for exhibition proposals, editorial features,
-            image requests, gallery discussions, and publication-related matters.
+            gallery discussions, publication-related matters, and private
+            presentations of the work.
           </p>
 
-          <p>Email: your-email@example.com</p>
+          <p>
+            Email: your-email@example.com
+          </p>
         </div>
       </section>
 
