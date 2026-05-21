@@ -16165,3 +16165,33 @@ body::before {
     1px solid
     rgba(201,168,106,0.06) !important;
 }
+/* ===================================
+   HERO IMAGE FINAL POLISH
+=================================== */
+
+.heroWorkOverlay {
+  background: none !important;
+  padding: 0 !important;
+}
+
+.heroWorkOverlay span {
+  font-size: 9px !important;
+  letter-spacing: 0.26em !important;
+  color: rgba(239,231,216,0.58) !important;
+}
+
+.heroWorkOverlay h2 {
+  font-size: clamp(32px, 3.6vw, 72px) !important;
+  color: rgba(239,231,216,0.86) !important;
+}
+
+.heroWorkSignature {
+  display: none !important;
+}
+
+.heroWorkCard img {
+  filter:
+    brightness(0.76)
+    saturate(0.84)
+    contrast(1.02) !important;
+}
