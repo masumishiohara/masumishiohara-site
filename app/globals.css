@@ -14670,3 +14670,110 @@ body::before {
 .refinedStatement h2 {
   max-width: 980px !important;
 }
+/* ===================================
+   SIMPLE MASUMI SHIOHARA WORKS PAGE
+=================================== */
+
+.simpleWorksPage {
+  min-height: 100vh;
+  background: #050403;
+  color: rgba(239,231,216,0.92);
+  padding: 150px 0 120px;
+  overflow-x: hidden;
+}
+
+.simpleWorksHero {
+  width: min(1180px, 86%);
+  margin: 0 auto 90px;
+}
+
+.simpleArtistName {
+  font-size: 11px;
+  letter-spacing: 0.34em;
+  color: rgba(201,168,106,0.82);
+  margin-bottom: 34px;
+}
+
+.simpleWorksHero h1 {
+  font-family: "Times New Roman", serif;
+  font-size: clamp(56px, 7vw, 128px);
+  line-height: 0.96;
+  letter-spacing: -0.06em;
+  font-weight: 300;
+  max-width: 980px;
+}
+
+.simpleArtistText {
+  margin-top: 38px;
+  max-width: 680px;
+  font-size: 15px;
+  line-height: 2;
+  color: rgba(239,231,216,0.56);
+}
+
+.simpleWorksGrid {
+  width: min(1180px, 86%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 34px;
+}
+
+.simpleWorkCard {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.simpleWorkCard img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.86) brightness(0.84);
+  border: 1px solid rgba(201,168,106,0.12);
+}
+
+.simpleWorkMeta {
+  margin-top: 22px;
+}
+
+.simpleWorkMeta span {
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  color: rgba(201,168,106,0.72);
+}
+
+.simpleWorkMeta h2 {
+  margin-top: 10px;
+  font-family: "Times New Roman", serif;
+  font-size: clamp(30px, 3vw, 54px);
+  font-weight: 300;
+  letter-spacing: -0.04em;
+}
+
+.simpleFooterLinks {
+  width: min(1180px, 86%);
+  margin: 90px auto 0;
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.simpleFooterLinks a {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: rgba(201,168,106,0.68);
+  text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .simpleWorksGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .simpleWorkCard img {
+    height: auto;
+    aspect-ratio: 4 / 5;
+  }
+}
