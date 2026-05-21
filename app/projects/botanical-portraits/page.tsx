@@ -55,18 +55,20 @@ export default function FruitPortraitsPage() {
   return (
     <main className="museumProjectPage room-bp">
       <section className="museumProjectHero">
-        <div className="museumCollectionHeader">
-          <p className="museumEyebrow">ROOM II</p>
-          <span className="museumCollectionCode">MBA-FP</span>
-        </div>
+  <div className="museumCollectionHeader">
+    <p className="museumEyebrow">WORKS</p>
+    <span className="museumCollectionCode">MS-FP</span>
+  </div>
 
-        <h1>Fruit Portraits</h1>
+  <h1>
+    Fruit Portraits
+  </h1>
 
-        <p className="museumProjectLead">
-          Cultivated fruit presented as portrait, specimen, pomological form,
-          and magnificent evidence of agricultural time.
-        </p>
-      </section>
+  <p className="museumProjectLead">
+    Works by Masumi Shiohara. Cultivated fruit presented as portrait,
+    sculptural form, photographic object, and evidence of orchard time.
+  </p>
+</section>
 
       <section className="museumCuratorialText">
         <div>
