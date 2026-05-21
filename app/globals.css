@@ -17278,3 +17278,136 @@ a:focus-visible {
   background: rgba(201,168,106,0.28);
   color: rgba(239,231,216,0.96);
 }
+/* ===================================
+   FINAL MOBILE / DISPLAY STABILITY
+=================================== */
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* prevent old layout rules from breaking final simple site */
+
+.simpleWorksPage *,
+.museumProjectPage * {
+  box-sizing: border-box;
+}
+
+/* top mobile */
+
+@media (max-width: 760px) {
+  .simpleWorksPage {
+    padding-top: 118px !important;
+    padding-bottom: 80px !important;
+  }
+
+  .simpleWorksHero {
+    width: calc(100% - 40px) !important;
+    margin-bottom: 76px !important;
+  }
+
+  .simpleArtistName {
+    font-size: 9px !important;
+    letter-spacing: 0.28em !important;
+    margin-bottom: 28px !important;
+  }
+
+  .simpleWorksHero h1 {
+    font-size: clamp(46px, 14vw, 82px) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.052em !important;
+  }
+
+  .simpleArtistText {
+    margin-top: 28px !important;
+    max-width: 100% !important;
+    font-size: 13px !important;
+    line-height: 1.9 !important;
+  }
+
+  .simpleWorksGrid {
+    width: calc(100% - 32px) !important;
+    margin-bottom: 130px !important;
+  }
+
+  .heroWorkCard img {
+    aspect-ratio: 4 / 5 !important;
+  }
+
+  .heroWorkOverlay {
+    left: 22px !important;
+    right: 22px !important;
+    bottom: 22px !important;
+  }
+
+  .heroWorkOverlay h2 {
+    font-size: clamp(34px, 10vw, 58px) !important;
+  }
+
+  .simpleFooterLinks {
+    width: calc(100% - 40px) !important;
+    margin-bottom: 90px !important;
+    gap: 20px !important;
+  }
+
+  .simpleFooterLinks a {
+    font-size: 10px !important;
+  }
+}
+
+/* lower pages mobile */
+
+@media (max-width: 760px) {
+  .museumProjectPage {
+    padding-top: 92px !important;
+  }
+
+  .museumProjectHero {
+    width: calc(100% - 40px) !important;
+    padding: 90px 0 90px !important;
+  }
+
+  .museumProjectHero h1 {
+    font-size: clamp(48px, 14vw, 86px) !important;
+    line-height: 1 !important;
+  }
+
+  .museumProjectLead {
+    font-size: 13px !important;
+    line-height: 1.95 !important;
+  }
+
+  .museumArchiveStatement {
+    width: calc(100% - 40px) !important;
+    grid-template-columns: 1fr !important;
+    gap: 44px !important;
+    padding: 70px 0 110px !important;
+  }
+
+  .museumArchiveStatement h2 {
+    font-size: clamp(34px, 10vw, 64px) !important;
+  }
+
+  .museumExhibitionList {
+    width: calc(100% - 40px) !important;
+  }
+
+  .museumExhibitionItem {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    padding: 38px 0 !important;
+  }
+
+  .museumNextRoom {
+    width: calc(100% - 40px) !important;
+    margin-bottom: 110px !important;
+  }
+
+  .museumNextRoom a {
+    font-size: clamp(32px, 10vw, 58px) !important;
+  }
+}
