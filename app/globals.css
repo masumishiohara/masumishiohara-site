@@ -15250,3 +15250,57 @@ body::before {
     font-size: clamp(42px, 12vw, 72px);
   }
 }
+/* ===================================
+   SILENT STATEMENT
+=================================== */
+
+.silentStatement {
+
+  width:
+    min(1180px, 84%);
+
+  margin:
+    140px auto 120px;
+
+  padding-top:
+    90px;
+
+  border-top:
+    1px solid
+    rgba(201,168,106,0.12);
+}
+
+.silentStatement h2 {
+
+  margin-top:
+    24px;
+
+  max-width:
+    920px;
+
+  font-family:
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      36px,
+      4vw,
+      78px
+    );
+
+  line-height:
+    1.04;
+
+  letter-spacing:
+    -0.06em;
+
+  font-weight:
+    300;
+
+  color:
+    rgba(239,231,216,0.82);
+
+  text-shadow:
+    0 0 120px rgba(201,168,106,0.03);
+}
