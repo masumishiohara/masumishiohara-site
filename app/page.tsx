@@ -12,11 +12,11 @@ export default function HomePage() {
           as Form
         </h1>
 
-        <p className="simpleArtistText">
-          Masumi Shiohara is a Japanese fruit grower, breeder, and artist whose
-          work transforms cultivated fruit into photographic form, sculptural
-          presence, and orchard archive.
-        </p>
+       <p className="simpleArtistText">
+  Masumi Shiohara is a Japanese fruit grower, breeder, and artist.
+  His work transforms cultivated fruit into photographic form,
+  sculptural presence, and orchard memory.
+</p>
 
         <div className="museumArtistRoles">
           <span>Fruit Grower</span>
