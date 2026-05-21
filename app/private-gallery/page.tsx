@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import type { ChangeEvent } from "react";
 
 const works = [
   {
@@ -161,38 +162,39 @@ export default function PrivateGalleryPage() {
   const [uploadedRoom, setUploadedRoom] = useState<string | null>(null);
   const [saved, setSaved] = useState(false);
 
-  const selectedWork = useMemo(
-    () => works.find((work) => work.id === workId) ?? works[0],
-    [workId]
-  );
+  const selectedWork = useMemo(() => {
+    return works.find((work) => work.id === workId) ?? works[0];
+  }, [workId]);
 
-  const selectedFrame = useMemo(
-    () => frameStyles.find((frame) => frame.id === frameId) ?? frameStyles[0],
-    [frameId]
-  );
-
-  const selectedMat = useMemo(
-    () => matStyles.find((mat) => mat.id === matId) ?? matStyles[0],
-    [matId]
-  );
-
-  const selectedRoom = useMemo(
-    () => rooms.find((room) => room.id === roomId) ?? rooms[0],
-    [roomId]
-  );
+  const selectedRoom = useMemo(() => {
+    return rooms.find((room) => room.id === roomId) ?? rooms[0];
+  }, [roomId]);
 
   useEffect(() => {
     const savedConfig = window.localStorage.getItem("masumi-private-gallery");
 
-    if (!savedConfig) return;
+    if (!savedConfig) {
+      return;
+    }
 
     try {
       const parsed = JSON.parse(savedConfig);
 
-      if (parsed.workId) setWorkId(parsed.workId);
-      if (parsed.frameId) setFrameId(parsed.frameId);
-      if (parsed.matId) setMatId(parsed.matId);
-      if (parsed.roomId) setRoomId(parsed.roomId);
+      if (parsed.workId) {
+        setWorkId(parsed.workId);
+      }
+
+      if (parsed.frameId) {
+        setFrameId(parsed.frameId);
+      }
+
+      if (parsed.matId) {
+        setMatId(parsed.matId);
+      }
+
+      if (parsed.roomId) {
+        setRoomId(parsed.roomId);
+      }
     } catch {
       window.localStorage.removeItem("masumi-private-gallery");
     }
@@ -216,10 +218,12 @@ export default function PrivateGalleryPage() {
     }, 1800);
   }
 
-  function handleRoomUpload(event: React.ChangeEvent<HTMLInputElement>) {
+  function handleRoomUpload(event: ChangeEvent<HTMLInputElement>) {
     const file = event.target.files?.[0];
 
-    if (!file) return;
+    if (!file) {
+      return;
+    }
 
     const reader = new FileReader();
 
@@ -246,8 +250,8 @@ export default function PrivateGalleryPage() {
 
         <p>
           A private viewing environment for Masumi Shiohara’s cultivated fruit
-          works. Frame, mat, plate, room, and lighting are treated as part of the
-          work’s presentation.
+          works. Frame, mat, plate, room, and lighting are treated as part of
+          the work’s presentation.
         </p>
       </section>
 
@@ -276,8 +280,12 @@ export default function PrivateGalleryPage() {
 
         <div className="privateWorkText">
           <p>{selectedWork.id}</p>
+
           <h2>{selectedWork.title}</h2>
+
           <span>{selectedWork.statement}</span>
+
+          <small>{selectedRoom.description}</small>
         </div>
       </section>
 
