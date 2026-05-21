@@ -15304,3 +15304,53 @@ body::before {
   text-shadow:
     0 0 120px rgba(201,168,106,0.03);
 }
+/* ===================================
+   ARTIST SIGNATURE
+=================================== */
+
+.artistSignature {
+
+  width:
+    min(1180px, 84%);
+
+  margin:
+    0 auto 180px;
+
+  padding-top:
+    90px;
+}
+
+.artistSignature blockquote {
+
+  margin-top:
+    24px;
+
+  max-width:
+    980px;
+
+  font-family:
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      34px,
+      3.6vw,
+      72px
+    );
+
+  line-height:
+    1.06;
+
+  letter-spacing:
+    -0.06em;
+
+  font-weight:
+    300;
+
+  color:
+    rgba(239,231,216,0.80);
+
+  text-shadow:
+    0 0 120px rgba(201,168,106,0.03);
+}
