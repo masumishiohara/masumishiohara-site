@@ -14958,3 +14958,28 @@ body::before {
       );
   }
 }
+/* ===================================
+   MASUMI SHIOHARA HEADER
+=================================== */
+
+.museumGlobalHeader {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(5,4,3,0.84),
+      rgba(5,4,3,0)
+    ) !important;
+}
+
+.museumGlobalLogo {
+  letter-spacing: 0.26em !important;
+  color: rgba(239,231,216,0.82) !important;
+}
+
+.museumGlobalNav a {
+  color: rgba(239,231,216,0.52) !important;
+}
+
+.museumGlobalNav a:hover {
+  color: rgba(201,168,106,0.9) !important;
+}
