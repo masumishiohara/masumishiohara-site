@@ -2,14 +2,9 @@ export default function ContactPage() {
   return (
     <main className="museumProjectPage room-contact">
       <section className="museumProjectHero">
-        <div className="museumCollectionHeader">
-          <p className="museumEyebrow">CONTACT</p>
-          <span className="museumCollectionCode">MS-CT</span>
-        </div>
+        <p className="museumEyebrow">CONTACT</p>
 
-        <h1>
-          Contact
-        </h1>
+        <h1>Contact</h1>
 
         <p className="museumProjectLead">
           For exhibitions, editorial inquiries, gallery correspondence,
@@ -19,21 +14,16 @@ export default function ContactPage() {
 
       <section className="museumArchiveStatement">
         <div>
-          <h2>
-            Masumi Shiohara
-          </h2>
+          <h2>Masumi Shiohara</h2>
         </div>
 
         <div>
           <p>
             Please contact for exhibition proposals, editorial features,
-            image requests, portfolio review, gallery discussions, and
-            publication-related matters.
+            image requests, gallery discussions, and publication-related matters.
           </p>
 
-          <p>
-            Email: your-email@example.com
-          </p>
+          <p>Email: your-email@example.com</p>
         </div>
       </section>
 
