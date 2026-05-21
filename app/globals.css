@@ -15583,3 +15583,45 @@ body::before {
     0 0 80px rgba(201,168,106,0.04),
     0 40px 100px rgba(0,0,0,0.72);
 }
+/* ===================================
+   WORKS PAGE SIMPLIFICATION
+=================================== */
+
+.room-bp .frameControlPanel {
+  display: none !important;
+}
+
+.room-bp .museumArtworkGrid {
+  width: min(1280px, 88%) !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 120px 72px !important;
+  padding-top: 120px !important;
+}
+
+.room-bp .museumArtworkCard {
+  margin: 0 !important;
+  transform: none !important;
+}
+
+.room-bp .realFrame {
+  width: 100% !important;
+  max-width: 560px !important;
+  margin: 0 auto !important;
+}
+
+.room-bp .museumArtworkMeta {
+  max-width: 560px;
+  margin: 28px auto 0;
+}
+
+.room-bp .museumArtworkMeta h2 {
+  font-size: clamp(30px, 3vw, 52px) !important;
+  line-height: 1 !important;
+}
+
+@media (max-width: 900px) {
+  .room-bp .museumArtworkGrid {
+    grid-template-columns: 1fr !important;
+    gap: 90px !important;
+  }
+}
