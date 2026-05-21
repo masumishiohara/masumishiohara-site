@@ -17411,3 +17411,66 @@ body {
     font-size: clamp(32px, 10vw, 58px) !important;
   }
 }
+/* ===================================
+   FINAL RESTRAINT PASS
+=================================== */
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: #040302 !important;
+}
+
+/* remove excessive glow / movement */
+
+.simpleWorksHero h1,
+.museumProjectHero h1,
+.heroWorkOverlay h2,
+.museumArchiveStatement h2 {
+  text-shadow: none !important;
+}
+
+.heroWorkCard,
+.workImageFrame,
+.room-bp .realFrame {
+  box-shadow:
+    0 70px 160px rgba(0,0,0,0.42) !important;
+}
+
+.heroWorkCard img,
+.workImageFrame img,
+.room-bp .realWindow img {
+  transition: none !important;
+}
+
+/* quieter gold */
+
+.simpleArtistName,
+.museumEyebrow,
+.museumCollectionCode,
+.museumExhibitionYear,
+.museumLatin {
+  color: rgba(201,168,106,0.66) !important;
+}
+
+/* final readability */
+
+.simpleArtistText,
+.museumProjectLead,
+.museumArchiveStatement p,
+.museumExhibitionType,
+.workMetaLine {
+  color: rgba(239,231,216,0.50) !important;
+}
+
+/* clean final links */
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.92;
+}
