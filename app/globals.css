@@ -14616,3 +14616,57 @@ body::before {
       20px;
   }
 }
+/* ===================================
+   MASUMI SHIOHARA LANDING FIX
+=================================== */
+
+.refinedHeroImage {
+  display: block !important;
+  position: relative !important;
+  width: 100% !important;
+  max-width: 620px !important;
+  aspect-ratio: 4 / 5 !important;
+  overflow: hidden !important;
+  margin: 0 auto !important;
+  border: 1px solid rgba(201,168,106,0.12) !important;
+  background: rgba(255,255,255,0.018) !important;
+  box-shadow:
+    0 80px 180px rgba(0,0,0,0.55),
+    0 0 120px rgba(201,168,106,0.035) !important;
+}
+
+.refinedHeroImage img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  filter: saturate(0.86) brightness(0.82) contrast(1.04) !important;
+}
+
+.refinedHeroImage figcaption {
+  position: absolute;
+  left: 22px;
+  bottom: 20px;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: rgba(239,231,216,0.68);
+  background: rgba(0,0,0,0.32);
+  backdrop-filter: blur(8px);
+  padding: 8px 12px;
+}
+
+.refinedHero h1 {
+  font-size: clamp(54px, 6vw, 112px) !important;
+  line-height: 0.98 !important;
+  letter-spacing: -0.058em !important;
+}
+
+.museumLandingEyebrow {
+  color: rgba(201,168,106,0.82) !important;
+}
+
+.refinedStatement h2 {
+  max-width: 980px !important;
+}
