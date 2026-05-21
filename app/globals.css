@@ -15790,3 +15790,60 @@ body::before {
     margin-top: 0 !important;
   }
 }
+/* ===================================
+   STILL IMAGE ATMOSPHERE
+=================================== */
+
+/* remove web feeling */
+
+.room-bp .realFrame,
+.room-bp .museumArtworkCard,
+.room-bp .heroWorkCard {
+
+  transition:
+    opacity 1.8s ease,
+    filter 1.8s ease !important;
+}
+
+/* almost no hover */
+
+.room-bp .realFrame:hover {
+
+  transform:
+    none !important;
+
+  filter:
+    brightness(1.01);
+}
+
+/* image stillness */
+
+.room-bp .realWindow img {
+
+  transform:
+    none !important;
+
+  animation:
+    none !important;
+}
+
+/* quieter shadows */
+
+.room-bp .realFrame {
+
+  box-shadow:
+    0 80px 180px rgba(0,0,0,0.46),
+    0 0 120px rgba(0,0,0,0.14) !important;
+}
+
+/* museum darkness */
+
+.room-bp {
+
+  background:
+    linear-gradient(
+      180deg,
+      #070604 0%,
+      #020202 100%
+    ) !important;
+}
