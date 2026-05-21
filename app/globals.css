@@ -16645,3 +16645,53 @@ body::after {
   box-shadow:
     0 70px 160px rgba(0,0,0,0.42) !important;
 }
+/* ===================================
+   FINAL CONSISTENCY PASS
+=================================== */
+
+.simpleWorksPage,
+.museumProjectPage {
+  background:
+    radial-gradient(
+      circle at 74% 16%,
+      rgba(201,168,106,0.035),
+      transparent 28%
+    ),
+    linear-gradient(
+      180deg,
+      #060504 0%,
+      #030302 100%
+    ) !important;
+}
+
+.simpleArtistName,
+.museumEyebrow,
+.museumEditorialLabel,
+.museumCollectionCode {
+  color: rgba(201,168,106,0.76) !important;
+}
+
+.simpleWorksHero h1,
+.museumProjectHero h1,
+.heroWorkOverlay h2,
+.museumArtworkMeta h2,
+.museumArchiveStatement h2 {
+  font-family: "Times New Roman", serif !important;
+  font-weight: 300 !important;
+}
+
+.simpleArtistText,
+.museumProjectLead,
+.museumArchiveStatement p,
+.museumExhibitionNote {
+  color: rgba(239,231,216,0.52) !important;
+}
+
+.museumGlobalHeader {
+  backdrop-filter: blur(4px);
+}
+
+.museumGlobalNav a,
+.simpleFooterLinks a {
+  text-transform: none !important;
+}
