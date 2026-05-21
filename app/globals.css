@@ -17049,3 +17049,98 @@ body {
     width: calc(100% - 40px) !important;
   }
 }
+/* ===================================
+   FINAL WORKS PAGE
+=================================== */
+
+.room-bp .museumArtworkGrid {
+  width: min(1180px, 84%) !important;
+  margin: 0 auto;
+  padding: 90px 0 220px !important;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 150px 72px !important;
+}
+
+.room-bp .museumArtworkCard {
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: none !important;
+}
+
+.room-bp .museumArtworkCard:first-child {
+  grid-column: 1 / -1;
+  max-width: 860px;
+  margin: 0 auto 40px !important;
+}
+
+.workImageFrame {
+  background: #050403;
+  border: 1px solid rgba(201,168,106,0.08);
+  box-shadow: 0 80px 180px rgba(0,0,0,0.42);
+  overflow: hidden;
+}
+
+.workImageFrame img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  filter:
+    brightness(0.86)
+    saturate(0.94)
+    contrast(1.03);
+}
+
+.room-bp .museumArtworkCard:first-child .workImageFrame img {
+  aspect-ratio: 16 / 10;
+}
+
+.room-bp .museumArtworkMeta {
+  max-width: 620px;
+  margin: 26px auto 0;
+  padding-top: 18px;
+  border-top: 1px solid rgba(201,168,106,0.08);
+}
+
+.room-bp .museumLatin {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: rgba(201,168,106,0.62);
+}
+
+.room-bp .museumArtworkMeta h2 {
+  margin-top: 12px;
+  font-family: "Times New Roman", serif;
+  font-size: clamp(30px, 3vw, 56px);
+  line-height: 1;
+  letter-spacing: -0.05em;
+  font-weight: 300;
+  color: rgba(239,231,216,0.88);
+}
+
+.workMetaLine {
+  margin-top: 16px;
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: rgba(239,231,216,0.42);
+}
+
+@media (max-width: 900px) {
+  .room-bp .museumArtworkGrid {
+    width: calc(100% - 40px) !important;
+    grid-template-columns: 1fr;
+    gap: 100px !important;
+  }
+
+  .room-bp .museumArtworkCard:first-child {
+    max-width: none;
+  }
+
+  .room-bp .museumArtworkCard:first-child .workImageFrame img {
+    aspect-ratio: 4 / 5;
+  }
+}
