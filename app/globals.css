@@ -14999,3 +14999,53 @@ body::before {
 .room-bp .museumCollectionCode {
   color: rgba(201,168,106,0.86) !important;
 }
+/* ===================================
+   MASUMI SHIOHARA IDENTITY
+=================================== */
+
+.museumArtistRoles {
+
+  display:
+    flex;
+
+  flex-wrap:
+    wrap;
+
+  gap:
+    14px;
+
+  margin-top:
+    30px;
+}
+
+.museumArtistRoles span {
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  padding:
+    10px
+    14px;
+
+  border:
+    1px solid
+    rgba(201,168,106,0.14);
+
+  background:
+    rgba(255,255,255,0.016);
+
+  backdrop-filter:
+    blur(8px);
+
+  font-size:
+    10px;
+
+  letter-spacing:
+    0.24em;
+
+  color:
+    rgba(201,168,106,0.74);
+}
