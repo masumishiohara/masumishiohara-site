@@ -16451,3 +16451,40 @@ body::before {
   line-height: 2 !important;
   color: rgba(239,231,216,0.50) !important;
 }
+/* ===================================
+   CONTACT PAGE FINAL REFINEMENT
+=================================== */
+
+.room-contact .museumProjectHero {
+  width: min(1120px, 84%) !important;
+  padding-top: 170px !important;
+  padding-bottom: 130px !important;
+}
+
+.room-contact .museumProjectHero h1 {
+  font-size: clamp(60px, 7vw, 132px) !important;
+  line-height: 0.96 !important;
+}
+
+.room-contact .museumProjectLead {
+  max-width: 620px !important;
+  font-size: 14px !important;
+  line-height: 2 !important;
+  color: rgba(239,231,216,0.50) !important;
+}
+
+.room-contact .museumArchiveStatement {
+  width: min(1120px, 84%) !important;
+  gap: 90px !important;
+}
+
+.room-contact .museumArchiveStatement h2 {
+  font-size: clamp(36px, 4vw, 74px) !important;
+  line-height: 1.04 !important;
+}
+
+.room-contact .museumArchiveStatement p {
+  max-width: 620px !important;
+  font-size: 14px !important;
+  line-height: 2.15 !important;
+}
