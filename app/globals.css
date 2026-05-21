@@ -17144,3 +17144,88 @@ body {
     aspect-ratio: 4 / 5;
   }
 }
+/* ===================================
+   FINAL CTA / SEO / DESIGN SYSTEM
+=================================== */
+
+.museumGlobalHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  z-index: 9000;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 22px 4vw;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(5,4,3,0.72),
+      rgba(5,4,3,0)
+    ) !important;
+
+  pointer-events: none;
+}
+
+.museumGlobalLogo,
+.museumGlobalNav a {
+  pointer-events: auto;
+}
+
+.museumGlobalLogo {
+  font-size: 10px !important;
+  letter-spacing: 0.28em !important;
+  color: rgba(239,231,216,0.78) !important;
+  text-decoration: none;
+}
+
+.museumGlobalNav {
+  display: flex;
+  gap: 28px;
+}
+
+.museumGlobalNav a {
+  font-size: 10px !important;
+  letter-spacing: 0.2em !important;
+  color: rgba(239,231,216,0.46) !important;
+  text-decoration: none;
+}
+
+.museumGlobalNav a:hover {
+  color: rgba(201,168,106,0.86) !important;
+}
+
+/* CTA should feel like correspondence, not sales */
+
+.museumNextRoom a,
+.simpleFooterLinks a {
+  transition:
+    color 1.2s ease,
+    opacity 1.2s ease;
+}
+
+.museumNextRoom a:hover,
+.simpleFooterLinks a:hover {
+  color: rgba(201,168,106,0.86) !important;
+}
+
+/* final mobile stability */
+
+@media (max-width: 760px) {
+  .museumGlobalNav {
+    display: none !important;
+  }
+
+  .museumGlobalHeader {
+    padding: 20px;
+  }
+
+  .museumGlobalLogo {
+    font-size: 9px !important;
+  }
+}
