@@ -18,23 +18,37 @@ export default function HomePage() {
       </section>
 
       <section className="simpleWorksGrid">
-        <a href="/projects/botanical-portraits" className="simpleWorkCard">
-          <img src="/botanical.jpg" alt="Fruit Portraits by Masumi Shiohara" />
-          <div className="simpleWorkMeta">
-            <span>Works</span>
-            <h2>Fruit Portraits</h2>
-          </div>
-        </a>
 
-        <a href="/projects/portrait-of-fruits" className="simpleWorkCard">
-          <img src="/hero.jpg" alt="Portrait of Fruits by Masumi Shiohara" />
-          <div className="simpleWorkMeta">
-            <span>Works</span>
-            <h2>Portrait of Fruits</h2>
-          </div>
-        </a>
-      </section>
+  <a
+    href="/projects/botanical-portraits"
+    className="heroWorkCard"
+  >
 
+    <img
+      src="/botanical.jpg"
+      alt="Fruit Portraits by Masumi Shiohara"
+    />
+
+    <div className="heroWorkOverlay">
+
+      <span>
+        MASUMI SHIOHARA
+      </span>
+
+      <h2>
+        Fruit Portraits
+      </h2>
+
+      <p>
+        Cultivated fruit transformed into portrait,
+        archive, and sculptural form.
+      </p>
+
+    </div>
+
+  </a>
+
+</section>
       <section className="simpleFooterLinks">
         <a href="/about">About Masumi Shiohara</a>
         <a href="/exhibitions">Exhibitions</a>
