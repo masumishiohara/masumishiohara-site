@@ -69,11 +69,22 @@ export default function HomePage() {
 
 </section>
       <section className="simpleFooterLinks">
-        <a href="/projects/botanical-portraits">Works</a>
-        <a href="/about">About Masumi Shiohara</a>
-        <a href="/exhibitions">Exhibitions</a>
-        <a href="/contact">Contact</a>
-      </section>
+  <a href="/projects/botanical-portraits">
+    Works
+  </a>
+
+  <a href="/about">
+    About
+  </a>
+
+  <a href="/exhibitions">
+    Exhibitions
+  </a>
+
+  <a href="/contact">
+    Contact
+  </a>
+</section>
     </main>
   );
 }
