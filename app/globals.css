@@ -14492,3 +14492,127 @@ body::before {
     width: calc(100% - 40px) !important;
   }
 }
+/* ===================================
+   HERO IMAGE REFINEMENT
+=================================== */
+
+.refinedHeroImage {
+
+  display:
+    flex;
+
+  justify-content:
+    center;
+
+  align-items:
+    center;
+}
+
+/* 額装 */
+
+.refinedImageFrame {
+
+  width:
+    min(100%, 760px);
+
+  padding:
+    28px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #161412,
+      #070605 48%,
+      #1d1a17
+    );
+
+  border:
+    1px solid
+    rgba(201,168,106,0.10);
+
+  box-shadow:
+    0 100px 240px rgba(0,0,0,0.62),
+    0 0 120px rgba(201,168,106,0.03);
+
+  transform:
+    translateY(18px);
+}
+
+/* マット */
+
+.refinedImageMat {
+
+  padding:
+    34px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ebe0ca,
+      #d0bea0
+    );
+
+  box-shadow:
+    inset 0 0 0 1px rgba(82,61,38,0.14);
+}
+
+/* 画像 */
+
+.refinedImageMat img {
+
+  width:
+    100%;
+
+  display:
+    block;
+
+  aspect-ratio:
+    4 / 5;
+
+  object-fit:
+    cover;
+
+  filter:
+    saturate(0.82)
+    brightness(0.76)
+    contrast(1.04);
+
+  box-shadow:
+    0 40px 100px rgba(0,0,0,0.42);
+}
+
+/* 右カラムを静かに */
+
+.refinedHero {
+
+  align-items:
+    center !important;
+}
+
+/* 左右バランス */
+
+.refinedHeroText {
+
+  padding-right:
+    20px;
+}
+
+/* モバイル */
+
+@media (max-width: 980px) {
+
+  .refinedImageFrame {
+
+    transform:
+      none;
+
+    width:
+      100%;
+  }
+
+  .refinedImageMat {
+
+    padding:
+      20px;
+  }
+}
