@@ -19,6 +19,23 @@ export default function HomePage() {
   and orchard archive.
 
 </p>
+
+<div className="museumArtistRoles">
+
+  <span>
+    Fruit Grower
+  </span>
+
+  <span>
+    Breeder
+  </span>
+
+  <span>
+    Artist
+  </span>
+
+</div>
+        
       </section>
 
       <section className="simpleWorksGrid">
