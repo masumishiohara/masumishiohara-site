@@ -15625,3 +15625,68 @@ body::before {
     gap: 90px !important;
   }
 }
+/* ===================================
+   WORK FIRST REFINEMENT
+=================================== */
+
+/* quieter frame */
+
+.room-bp .realFrame {
+  padding: 18px !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      #12110f,
+      #060504 48%,
+      #181512
+    ) !important;
+
+  border:
+    1px solid
+    rgba(201,168,106,0.08) !important;
+
+  box-shadow:
+    0 60px 160px rgba(0,0,0,0.52) !important;
+}
+
+/* quieter mat */
+
+.room-bp .realMat {
+  padding: 18px !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      #e6dcc8,
+      #cdbb9f
+    ) !important;
+}
+
+/* artwork stronger */
+
+.room-bp .realWindow img {
+  filter:
+    brightness(0.82)
+    saturate(0.92)
+    contrast(1.04) !important;
+}
+
+/* reduce hover */
+
+.room-bp .realFrame:hover {
+  transform:
+    translateY(-2px) !important;
+}
+
+/* quieter labels */
+
+.room-bp .museumWallLabel {
+  opacity: 0.72;
+}
+
+/* more museum spacing */
+
+.room-bp .museumArtworkCard {
+  padding-bottom: 90px !important;
+}
