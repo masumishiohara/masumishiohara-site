@@ -5,72 +5,45 @@ export default function HomePage() {
         <p className="simpleArtistName">MASUMI SHIOHARA</p>
 
         <h1>
+          Fruit,
+          <br />
           Cultivated
           <br />
-          Fruit Works
+          as Form
         </h1>
 
-        <p className="museumLandingLead">
+        <p className="simpleArtistText">
+          Masumi Shiohara is a Japanese fruit grower, breeder, and artist whose
+          work transforms cultivated fruit into photographic form, sculptural
+          presence, and orchard archive.
+        </p>
 
-  Masumi Shiohara is a Japanese fruit grower,
-  breeder,
-  and artist whose work transforms cultivated fruit into photographic form,
-  sculptural presence,
-  and orchard archive.
-
-</p>
-
-<div className="museumArtistRoles">
-
-  <span>
-    Fruit Grower
-  </span>
-
-  <span>
-    Breeder
-  </span>
-
-  <span>
-    Artist
-  </span>
-
-</div>
-        
+        <div className="museumArtistRoles">
+          <span>Fruit Grower</span>
+          <span>Breeder</span>
+          <span>Artist</span>
+        </div>
       </section>
 
       <section className="simpleWorksGrid">
+        <a href="/projects/botanical-portraits" className="heroWorkCard">
+          <img src="/botanical.jpg" alt="Fruit artwork by Masumi Shiohara" />
 
-  <a
-    href="/projects/botanical-portraits"
-    className="heroWorkCard"
-  >
+          <div className="heroWorkOverlay">
+            <span>MASUMI SHIOHARA</span>
 
-    <img
-      src="/botanical.jpg"
-      alt="Fruit Portraits by Masumi Shiohara"
-    />
+            <h2>Fruit Portraits</h2>
 
-    <div className="heroWorkOverlay">
+            <p>
+              Cultivated fruit transformed into portrait, archive, and
+              sculptural form.
+            </p>
+          </div>
+        </a>
+      </section>
 
-      <span>
-        MASUMI SHIOHARA
-      </span>
-
-      <h2>
-        Fruit Portraits
-      </h2>
-
-      <p>
-        Cultivated fruit transformed into portrait,
-        archive, and sculptural form.
-      </p>
-
-    </div>
-
-  </a>
-
-</section>
       <section className="simpleFooterLinks">
+        <a href="/projects/botanical-portraits">Works</a>
         <a href="/about">About Masumi Shiohara</a>
         <a href="/exhibitions">Exhibitions</a>
         <a href="/contact">Contact</a>
