@@ -19086,3 +19086,101 @@ body::after,
       1fr;
   }
 }
+/* ===================================
+   BRASS PLATE TITLE AUTO-FIT FIX
+=================================== */
+
+.pgBrassPlate {
+  width:
+    min(
+      var(--pg-plate-width, 320px),
+      88%
+    ) !important;
+
+  min-width:
+    180px !important;
+
+  max-width:
+    88% !important;
+
+  min-height:
+    34px !important;
+
+  padding:
+    var(--pg-plate-padding, 9px 18px) !important;
+
+  display:
+    flex !important;
+
+  align-items:
+    center !important;
+
+  justify-content:
+    center !important;
+
+  text-align:
+    center !important;
+
+  overflow:
+    hidden !important;
+}
+
+.pgBrassPlate span {
+  display:
+    block !important;
+
+  width:
+    100% !important;
+
+  max-width:
+    100% !important;
+
+  font-size:
+    var(--pg-plate-font-size, 12px) !important;
+
+  line-height:
+    1.18 !important;
+
+  letter-spacing:
+    var(--pg-plate-letter-spacing, 0.06em) !important;
+
+  white-space:
+    normal !important;
+
+  overflow-wrap:
+    anywhere !important;
+
+  word-break:
+    normal !important;
+
+  hyphens:
+    auto !important;
+}
+
+/* 長いタイトル用の保険 */
+.pgBrassPlate span {
+  transform:
+    scaleX(0.96);
+
+  transform-origin:
+    center;
+}
+
+/* スマホではさらに安全 */
+@media (max-width: 760px) {
+  .pgBrassPlate {
+    width:
+      82% !important;
+
+    padding:
+      8px 14px !important;
+  }
+
+  .pgBrassPlate span {
+    font-size:
+      9px !important;
+
+    letter-spacing:
+      0.035em !important;
+  }
+}
