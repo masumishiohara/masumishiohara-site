@@ -15847,3 +15847,64 @@ body::before {
       #020202 100%
     ) !important;
 }
+/* ===================================
+   QUIET MASUMI SHIOHARA HEADER
+=================================== */
+
+.museumGlobalHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  z-index: 9000;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 22px 4vw;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(5,4,3,0.72),
+      rgba(5,4,3,0)
+    ) !important;
+
+  pointer-events: none;
+}
+
+.museumGlobalLogo,
+.museumGlobalNav a {
+  pointer-events: auto;
+}
+
+.museumGlobalLogo {
+  font-size: 10px !important;
+  letter-spacing: 0.28em !important;
+  color: rgba(239,231,216,0.78) !important;
+  text-decoration: none;
+}
+
+.museumGlobalNav {
+  display: flex;
+  gap: 28px;
+}
+
+.museumGlobalNav a {
+  font-size: 10px !important;
+  letter-spacing: 0.2em !important;
+  color: rgba(239,231,216,0.46) !important;
+  text-decoration: none;
+}
+
+.museumGlobalNav a:hover {
+  color: rgba(201,168,106,0.86) !important;
+}
+
+@media (max-width: 760px) {
+  .museumGlobalNav {
+    display: none !important;
+  }
+}
