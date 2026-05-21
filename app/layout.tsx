@@ -14,6 +14,44 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+
       <body>
+
         <header className="museumGlobalHeader">
-          <a href
+
+          <a
+            href="/"
+            className="museumGlobalLogo"
+          >
+            MASUMI SHIOHARA
+          </a>
+
+          <nav className="museumGlobalNav">
+
+            <a href="/projects/botanical-portraits">
+              Works
+            </a>
+
+            <a href="/about">
+              About
+            </a>
+
+            <a href="/exhibitions">
+              Exhibitions
+            </a>
+
+            <a href="/contact">
+              Contact
+            </a>
+
+          </nav>
+
+        </header>
+
+        {children}
+
+      </body>
+
+    </html>
+  );
+}
