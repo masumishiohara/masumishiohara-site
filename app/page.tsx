@@ -30,15 +30,16 @@ export default function HomePage() {
           <img src="/botanical.jpg" alt="Fruit artwork by Masumi Shiohara" />
 
           <div className="heroWorkOverlay">
-            <span>MASUMI SHIOHARA</span>
 
-            <h2>Fruit Portraits</h2>
+  <span>
+    MASUMI SHIOHARA
+  </span>
 
-            <p>
-              Cultivated fruit transformed into portrait, archive, and
-              sculptural form.
-            </p>
-          </div>
+  <h2>
+    Fruit Portraits
+  </h2>
+
+</div>
         </a>
       </section>
 
