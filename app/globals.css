@@ -16265,3 +16265,92 @@ body::before {
   margin: 0 auto 120px !important;
   padding-top: 26px !important;
 }
+/* ===================================
+   FINAL WORKS EXHIBITION MODE
+=================================== */
+
+.room-bp .museumArtworkGrid {
+  width: min(1180px, 84%) !important;
+  gap: 160px 80px !important;
+  padding-top: 120px !important;
+  padding-bottom: 220px !important;
+}
+
+.room-bp .museumArtworkCard {
+  transform: none !important;
+  margin: 0 !important;
+}
+
+/* first work becomes monumental */
+
+.room-bp .museumArtworkCard:first-child {
+  grid-column: 1 / -1;
+  max-width: 920px;
+  margin: 0 auto 120px !important;
+}
+
+.room-bp .museumArtworkCard:first-child .realFrame {
+  max-width: 760px !important;
+}
+
+/* quieter frames */
+
+.room-bp .realFrame {
+  padding: 14px !important;
+  border: 1px solid rgba(201,168,106,0.08) !important;
+  box-shadow:
+    0 80px 180px rgba(0,0,0,0.46) !important;
+}
+
+/* softer mats */
+
+.room-bp .realMat {
+  padding: 16px !important;
+}
+
+/* image first */
+
+.room-bp .realWindow img {
+  filter:
+    brightness(0.82)
+    saturate(0.90)
+    contrast(1.02) !important;
+}
+
+/* remove web hover */
+
+.room-bp .realFrame:hover {
+  transform: none !important;
+}
+
+/* quieter metadata */
+
+.room-bp .museumArtworkMeta {
+  max-width: 520px;
+  margin: 26px auto 0;
+  border-top:
+    1px solid
+    rgba(201,168,106,0.08);
+  padding-top: 18px;
+}
+
+/* typography */
+
+.room-bp .museumArtworkMeta h2 {
+  font-size: clamp(30px, 3vw, 56px) !important;
+  line-height: 1 !important;
+}
+
+/* mobile */
+
+@media (max-width: 900px) {
+
+  .room-bp .museumArtworkGrid {
+    grid-template-columns: 1fr !important;
+    gap: 100px !important;
+  }
+
+  .room-bp .museumArtworkCard:first-child {
+    max-width: none;
+  }
+}
