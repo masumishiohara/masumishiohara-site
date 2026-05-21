@@ -17617,3 +17617,24 @@ body::after,
     padding-top: 42px !important;
   }
 }
+/* ===================================
+   WORKS ABOUT LINK HOVER RESTORE
+=================================== */
+
+.room-bp .museumNextRoom a {
+  color: rgba(239,231,216,0.78) !important;
+
+  transition:
+    color 1.4s ease,
+    opacity 1.4s ease,
+    text-shadow 1.4s ease !important;
+}
+
+.room-bp .museumNextRoom a:hover {
+  color: rgba(201,168,106,0.86) !important;
+
+  opacity: 1 !important;
+
+  text-shadow:
+    0 0 42px rgba(201,168,106,0.12) !important;
+}
