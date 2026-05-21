@@ -2,10 +2,7 @@ export default function HomePage() {
   return (
     <main className="museumLanding">
       <section className="museumLandingHero">
-        <p className="museumLandingEyebrow">
-          MAISON BOTANIQUE ARCHIVE
-        </p>
-
+        
         <h1>
           A Private Museum
           <br />
