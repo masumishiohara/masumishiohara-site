@@ -16354,3 +16354,41 @@ body::before {
     max-width: none;
   }
 }
+/* ===================================
+   ABOUT PAGE FINAL REFINEMENT
+=================================== */
+
+.room-about .museumProjectHero {
+  width: min(1120px, 84%) !important;
+  padding-top: 170px !important;
+  padding-bottom: 130px !important;
+}
+
+.room-about .museumProjectHero h1 {
+  font-size: clamp(60px, 7vw, 132px) !important;
+  line-height: 0.96 !important;
+  letter-spacing: -0.06em !important;
+}
+
+.room-about .museumProjectLead {
+  max-width: 520px !important;
+  font-size: 14px !important;
+  line-height: 2 !important;
+  color: rgba(239,231,216,0.50) !important;
+}
+
+.room-about .museumArchiveStatement {
+  width: min(1120px, 84%) !important;
+  gap: 90px !important;
+}
+
+.room-about .museumArchiveStatement h2 {
+  font-size: clamp(36px, 4vw, 74px) !important;
+  line-height: 1.04 !important;
+}
+
+.room-about .museumArchiveStatement p {
+  max-width: 560px !important;
+  font-size: 14px !important;
+  line-height: 2.15 !important;
+}
