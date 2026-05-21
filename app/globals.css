@@ -10712,20 +10712,16 @@ body {
 }
 
 .museumLanding h1 {
-
-  margin-top:
-    30px;
-
-  font-family:
-    "Times New Roman",
-    serif;
-
-  font-size:
-    clamp(
-      92px,
-      12vw,
-      240px
-    );
+  margin-top: 30px;
+  max-width: 1200px;
+  font-family: "Times New Roman", serif;
+  font-size: clamp(64px, 8vw, 150px);
+  line-height: 0.92;
+  letter-spacing: -0.06em;
+  font-weight: 300;
+  color: rgba(239,231,216,0.94);
+  text-wrap: balance;
+}
 
   line-height:
     0.82;
@@ -10826,9 +10822,10 @@ body {
 }
 
 .museumLandingHero {
-  position: relative;
-  z-index: 2;
-  animation: landingSlowReveal 2.4s ease both;
+  width: min(1400px, 88%);
+  margin: 0 auto;
+  padding-top: 140px;
+  padding-bottom: 120px;
 }
 
 @keyframes landingSlowReveal {
@@ -14280,4 +14277,11 @@ body::before {
 
   text-shadow:
     0 0 120px rgba(201,168,106,0.03);
+}
+/* ===================================
+   LANDING OVERFLOW FIX
+=================================== */
+
+.museumLanding {
+  overflow-x: hidden;
 }
