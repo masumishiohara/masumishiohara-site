@@ -55,7 +55,18 @@ export default function HomePage() {
   </h2>
 
 </section>
-      
+      <section className="artistSignature">
+
+  <p className="museumEditorialLabel">
+    MASUMI SHIOHARA
+  </p>
+
+  <blockquote>
+    “Cultivation is not preparation for the work.
+    Cultivation itself is already part of the work.”
+  </blockquote>
+
+</section>
       <section className="simpleFooterLinks">
         <a href="/projects/botanical-portraits">Works</a>
         <a href="/about">About Masumi Shiohara</a>
