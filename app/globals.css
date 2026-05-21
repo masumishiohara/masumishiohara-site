@@ -16617,3 +16617,31 @@ body::after {
     gap: 18px !important;
   }
 }
+/* ===================================
+   IMAGE MATERIAL REFINEMENT
+=================================== */
+
+.heroWorkCard img {
+  filter:
+    brightness(0.82)
+    saturate(0.92)
+    contrast(1.03) !important;
+}
+
+.room-bp .realWindow img {
+  filter:
+    brightness(0.86)
+    saturate(0.94)
+    contrast(1.03) !important;
+}
+
+.heroWorkCard {
+  border-color: rgba(201,168,106,0.09) !important;
+  box-shadow:
+    0 80px 200px rgba(0,0,0,0.52) !important;
+}
+
+.room-bp .realFrame {
+  box-shadow:
+    0 70px 160px rgba(0,0,0,0.42) !important;
+}
