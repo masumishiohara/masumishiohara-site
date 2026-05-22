@@ -22660,3 +22660,196 @@ body::after,
     max-height: 60vh !important;
   }
 }
+/* ===================================
+   MAT EDGE PROTECTION / 1MM OVERLAP
+   Full sheet visible, 1mm mat lip on all four sides
+=================================== */
+
+.studioFramedWork {
+  --studio-mat-overlap: 3px;
+}
+
+/* マット色を変数化 */
+
+.studioMat-warm {
+  --studio-mat-face: #e5d9c3;
+  --studio-mat-top: #efe6d2;
+  --studio-mat-lip: #eee3ca;
+  --studio-window-bg: #efe6d2;
+}
+
+.studioMat-stone {
+  --studio-mat-face: #e8e5dd;
+  --studio-mat-top: #f0eee8;
+  --studio-mat-lip: #eeeae1;
+  --studio-window-bg: #eeeae1;
+}
+
+.studioMat-dark {
+  --studio-mat-face: #171717;
+  --studio-mat-top: #242424;
+  --studio-mat-lip: #202020;
+  --studio-window-bg: #202020;
+}
+
+/* ダブルマット本体 */
+
+.studioDoubleMat {
+  background:
+    var(--studio-mat-face) !important;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(95,72,42,0.14),
+    inset 0 0 42px rgba(70,50,30,0.08) !important;
+}
+
+/* 上マット */
+
+.studioTopMat {
+  position:
+    relative !important;
+
+  padding:
+    10px !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--studio-mat-top),
+      var(--studio-mat-face)
+    ) !important;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(80,60,36,0.12),
+    inset 0 0 18px rgba(80,60,36,0.08) !important;
+}
+
+/* 窓：作品は切らない。背景はマット色にする */
+
+.studioVCutWindow {
+  position:
+    relative !important;
+
+  overflow:
+    hidden !important;
+
+  padding:
+    0 !important;
+
+  background:
+    var(--studio-window-bg) !important;
+
+  border:
+    1px solid
+    rgba(0,0,0,0.20) !important;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.04),
+    0 20px 54px rgba(0,0,0,0.26) !important;
+}
+
+/* 以前のVカット影が作品上に被るのを無効化 */
+
+.studioVCutWindow::before {
+  content:
+    none !important;
+}
+
+/* 4辺すべてに約1mmのマット被りを作る */
+
+.studioVCutWindow::after {
+  content:
+    "" !important;
+
+  position:
+    absolute !important;
+
+  inset:
+    0 !important;
+
+  z-index:
+    4 !important;
+
+  pointer-events:
+    none !important;
+
+  border:
+    var(--studio-mat-overlap)
+    solid
+    var(--studio-mat-lip) !important;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.06),
+    inset 0 0 6px rgba(0,0,0,0.10) !important;
+}
+
+/* 作品画像は必ず全体表示。絶対に切らない */
+
+.studioVCutWindow img {
+  width:
+    100% !important;
+
+  height:
+    100% !important;
+
+  display:
+    block !important;
+
+  object-fit:
+    contain !important;
+
+  object-position:
+    center !important;
+
+  background:
+    var(--studio-window-bg) !important;
+
+  filter:
+    brightness(0.90)
+    saturate(0.96)
+    contrast(1.02) !important;
+
+  aspect-ratio:
+    auto !important;
+}
+
+/* 窓比率は作品フォーマットで決める */
+
+.studioWindow-portrait {
+  aspect-ratio:
+    4 / 5 !important;
+}
+
+.studioWindow-landscape {
+  aspect-ratio:
+    16 / 10 !important;
+}
+
+.studioWindow-square {
+  aspect-ratio:
+    1 / 1 !important;
+}
+
+/* 暗色マットのときも作品の端が沈まないようにする */
+
+.studioMat-dark .studioVCutWindow::after {
+  border-color:
+    rgba(36,36,36,0.96) !important;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.035),
+    inset 0 0 8px rgba(0,0,0,0.32) !important;
+}
+
+/* スマホ時も1mm被りを維持 */
+
+@media (max-width: 700px) {
+  .studioFramedWork {
+    --studio-mat-overlap: 2px;
+  }
+
+  .studioTopMat {
+    padding:
+      8px !important;
+  }
+}
