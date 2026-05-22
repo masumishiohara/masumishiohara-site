@@ -3,123 +3,180 @@
 import { useEffect, useMemo, useState } from "react";
 import type { ChangeEvent, CSSProperties } from "react";
 
-type WorkFormat = "portrait" | "landscape" | "square";
+type WorkId =
+  | "MS-CS"
+  | "MS-AT"
+  | "MS-VL"
+  | "MS-BG"
+  | "MS-GP"
+  | "MS-SS"
+  | "MS-CF"
+  | "MS-PO"
+  | "MS-PC"
+  | "MS-CO"
+  | "MS-MO"
+  | "MS-IF";
+
+type WorkFormat =
+  | "portrait"
+  | "landscape"
+  | "square";
+
+type FrameId =
+  | "modern"
+  | "elegant"
+  | "antique"
+  | "chic"
+  | "urban"
+  | "carved";
+
+type MatId =
+  | "warm"
+  | "stone"
+  | "dark";
+
+type RoomId =
+  | "salon"
+  | "residence"
+  | "gallery"
+  | "hotel"
+  | "maison"
+  | "loft"
+  | "custom";
+
+type ScaleId =
+  | "a4"
+  | "gallery"
+  | "large"
+  | "b0x2";
 
 const works = [
   {
-    id: "MS-CS",
+    id: "MS-CS" as WorkId,
     title: "Canvas Botanical Studies",
     image: "/series/canvas-sheet.jpg",
     format: "portrait" as WorkFormat,
-    statement: "Canvas sheet studies of cultivated fruit and botanical form.",
+    statement:
+      "Canvas sheet studies of cultivated fruit and botanical form.",
   },
   {
-    id: "MS-AT",
+    id: "MS-AT" as WorkId,
     title: "Antique Botanical Studies",
     image: "/series/antique-botanical.jpg",
     format: "portrait" as WorkFormat,
-    statement: "Antique botanical studies with archival atmosphere.",
+    statement:
+      "Antique botanical studies with archival atmosphere.",
   },
   {
-    id: "MS-VL",
+    id: "MS-VL" as WorkId,
     title: "Vellum Fruit Studies",
     image: "/series/parchment-vellum.jpg",
     format: "portrait" as WorkFormat,
-    statement: "Fruit studies with vellum-like surface and memory.",
+    statement:
+      "Fruit studies with vellum-like surface and memory.",
   },
   {
-    id: "MS-BG",
+    id: "MS-BG" as WorkId,
     title: "Black Ground Botanical Works",
     image: "/series/black-ground-botanical.jpg",
     format: "portrait" as WorkFormat,
-    statement: "Botanical works isolated against a dark ground.",
+    statement:
+      "Botanical works isolated against a dark ground.",
   },
   {
-    id: "MS-GP",
+    id: "MS-GP" as WorkId,
     title: "Growth Process",
     image: "/series/growth-process.jpg",
     format: "landscape" as WorkFormat,
-    statement: "Agricultural time, growth, observation, and harvest.",
+    statement:
+      "Agricultural time, growth, observation, and harvest.",
   },
   {
-    id: "MS-SS",
+    id: "MS-SS" as WorkId,
     title: "Selection Studies",
     image: "/series/selection-study.jpg",
     format: "landscape" as WorkFormat,
-    statement: "Breeding, selection, removal, and the forms left behind.",
+    statement:
+      "Breeding, selection, removal, and the forms left behind.",
   },
   {
-    id: "MS-CF",
+    id: "MS-CF" as WorkId,
     title: "Cultivated Fruit Compositions",
     image: "/series/cultivated-fruit-composition.jpg",
     format: "portrait" as WorkFormat,
-    statement: "Fruit cultivated and composed as artistic material.",
+    statement:
+      "Fruit cultivated and composed as artistic material.",
   },
   {
-    id: "MS-PO",
+    id: "MS-PO" as WorkId,
     title: "Portraits: Single Variety",
     image: "/series/portrait-single-variety.jpg",
     format: "portrait" as WorkFormat,
-    statement: "Single-variety fruit portraits.",
+    statement:
+      "Single-variety fruit portraits.",
   },
   {
-    id: "MS-PC",
+    id: "MS-PC" as WorkId,
     title: "Portraits: Composite Forms",
     image: "/series/portrait-composition.jpg",
     format: "portrait" as WorkFormat,
-    statement: "Composite fruit portraits and constructed presence.",
+    statement:
+      "Composite fruit portraits and constructed presence.",
   },
   {
-    id: "MS-CO",
+    id: "MS-CO" as WorkId,
     title: "Color Object Works",
     image: "/series/color-object.jpg",
     format: "square" as WorkFormat,
-    statement: "Color object works between photography and sculpture.",
+    statement:
+      "Color object works between photography and sculpture.",
   },
   {
-    id: "MS-MO",
+    id: "MS-MO" as WorkId,
     title: "Monochrome Object Works",
     image: "/series/monochrome-object.jpg",
     format: "square" as WorkFormat,
-    statement: "Monochrome object works emphasizing form and shadow.",
+    statement:
+      "Monochrome object works emphasizing form and shadow.",
   },
   {
-    id: "MS-IF",
+    id: "MS-IF" as WorkId,
     title: "Improvisations of a Fruit Breeder",
     image: "/series/improvisation-object-series.jpg",
     format: "square" as WorkFormat,
-    statement: "Improvised fruit forms shaped by breeding and selection.",
+    statement:
+      "Improvised fruit forms shaped by breeding and selection.",
   },
 ];
 
 const frameStyles = [
   {
-    id: "modern",
+    id: "modern" as FrameId,
     label: "Modern",
     description: "Quiet black museum frame.",
   },
   {
-    id: "elegant",
+    id: "elegant" as FrameId,
     label: "Elegant",
     description: "Black and gold frame with refined depth.",
   },
   {
-    id: "antique",
+    id: "antique" as FrameId,
     label: "Antique",
-    description: "Aged wood and botanical archive atmosphere.",
+    description: "Aged wood and classical botanical atmosphere.",
   },
   {
-    id: "chic",
+    id: "chic" as FrameId,
     label: "Chic",
     description: "Soft black frame for private salon presentation.",
   },
   {
-    id: "urban",
+    id: "urban" as FrameId,
     label: "Urban",
     description: "Minimal architectural frame for contemporary rooms.",
   },
   {
-    id: "carved",
+    id: "carved" as FrameId,
     label: "Wood Carved",
     description: "Carved wood frame with quiet ornamental presence.",
   },
@@ -127,84 +184,93 @@ const frameStyles = [
 
 const matStyles = [
   {
-    id: "warm",
+    id: "warm" as MatId,
     label: "Warm Ivory",
   },
   {
-    id: "stone",
+    id: "stone" as MatId,
     label: "Stone White",
   },
   {
-    id: "charcoal",
+    id: "dark" as MatId,
     label: "Charcoal",
-  },
-];
-
-const scalePresets = [
-  {
-    id: "study",
-    label: "Study",
-    description: "A4 / small private study scale.",
-    width: "420px",
-    frame: "24px",
-    corner: "52px",
-  },
-  {
-    id: "gallery",
-    label: "Gallery",
-    description: "Standard private gallery scale.",
-    width: "600px",
-    frame: "34px",
-    corner: "70px",
-  },
-  {
-    id: "large",
-    label: "Large Wall",
-    description: "Large collector-wall scale.",
-    width: "760px",
-    frame: "44px",
-    corner: "86px",
-  },
-  {
-    id: "monumental",
-    label: "B0 × 2",
-    description: "Monumental proposal scale.",
-    width: "900px",
-    frame: "52px",
-    corner: "96px",
   },
 ];
 
 const rooms = [
   {
-    id: "salon",
+    id: "salon" as RoomId,
     label: "Salon Noir",
     description: "Dark private viewing room with focused museum lighting.",
   },
   {
-    id: "residence",
+    id: "residence" as RoomId,
     label: "Collector Residence",
     description: "Residential installation study for collectors and salons.",
   },
   {
-    id: "gallery",
+    id: "gallery" as RoomId,
     label: "White Gallery",
     description: "Neutral gallery room for scale and placement studies.",
   },
   {
-    id: "hotel",
+    id: "hotel" as RoomId,
     label: "Luxury Hospitality",
     description: "Hotel, maison, or private lounge atmosphere.",
   },
   {
-    id: "maison",
+    id: "maison" as RoomId,
     label: "Maison Salon",
     description: "High-jewelry style private salon atmosphere.",
   },
   {
-    id: "custom",
-    label: "Private Room Study",
-    description: "Upload a room image for private placement simulation.",
+    id: "loft" as RoomId,
+    label: "Contemporary Loft",
+    description: "Architectural collector loft atmosphere.",
+  },
+  {
+    id: "custom" as RoomId,
+    label: "Uploaded Room",
+    description: "Private room image uploaded for placement study.",
+  },
+];
+
+const scalePresets = [
+  {
+    id: "a4" as ScaleId,
+    label: "A4 Study",
+    description: "Small-format intimate viewing.",
+    width: "420px",
+    thickness: "24px",
+    corner: "48px",
+    mat: "28px",
+  },
+  {
+    id: "gallery" as ScaleId,
+    label: "Gallery",
+    description: "Balanced private gallery presentation.",
+    width: "600px",
+    thickness: "34px",
+    corner: "64px",
+    mat: "42px",
+  },
+  {
+    id: "large" as ScaleId,
+    label: "Large Wall",
+    description: "Large collector-room presentation.",
+    width: "720px",
+    thickness: "42px",
+    corner: "78px",
+    mat: "52px",
+  },
+  {
+    id: "b0x2" as ScaleId,
+    label: "B0 × 2 Proposal",
+    description: "Monumental proposal using modular frame logic.",
+    width: "860px",
+    thickness: "50px",
+    corner: "92px",
+    mat: "60px",
   },
 ];
 
@@ -213,41 +279,45 @@ function getPlateMetrics(title: string) {
 
   if (length <= 16) {
     return {
-      width: "220px",
-      fontSize: "13px",
-      letterSpacing: "0.09em",
+      width: "230px",
+      fontSize: "14px",
+      letterSpacing: "0.1em",
+      padding: "9px 18px",
     };
   }
 
   if (length <= 26) {
     return {
-      width: "300px",
+      width: "310px",
       fontSize: "12px",
-      letterSpacing: "0.065em",
+      letterSpacing: "0.075em",
+      padding: "9px 18px",
     };
   }
 
   if (length <= 38) {
     return {
-      width: "390px",
-      fontSize: "10.5px",
-      letterSpacing: "0.045em",
+      width: "410px",
+      fontSize: "11px",
+      letterSpacing: "0.055em",
+      padding: "10px 20px",
     };
   }
 
   return {
     width: "500px",
-    fontSize: "9.5px",
-    letterSpacing: "0.025em",
+    fontSize: "10px",
+    letterSpacing: "0.035em",
+    padding: "11px 22px",
   };
 }
 
 export default function PrivateGalleryPage() {
-  const [workId, setWorkId] = useState("MS-BG");
-  const [frameId, setFrameId] = useState("elegant");
-  const [matId, setMatId] = useState("warm");
-  const [scaleId, setScaleId] = useState("gallery");
-  const [roomId, setRoomId] = useState("salon");
+  const [workId, setWorkId] = useState<WorkId>("MS-BG");
+  const [frameId, setFrameId] = useState<FrameId>("elegant");
+  const [matId, setMatId] = useState<MatId>("warm");
+  const [roomId, setRoomId] = useState<RoomId>("salon");
+  const [scaleId, setScaleId] = useState<ScaleId>("gallery");
   const [uploadedRoom, setUploadedRoom] = useState<string | null>(null);
   const [saved, setSaved] = useState(false);
 
@@ -267,21 +337,21 @@ export default function PrivateGalleryPage() {
     return getPlateMetrics(selectedWork.title);
   }, [selectedWork.title]);
 
-  const styleVars = {
-    "--atelier-frame-width": selectedScale.width,
-    "--atelier-frame-thickness": selectedScale.frame,
-    "--atelier-corner-size": selectedScale.corner,
-    "--atelier-plate-width": plateMetrics.width,
-    "--atelier-plate-font-size": plateMetrics.fontSize,
-    "--atelier-plate-letter-spacing": plateMetrics.letterSpacing,
+  const studioVars = {
+    "--studio-frame-width": selectedScale.width,
+    "--studio-frame-thickness": selectedScale.thickness,
+    "--studio-corner-size": selectedScale.corner,
+    "--studio-mat-padding": selectedScale.mat,
+    "--studio-plate-width": plateMetrics.width,
+    "--studio-plate-font-size": plateMetrics.fontSize,
+    "--studio-plate-letter-spacing": plateMetrics.letterSpacing,
+    "--studio-plate-padding": plateMetrics.padding,
   } as CSSProperties;
 
   useEffect(() => {
     const savedConfig = window.localStorage.getItem("masumi-private-gallery");
 
-    if (!savedConfig) {
-      return;
-    }
+    if (!savedConfig) return;
 
     try {
       const parsed = JSON.parse(savedConfig);
@@ -289,8 +359,8 @@ export default function PrivateGalleryPage() {
       if (parsed.workId) setWorkId(parsed.workId);
       if (parsed.frameId) setFrameId(parsed.frameId);
       if (parsed.matId) setMatId(parsed.matId);
-      if (parsed.scaleId) setScaleId(parsed.scaleId);
       if (parsed.roomId) setRoomId(parsed.roomId);
+      if (parsed.scaleId) setScaleId(parsed.scaleId);
     } catch {
       window.localStorage.removeItem("masumi-private-gallery");
     }
@@ -303,8 +373,8 @@ export default function PrivateGalleryPage() {
         workId,
         frameId,
         matId,
-        scaleId,
         roomId,
+        scaleId,
       })
     );
 
@@ -318,9 +388,7 @@ export default function PrivateGalleryPage() {
   function handleRoomUpload(event: ChangeEvent<HTMLInputElement>) {
     const file = event.target.files?.[0];
 
-    if (!file) {
-      return;
-    }
+    if (!file) return;
 
     const reader = new FileReader();
 
@@ -335,91 +403,106 @@ export default function PrivateGalleryPage() {
   }
 
   return (
-    <main className="atelierPage" style={styleVars}>
-      <section className="atelierViewport">
-        <aside className="atelierRail">
-          <p className="atelierLabel">WORK</p>
-
-          <div className="atelierWorkList">
-            {works.map((work) => (
-              <button
-                key={work.id}
-                className={workId === work.id ? "active" : ""}
-                onClick={() => setWorkId(work.id)}
-              >
-                <img
-                  src={work.image}
-                  alt={work.title}
-                  onError={(event) => {
-                    event.currentTarget.src = "/botanical.jpg";
-                  }}
-                />
-
-                <span>{work.id}</span>
-                <strong>{work.title}</strong>
-              </button>
-            ))}
+    <main className="pgStudioPage">
+      <section className="pgStudioShell">
+        <section className="pgStudioPreview">
+          <div className="pgStudioHeader">
+            <p>PRIVATE VIEWING ROOM</p>
+            <span>MASUMI SHIOHARA</span>
           </div>
-        </aside>
-
-        <section className={`atelierStage atelierRoom-${roomId}`}>
-          {roomId === "custom" && uploadedRoom ? (
-            <img
-              className="atelierCustomRoom"
-              src={uploadedRoom}
-              alt="Uploaded room"
-            />
-          ) : null}
-
-          <div className="atelierSpotlight" />
 
           <div
-            className={`atelierFramedObject frame-${frameId} mat-${matId}`}
+            className={`pgStudioRoom pgStudioRoom-${roomId}`}
+            style={studioVars}
           >
-            <div className="atelierFrame">
-              <div className="atelierCorner atelierCornerTL" />
-              <div className="atelierCorner atelierCornerTR" />
-              <div className="atelierCorner atelierCornerBL" />
-              <div className="atelierCorner atelierCornerBR" />
+            {roomId === "custom" && uploadedRoom ? (
+              <img
+                className="pgStudioCustomRoom"
+                src={uploadedRoom}
+                alt="Uploaded room"
+              />
+            ) : null}
 
-              <div className="atelierEdge atelierEdgeTop" />
-              <div className="atelierEdge atelierEdgeBottom" />
-              <div className="atelierEdge atelierEdgeLeft" />
-              <div className="atelierEdge atelierEdgeRight" />
+            <div className="pgStudioSpotlight" />
 
-              <div className="atelierMat">
-                <div className={`atelierWindow format-${selectedWork.format}`}>
-                  <img
-                    src={selectedWork.image}
-                    alt={selectedWork.title}
-                    onError={(event) => {
-                      event.currentTarget.src = "/botanical.jpg";
-                    }}
-                  />
-                </div>
+            <div className={`studioFramedWork studioFrame-${frameId} studioMat-${matId}`}>
+              <div className="studioFrameShell">
+                <div className="studioFramePart studioFrameCorner studioFrameCornerTL" />
+                <div className="studioFramePart studioFrameCorner studioFrameCornerTR" />
+                <div className="studioFramePart studioFrameCorner studioFrameCornerBL" />
+                <div className="studioFramePart studioFrameCorner studioFrameCornerBR" />
 
-                <div className="atelierPlate">
-                  <span>{selectedWork.title}</span>
+                <div className="studioFramePart studioFrameEdge studioFrameEdgeTop" />
+                <div className="studioFramePart studioFrameEdge studioFrameEdgeBottom" />
+                <div className="studioFramePart studioFrameEdge studioFrameEdgeLeft" />
+                <div className="studioFramePart studioFrameEdge studioFrameEdgeRight" />
+
+                <div className="studioDoubleMat">
+                  <div className="studioTopMat">
+                    <div className={`studioVCutWindow studioWindow-${selectedWork.format}`}>
+                      <img
+                        src={selectedWork.image}
+                        alt={selectedWork.title}
+                        onError={(event) => {
+                          event.currentTarget.src = "/botanical.jpg";
+                        }}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="studioBrassPlate">
+                    <span>{selectedWork.title}</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="atelierCaption">
+          <div className="pgStudioCaption">
             <p>{selectedWork.id}</p>
-            <h1>{selectedWork.title}</h1>
+
+            <h2>{selectedWork.title}</h2>
+
             <span>{selectedWork.statement}</span>
-            <small>{selectedRoom.description}</small>
+
+            <small>
+              Full sheet visible / mat overlap limited to approximately 1mm.
+            </small>
           </div>
         </section>
 
-        <aside className="atelierPanel">
-          <p className="atelierLabel">VIEWING CONFIGURATION</p>
+        <aside className="pgStudioControls">
+          <div className="pgControlsHeader">
+            <p>VIEWING CONFIGURATION</p>
 
-          <div className="atelierPanelGroup">
+            <h1>
+              Framing
+              <br />
+              & Installation
+            </h1>
+          </div>
+
+          <div className="pgControlGroup">
+            <h2>Work</h2>
+
+            <div className="pgWorkButtons">
+              {works.map((work) => (
+                <button
+                  key={work.id}
+                  className={workId === work.id ? "active" : ""}
+                  onClick={() => setWorkId(work.id)}
+                >
+                  <span>{work.id}</span>
+                  {work.title}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="pgControlGroup">
             <h2>Frame</h2>
 
-            <div className="atelierOptionGrid">
+            <div className="pgOptionGrid">
               {frameStyles.map((frame) => (
                 <button
                   key={frame.id}
@@ -433,10 +516,10 @@ export default function PrivateGalleryPage() {
             </div>
           </div>
 
-          <div className="atelierPanelGroup">
+          <div className="pgControlGroup">
             <h2>Mat</h2>
 
-            <div className="atelierOptionGrid compact">
+            <div className="pgOptionGrid three">
               {matStyles.map((mat) => (
                 <button
                   key={mat.id}
@@ -449,10 +532,10 @@ export default function PrivateGalleryPage() {
             </div>
           </div>
 
-          <div className="atelierPanelGroup">
+          <div className="pgControlGroup">
             <h2>Scale</h2>
 
-            <div className="atelierOptionGrid">
+            <div className="pgOptionGrid">
               {scalePresets.map((scale) => (
                 <button
                   key={scale.id}
@@ -466,10 +549,10 @@ export default function PrivateGalleryPage() {
             </div>
           </div>
 
-          <div className="atelierPanelGroup">
+          <div className="pgControlGroup">
             <h2>Room</h2>
 
-            <div className="atelierOptionGrid">
+            <div className="pgOptionGrid">
               {rooms.map((room) => (
                 <button
                   key={room.id}
@@ -482,8 +565,8 @@ export default function PrivateGalleryPage() {
               ))}
             </div>
 
-            <label className="atelierUpload">
-              Upload Room Image
+            <label className="pgUploadButton">
+              Private Room Study
               <input
                 type="file"
                 accept="image/*"
@@ -492,13 +575,14 @@ export default function PrivateGalleryPage() {
             </label>
           </div>
 
-          <div className="atelierSave">
+          <div className="pgControlSave">
             <button onClick={saveViewingStudy}>
               {saved ? "Viewing Study Saved" : "Save Viewing Study"}
             </button>
 
             <p>
-              Configuration is stored locally for private review.
+              Configuration is saved locally in this browser. Future version:
+              AI-generated room rendering and real frame-part assets.
             </p>
           </div>
         </aside>
