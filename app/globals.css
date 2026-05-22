@@ -22951,3 +22951,177 @@ body::after,
     var(--studio-mat-padding, 44px)
     calc(var(--studio-mat-padding, 44px) + 44px) !important;
 }
+/* ===================================
+   REAL FRAME ASSET HOOKS
+   Upload assets into /public/frame-engine/
+=================================== */
+
+/* Modern */
+
+.studioFrame-modern {
+  --frame-corner-tl: url("/frame-engine/modern/corner-tl.png");
+  --frame-corner-tr: url("/frame-engine/modern/corner-tr.png");
+  --frame-corner-bl: url("/frame-engine/modern/corner-bl.png");
+  --frame-corner-br: url("/frame-engine/modern/corner-br.png");
+  --frame-edge-top: url("/frame-engine/modern/edge-top.png");
+  --frame-edge-bottom: url("/frame-engine/modern/edge-bottom.png");
+  --frame-edge-left: url("/frame-engine/modern/edge-left.png");
+  --frame-edge-right: url("/frame-engine/modern/edge-right.png");
+  --frame-fallback:
+    linear-gradient(
+      145deg,
+      #171717,
+      #050505 48%,
+      #202020
+    );
+}
+
+/* Elegant */
+
+.studioFrame-elegant {
+  --frame-corner-tl: url("/frame-engine/elegant/corner-tl.png");
+  --frame-corner-tr: url("/frame-engine/elegant/corner-tr.png");
+  --frame-corner-bl: url("/frame-engine/elegant/corner-bl.png");
+  --frame-corner-br: url("/frame-engine/elegant/corner-br.png");
+  --frame-edge-top: url("/frame-engine/elegant/edge-top.png");
+  --frame-edge-bottom: url("/frame-engine/elegant/edge-bottom.png");
+  --frame-edge-left: url("/frame-engine/elegant/edge-left.png");
+  --frame-edge-right: url("/frame-engine/elegant/edge-right.png");
+  --frame-fallback:
+    linear-gradient(
+      145deg,
+      #17130f,
+      #050403 48%,
+      #211a12
+    );
+}
+
+/* Antique */
+
+.studioFrame-antique {
+  --frame-corner-tl: url("/frame-engine/antique/corner-tl.png");
+  --frame-corner-tr: url("/frame-engine/antique/corner-tr.png");
+  --frame-corner-bl: url("/frame-engine/antique/corner-bl.png");
+  --frame-corner-br: url("/frame-engine/antique/corner-br.png");
+  --frame-edge-top: url("/frame-engine/antique/edge-top.png");
+  --frame-edge-bottom: url("/frame-engine/antique/edge-bottom.png");
+  --frame-edge-left: url("/frame-engine/antique/edge-left.png");
+  --frame-edge-right: url("/frame-engine/antique/edge-right.png");
+  --frame-fallback:
+    linear-gradient(
+      145deg,
+      #2b1a0d,
+      #0b0603 48%,
+      #3b2918
+    );
+}
+
+/* Chic */
+
+.studioFrame-chic {
+  --frame-corner-tl: url("/frame-engine/chic/corner-tl.png");
+  --frame-corner-tr: url("/frame-engine/chic/corner-tr.png");
+  --frame-corner-bl: url("/frame-engine/chic/corner-bl.png");
+  --frame-corner-br: url("/frame-engine/chic/corner-br.png");
+  --frame-edge-top: url("/frame-engine/chic/edge-top.png");
+  --frame-edge-bottom: url("/frame-engine/chic/edge-bottom.png");
+  --frame-edge-left: url("/frame-engine/chic/edge-left.png");
+  --frame-edge-right: url("/frame-engine/chic/edge-right.png");
+  --frame-fallback:
+    linear-gradient(
+      145deg,
+      #11100e,
+      #050403 48%,
+      #181612
+    );
+}
+
+/* Urban */
+
+.studioFrame-urban {
+  --frame-corner-tl: url("/frame-engine/urban/corner-tl.png");
+  --frame-corner-tr: url("/frame-engine/urban/corner-tr.png");
+  --frame-corner-bl: url("/frame-engine/urban/corner-bl.png");
+  --frame-corner-br: url("/frame-engine/urban/corner-br.png");
+  --frame-edge-top: url("/frame-engine/urban/edge-top.png");
+  --frame-edge-bottom: url("/frame-engine/urban/edge-bottom.png");
+  --frame-edge-left: url("/frame-engine/urban/edge-left.png");
+  --frame-edge-right: url("/frame-engine/urban/edge-right.png");
+  --frame-fallback:
+    linear-gradient(
+      145deg,
+      #222,
+      #070707 48%,
+      #111
+    );
+}
+
+/* Wood Carved */
+
+.studioFrame-carved {
+  --frame-corner-tl: url("/frame-engine/carved/corner-tl.png");
+  --frame-corner-tr: url("/frame-engine/carved/corner-tr.png");
+  --frame-corner-bl: url("/frame-engine/carved/corner-bl.png");
+  --frame-corner-br: url("/frame-engine/carved/corner-br.png");
+  --frame-edge-top: url("/frame-engine/carved/edge-top.png");
+  --frame-edge-bottom: url("/frame-engine/carved/edge-bottom.png");
+  --frame-edge-left: url("/frame-engine/carved/edge-left.png");
+  --frame-edge-right: url("/frame-engine/carved/edge-right.png");
+  --frame-fallback:
+    repeating-linear-gradient(
+      90deg,
+      #24160c 0,
+      #2f1d10 12px,
+      #150c06 24px
+    );
+}
+
+/* パーツへの適用 */
+
+.studioFrameCornerTL {
+  background-image:
+    var(--frame-corner-tl),
+    var(--frame-fallback) !important;
+}
+
+.studioFrameCornerTR {
+  background-image:
+    var(--frame-corner-tr),
+    var(--frame-fallback) !important;
+}
+
+.studioFrameCornerBL {
+  background-image:
+    var(--frame-corner-bl),
+    var(--frame-fallback) !important;
+}
+
+.studioFrameCornerBR {
+  background-image:
+    var(--frame-corner-br),
+    var(--frame-fallback) !important;
+}
+
+.studioFrameEdgeTop {
+  background-image:
+    var(--frame-edge-top),
+    var(--frame-fallback) !important;
+}
+
+.studioFrameEdgeBottom {
+  background-image:
+    var(--frame-edge-bottom),
+    var(--frame-fallback) !important;
+}
+
+.studioFrameEdgeLeft {
+  background-image:
+    var(--frame-edge-left),
+    var(--frame-fallback) !important;
+}
+
+.studioFrameEdgeRight {
+  background-image:
+    var(--frame-edge-right),
+    var(--frame-fallback) !important;
+}
