@@ -23171,3 +23171,96 @@ body::after,
   background-repeat:
     no-repeat !important;
 }
+/* ===================================
+   REAL ROOM TEMPLATE HOOKS
+=================================== */
+
+.pgStudioRoom-salon {
+  background-image:
+    linear-gradient(
+      rgba(0,0,0,0.34),
+      rgba(0,0,0,0.34)
+    ),
+    url("/frame-engine/rooms/salon-noir.jpg") !important;
+
+  background-size:
+    cover !important;
+
+  background-position:
+    center !important;
+}
+
+.pgStudioRoom-residence {
+  background-image:
+    linear-gradient(
+      rgba(0,0,0,0.26),
+      rgba(0,0,0,0.26)
+    ),
+    url("/frame-engine/rooms/collector-residence.jpg") !important;
+
+  background-size:
+    cover !important;
+
+  background-position:
+    center !important;
+}
+
+.pgStudioRoom-gallery {
+  background-image:
+    linear-gradient(
+      rgba(255,255,255,0.10),
+      rgba(255,255,255,0.10)
+    ),
+    url("/frame-engine/rooms/white-gallery.jpg") !important;
+
+  background-size:
+    cover !important;
+
+  background-position:
+    center !important;
+}
+
+.pgStudioRoom-hotel {
+  background-image:
+    linear-gradient(
+      rgba(0,0,0,0.28),
+      rgba(0,0,0,0.28)
+    ),
+    url("/frame-engine/rooms/luxury-hospitality.jpg") !important;
+
+  background-size:
+    cover !important;
+
+  background-position:
+    center !important;
+}
+
+.pgStudioRoom-maison {
+  background-image:
+    linear-gradient(
+      rgba(0,0,0,0.30),
+      rgba(0,0,0,0.30)
+    ),
+    url("/frame-engine/rooms/maison-salon.jpg") !important;
+
+  background-size:
+    cover !important;
+
+  background-position:
+    center !important;
+}
+
+.pgStudioRoom-loft {
+  background-image:
+    linear-gradient(
+      rgba(0,0,0,0.28),
+      rgba(0,0,0,0.28)
+    ),
+    url("/frame-engine/rooms/contemporary-loft.jpg") !important;
+
+  background-size:
+    cover !important;
+
+  background-position:
+    center !important;
+}
