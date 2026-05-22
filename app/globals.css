@@ -21989,3 +21989,186 @@ body::after,
       auto !important;
   }
 }
+/* ===================================
+   PORTFOLIO SERIES PAGES
+=================================== */
+
+.portfolioPage {
+  min-height: 100vh;
+  padding: 150px 0 140px;
+  background:
+    radial-gradient(
+      circle at 72% 14%,
+      rgba(201,168,106,0.04),
+      transparent 28%
+    ),
+    linear-gradient(
+      180deg,
+      #060504 0%,
+      #020202 100%
+    );
+  color: rgba(239,231,216,0.92);
+  overflow-x: hidden;
+}
+
+.portfolioHero {
+  width: min(1120px, 84%);
+  margin: 0 auto 110px;
+}
+
+.portfolioHero h1 {
+  font-family: "Times New Roman", serif;
+  font-size: clamp(58px, 6vw, 118px);
+  line-height: 0.98;
+  letter-spacing: -0.06em;
+  font-weight: 300;
+  color: rgba(239,231,216,0.94);
+  max-width: 980px;
+}
+
+.portfolioHero p:last-child {
+  margin-top: 32px;
+  max-width: 720px;
+  font-size: 14px;
+  line-height: 2.05;
+  color: rgba(239,231,216,0.52);
+}
+
+.portfolioFeaturedWork {
+  width: min(1180px, 84%);
+  margin: 0 auto 150px;
+}
+
+.portfolioFeaturedWork img {
+  width: 100%;
+  max-height: 760px;
+  object-fit: contain;
+  display: block;
+  background: #050403;
+  border: 1px solid rgba(201,168,106,0.08);
+  box-shadow: 0 80px 190px rgba(0,0,0,0.46);
+}
+
+.portfolioFeaturedText {
+  margin-top: 30px;
+  max-width: 780px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(201,168,106,0.08);
+}
+
+.portfolioFeaturedText p,
+.portfolioWorkCard p {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: rgba(201,168,106,0.64);
+}
+
+.portfolioFeaturedText h2,
+.portfolioWorkCard h2 {
+  margin-top: 12px;
+  font-family: "Times New Roman", serif;
+  font-size: clamp(30px, 3vw, 56px);
+  line-height: 1;
+  letter-spacing: -0.05em;
+  font-weight: 300;
+  color: rgba(239,231,216,0.88);
+}
+
+.portfolioFeaturedText span,
+.portfolioWorkCard span {
+  display: block;
+  margin-top: 14px;
+  max-width: 620px;
+  font-size: 13px;
+  line-height: 1.9;
+  color: rgba(239,231,216,0.50);
+}
+
+.portfolioGrid {
+  width: min(1180px, 84%);
+  margin: 0 auto 170px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 110px 70px;
+}
+
+.portfolioWorkCard img {
+  width: 100%;
+  display: block;
+  object-fit: contain;
+  max-height: 620px;
+  background: #050403;
+  border: 1px solid rgba(201,168,106,0.08);
+}
+
+.portfolioWorkCard div {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(201,168,106,0.07);
+}
+
+.portfolioViewingCheck {
+  margin-top: 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  color: rgba(201,168,106,0.60);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+}
+
+.portfolioViewingCheck input {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border: 1px solid rgba(201,168,106,0.34);
+  background: transparent;
+}
+
+.portfolioViewingCheck input:checked {
+  background: rgba(201,168,106,0.72);
+  box-shadow: inset 0 0 0 3px #050403;
+}
+
+.portfolioPrivateEntry {
+  width: min(960px, 84%);
+  margin: 0 auto 160px;
+  padding-top: 80px;
+  border-top: 1px solid rgba(201,168,106,0.08);
+}
+
+.portfolioPrivateEntry h2 {
+  max-width: 860px;
+  font-family: "Times New Roman", serif;
+  font-size: clamp(34px, 3.6vw, 70px);
+  line-height: 1.05;
+  letter-spacing: -0.055em;
+  font-weight: 300;
+  color: rgba(239,231,216,0.82);
+}
+
+.portfolioPrivateEntry a {
+  display: inline-block;
+  margin-top: 34px;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: rgba(201,168,106,0.74);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(201,168,106,0.22);
+  padding-bottom: 8px;
+}
+
+@media (max-width: 900px) {
+  .portfolioHero,
+  .portfolioFeaturedWork,
+  .portfolioGrid,
+  .portfolioPrivateEntry {
+    width: calc(100% - 40px);
+  }
+
+  .portfolioGrid {
+    grid-template-columns: 1fr;
+    gap: 90px;
+  }
+}
