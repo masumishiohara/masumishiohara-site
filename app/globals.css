@@ -23125,3 +23125,49 @@ body::after,
     var(--frame-edge-right),
     var(--frame-fallback) !important;
 }
+/* ===================================
+   REAL MAT / BRASS MATERIAL HOOKS
+=================================== */
+
+.studioMat-warm .studioDoubleMat {
+  background-image:
+    url("/frame-engine/materials/mat-warm.jpg") !important;
+
+  background-size:
+    cover !important;
+}
+
+.studioMat-stone .studioDoubleMat {
+  background-image:
+    url("/frame-engine/materials/mat-stone.jpg") !important;
+
+  background-size:
+    cover !important;
+}
+
+.studioMat-dark .studioDoubleMat {
+  background-image:
+    url("/frame-engine/materials/mat-charcoal.jpg") !important;
+
+  background-size:
+    cover !important;
+}
+
+.studioBrassPlate {
+  background-image:
+    url("/frame-engine/materials/brass-plate.png"),
+    linear-gradient(
+      90deg,
+      #8b642d,
+      #d8b76e 42%,
+      #f0d28b 52%,
+      #9a7030
+    ) !important;
+
+  background-size:
+    100% 100%,
+    cover !important;
+
+  background-repeat:
+    no-repeat !important;
+}
