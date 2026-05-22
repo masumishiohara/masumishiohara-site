@@ -22853,3 +22853,101 @@ body::after,
       8px !important;
   }
 }
+/* ===================================
+   FIXED FRAME PART SYSTEM
+   Corners fixed / edges repeated / no scaling
+=================================== */
+
+/* 額縁パーツは拡大縮小しない */
+
+.studioFramePart {
+  position:
+    absolute !important;
+
+  pointer-events:
+    none !important;
+
+  z-index:
+    3 !important;
+
+  background-repeat:
+    repeat !important;
+
+  background-size:
+    auto !important;
+
+  image-rendering:
+    auto !important;
+}
+
+/* コーナーは固定サイズ */
+
+.studioFrameCorner {
+  width:
+    var(--studio-corner-size, 64px) !important;
+
+  height:
+    var(--studio-corner-size, 64px) !important;
+
+  background-repeat:
+    no-repeat !important;
+
+  background-size:
+    100% 100% !important;
+}
+
+/* 上下辺は横方向だけ反復 */
+
+.studioFrameEdgeTop,
+.studioFrameEdgeBottom {
+  left:
+    var(--studio-corner-size, 64px) !important;
+
+  right:
+    var(--studio-corner-size, 64px) !important;
+
+  height:
+    var(--studio-frame-thickness, 34px) !important;
+
+  background-repeat:
+    repeat-x !important;
+
+  background-size:
+    auto 100% !important;
+}
+
+/* 左右辺は縦方向だけ反復 */
+
+.studioFrameEdgeLeft,
+.studioFrameEdgeRight {
+  top:
+    var(--studio-corner-size, 64px) !important;
+
+  bottom:
+    var(--studio-corner-size, 64px) !important;
+
+  width:
+    var(--studio-frame-thickness, 34px) !important;
+
+  background-repeat:
+    repeat-y !important;
+
+  background-size:
+    100% auto !important;
+}
+
+/* フレーム全体を無理に伸ばさない */
+
+.studioFrameShell {
+  transform:
+    none !important;
+}
+
+/* 額とマットの誤差吸収はマット側で行う */
+
+.studioDoubleMat {
+  padding:
+    var(--studio-mat-padding, 44px)
+    var(--studio-mat-padding, 44px)
+    calc(var(--studio-mat-padding, 44px) + 44px) !important;
+}
