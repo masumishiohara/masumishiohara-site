@@ -1,0 +1,2 @@
+Place generated asset here: edge-left.png
+Style: chic-c2

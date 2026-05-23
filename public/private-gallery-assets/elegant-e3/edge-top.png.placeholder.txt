@@ -1,0 +1,2 @@
+Place generated asset here: edge-top.png
+Style: elegant-e3

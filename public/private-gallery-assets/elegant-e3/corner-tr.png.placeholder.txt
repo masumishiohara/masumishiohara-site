@@ -1,0 +1,2 @@
+Place generated asset here: corner-tr.png
+Style: elegant-e3
