@@ -5,11 +5,38 @@ import type { ChangeEvent, CSSProperties } from "react";
 
 const MIN_MM = 210;
 const MAX_MM = 2060;
-const FRAME_MODULE_MM = 32;
+
+/*
+  FRAME_MODULE_MM:
+  額縁の辺パーツを繰り返すための最小周期。
+  ここを細かくすることで、A4〜B0×2まで連続的に対応しやすくする。
+*/
+const FRAME_MODULE_MM = 8;
+
+/*
+  CORNER_MM:
+  コーナーパーツは固定。
+  拡大縮小しない。
+*/
 const CORNER_MM = 96;
+
 const MIN_MAT_MM = 45;
 const MAX_MAT_MM = 180;
+
+/*
+  MAT_OVERLAP_MM:
+  作品四辺にかかるマット被り。
+  作品は切らないが、視覚上4辺に約1mmだけマットが乗る。
+*/
 const MAT_OVERLAP_MM = 1;
+
+/*
+  FRAME_TOLERANCE_MM:
+  額縁のrepeat構造に合わせるために許容する微差。
+  数mm〜最大10mm。
+  この誤差はマット幅で吸収する。
+*/
+const FRAME_TOLERANCE_MM = 10;
 
 const works = [
   {
@@ -294,40 +321,115 @@ function getPlateMetrics(title: string) {
   };
 }
 
-function calculateMatAndFrame(widthMm: number, heightMm: number) {
-  const targetInnerWidth = widthMm + MIN_MAT_MM * 2;
-  const targetInnerHeight = heightMm + MIN_MAT_MM * 2;
+function fitFrameDimension(artMm: number) {
+  const minimumInner = artMm + MIN_MAT_MM * 2;
+  const maximumInner = artMm + MAX_MAT_MM * 2;
+  const preferredInner = minimumInner;
 
-  const repeatX = Math.max(
+  const minRepeat = Math.max(
     1,
-    Math.round((targetInnerWidth - CORNER_MM * 2) / FRAME_MODULE_MM)
+    Math.floor((minimumInner - CORNER_MM * 2) / FRAME_MODULE_MM) - 2
   );
 
-  const repeatY = Math.max(
+  const maxRepeat = Math.max(
+    minRepeat + 1,
+    Math.ceil((maximumInner - CORNER_MM * 2) / FRAME_MODULE_MM) + 2
+  );
+
+  let best:
+    | {
+        repeat: number;
+        finalInner: number;
+        mat: number;
+        error: number;
+        withinTolerance: boolean;
+        score: number;
+      }
+    | null = null;
+
+  for (let repeat = minRepeat; repeat <= maxRepeat; repeat += 1) {
+    const finalInner = CORNER_MM * 2 + repeat * FRAME_MODULE_MM;
+    const mat = (finalInner - artMm) / 2;
+
+    if (mat < MIN_MAT_MM || mat > MAX_MAT_MM) {
+      continue;
+    }
+
+    const error = finalInner - preferredInner;
+    const withinTolerance = Math.abs(error) <= FRAME_TOLERANCE_MM;
+
+    /*
+      評価方針：
+      1. 誤差10mm以内を優先
+      2. マット幅が不自然に大きくなりすぎないものを優先
+      3. repeat数は整数なので、辺パーツは拡大縮小しない
+    */
+    const tolerancePenalty = withinTolerance
+      ? 0
+      : Math.abs(error) - FRAME_TOLERANCE_MM;
+
+    const matPenalty = Math.abs(mat - MIN_MAT_MM) * 0.12;
+
+    const score =
+      tolerancePenalty * 10 +
+      Math.abs(error) * 0.25 +
+      matPenalty;
+
+    if (!best || score < best.score) {
+      best = {
+        repeat,
+        finalInner,
+        mat: Math.round(mat * 10) / 10,
+        error: Math.round(error * 10) / 10,
+        withinTolerance,
+        score,
+      };
+    }
+  }
+
+  if (best) {
+    return best;
+  }
+
+  /*
+    保険：
+    万一適合しない場合でも、額縁を伸縮せず、
+    最小マット幅を確保した値で返す。
+  */
+  const fallbackRepeat = Math.max(
     1,
-    Math.round((targetInnerHeight - CORNER_MM * 2) / FRAME_MODULE_MM)
+    Math.round((minimumInner - CORNER_MM * 2) / FRAME_MODULE_MM)
   );
 
-  const correctedInnerWidth = CORNER_MM * 2 + repeatX * FRAME_MODULE_MM;
-  const correctedInnerHeight = CORNER_MM * 2 + repeatY * FRAME_MODULE_MM;
-
-  const matX = Math.min(
-    MAX_MAT_MM,
-    Math.max(MIN_MAT_MM, Math.round((correctedInnerWidth - widthMm) / 2))
-  );
-
-  const matY = Math.min(
-    MAX_MAT_MM,
-    Math.max(MIN_MAT_MM, Math.round((correctedInnerHeight - heightMm) / 2))
-  );
+  const fallbackInner =
+    CORNER_MM * 2 + fallbackRepeat * FRAME_MODULE_MM;
 
   return {
-    repeatX,
-    repeatY,
-    matX,
-    matY,
-    correctedInnerWidth,
-    correctedInnerHeight,
+    repeat: fallbackRepeat,
+    finalInner: fallbackInner,
+    mat: Math.round(((fallbackInner - artMm) / 2) * 10) / 10,
+    error: Math.round((fallbackInner - preferredInner) * 10) / 10,
+    withinTolerance:
+      Math.abs(fallbackInner - preferredInner) <= FRAME_TOLERANCE_MM,
+    score: 9999,
+  };
+}
+
+function calculateMatAndFrame(widthMm: number, heightMm: number) {
+  const horizontal = fitFrameDimension(widthMm);
+  const vertical = fitFrameDimension(heightMm);
+
+  return {
+    repeatX: horizontal.repeat,
+    repeatY: vertical.repeat,
+    matX: horizontal.mat,
+    matY: vertical.mat,
+    errorX: horizontal.error,
+    errorY: vertical.error,
+    withinToleranceX: horizontal.withinTolerance,
+    withinToleranceY: vertical.withinTolerance,
+    correctedInnerWidth: horizontal.finalInner,
+    correctedInnerHeight: vertical.finalInner,
   };
 }
 
@@ -357,28 +459,41 @@ export default function PrivateGalleryPage() {
     return calculateMatAndFrame(artWidthMm, artHeightMm);
   }, [artWidthMm, artHeightMm]);
 
-  const matPaddingPx = Math.round(
-    Math.max(28, Math.min(70, Math.min(frameCalculation.matX, frameCalculation.matY) * 0.72))
-  );
-
-  const matLipPx = artWidthMm <= 500 || artHeightMm <= 500 ? 3 : 2;
-
   const displayFrameWidth = Math.round(
-    360 + ((artWidthMm - MIN_MM) / (MAX_MM - MIN_MM)) * 420
-  );
+  360 + ((artWidthMm - MIN_MM) / (MAX_MM - MIN_MM)) * 420
+);
 
-  const studioVars = {
-    "--precision-frame-width": `${displayFrameWidth}px`,
-    "--precision-frame-thickness": "34px",
-    "--precision-corner-size": "66px",
-    "--precision-art-ratio": `${artWidthMm} / ${artHeightMm}`,
-    "--precision-mat-padding": `${matPaddingPx}px`,
-    "--precision-mat-lip": `${matLipPx}px`,
-    "--precision-plate-width": plateMetrics.width,
-    "--precision-plate-font-size": plateMetrics.fontSize,
-    "--precision-plate-letter-spacing": plateMetrics.letterSpacing,
-  } as CSSProperties;
+const mmToPx =
+  displayFrameWidth / Math.max(1, frameCalculation.correctedInnerWidth);
 
+const matPaddingXPx = Math.round(
+  Math.max(28, Math.min(110, frameCalculation.matX * mmToPx))
+);
+
+const matPaddingYPx = Math.round(
+  Math.max(28, Math.min(110, frameCalculation.matY * mmToPx))
+);
+
+/*
+  画面上の1mm被り。
+  作品の表示サイズに応じて2〜6pxの範囲で調整する。
+*/
+const matLipPx = Math.round(
+  Math.max(2, Math.min(6, MAT_OVERLAP_MM * mmToPx))
+);
+
+const studioVars = {
+  "--precision-frame-width": `${displayFrameWidth}px`,
+  "--precision-frame-thickness": "34px",
+  "--precision-corner-size": "66px",
+  "--precision-art-ratio": `${artWidthMm} / ${artHeightMm}`,
+  "--precision-mat-padding-x": `${matPaddingXPx}px`,
+  "--precision-mat-padding-y": `${matPaddingYPx}px`,
+  "--precision-mat-lip": `${matLipPx}px`,
+  "--precision-plate-width": plateMetrics.width,
+  "--precision-plate-font-size": plateMetrics.fontSize,
+  "--precision-plate-letter-spacing": plateMetrics.letterSpacing,
+} as CSSProperties;
   useEffect(() => {
     const savedConfig = window.localStorage.getItem("masumi-private-gallery");
 
@@ -637,9 +752,10 @@ export default function PrivateGalleryPage() {
 
             <p className="precisionEngineReadout">
               Edge repeat: {frameCalculation.repeatX} × {frameCalculation.repeatY}
-              <br />
-              Mat correction: {frameCalculation.matX}mm / {frameCalculation.matY}mm
-            </p>
+<br />
+Mat correction: {frameCalculation.matX}mm / {frameCalculation.matY}mm
+<br />
+Frame tolerance: {frameCalculation.errorX}mm / {frameCalculation.errorY}mm
           </div>
 
           <div className="precisionControlGroup">
