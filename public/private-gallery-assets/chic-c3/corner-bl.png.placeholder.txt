@@ -1,0 +1,2 @@
+Place generated asset here: corner-bl.png
+Style: chic-c3
