@@ -6,49 +6,26 @@ import type { ChangeEvent, CSSProperties } from "react";
 const MIN_MM = 210;
 const MAX_MM = 2060;
 
-/*
-  FRAME_MODULE_MM:
-  額縁の辺パーツを繰り返すための最小周期。
-  ここを細かくすることで、A4〜B0×2まで連続的に対応しやすくする。
-*/
 const FRAME_MODULE_MM = 8;
-
-/*
-  CORNER_MM:
-  コーナーパーツは固定。
-  拡大縮小しない。
-*/
 const CORNER_MM = 96;
-
 const MIN_MAT_MM = 45;
 const MAX_MAT_MM = 180;
-
-/*
-  MAT_OVERLAP_MM:
-  作品四辺にかかるマット被り。
-  作品は切らないが、視覚上4辺に約1mmだけマットが乗る。
-*/
 const MAT_OVERLAP_MM = 1;
-
-/*
-  FRAME_TOLERANCE_MM:
-  額縁のrepeat構造に合わせるために許容する微差。
-  数mm〜最大10mm。
-  この誤差はマット幅で吸収する。
-*/
 const FRAME_TOLERANCE_MM = 10;
 
 const works = [
   {
     id: "MS-CS",
     title: "Canvas Botanical Studies",
-    image: "/portfolio/canvas-botanical-studies/canvas-botanical-studies-01.jpg",
+    image:
+      "/portfolio/canvas-botanical-studies/canvas-botanical-studies-01.jpg",
     statement: "Canvas sheet studies of cultivated fruit and botanical form.",
   },
   {
     id: "MS-AT",
     title: "Antique Botanical Studies",
-    image: "/portfolio/antique-botanical-studies/antique-botanical-studies-01.jpg",
+    image:
+      "/portfolio/antique-botanical-studies/antique-botanical-studies-01.jpg",
     statement: "Antique botanical studies with archival atmosphere.",
   },
   {
@@ -60,7 +37,8 @@ const works = [
   {
     id: "MS-BG",
     title: "Black Ground Botanical Works",
-    image: "/portfolio/black-ground-botanical-works/black-ground-botanical-works-01.jpg",
+    image:
+      "/portfolio/black-ground-botanical-works/black-ground-botanical-works-01.jpg",
     statement: "Botanical works isolated against a dark ground.",
   },
   {
@@ -78,19 +56,22 @@ const works = [
   {
     id: "MS-CF",
     title: "Cultivated Fruit Compositions",
-    image: "/portfolio/cultivated-fruit-compositions/cultivated-fruit-compositions-01.jpg",
+    image:
+      "/portfolio/cultivated-fruit-compositions/cultivated-fruit-compositions-01.jpg",
     statement: "Fruit cultivated and composed as artistic material.",
   },
   {
     id: "MS-PO",
     title: "Portraits: Single Variety",
-    image: "/portfolio/portraits-single-variety/portraits-single-variety-01.jpg",
+    image:
+      "/portfolio/portraits-single-variety/portraits-single-variety-01.jpg",
     statement: "Single-variety fruit portraits.",
   },
   {
     id: "MS-PC",
     title: "Portraits: Composite Forms",
-    image: "/portfolio/portraits-composite-forms/portraits-composite-forms-01.jpg",
+    image:
+      "/portfolio/portraits-composite-forms/portraits-composite-forms-01.jpg",
     statement: "Composite fruit portraits and constructed presence.",
   },
   {
@@ -108,7 +89,8 @@ const works = [
   {
     id: "MS-IF",
     title: "Improvisations of a Fruit Breeder",
-    image: "/portfolio/improvisations-of-a-fruit-breeder/improvisations-of-a-fruit-breeder-01.jpg",
+    image:
+      "/portfolio/improvisations-of-a-fruit-breeder/improvisations-of-a-fruit-breeder-01.jpg",
     statement: "Improvised fruit forms shaped by breeding and selection.",
   },
 ];
@@ -336,16 +318,16 @@ function fitFrameDimension(artMm: number) {
     Math.ceil((maximumInner - CORNER_MM * 2) / FRAME_MODULE_MM) + 2
   );
 
-  let best:
-    | {
-        repeat: number;
-        finalInner: number;
-        mat: number;
-        error: number;
-        withinTolerance: boolean;
-        score: number;
-      }
-    | null = null;
+  let found = false;
+
+  let best = {
+    repeat: 1,
+    finalInner: minimumInner,
+    mat: MIN_MAT_MM,
+    error: 0,
+    withinTolerance: true,
+    score: Number.POSITIVE_INFINITY,
+  };
 
   for (let repeat = minRepeat; repeat <= maxRepeat; repeat += 1) {
     const finalInner = CORNER_MM * 2 + repeat * FRAME_MODULE_MM;
@@ -358,12 +340,6 @@ function fitFrameDimension(artMm: number) {
     const error = finalInner - preferredInner;
     const withinTolerance = Math.abs(error) <= FRAME_TOLERANCE_MM;
 
-    /*
-      評価方針：
-      1. 誤差10mm以内を優先
-      2. マット幅が不自然に大きくなりすぎないものを優先
-      3. repeat数は整数なので、辺パーツは拡大縮小しない
-    */
     const tolerancePenalty = withinTolerance
       ? 0
       : Math.abs(error) - FRAME_TOLERANCE_MM;
@@ -375,7 +351,7 @@ function fitFrameDimension(artMm: number) {
       Math.abs(error) * 0.25 +
       matPenalty;
 
-    if (!best || score < best.score) {
+    if (!found || score < best.score) {
       best = {
         repeat,
         finalInner,
@@ -384,18 +360,15 @@ function fitFrameDimension(artMm: number) {
         withinTolerance,
         score,
       };
+
+      found = true;
     }
   }
 
-  if (best) {
+  if (found) {
     return best;
   }
 
-  /*
-    保険：
-    万一適合しない場合でも、額縁を伸縮せず、
-    最小マット幅を確保した値で返す。
-  */
   const fallbackRepeat = Math.max(
     1,
     Math.round((minimumInner - CORNER_MM * 2) / FRAME_MODULE_MM)
@@ -460,54 +433,70 @@ export default function PrivateGalleryPage() {
   }, [artWidthMm, artHeightMm]);
 
   const displayFrameWidth = Math.round(
-  360 + ((artWidthMm - MIN_MM) / (MAX_MM - MIN_MM)) * 420
-);
+    360 + ((artWidthMm - MIN_MM) / (MAX_MM - MIN_MM)) * 420
+  );
 
-const mmToPx =
-  displayFrameWidth / Math.max(1, frameCalculation.correctedInnerWidth);
+  const mmToPx =
+    displayFrameWidth / Math.max(1, frameCalculation.correctedInnerWidth);
 
-const matPaddingXPx = Math.round(
-  Math.max(28, Math.min(110, frameCalculation.matX * mmToPx))
-);
+  const matPaddingXPx = Math.round(
+    Math.max(28, Math.min(110, frameCalculation.matX * mmToPx))
+  );
 
-const matPaddingYPx = Math.round(
-  Math.max(28, Math.min(110, frameCalculation.matY * mmToPx))
-);
+  const matPaddingYPx = Math.round(
+    Math.max(28, Math.min(110, frameCalculation.matY * mmToPx))
+  );
 
-/*
-  画面上の1mm被り。
-  作品の表示サイズに応じて2〜6pxの範囲で調整する。
-*/
-const matLipPx = Math.round(
-  Math.max(2, Math.min(6, MAT_OVERLAP_MM * mmToPx))
-);
+  const matLipPx = Math.round(
+    Math.max(2, Math.min(6, MAT_OVERLAP_MM * mmToPx))
+  );
 
-const studioVars = {
-  "--precision-frame-width": `${displayFrameWidth}px`,
-  "--precision-frame-thickness": "34px",
-  "--precision-corner-size": "66px",
-  "--precision-art-ratio": `${artWidthMm} / ${artHeightMm}`,
-  "--precision-mat-padding-x": `${matPaddingXPx}px`,
-  "--precision-mat-padding-y": `${matPaddingYPx}px`,
-  "--precision-mat-lip": `${matLipPx}px`,
-  "--precision-plate-width": plateMetrics.width,
-  "--precision-plate-font-size": plateMetrics.fontSize,
-  "--precision-plate-letter-spacing": plateMetrics.letterSpacing,
-} as CSSProperties;
+  const studioVars = {
+    "--precision-frame-width": `${displayFrameWidth}px`,
+    "--precision-frame-thickness": "34px",
+    "--precision-corner-size": "66px",
+    "--precision-art-ratio": `${artWidthMm} / ${artHeightMm}`,
+    "--precision-mat-padding-x": `${matPaddingXPx}px`,
+    "--precision-mat-padding-y": `${matPaddingYPx}px`,
+    "--precision-mat-lip": `${matLipPx}px`,
+    "--precision-plate-width": plateMetrics.width,
+    "--precision-plate-font-size": plateMetrics.fontSize,
+    "--precision-plate-letter-spacing": plateMetrics.letterSpacing,
+  } as CSSProperties;
+
   useEffect(() => {
     const savedConfig = window.localStorage.getItem("masumi-private-gallery");
 
-    if (!savedConfig) return;
+    if (!savedConfig) {
+      return;
+    }
 
     try {
       const parsed = JSON.parse(savedConfig);
 
-      if (parsed.workId) setWorkId(parsed.workId);
-      if (parsed.frameId) setFrameId(parsed.frameId);
-      if (parsed.matId) setMatId(parsed.matId);
-      if (parsed.roomId) setRoomId(parsed.roomId);
-      if (parsed.artWidthMm) setArtWidthMm(clampDimension(parsed.artWidthMm));
-      if (parsed.artHeightMm) setArtHeightMm(clampDimension(parsed.artHeightMm));
+      if (parsed.workId) {
+        setWorkId(parsed.workId);
+      }
+
+      if (parsed.frameId) {
+        setFrameId(parsed.frameId);
+      }
+
+      if (parsed.matId) {
+        setMatId(parsed.matId);
+      }
+
+      if (parsed.roomId) {
+        setRoomId(parsed.roomId);
+      }
+
+      if (parsed.artWidthMm) {
+        setArtWidthMm(clampDimension(parsed.artWidthMm));
+      }
+
+      if (parsed.artHeightMm) {
+        setArtHeightMm(clampDimension(parsed.artHeightMm));
+      }
     } catch {
       window.localStorage.removeItem("masumi-private-gallery");
     }
@@ -536,7 +525,9 @@ const studioVars = {
   function handleRoomUpload(event: ChangeEvent<HTMLInputElement>) {
     const file = event.target.files?.[0];
 
-    if (!file) return;
+    if (!file) {
+      return;
+    }
 
     const reader = new FileReader();
 
@@ -703,7 +694,9 @@ const studioVars = {
                   max={MAX_MM}
                   value={artWidthMm}
                   onChange={(event) => {
-                    setArtWidthMm(clampDimension(Number(event.target.value)));
+                    setArtWidthMm(
+                      clampDimension(Number(event.target.value))
+                    );
                   }}
                 />
               </label>
@@ -716,7 +709,9 @@ const studioVars = {
                   max={MAX_MM}
                   value={artHeightMm}
                   onChange={(event) => {
-                    setArtHeightMm(clampDimension(Number(event.target.value)));
+                    setArtHeightMm(
+                      clampDimension(Number(event.target.value))
+                    );
                   }}
                 />
               </label>
@@ -731,7 +726,9 @@ const studioVars = {
                 step={1}
                 value={artWidthMm}
                 onChange={(event) => {
-                  setArtWidthMm(clampDimension(Number(event.target.value)));
+                  setArtWidthMm(
+                    clampDimension(Number(event.target.value))
+                  );
                 }}
               />
             </label>
@@ -745,17 +742,20 @@ const studioVars = {
                 step={1}
                 value={artHeightMm}
                 onChange={(event) => {
-                  setArtHeightMm(clampDimension(Number(event.target.value)));
+                  setArtHeightMm(
+                    clampDimension(Number(event.target.value))
+                  );
                 }}
               />
             </label>
 
             <p className="precisionEngineReadout">
               Edge repeat: {frameCalculation.repeatX} × {frameCalculation.repeatY}
-<br />
-Mat correction: {frameCalculation.matX}mm / {frameCalculation.matY}mm
-<br />
-Frame tolerance: {frameCalculation.errorX}mm / {frameCalculation.errorY}mm
+              <br />
+              Mat correction: {frameCalculation.matX}mm / {frameCalculation.matY}mm
+              <br />
+              Frame tolerance: {frameCalculation.errorX}mm / {frameCalculation.errorY}mm
+            </p>
           </div>
 
           <div className="precisionControlGroup">
