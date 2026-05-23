@@ -1,2 +1,0 @@
-Place generated asset here: corner-tl.png
-Style: modern-m1

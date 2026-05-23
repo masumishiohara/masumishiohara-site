@@ -1,2 +1,0 @@
-Place generated asset here: edge-left.png
-Style: elegant-e3

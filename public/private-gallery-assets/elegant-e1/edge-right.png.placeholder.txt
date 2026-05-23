@@ -1,2 +1,0 @@
-Place generated asset here: edge-right.png
-Style: elegant-e1
