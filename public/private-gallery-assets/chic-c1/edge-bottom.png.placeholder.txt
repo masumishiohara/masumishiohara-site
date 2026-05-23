@@ -1,0 +1,2 @@
+Place generated asset here: edge-bottom.png
+Style: chic-c1
