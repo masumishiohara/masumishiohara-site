@@ -23264,3 +23264,1279 @@ body::after,
   background-position:
     center !important;
 }
+/* ===================================
+   PRECISION MAT / CONTINUOUS FRAME ENGINE
+=================================== */
+
+.precisionGalleryPage {
+  height: 100vh !important;
+  overflow: hidden !important;
+
+  background:
+    radial-gradient(
+      circle at 70% 12%,
+      rgba(201,168,106,0.045),
+      transparent 30%
+    ),
+    linear-gradient(
+      180deg,
+      #050403 0%,
+      #020202 100%
+    ) !important;
+
+  color:
+    rgba(239,231,216,0.92) !important;
+}
+
+.precisionGalleryShell {
+  height:
+    100vh !important;
+
+  padding:
+    82px
+    28px
+    28px !important;
+
+  display:
+    grid !important;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    430px !important;
+
+  gap:
+    24px !important;
+
+  overflow:
+    hidden !important;
+}
+
+/* preview */
+
+.precisionPreview {
+  min-width:
+    0 !important;
+
+  min-height:
+    0 !important;
+
+  display:
+    flex !important;
+
+  flex-direction:
+    column !important;
+
+  border:
+    1px solid
+    rgba(201,168,106,0.08) !important;
+
+  background:
+    rgba(255,255,255,0.008) !important;
+
+  overflow:
+    hidden !important;
+}
+
+.precisionPreviewHeader {
+  height:
+    52px !important;
+
+  padding:
+    0
+    24px !important;
+
+  display:
+    flex !important;
+
+  align-items:
+    center !important;
+
+  justify-content:
+    space-between !important;
+
+  border-bottom:
+    1px solid
+    rgba(201,168,106,0.08) !important;
+}
+
+.precisionPreviewHeader p,
+.precisionPreviewHeader span {
+  font-size:
+    10px !important;
+
+  letter-spacing:
+    0.24em !important;
+
+  color:
+    rgba(201,168,106,0.66) !important;
+}
+
+.precisionRoom {
+  position:
+    relative !important;
+
+  flex:
+    1 !important;
+
+  min-height:
+    0 !important;
+
+  display:
+    flex !important;
+
+  align-items:
+    center !important;
+
+  justify-content:
+    center !important;
+
+  overflow:
+    hidden !important;
+
+  background:
+    radial-gradient(
+      ellipse at top,
+      rgba(255,235,190,0.050),
+      transparent 42%
+    ),
+    linear-gradient(
+      180deg,
+      #080706,
+      #020202
+    ) !important;
+}
+
+.precisionRoom-residence {
+  background:
+    radial-gradient(
+      ellipse at top,
+      rgba(190,150,105,0.08),
+      transparent 42%
+    ),
+    linear-gradient(
+      180deg,
+      #120e0a,
+      #050403
+    ) !important;
+}
+
+.precisionRoom-gallery {
+  background:
+    linear-gradient(
+      180deg,
+      #d7d1c7,
+      #b8b1a6
+    ) !important;
+}
+
+.precisionRoom-hotel,
+.precisionRoom-maison {
+  background:
+    radial-gradient(
+      ellipse at top,
+      rgba(210,170,110,0.10),
+      transparent 42%
+    ),
+    linear-gradient(
+      180deg,
+      #100c09,
+      #030202
+    ) !important;
+}
+
+.precisionRoom-loft {
+  background:
+    radial-gradient(
+      ellipse at top,
+      rgba(180,180,180,0.08),
+      transparent 42%
+    ),
+    linear-gradient(
+      180deg,
+      #111,
+      #030303
+    ) !important;
+}
+
+.precisionCustomRoom {
+  position:
+    absolute !important;
+
+  inset:
+    0 !important;
+
+  width:
+    100% !important;
+
+  height:
+    100% !important;
+
+  object-fit:
+    cover !important;
+
+  filter:
+    brightness(0.52)
+    saturate(0.86) !important;
+
+  opacity:
+    0.84 !important;
+}
+
+.precisionSpotlight {
+  position:
+    absolute !important;
+
+  left:
+    50% !important;
+
+  top:
+    -110px !important;
+
+  transform:
+    translateX(-50%) !important;
+
+  width:
+    62% !important;
+
+  height:
+    330px !important;
+
+  background:
+    radial-gradient(
+      ellipse at top,
+      rgba(255,225,170,0.20),
+      rgba(255,225,170,0.055) 44%,
+      transparent 78%
+    ) !important;
+
+  filter:
+    blur(34px) !important;
+
+  pointer-events:
+    none !important;
+
+  z-index:
+    1 !important;
+}
+
+/* framed object */
+
+.precisionFramedWork {
+  position:
+    relative !important;
+
+  z-index:
+    2 !important;
+
+  width:
+    min(
+      var(--precision-frame-width, 600px),
+      48vw,
+      56vh
+    ) !important;
+
+  max-width:
+    100% !important;
+}
+
+.precisionFrameShell {
+  position:
+    relative !important;
+
+  padding:
+    var(--precision-frame-thickness, 34px) !important;
+
+  background:
+    #111 !important;
+
+  box-shadow:
+    0 72px 160px rgba(0,0,0,0.48),
+    inset 0 0 0 1px rgba(255,255,255,0.025) !important;
+
+  isolation:
+    isolate !important;
+}
+
+/* fixed corner / repeated edge */
+
+.precisionFramePart {
+  position:
+    absolute !important;
+
+  pointer-events:
+    none !important;
+
+  z-index:
+    3 !important;
+
+  background-repeat:
+    repeat !important;
+
+  background-size:
+    auto !important;
+}
+
+.precisionCorner {
+  width:
+    var(--precision-corner-size, 66px) !important;
+
+  height:
+    var(--precision-corner-size, 66px) !important;
+
+  background-repeat:
+    no-repeat !important;
+
+  background-size:
+    100%
+    100% !important;
+}
+
+.precisionCornerTL {
+  left: 0 !important;
+  top: 0 !important;
+}
+
+.precisionCornerTR {
+  right: 0 !important;
+  top: 0 !important;
+}
+
+.precisionCornerBL {
+  left: 0 !important;
+  bottom: 0 !important;
+}
+
+.precisionCornerBR {
+  right: 0 !important;
+  bottom: 0 !important;
+}
+
+.precisionEdgeTop,
+.precisionEdgeBottom {
+  left:
+    var(--precision-corner-size, 66px) !important;
+
+  right:
+    var(--precision-corner-size, 66px) !important;
+
+  height:
+    var(--precision-frame-thickness, 34px) !important;
+
+  background-repeat:
+    repeat-x !important;
+
+  background-size:
+    auto 100% !important;
+}
+
+.precisionEdgeTop {
+  top:
+    0 !important;
+}
+
+.precisionEdgeBottom {
+  bottom:
+    0 !important;
+}
+
+.precisionEdgeLeft,
+.precisionEdgeRight {
+  top:
+    var(--precision-corner-size, 66px) !important;
+
+  bottom:
+    var(--precision-corner-size, 66px) !important;
+
+  width:
+    var(--precision-frame-thickness, 34px) !important;
+
+  background-repeat:
+    repeat-y !important;
+
+  background-size:
+    100%
+    auto !important;
+}
+
+.precisionEdgeLeft {
+  left:
+    0 !important;
+}
+
+.precisionEdgeRight {
+  right:
+    0 !important;
+}
+
+/* frame style fallbacks */
+
+.frame-modern-m1 .precisionFrameShell,
+.frame-modern-m1 .precisionFramePart {
+  background:
+    linear-gradient(
+      145deg,
+      #151515,
+      #050505 48%,
+      #1f1f1f
+    ) !important;
+}
+
+.frame-modern-m2 .precisionFrameShell,
+.frame-modern-m2 .precisionFramePart {
+  background:
+    linear-gradient(
+      145deg,
+      #2b2b2b,
+      #090909 48%,
+      #3a3a36
+    ) !important;
+}
+
+.frame-modern-m3 .precisionFrameShell,
+.frame-modern-m3 .precisionFramePart {
+  background:
+    linear-gradient(
+      145deg,
+      #efe8d8,
+      #cfc4ae 48%,
+      #fbf6ea
+    ) !important;
+}
+
+.frame-elegant-e1 .precisionFrameShell,
+.frame-elegant-e1 .precisionFramePart {
+  background:
+    linear-gradient(
+      145deg,
+      #15110d,
+      #050403 48%,
+      #21180f
+    ) !important;
+}
+
+.frame-elegant-e1 .precisionFrameShell {
+  box-shadow:
+    0 72px 160px rgba(0,0,0,0.48),
+    inset 0 0 0 2px rgba(214,178,94,0.28),
+    inset 0 0 0 10px rgba(0,0,0,0.54) !important;
+}
+
+.frame-elegant-e2 .precisionFrameShell,
+.frame-elegant-e2 .precisionFramePart {
+  background:
+    linear-gradient(
+      145deg,
+      #111,
+      #050505 48%,
+      #2b2b2b
+    ) !important;
+}
+
+.frame-elegant-e2 .precisionFrameShell {
+  box-shadow:
+    0 72px 160px rgba(0,0,0,0.48),
+    inset 0 0 0 2px rgba(210,210,200,0.30),
+    inset 0 0 0 10px rgba(0,0,0,0.52) !important;
+}
+
+.frame-elegant-e3 .precisionFrameShell,
+.frame-elegant-e3 .precisionFramePart {
+  background:
+    linear-gradient(
+      145deg,
+      #2a160b,
+      #070403 48%,
+      #3b2413
+    ) !important;
+}
+
+.frame-chic-c1 .precisionFrameShell,
+.frame-chic-c1 .precisionFramePart {
+  background:
+    linear-gradient(
+      145deg,
+      #101010,
+      #050505 48%,
+      #181818
+    ) !important;
+}
+
+.frame-chic-c2 .precisionFrameShell,
+.frame-chic-c2 .precisionFramePart {
+  background:
+    linear-gradient(
+      145deg,
+      #34302c,
+      #111 48%,
+      #22201d
+    ) !important;
+}
+
+.frame-chic-c3 .precisionFrameShell,
+.frame-chic-c3 .precisionFramePart {
+  background:
+    linear-gradient(
+      145deg,
+      #2a1a10,
+      #090504 48%,
+      #3a2415
+    ) !important;
+}
+
+.frame-wood-w1 .precisionFrameShell,
+.frame-wood-w1 .precisionFramePart {
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #b98442 0,
+      #d0a066 14px,
+      #8d5d2e 30px
+    ) !important;
+}
+
+.frame-wood-w2 .precisionFrameShell,
+.frame-wood-w2 .precisionFramePart {
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #5b3218 0,
+      #7b4724 16px,
+      #2d160c 34px
+    ) !important;
+}
+
+.frame-wood-w3 .precisionFrameShell,
+.frame-wood-w3 .precisionFramePart {
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #110d09 0,
+      #2a1b12 14px,
+      #050403 34px
+    ) !important;
+}
+
+/* mat */
+
+.precisionDoubleMat {
+  position:
+    relative !important;
+
+  padding:
+    var(--precision-mat-padding, 44px)
+    var(--precision-mat-padding, 44px)
+    calc(var(--precision-mat-padding, 44px) + 44px) !important;
+
+  background:
+    var(--precision-mat-face, #e5d9c3) !important;
+
+  z-index:
+    4 !important;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(95,72,42,0.14),
+    inset 0 0 42px rgba(70,50,30,0.08) !important;
+}
+
+.mat-warm {
+  --precision-mat-face: #e5d9c3;
+  --precision-mat-top: #efe6d2;
+  --precision-mat-lip-color: #eee3ca;
+}
+
+.mat-stone {
+  --precision-mat-face: #e8e5dd;
+  --precision-mat-top: #f0eee8;
+  --precision-mat-lip-color: #eeeae1;
+}
+
+.mat-charcoal {
+  --precision-mat-face: #171717;
+  --precision-mat-top: #242424;
+  --precision-mat-lip-color: #202020;
+}
+
+.precisionTopMat {
+  position:
+    relative !important;
+
+  padding:
+    10px !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--precision-mat-top, #efe6d2),
+      var(--precision-mat-face, #e5d9c3)
+    ) !important;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(80,60,36,0.12),
+    inset 0 0 18px rgba(80,60,36,0.08) !important;
+}
+
+/* exact artwork window */
+
+.precisionArtworkWindow {
+  position:
+    relative !important;
+
+  overflow:
+    hidden !important;
+
+  aspect-ratio:
+    var(--precision-art-ratio, 4 / 5) !important;
+
+  background:
+    var(--precision-mat-lip-color, #eee3ca) !important;
+
+  border:
+    1px solid
+    rgba(0,0,0,0.20) !important;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.04),
+    0 20px 54px rgba(0,0,0,0.26) !important;
+}
+
+.precisionArtworkWindow img {
+  width:
+    100% !important;
+
+  height:
+    100% !important;
+
+  display:
+    block !important;
+
+  object-fit:
+    contain !important;
+
+  object-position:
+    center !important;
+
+  background:
+    var(--precision-mat-lip-color, #eee3ca) !important;
+
+  filter:
+    brightness(0.90)
+    saturate(0.96)
+    contrast(1.02) !important;
+}
+
+/* 1mm mat lip over all four sides */
+
+.precisionArtworkWindow::after {
+  content:
+    "" !important;
+
+  position:
+    absolute !important;
+
+  inset:
+    0 !important;
+
+  z-index:
+    4 !important;
+
+  pointer-events:
+    none !important;
+
+  border:
+    var(--precision-mat-lip, 2px)
+    solid
+    var(--precision-mat-lip-color, #eee3ca) !important;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.06),
+    inset 0 0 6px rgba(0,0,0,0.10) !important;
+}
+
+/* brass plate */
+
+.precisionBrassPlate {
+  position:
+    absolute !important;
+
+  left:
+    50% !important;
+
+  bottom:
+    24px !important;
+
+  transform:
+    translateX(-50%) !important;
+
+  width:
+    min(
+      var(--precision-plate-width, 320px),
+      88%
+    ) !important;
+
+  min-width:
+    170px !important;
+
+  max-width:
+    88% !important;
+
+  min-height:
+    32px !important;
+
+  padding:
+    8px
+    18px !important;
+
+  display:
+    flex !important;
+
+  align-items:
+    center !important;
+
+  justify-content:
+    center !important;
+
+  overflow:
+    hidden !important;
+
+  text-align:
+    center !important;
+
+  background:
+    linear-gradient(
+      90deg,
+      #8b642d,
+      #d8b76e 42%,
+      #f0d28b 52%,
+      #9a7030
+    ) !important;
+
+  color:
+    #171006 !important;
+
+  box-shadow:
+    0 12px 32px rgba(0,0,0,0.30),
+    inset 0 0 0 1px rgba(255,255,255,0.32),
+    inset 0 -8px 20px rgba(0,0,0,0.16) !important;
+}
+
+.precisionBrassPlate span {
+  display:
+    block !important;
+
+  width:
+    100% !important;
+
+  font-family:
+    "Times New Roman",
+    serif !important;
+
+  font-size:
+    var(--precision-plate-font-size, 12px) !important;
+
+  line-height:
+    1.16 !important;
+
+  letter-spacing:
+    var(--precision-plate-letter-spacing, 0.06em) !important;
+
+  white-space:
+    normal !important;
+
+  overflow-wrap:
+    anywhere !important;
+
+  transform:
+    scaleX(0.96) !important;
+
+  transform-origin:
+    center !important;
+}
+
+/* caption */
+
+.precisionCaption {
+  min-height:
+    112px !important;
+
+  padding:
+    20px
+    30px !important;
+
+  border-top:
+    1px solid
+    rgba(201,168,106,0.08) !important;
+
+  background:
+    rgba(0,0,0,0.10) !important;
+
+  text-align:
+    center !important;
+}
+
+.precisionCaption p {
+  font-size:
+    10px !important;
+
+  letter-spacing:
+    0.22em !important;
+
+  color:
+    rgba(201,168,106,0.68) !important;
+}
+
+.precisionCaption h2 {
+  margin-top:
+    8px !important;
+
+  font-family:
+    "Times New Roman",
+    serif !important;
+
+  font-size:
+    clamp(
+      28px,
+      2.5vw,
+      48px
+    ) !important;
+
+  line-height:
+    1 !important;
+
+  letter-spacing:
+    -0.052em !important;
+
+  font-weight:
+    300 !important;
+
+  color:
+    rgba(239,231,216,0.86) !important;
+}
+
+.precisionCaption span,
+.precisionCaption small {
+  display:
+    block !important;
+
+  margin:
+    10px auto 0 !important;
+
+  max-width:
+    720px !important;
+
+  font-size:
+    12px !important;
+
+  line-height:
+    1.8 !important;
+
+  color:
+    rgba(239,231,216,0.48) !important;
+}
+
+/* controls */
+
+.precisionControls {
+  min-height:
+    0 !important;
+
+  overflow-y:
+    auto !important;
+
+  border:
+    1px solid
+    rgba(201,168,106,0.08) !important;
+
+  background:
+    rgba(255,255,255,0.010) !important;
+
+  padding:
+    26px !important;
+}
+
+.precisionControlsHeader p {
+  font-size:
+    10px !important;
+
+  letter-spacing:
+    0.24em !important;
+
+  color:
+    rgba(201,168,106,0.68) !important;
+}
+
+.precisionControlsHeader h1 {
+  margin-top:
+    16px !important;
+
+  font-family:
+    "Times New Roman",
+    serif !important;
+
+  font-size:
+    38px !important;
+
+  line-height:
+    1 !important;
+
+  letter-spacing:
+    -0.052em !important;
+
+  font-weight:
+    300 !important;
+
+  color:
+    rgba(239,231,216,0.86) !important;
+}
+
+.precisionControlGroup {
+  margin-top:
+    28px !important;
+}
+
+.precisionControlGroup h2 {
+  margin-bottom:
+    12px !important;
+
+  font-size:
+    10px !important;
+
+  letter-spacing:
+    0.24em !important;
+
+  color:
+    rgba(201,168,106,0.58) !important;
+}
+
+.precisionWorkButtons,
+.precisionOptionGrid {
+  display:
+    grid !important;
+
+  grid-template-columns:
+    1fr
+    1fr !important;
+
+  gap:
+    8px !important;
+}
+
+.precisionOptionGrid.three {
+  grid-template-columns:
+    repeat(3, 1fr) !important;
+}
+
+.precisionWorkButtons button,
+.precisionOptionGrid button,
+.precisionSizeQuick button,
+.precisionUploadButton,
+.precisionSave button {
+  width:
+    100% !important;
+
+  text-align:
+    left !important;
+
+  padding:
+    12px
+    12px !important;
+
+  border:
+    1px solid
+    rgba(201,168,106,0.08) !important;
+
+  background:
+    rgba(255,255,255,0.008) !important;
+
+  color:
+    rgba(239,231,216,0.68) !important;
+
+  font-size:
+    11px !important;
+
+  line-height:
+    1.45 !important;
+
+  cursor:
+    pointer !important;
+}
+
+.precisionWorkButtons button span,
+.precisionOptionGrid button span {
+  display:
+    block !important;
+
+  margin-bottom:
+    3px !important;
+
+  font-size:
+    9px !important;
+
+  letter-spacing:
+    0.18em !important;
+
+  color:
+    rgba(201,168,106,0.58) !important;
+}
+
+.precisionWorkButtons button.active,
+.precisionOptionGrid button.active {
+  border-color:
+    rgba(201,168,106,0.38) !important;
+
+  background:
+    rgba(201,168,106,0.055) !important;
+
+  color:
+    rgba(239,231,216,0.92) !important;
+}
+
+/* continuous size controls */
+
+.precisionSizeQuick {
+  display:
+    grid !important;
+
+  grid-template-columns:
+    repeat(4, 1fr) !important;
+
+  gap:
+    8px !important;
+
+  margin-bottom:
+    14px !important;
+}
+
+.precisionDimensionGrid {
+  display:
+    grid !important;
+
+  grid-template-columns:
+    1fr
+    1fr !important;
+
+  gap:
+    10px !important;
+
+  margin-bottom:
+    14px !important;
+}
+
+.precisionDimensionGrid label,
+.precisionRange {
+  display:
+    block !important;
+
+  font-size:
+    10px !important;
+
+  letter-spacing:
+    0.18em !important;
+
+  color:
+    rgba(201,168,106,0.58) !important;
+}
+
+.precisionDimensionGrid input {
+  width:
+    100% !important;
+
+  margin-top:
+    8px !important;
+
+  padding:
+    10px !important;
+
+  border:
+    1px solid
+    rgba(201,168,106,0.10) !important;
+
+  background:
+    rgba(0,0,0,0.20) !important;
+
+  color:
+    rgba(239,231,216,0.78) !important;
+}
+
+.precisionRange {
+  margin-top:
+    12px !important;
+}
+
+.precisionRange input {
+  width:
+    100% !important;
+
+  margin-top:
+    8px !important;
+}
+
+.precisionEngineReadout {
+  margin-top:
+    14px !important;
+
+  font-size:
+    11px !important;
+
+  line-height:
+    1.7 !important;
+
+  color:
+    rgba(239,231,216,0.44) !important;
+}
+
+.precisionUploadButton {
+  display:
+    block !important;
+
+  margin-top:
+    10px !important;
+
+  text-align:
+    center !important;
+
+  letter-spacing:
+    0.14em !important;
+
+  color:
+    rgba(201,168,106,0.74) !important;
+}
+
+.precisionUploadButton input {
+  display:
+    none !important;
+}
+
+.precisionSave {
+  margin-top:
+    34px !important;
+
+  padding-top:
+    24px !important;
+
+  border-top:
+    1px solid
+    rgba(201,168,106,0.08) !important;
+}
+
+.precisionSave button {
+  text-align:
+    center !important;
+
+  letter-spacing:
+    0.14em !important;
+
+  color:
+    rgba(201,168,106,0.78) !important;
+}
+
+.precisionSave p {
+  margin-top:
+    16px !important;
+
+  font-size:
+    11px !important;
+
+  line-height:
+    1.8 !important;
+
+  color:
+    rgba(239,231,216,0.42) !important;
+}
+
+/* responsive */
+
+@media (max-width: 1100px) {
+  .precisionGalleryPage {
+    height:
+      auto !important;
+
+    overflow:
+      visible !important;
+  }
+
+  .precisionGalleryShell {
+    height:
+      auto !important;
+
+    min-height:
+      100vh !important;
+
+    display:
+      grid !important;
+
+    grid-template-columns:
+      1fr !important;
+
+    overflow:
+      visible !important;
+
+    padding:
+      100px
+      20px
+      80px !important;
+  }
+
+  .precisionPreview,
+  .precisionControls {
+    overflow:
+      visible !important;
+  }
+
+  .precisionRoom {
+    min-height:
+      620px !important;
+  }
+
+  .precisionFramedWork {
+    width:
+      min(
+        var(--precision-frame-width, 600px),
+        82vw
+      ) !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .precisionRoom {
+    min-height:
+      520px !important;
+  }
+
+  .precisionWorkButtons,
+  .precisionOptionGrid,
+  .precisionOptionGrid.three,
+  .precisionSizeQuick,
+  .precisionDimensionGrid {
+    grid-template-columns:
+      1fr !important;
+  }
+
+  .precisionFrameShell {
+    padding:
+      18px !important;
+  }
+
+  .precisionDoubleMat {
+    padding:
+      24px
+      24px
+      70px !important;
+  }
+
+  .precisionBrassPlate {
+    width:
+      82% !important;
+
+    padding:
+      8px
+      14px !important;
+  }
+
+  .precisionBrassPlate span {
+    font-size:
+      9px !important;
+
+    letter-spacing:
+      0.035em !important;
+  }
+}
