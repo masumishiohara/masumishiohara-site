@@ -2,35 +2,54 @@ import { workSeries } from "../../work-series-data";
 
 export default function WorksPage() {
   return (
-    <main className="worksIndexV2">
+    <main className="worksIndexPage">
       <style>{`
-        .worksIndexV2{min-height:100vh;padding:150px 0 140px;background:radial-gradient(circle at 72% 14%,rgba(201,168,106,.032),transparent 28%),linear-gradient(180deg,#060504 0%,#020202 100%);color:rgba(239,231,216,.92)}
-        .worksIndexHeroV2,.worksSeriesGridV2,.worksIndexFooterV2{width:min(1120px,84%);margin-left:auto;margin-right:auto}.worksIndexHeroV2{margin-bottom:92px}.worksIndexHeroV2 .eyebrow{font-size:10px;letter-spacing:.28em;color:rgba(201,168,106,.64);margin-bottom:34px}.worksIndexHeroV2 h1{margin:0;font-family:"Times New Roman",serif;font-size:clamp(54px,6vw,112px);line-height:.98;letter-spacing:-.058em;font-weight:300;color:rgba(239,231,216,.94)}.worksIndexHeroV2 p:last-child{margin-top:34px;max-width:640px;font-size:14px;line-height:2.05;color:rgba(239,231,216,.52)}
-        .worksSeriesGridV2{display:grid;grid-template-columns:repeat(3,1fr);gap:64px 34px;margin-bottom:150px}.worksSeriesCardV2{display:block;color:inherit;text-decoration:none;border:1px solid rgba(201,168,106,.08);background:rgba(255,255,255,.01);overflow:hidden}.worksSeriesCardV2 img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;background:#050403;filter:brightness(.86) saturate(.9) contrast(1.02)}.worksSeriesCardTextV2{padding:24px}.worksSeriesCardTextV2 span{font-size:10px;letter-spacing:.22em;color:rgba(201,168,106,.62)}.worksSeriesCardTextV2 h2{margin:14px 0 0;font-family:"Times New Roman",serif;font-size:clamp(28px,2.5vw,48px);line-height:1.02;letter-spacing:-.052em;font-weight:300;color:rgba(239,231,216,.88)}.worksSeriesCardTextV2 p{margin-top:14px;font-size:12px;line-height:1.9;color:rgba(239,231,216,.48)}
-        .worksIndexFooterV2{padding-top:42px;border-top:1px solid rgba(201,168,106,.08)}.worksIndexFooterV2 a{color:rgba(201,168,106,.72);text-decoration:none;font-size:10px;letter-spacing:.22em}@media(max-width:900px){.worksSeriesGridV2{grid-template-columns:repeat(2,1fr)}}@media(max-width:700px){.worksIndexV2{padding-top:118px}.worksIndexHeroV2,.worksSeriesGridV2,.worksIndexFooterV2{width:calc(100% - 40px)}.worksSeriesGridV2{grid-template-columns:1fr 1fr;gap:28px 14px}.worksSeriesCardTextV2{padding:16px}.worksSeriesCardTextV2 h2{font-size:clamp(22px,6vw,34px)}.worksSeriesCardTextV2 p{display:none}}
+        .worksIndexPage{min-height:100vh;padding:150px 0 140px;background:radial-gradient(circle at 72% 14%,rgba(201,168,106,.035),transparent 28%),linear-gradient(180deg,#060504 0%,#020202 100%);color:rgba(239,231,216,.92)}
+        .worksIndexHero{width:min(1120px,84%);margin:0 auto 92px}
+        .worksIndexHero p{font-size:10px;letter-spacing:.28em;color:rgba(201,168,106,.64);margin-bottom:34px}
+        .worksIndexHero h1{max-width:980px;margin:0;font-family:"Times New Roman",serif;font-size:clamp(54px,6vw,112px);line-height:.98;letter-spacing:-.058em;font-weight:300;color:rgba(239,231,216,.94)}
+        .worksIndexHero span{display:block;margin-top:34px;max-width:680px;font-size:14px;line-height:2.05;color:rgba(239,231,216,.52)}
+        .seriesGrid{width:min(1180px,84%);margin:0 auto 160px;display:grid;grid-template-columns:repeat(3,1fr);gap:42px}
+        .seriesCard a{display:block;text-decoration:none;color:inherit;border:1px solid rgba(201,168,106,.08);background:rgba(255,255,255,.012);overflow:hidden}
+        .seriesImage img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;background:#050403;filter:brightness(.86) saturate(.92) contrast(1.02)}
+        .seriesMeta{padding:24px}
+        .seriesMeta span{display:block;font-size:10px;letter-spacing:.22em;color:rgba(201,168,106,.62)}
+        .seriesMeta h2{margin:14px 0 0;font-family:"Times New Roman",serif;font-size:clamp(28px,2.6vw,48px);line-height:1.02;letter-spacing:-.05em;font-weight:300;color:rgba(239,231,216,.88)}
+        .seriesJp{margin-top:10px!important;font-size:12px!important;color:rgba(201,168,106,.55)!important}
+        .seriesMeta p{margin-top:14px;font-size:12px;line-height:1.9;color:rgba(239,231,216,.48)}
+        @media(max-width:1000px){.seriesGrid{grid-template-columns:repeat(2,1fr)}}
+        @media(max-width:700px){.worksIndexPage{padding-top:118px}.worksIndexHero,.seriesGrid{width:calc(100% - 40px)}.worksIndexHero h1{font-size:clamp(46px,13vw,82px)}.seriesGrid{grid-template-columns:1fr;gap:34px}}
       `}</style>
 
-      <section className="worksIndexHeroV2">
-        <p className="eyebrow">WORKS</p>
-        <h1>Masumi<br />Shiohara Works</h1>
-        <p>Twelve bodies of work formed through cultivation, breeding, orchard time, photography, object making, and fruit as artistic material.</p>
+      <section className="worksIndexHero">
+        <p>WORKS / MASUMI SHIOHARA</p>
+        <h1>
+          Masumi
+          <br />
+          Shiohara Works
+        </h1>
+        <span>
+          Twelve bodies of work formed through cultivation, breeding, orchard
+          time, photography, object making, and fruit as artistic material.
+        </span>
       </section>
 
-      <section className="worksSeriesGridV2">
+      <section className="seriesGrid">
         {workSeries.map((series) => (
-          <a className="worksSeriesCardV2" href={`/works/${series.slug}`} key={series.slug}>
-            <img src={series.heroImage} alt={series.title} />
-            <div className="worksSeriesCardTextV2">
-              <span>{series.code}</span>
-              <h2>{series.title}</h2>
-              <p>{series.statement}</p>
-            </div>
-          </a>
+          <article className="seriesCard" key={series.slug}>
+            <a href={`/works/${series.slug}`}>
+              <div className="seriesImage">
+                <img src={series.heroImage} alt={series.title} />
+              </div>
+              <div className="seriesMeta">
+                <span>{series.code}</span>
+                <h2>{series.title}</h2>
+                <p className="seriesJp">{series.jp}</p>
+                <p>{series.statement}</p>
+              </div>
+            </a>
+          </article>
         ))}
-      </section>
-
-      <section className="worksIndexFooterV2">
-        <a href="/about">ABOUT MASUMI SHIOHARA</a>
       </section>
     </main>
   );
