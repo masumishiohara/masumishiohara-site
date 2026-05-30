@@ -1,0 +1,143 @@
+.aboutPage {
+  min-height: 100vh;
+  padding: 120px 5vw 80px;
+  color: rgb(239, 231, 216);
+  background:
+    radial-gradient(circle at 86% 10%, rgba(201, 168, 106, 0.11), transparent 30%),
+    linear-gradient(180deg, #050504 0%, #0a0705 100%);
+}
+
+.intro,
+.contentGrid,
+.statement,
+.profileBlock {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.intro {
+  padding-bottom: 74px;
+}
+
+.eyebrow {
+  margin: 0 0 18px;
+  color: rgb(201, 168, 106);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.aboutPage h1,
+.aboutPage h2,
+.aboutPage p {
+  margin-top: 0;
+}
+
+.aboutPage h1,
+.aboutPage h2 {
+  font-family: "Times New Roman", serif;
+  font-weight: 300;
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.aboutPage h1 {
+  max-width: 1120px;
+  margin-bottom: 30px;
+  font-size: clamp(56px, 9vw, 126px);
+}
+
+.aboutPage h2 {
+  margin-bottom: 22px;
+  font-size: clamp(38px, 5.4vw, 78px);
+}
+
+.lead,
+.contentGrid article p,
+.statement p,
+.profileBlock p {
+  color: rgba(239, 231, 216, 0.72);
+  font-size: clamp(15px, 1.25vw, 18px);
+  line-height: 1.86;
+}
+
+.lead {
+  max-width: 760px;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  border: 1px solid rgba(239, 231, 216, 0.12);
+  background: rgba(239, 231, 216, 0.12);
+}
+
+.contentGrid article {
+  min-height: 360px;
+  padding: clamp(26px, 4vw, 42px);
+  background: rgb(8, 7, 5);
+}
+
+.contentGrid article span {
+  display: block;
+  margin-bottom: 72px;
+  color: rgb(201, 168, 106);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+}
+
+.statement {
+  margin-top: 86px;
+  padding: clamp(36px, 6vw, 78px);
+  border: 1px solid rgba(239, 231, 216, 0.14);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.statement p {
+  max-width: 880px;
+}
+
+.profileBlock {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(28px, 6vw, 90px);
+  align-items: start;
+  padding-top: 86px;
+}
+
+.primaryCta {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 18px;
+  border: 1px solid rgb(239, 231, 216);
+  border-radius: 999px;
+  background: rgb(239, 231, 216);
+  color: rgb(10, 7, 5);
+  padding: 0 22px;
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+
+@media (max-width: 900px) {
+  .aboutPage {
+    padding: 92px 18px 64px;
+  }
+
+  .contentGrid,
+  .profileBlock {
+    grid-template-columns: 1fr;
+  }
+
+  .contentGrid article {
+    min-height: auto;
+  }
+
+  .contentGrid article span {
+    margin-bottom: 42px;
+  }
+}
