@@ -2,38 +2,64 @@ import type { Metadata } from "next";
 import { workSeries } from "./work-series-data";
 import styles from "./page.module.css";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://masumishiohara-site.vercel.app";
+
 export const metadata: Metadata = {
-  title: "Masumi Shiohara | Botanical Works",
+  title: "Masumi Shiohara | Cultivated Botanical Works",
   description:
-    "Masumi Shiohara creates botanical works shaped by cultivation, orchard time, photography, object making, and fruit as artistic material.",
+    "Masumi Shiohara creates botanical works shaped by cultivated fruit, orchard time, photography, object making, and material memory.",
+  alternates: {
+    canonical: siteUrl,
+  },
   openGraph: {
-    title: "Masumi Shiohara | Botanical Works",
+    title: "Masumi Shiohara | Cultivated Botanical Works",
     description:
-      "Botanical works shaped by cultivation, orchard time, photography, object making, and fruit as artistic material.",
+      "A portfolio of botanical works organized by series: black-ground studies, canvas studies, vellum-like surfaces, photographs, objects, and cultivated forms.",
+    url: siteUrl,
     type: "website",
   },
 };
 
-const heroSeries =
+const blackGroundSeries =
   workSeries.find((series) => series.slug === "black-ground-botanical-works") ??
   workSeries[0];
 
+const canvasSeries =
+  workSeries.find((series) => series.slug === "canvas-botanical-studies") ??
+  workSeries[1] ??
+  workSeries[0];
+
 const featuredSeries = workSeries.slice(0, 6);
+const secondarySeries = workSeries.slice(6, 12);
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Masumi Shiohara",
+  url: siteUrl,
+  jobTitle: "Artist",
+  description:
+    "Artist working with cultivated fruit, botanical forms, photography, object making, and material memory.",
+  sameAs: [],
+};
 
 export default function Home() {
   return (
     <main className={styles.homePage}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+
       <section className={styles.heroSection} aria-labelledby="home-title">
         <div className={styles.heroCopy}>
           <p className={styles.eyebrow}>MASUMI SHIOHARA / CULTIVATED FORMS</p>
-          <h1 id="home-title">
-            Botanical works shaped by cultivation, time, and material memory.
-          </h1>
+          <h1 id="home-title">Fruit, botanical memory, and the slow image of cultivation.</h1>
           <p className={styles.lead}>
-            Masumi Shiohara works with cultivated fruit, botanical forms, orchard
-            time, photography, object making, and print-like surfaces. This site
-            gathers the works by series, allowing each body of work to be viewed
-            as a distinct visual archive.
+            Masumi Shiohara works with cultivated fruit, botanical forms, orchard time,
+            photography, object making, and print-like surfaces. The portfolio is organized
+            by series so each visual condition can be read as a distinct archive of season,
+            care, material, and transformation.
           </p>
           <div className={styles.ctaRow} aria-label="Primary actions">
             <a className={styles.primaryCta} href="/projects/botanical-portraits">
@@ -45,18 +71,33 @@ export default function Home() {
           </div>
         </div>
 
-        {heroSeries ? (
-          <a className={styles.heroImageWrap} href={`/works/${heroSeries.slug}`}>
+        {blackGroundSeries ? (
+          <a className={styles.heroImageWrap} href={`/works/${blackGroundSeries.slug}`}>
             <img
-              src={heroSeries.heroImage}
-              alt={`${heroSeries.title} by Masumi Shiohara`}
+              src={blackGroundSeries.heroImage}
+              alt={`${blackGroundSeries.title} by Masumi Shiohara`}
               className={styles.heroImage}
             />
             <span className={styles.heroImageCaption}>
-              Featured series / {heroSeries.title}
+              Featured series / {blackGroundSeries.title}
             </span>
           </a>
         ) : null}
+      </section>
+
+      <section className={styles.indexStrip} aria-label="Portfolio summary">
+        <div>
+          <span>{workSeries.length}</span>
+          <p>Series in the portfolio index</p>
+        </div>
+        <div>
+          <span>01</span>
+          <p>Primary pathway: works by series</p>
+        </div>
+        <div>
+          <span>SEO</span>
+          <p>Structured for search and mobile browsing</p>
+        </div>
       </section>
 
       <section className={styles.sectionBlock} aria-labelledby="featured-series-title">
@@ -64,8 +105,8 @@ export default function Home() {
           <p className={styles.eyebrow}>WORKS INDEX</p>
           <h2 id="featured-series-title">Selected series</h2>
           <p>
-            The portfolio is organized by series rather than by one long list of
-            images, giving each material approach a clear entry point.
+            The homepage now leads directly into the strongest portfolio paths rather than
+            forcing visitors through a long vertical image list.
           </p>
         </div>
 
@@ -86,46 +127,63 @@ export default function Home() {
           ))}
         </div>
 
+        {secondarySeries.length > 0 ? (
+          <div className={styles.compactSeries} aria-label="Additional series">
+            {secondarySeries.map((series) => (
+              <a href={`/works/${series.slug}`} key={series.slug}>
+                <span>{series.code}</span>
+                {series.title}
+              </a>
+            ))}
+          </div>
+        ) : null}
+
         <a className={styles.textLink} href="/projects/botanical-portraits">
-          Open full works index
+          Open complete works index
         </a>
       </section>
 
-      <section className={styles.statementPanel} aria-labelledby="practice-title">
-        <p className={styles.eyebrow}>PRACTICE</p>
-        <h2 id="practice-title">Fruit as record, specimen, image, and object.</h2>
-        <p>
-          The work treats botanical material as a record of growth and duration:
-          cultivated forms, harvested surfaces, orchard memory, and the quiet
-          transition from living plant to image. Across the series, the fruit is
-          not only a subject but also an index of labor, season, and material
-          transformation.
-        </p>
-        <a className={styles.secondaryCta} href="/about">
-          Read about the practice
-        </a>
+      <section className={styles.dualFeature} aria-labelledby="material-title">
+        {canvasSeries ? (
+          <a className={styles.dualImage} href={`/works/${canvasSeries.slug}`}>
+            <img src={canvasSeries.heroImage} alt={`${canvasSeries.title} feature`} />
+          </a>
+        ) : null}
+        <div>
+          <p className={styles.eyebrow}>MATERIAL LOGIC</p>
+          <h2 id="material-title">Each series gives the botanical form a different surface.</h2>
+          <p>
+            Black grounds isolate silhouette and presence. Canvas studies connect fruit and
+            plant forms to a woven pictorial field. Vellum-like studies soften the image
+            toward memory, while photographic and object-based works keep the material close
+            to observation, harvest, and handling.
+          </p>
+          <a className={styles.secondaryCta} href="/about">
+            Read about the practice
+          </a>
+        </div>
       </section>
 
       <section className={styles.pathwayGrid} aria-label="Site navigation highlights">
         <a href="/projects/botanical-portraits">
           <span>01</span>
           <h2>Works</h2>
-          <p>Browse the portfolio by botanical series.</p>
+          <p>Browse the portfolio by botanical series and visual condition.</p>
         </a>
         <a href="/about">
           <span>02</span>
           <h2>About</h2>
-          <p>Read the artist profile and working approach.</p>
+          <p>Read the artist profile, statement, process, and material approach.</p>
         </a>
         <a href="/exhibitions">
           <span>03</span>
           <h2>Exhibitions</h2>
-          <p>Prepare the exhibition record and selected CV area.</p>
+          <p>Use the exhibition page as the CV and project archive entry point.</p>
         </a>
         <a href="/contact">
           <span>04</span>
           <h2>Contact</h2>
-          <p>Direct enquiries for exhibitions, projects, and publications.</p>
+          <p>Direct enquiries for exhibitions, projects, publications, and works.</p>
         </a>
       </section>
 

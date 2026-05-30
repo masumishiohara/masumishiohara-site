@@ -1,6 +1,6 @@
 .aboutPage {
   min-height: 100vh;
-  padding: 120px 5vw 80px;
+  padding: 120px 5vw 82px;
   color: rgb(239, 231, 216);
   background:
     radial-gradient(circle at 86% 10%, rgba(201, 168, 106, 0.11), transparent 30%),
@@ -10,13 +10,14 @@
 .intro,
 .contentGrid,
 .statement,
+.methodBlock,
 .profileBlock {
   max-width: 1320px;
   margin: 0 auto;
 }
 
 .intro {
-  padding-bottom: 74px;
+  padding-bottom: 76px;
 }
 
 .eyebrow {
@@ -55,6 +56,7 @@
 .lead,
 .contentGrid article p,
 .statement p,
+.methodBlock p,
 .profileBlock p {
   color: rgba(239, 231, 216, 0.72);
   font-size: clamp(15px, 1.25vw, 18px);
@@ -62,40 +64,58 @@
 }
 
 .lead {
-  max-width: 760px;
+  max-width: 780px;
+}
+
+.statement {
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+  gap: clamp(28px, 6vw, 90px);
+  padding: clamp(34px, 6vw, 78px);
+  border: 1px solid rgba(239, 231, 216, 0.14);
+  background: rgba(255, 255, 255, 0.025);
 }
 
 .contentGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1px;
+  margin-top: 86px;
   border: 1px solid rgba(239, 231, 216, 0.12);
   background: rgba(239, 231, 216, 0.12);
 }
 
 .contentGrid article {
-  min-height: 360px;
+  min-height: 350px;
   padding: clamp(26px, 4vw, 42px);
   background: rgb(8, 7, 5);
 }
 
-.contentGrid article span {
+.contentGrid article span,
+.profileRow span {
   display: block;
-  margin-bottom: 72px;
   color: rgb(201, 168, 106);
   font-size: 0.72rem;
   letter-spacing: 0.22em;
+  text-transform: uppercase;
 }
 
-.statement {
+.contentGrid article span {
+  margin-bottom: 72px;
+}
+
+.methodBlock {
   margin-top: 86px;
   padding: clamp(36px, 6vw, 78px);
   border: 1px solid rgba(239, 231, 216, 0.14);
-  background: rgba(255, 255, 255, 0.025);
+  background:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01)),
+    rgba(255, 255, 255, 0.02);
 }
 
-.statement p {
-  max-width: 880px;
+.methodBlock p {
+  max-width: 900px;
+  margin-bottom: 28px;
 }
 
 .profileBlock {
@@ -103,24 +123,49 @@
   grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
   gap: clamp(28px, 6vw, 90px);
   align-items: start;
-  padding-top: 86px;
+  padding-top: 90px;
 }
 
-.primaryCta {
+.profileTable {
+  border-top: 1px solid rgba(239, 231, 216, 0.16);
+}
+
+.profileRow {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.34fr) minmax(0, 1fr);
+  gap: 24px;
+  padding: 22px 0;
+  border-bottom: 1px solid rgba(239, 231, 216, 0.12);
+}
+
+.profileRow p {
+  margin-bottom: 0;
+}
+
+.primaryCta,
+.secondaryCta {
   display: inline-flex;
   min-height: 48px;
   align-items: center;
   justify-content: center;
-  margin-top: 18px;
-  border: 1px solid rgb(239, 231, 216);
   border-radius: 999px;
-  background: rgb(239, 231, 216);
-  color: rgb(10, 7, 5);
   padding: 0 22px;
   text-decoration: none;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-size: 0.72rem;
+}
+
+.primaryCta {
+  margin-top: 26px;
+  border: 1px solid rgb(239, 231, 216);
+  background: rgb(239, 231, 216);
+  color: rgb(10, 7, 5);
+}
+
+.secondaryCta {
+  border: 1px solid rgba(239, 231, 216, 0.32);
+  color: rgb(239, 231, 216);
 }
 
 @media (max-width: 900px) {
@@ -129,7 +174,9 @@
   }
 
   .contentGrid,
-  .profileBlock {
+  .profileBlock,
+  .statement,
+  .profileRow {
     grid-template-columns: 1fr;
   }
 

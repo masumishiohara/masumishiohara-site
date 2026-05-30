@@ -1,22 +1,22 @@
 .exhibitionsPage {
   min-height: 100vh;
-  padding: 120px 5vw 80px;
+  padding: 120px 5vw 82px;
   color: rgb(239, 231, 216);
   background:
-    radial-gradient(circle at 16% 12%, rgba(201, 168, 106, 0.1), transparent 28%),
+    radial-gradient(circle at 82% 12%, rgba(201, 168, 106, 0.1), transparent 28%),
     linear-gradient(180deg, #050504 0%, #0a0705 100%);
 }
 
 .intro,
 .archiveGrid,
-.timelinePanel,
+.timelineBlock,
 .finalCta {
   max-width: 1320px;
   margin: 0 auto;
 }
 
 .intro {
-  padding-bottom: 78px;
+  padding-bottom: 76px;
 }
 
 .eyebrow {
@@ -42,7 +42,7 @@
 }
 
 .exhibitionsPage h1 {
-  max-width: 1120px;
+  max-width: 1080px;
   margin-bottom: 30px;
   font-size: clamp(56px, 9vw, 126px);
 }
@@ -53,8 +53,8 @@
 }
 
 .lead,
-.archiveGrid article p,
-.timelineList p,
+.archiveGrid p,
+.timelineItem p,
 .finalCta p {
   color: rgba(239, 231, 216, 0.72);
   font-size: clamp(15px, 1.25vw, 18px);
@@ -62,24 +62,25 @@
 }
 
 .lead {
-  max-width: 790px;
+  max-width: 820px;
 }
 
 .archiveGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+  gap: 1px;
+  border: 1px solid rgba(239, 231, 216, 0.12);
+  background: rgba(239, 231, 216, 0.12);
 }
 
 .archiveGrid article {
-  min-height: 330px;
-  border: 1px solid rgba(239, 231, 216, 0.12);
-  background: rgba(255, 255, 255, 0.025);
-  padding: clamp(26px, 4vw, 40px);
+  min-height: 360px;
+  padding: clamp(28px, 4vw, 46px);
+  background: rgb(8, 7, 5);
 }
 
-.archiveGrid article span,
-.timelineList span {
+.archiveGrid span,
+.timelineItem span {
   display: block;
   color: rgb(201, 168, 106);
   font-size: 0.72rem;
@@ -87,37 +88,33 @@
   text-transform: uppercase;
 }
 
-.archiveGrid article span {
-  margin-bottom: 76px;
+.archiveGrid span {
+  margin-bottom: 72px;
 }
 
-.timelinePanel {
+.timelineBlock {
   display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
   gap: clamp(28px, 6vw, 90px);
   margin-top: 86px;
-  padding: clamp(34px, 5vw, 68px);
+  padding: clamp(34px, 6vw, 78px);
   border: 1px solid rgba(239, 231, 216, 0.14);
   background: rgba(255, 255, 255, 0.025);
 }
 
 .timelineList {
-  display: grid;
-  gap: 1px;
-  background: rgba(239, 231, 216, 0.12);
-  border: 1px solid rgba(239, 231, 216, 0.12);
+  border-top: 1px solid rgba(239, 231, 216, 0.16);
 }
 
-.timelineList div {
+.timelineItem {
   display: grid;
-  grid-template-columns: 112px 1fr;
+  grid-template-columns: minmax(140px, 0.35fr) minmax(0, 1fr);
   gap: 24px;
-  align-items: baseline;
-  padding: 22px;
-  background: rgb(8, 7, 5);
+  padding: 22px 0;
+  border-bottom: 1px solid rgba(239, 231, 216, 0.12);
 }
 
-.timelineList p {
+.timelineItem p {
   margin-bottom: 0;
 }
 
@@ -126,28 +123,43 @@
   align-items: flex-end;
   justify-content: space-between;
   gap: 32px;
-  padding-top: 100px;
+  padding-top: 96px;
 }
 
 .finalCta h2 {
-  max-width: 760px;
+  max-width: 820px;
   margin-bottom: 0;
 }
 
-.primaryCta {
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.primaryCta,
+.secondaryCta {
   display: inline-flex;
   min-height: 48px;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgb(239, 231, 216);
   border-radius: 999px;
-  background: rgb(239, 231, 216);
-  color: rgb(10, 7, 5);
   padding: 0 22px;
   text-decoration: none;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-size: 0.72rem;
+}
+
+.primaryCta {
+  border: 1px solid rgb(239, 231, 216);
+  background: rgb(239, 231, 216);
+  color: rgb(10, 7, 5);
+}
+
+.secondaryCta {
+  border: 1px solid rgba(239, 231, 216, 0.32);
+  color: rgb(239, 231, 216);
 }
 
 @media (max-width: 900px) {
@@ -156,7 +168,8 @@
   }
 
   .archiveGrid,
-  .timelinePanel {
+  .timelineBlock,
+  .timelineItem {
     grid-template-columns: 1fr;
   }
 
@@ -164,7 +177,7 @@
     min-height: auto;
   }
 
-  .archiveGrid article span {
+  .archiveGrid span {
     margin-bottom: 42px;
   }
 
@@ -172,14 +185,7 @@
     display: block;
   }
 
-  .finalCta .primaryCta {
+  .ctaRow {
     margin-top: 24px;
-  }
-}
-
-@media (max-width: 620px) {
-  .timelineList div {
-    grid-template-columns: 1fr;
-    gap: 10px;
   }
 }

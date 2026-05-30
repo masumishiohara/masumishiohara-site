@@ -1,6 +1,6 @@
 .contactPage {
   min-height: 100vh;
-  padding: 120px 5vw 80px;
+  padding: 120px 5vw 82px;
   color: rgb(239, 231, 216);
   background:
     radial-gradient(circle at 78% 12%, rgba(201, 168, 106, 0.1), transparent 28%),
@@ -10,6 +10,7 @@
 .intro,
 .contactGrid,
 .messageTemplate,
+.pendingContact,
 .finalCta {
   max-width: 1320px;
   margin: 0 auto;
@@ -57,6 +58,7 @@
 .contactCard p,
 .contactCard li,
 .templateBox p,
+.pendingContact p,
 .finalCta p {
   color: rgba(239, 231, 216, 0.72);
   font-size: clamp(15px, 1.25vw, 18px);
@@ -74,10 +76,20 @@
 }
 
 .contactCard {
-  min-height: 360px;
+  min-height: 370px;
   border: 1px solid rgba(239, 231, 216, 0.12);
   background: rgba(255, 255, 255, 0.025);
   padding: clamp(28px, 4vw, 46px);
+}
+
+.contactCard span,
+.pendingContact span {
+  display: block;
+  margin-bottom: 72px;
+  color: rgb(201, 168, 106);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
 }
 
 .contactCard ul {
@@ -106,10 +118,32 @@
 }
 
 .templateBox p {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(239, 231, 216, 0.1);
 }
 
 .templateBox p:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.pendingContact {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(28px, 6vw, 90px);
+  margin-top: 18px;
+  padding: clamp(28px, 4vw, 46px);
+  border: 1px solid rgba(201, 168, 106, 0.24);
+  background: rgba(201, 168, 106, 0.045);
+}
+
+.pendingContact span {
+  margin-bottom: 0;
+}
+
+.pendingContact p {
   margin-bottom: 0;
 }
 
@@ -126,20 +160,30 @@
   margin-bottom: 0;
 }
 
-.primaryCta {
+.primaryCta,
+.secondaryCta {
   display: inline-flex;
   min-height: 48px;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgb(239, 231, 216);
   border-radius: 999px;
-  background: rgb(239, 231, 216);
-  color: rgb(10, 7, 5);
   padding: 0 22px;
   text-decoration: none;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-size: 0.72rem;
+}
+
+.primaryCta {
+  border: 1px solid rgb(239, 231, 216);
+  background: rgb(239, 231, 216);
+  color: rgb(10, 7, 5);
+}
+
+.secondaryCta {
+  margin-top: 18px;
+  border: 1px solid rgba(239, 231, 216, 0.32);
+  color: rgb(239, 231, 216);
 }
 
 @media (max-width: 900px) {
@@ -148,12 +192,17 @@
   }
 
   .contactGrid,
-  .messageTemplate {
+  .messageTemplate,
+  .pendingContact {
     grid-template-columns: 1fr;
   }
 
   .contactCard {
     min-height: auto;
+  }
+
+  .contactCard span {
+    margin-bottom: 42px;
   }
 
   .finalCta {

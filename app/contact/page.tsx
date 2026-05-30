@@ -1,17 +1,37 @@
 import type { Metadata } from "next";
 import styles from "./contact.module.css";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://masumishiohara-site.vercel.app";
+
 export const metadata: Metadata = {
   title: "Contact | Masumi Shiohara",
   description:
     "Contact page for exhibition, publication, acquisition, and project enquiries related to Masumi Shiohara's botanical works.",
+  alternates: {
+    canonical: `${siteUrl}/contact`,
+  },
+  openGraph: {
+    title: "Contact | Masumi Shiohara",
+    description:
+      "Enquiry pathway for exhibitions, publications, acquisitions, and project requests.",
+    url: `${siteUrl}/contact`,
+    type: "website",
+  },
 };
 
 const enquiryTypes = [
   "Exhibition and curatorial enquiries",
-  "Publication and image-use enquiries",
-  "Collection, acquisition, and portfolio requests",
-  "Project, commission, and collaboration discussions",
+  "Publication, editorial, and interview requests",
+  "Artwork, print, and portfolio enquiries",
+  "Project, collaboration, and commission enquiries",
+];
+
+const messageChecklist = [
+  "Name and organization",
+  "Purpose of enquiry",
+  "Relevant series or work page URL",
+  "Timeline, location, and format",
+  "Preferred reply method",
 ];
 
 export default function ContactPage() {
@@ -19,56 +39,66 @@ export default function ContactPage() {
     <main className={styles.contactPage}>
       <section className={styles.intro} aria-labelledby="contact-title">
         <p className={styles.eyebrow}>CONTACT</p>
-        <h1 id="contact-title">Enquiries for works, exhibitions, and projects.</h1>
+        <h1 id="contact-title">Enquiries for exhibitions, projects, publications, and works.</h1>
         <p className={styles.lead}>
-          This page is prepared as the contact point for Masumi Shiohara. The
-          official contact address can be inserted in the next content pass; the
-          page structure is already ready for production use.
+          This page is prepared as the public enquiry pathway. The confirmed email address
+          or contact form integration can be added in the next technical pass without
+          changing the design or information structure.
         </p>
       </section>
 
-      <section className={styles.contactGrid} aria-label="Contact information">
+      <section className={styles.contactGrid} aria-label="Enquiry categories">
         <article className={styles.contactCard}>
-          <p className={styles.eyebrow}>CONTACT ADDRESS</p>
-          <h2>Official email to be added</h2>
-          <p>
-            Replace this temporary line with the confirmed contact email before
-            using this page for public enquiries. No unconfirmed email address is
-            being published here.
-          </p>
-        </article>
-
-        <article className={styles.contactCard}>
-          <p className={styles.eyebrow}>ENQUIRIES</p>
-          <h2>Recommended message details</h2>
+          <span>ENQUIRIES</span>
+          <h2>Contact topics</h2>
           <ul>
-            {enquiryTypes.map((item) => (
-              <li key={item}>{item}</li>
+            {enquiryTypes.map((type) => (
+              <li key={type}>{type}</li>
             ))}
           </ul>
         </article>
+        <article className={styles.contactCard}>
+          <span>BEFORE WRITING</span>
+          <h2>Start with the works.</h2>
+          <p>
+            For curatorial, editorial, and acquisition enquiries, begin with the series
+            index and include the relevant page title or URL in the message. This keeps
+            the enquiry specific and reduces back-and-forth.
+          </p>
+          <a className={styles.secondaryCta} href="/projects/botanical-portraits">
+            View works before enquiry
+          </a>
+        </article>
       </section>
 
-      <section className={styles.messageTemplate} aria-labelledby="message-template-title">
+      <section className={styles.messageTemplate} aria-labelledby="message-title">
         <div>
-          <p className={styles.eyebrow}>MESSAGE TEMPLATE</p>
-          <h2 id="message-template-title">Use a clear project brief.</h2>
+          <p className={styles.eyebrow}>MESSAGE GUIDE</p>
+          <h2 id="message-title">Use a precise first message.</h2>
         </div>
         <div className={styles.templateBox}>
-          <p>Subject: Masumi Shiohara enquiry / exhibition or project</p>
-          <p>Name / organization:</p>
-          <p>Purpose of enquiry:</p>
-          <p>Relevant work or series:</p>
-          <p>Timeline:</p>
-          <p>Website or reference link:</p>
+          {messageChecklist.map((item) => (
+            <p key={item}>{item}</p>
+          ))}
         </div>
+      </section>
+
+      <section className={styles.pendingContact} aria-label="Contact destination pending">
+        <span>Contact destination</span>
+        <p>
+          Confirmed email address, contact form, gallery representative, or Instagram link
+          will be inserted here. Until then, the page remains publication-safe because it
+          does not invent unverified contact information.
+        </p>
       </section>
 
       <section className={styles.finalCta} aria-labelledby="contact-cta-title">
-        <p className={styles.eyebrow}>PORTFOLIO</p>
-        <h2 id="contact-cta-title">Review the works before sending an enquiry.</h2>
+        <div>
+          <p className={styles.eyebrow}>PORTFOLIO FIRST</p>
+          <h2 id="contact-cta-title">The clearest enquiry begins with a specific series.</h2>
+        </div>
         <a className={styles.primaryCta} href="/projects/botanical-portraits">
-          View works
+          View all series
         </a>
       </section>
     </main>
