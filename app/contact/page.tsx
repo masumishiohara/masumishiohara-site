@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import styles from "./contact.module.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://masumishiohara-site.vercel.app";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.masumishiohara.com";
 
 export const metadata: Metadata = {
   title: "Contact | Masumi Shiohara",

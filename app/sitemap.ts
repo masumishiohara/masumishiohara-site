@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { workSeries } from "./work-series-data";
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://masumishiohara-site.vercel.app";
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.masumishiohara.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [

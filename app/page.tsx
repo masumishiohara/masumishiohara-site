@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { workSeries } from "./work-series-data";
 import styles from "./page.module.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://masumishiohara-site.vercel.app";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.masumishiohara.com";
 
 const primarySeries =
   workSeries.find((series) => series.slug === "black-ground-botanical-works") ?? workSeries[0];
