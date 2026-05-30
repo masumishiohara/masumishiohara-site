@@ -213,3 +213,63 @@
     margin-top: 24px;
   }
 }
+
+.routingGrid,
+.infoLink {
+  max-width: 1320px;
+  margin: 18px auto 0;
+}
+
+.routingGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.routingGrid article {
+  border: 1px solid rgba(239, 231, 216, 0.12);
+  background: rgba(255, 255, 255, 0.025);
+  padding: clamp(22px, 3vw, 34px);
+}
+
+.routingGrid span {
+  display: block;
+  margin-bottom: 36px;
+  color: rgb(201, 168, 106);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.routingGrid p,
+.infoLink p {
+  margin-bottom: 0;
+  color: rgba(239, 231, 216, 0.72);
+  font-size: clamp(15px, 1.25vw, 18px);
+  line-height: 1.86;
+}
+
+.infoLink {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 28px;
+  padding: clamp(28px, 4vw, 46px);
+  border: 1px solid rgba(239, 231, 216, 0.14);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+@media (max-width: 900px) {
+  .routingGrid,
+  .infoLink {
+    grid-template-columns: 1fr;
+  }
+
+  .infoLink {
+    display: block;
+  }
+
+  .infoLink .secondaryCta {
+    margin-top: 24px;
+  }
+}

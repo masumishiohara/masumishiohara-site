@@ -34,6 +34,21 @@ const messageChecklist = [
   "Preferred reply method",
 ];
 
+const routingNotes = [
+  {
+    label: "Curatorial",
+    text: "Include the series title, venue or institutional context, target date, and requested image or work references.",
+  },
+  {
+    label: "Editorial",
+    text: "Include publication name, format, territory, image size requirements, deadline, and credit line needs.",
+  },
+  {
+    label: "Works",
+    text: "Begin with the exact series or work URL so the enquiry is attached to a visible body of work.",
+  },
+];
+
 export default function ContactPage() {
   return (
     <main className={styles.contactPage}>
@@ -41,9 +56,9 @@ export default function ContactPage() {
         <p className={styles.eyebrow}>CONTACT</p>
         <h1 id="contact-title">Enquiries for exhibitions, projects, publications, and works.</h1>
         <p className={styles.lead}>
-          This page is the public enquiry pathway for Masumi Shiohara. The structure is
-          prepared for a confirmed email address or form endpoint; until that technical detail
-          is added, the page guides visitors toward precise, work-specific enquiries.
+          This page is the public enquiry pathway for Masumi Shiohara. It gives visitors a
+          precise format for professional requests while the confirmed direct contact destination
+          is connected in a separate content pass.
         </p>
       </section>
 
@@ -71,6 +86,15 @@ export default function ContactPage() {
         </article>
       </section>
 
+      <section className={styles.routingGrid} aria-label="Enquiry routing guidance">
+        {routingNotes.map((note) => (
+          <article key={note.label}>
+            <span>{note.label}</span>
+            <p>{note.text}</p>
+          </article>
+        ))}
+      </section>
+
       <section className={styles.messageTemplate} aria-labelledby="message-title">
         <div>
           <p className={styles.eyebrow}>MESSAGE GUIDE</p>
@@ -89,6 +113,16 @@ export default function ContactPage() {
           Add the confirmed email address, contact form, gallery representative, or social link
           here in the next content pass. No unverified contact information has been published.
         </p>
+      </section>
+
+      <section className={styles.infoLink} aria-labelledby="information-title">
+        <div>
+          <p className={styles.eyebrow}>REFERENCE</p>
+          <h2 id="information-title">Need image-use or enquiry details?</h2>
+        </div>
+        <a className={styles.secondaryCta} href="/information">
+          Open information page
+        </a>
       </section>
 
       <section className={styles.finalCta} aria-labelledby="contact-cta-title">
