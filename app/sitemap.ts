@@ -5,19 +5,23 @@ const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://masumishiohara-site
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
-    "",
-    "/projects/botanical-portraits",
-    "/about",
-    "/exhibitions",
-    "/contact",
+    { route: "", priority: 1, changeFrequency: "weekly" as const },
+    { route: "/projects/botanical-portraits", priority: 0.95, changeFrequency: "weekly" as const },
+    { route: "/about", priority: 0.75, changeFrequency: "monthly" as const },
+    { route: "/exhibitions", priority: 0.65, changeFrequency: "monthly" as const },
+    { route: "/contact", priority: 0.7, changeFrequency: "monthly" as const },
   ];
 
-  const seriesRoutes = workSeries.map((series) => `/works/${series.slug}`);
+  const seriesRoutes = workSeries.map((series) => ({
+    route: `/works/${series.slug}`,
+    priority: 0.84,
+    changeFrequency: "monthly" as const,
+  }));
 
-  return [...staticRoutes, ...seriesRoutes].map((route) => ({
+  return [...staticRoutes, ...seriesRoutes].map(({ route, priority, changeFrequency }) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
-    changeFrequency: route === "" ? ("weekly" as const) : ("monthly" as const),
-    priority: route === "" ? 1 : route.startsWith("/works/") ? 0.8 : 0.7,
+    changeFrequency,
+    priority,
   }));
 }

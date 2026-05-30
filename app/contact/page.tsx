@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contact | Masumi Shiohara",
     description:
-      "Enquiry pathway for exhibitions, publications, acquisitions, and project requests.",
+      "Enquiry pathway for exhibitions, publications, acquisitions, collaborations, and project requests.",
     url: `${siteUrl}/contact`,
     type: "website",
   },
@@ -41,9 +41,9 @@ export default function ContactPage() {
         <p className={styles.eyebrow}>CONTACT</p>
         <h1 id="contact-title">Enquiries for exhibitions, projects, publications, and works.</h1>
         <p className={styles.lead}>
-          This page is prepared as the public enquiry pathway. The confirmed email address
-          or contact form integration can be added in the next technical pass without
-          changing the design or information structure.
+          This page is the public enquiry pathway for Masumi Shiohara. The structure is
+          prepared for a confirmed email address or form endpoint; until that technical detail
+          is added, the page guides visitors toward precise, work-specific enquiries.
         </p>
       </section>
 
@@ -61,9 +61,9 @@ export default function ContactPage() {
           <span>BEFORE WRITING</span>
           <h2>Start with the works.</h2>
           <p>
-            For curatorial, editorial, and acquisition enquiries, begin with the series
-            index and include the relevant page title or URL in the message. This keeps
-            the enquiry specific and reduces back-and-forth.
+            For curatorial, editorial, and acquisition enquiries, begin with the series index
+            and include the relevant page title or URL in the message. This keeps the enquiry
+            specific and reduces back-and-forth.
           </p>
           <a className={styles.secondaryCta} href="/projects/botanical-portraits">
             View works before enquiry
@@ -86,9 +86,8 @@ export default function ContactPage() {
       <section className={styles.pendingContact} aria-label="Contact destination pending">
         <span>Contact destination</span>
         <p>
-          Confirmed email address, contact form, gallery representative, or Instagram link
-          will be inserted here. Until then, the page remains publication-safe because it
-          does not invent unverified contact information.
+          Add the confirmed email address, contact form, gallery representative, or social link
+          here in the next content pass. No unverified contact information has been published.
         </p>
       </section>
 
