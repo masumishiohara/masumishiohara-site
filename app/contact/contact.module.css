@@ -1,0 +1,215 @@
+.contactPage {
+  min-height: 100vh;
+  padding: 120px 5vw 82px;
+  color: rgb(239, 231, 216);
+  background:
+    radial-gradient(circle at 78% 12%, rgba(201, 168, 106, 0.1), transparent 28%),
+    linear-gradient(180deg, #050504 0%, #0a0705 100%);
+}
+
+.intro,
+.contactGrid,
+.messageTemplate,
+.pendingContact,
+.finalCta {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.intro {
+  padding-bottom: 78px;
+}
+
+.eyebrow {
+  margin: 0 0 18px;
+  color: rgb(201, 168, 106);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.contactPage h1,
+.contactPage h2,
+.contactPage p,
+.contactPage ul {
+  margin-top: 0;
+}
+
+.contactPage h1,
+.contactPage h2 {
+  font-family: "Times New Roman", serif;
+  font-weight: 300;
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.contactPage h1 {
+  max-width: 1120px;
+  margin-bottom: 30px;
+  font-size: clamp(56px, 9vw, 126px);
+}
+
+.contactPage h2 {
+  margin-bottom: 22px;
+  font-size: clamp(34px, 4.8vw, 72px);
+}
+
+.lead,
+.contactCard p,
+.contactCard li,
+.templateBox p,
+.pendingContact p,
+.finalCta p {
+  color: rgba(239, 231, 216, 0.72);
+  font-size: clamp(15px, 1.25vw, 18px);
+  line-height: 1.86;
+}
+
+.lead {
+  max-width: 790px;
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.contactCard {
+  min-height: 370px;
+  border: 1px solid rgba(239, 231, 216, 0.12);
+  background: rgba(255, 255, 255, 0.025);
+  padding: clamp(28px, 4vw, 46px);
+}
+
+.contactCard span,
+.pendingContact span {
+  display: block;
+  margin-bottom: 72px;
+  color: rgb(201, 168, 106);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.contactCard ul {
+  margin-bottom: 0;
+  padding-left: 20px;
+}
+
+.contactCard li + li {
+  margin-top: 12px;
+}
+
+.messageTemplate {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(28px, 6vw, 90px);
+  margin-top: 86px;
+  padding: clamp(34px, 5vw, 68px);
+  border: 1px solid rgba(239, 231, 216, 0.14);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.templateBox {
+  border: 1px solid rgba(239, 231, 216, 0.12);
+  background: rgb(8, 7, 5);
+  padding: clamp(22px, 3vw, 34px);
+}
+
+.templateBox p {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(239, 231, 216, 0.1);
+}
+
+.templateBox p:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.pendingContact {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(28px, 6vw, 90px);
+  margin-top: 18px;
+  padding: clamp(28px, 4vw, 46px);
+  border: 1px solid rgba(201, 168, 106, 0.24);
+  background: rgba(201, 168, 106, 0.045);
+}
+
+.pendingContact span {
+  margin-bottom: 0;
+}
+
+.pendingContact p {
+  margin-bottom: 0;
+}
+
+.finalCta {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  padding-top: 100px;
+}
+
+.finalCta h2 {
+  max-width: 760px;
+  margin-bottom: 0;
+}
+
+.primaryCta,
+.secondaryCta {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0 22px;
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+
+.primaryCta {
+  border: 1px solid rgb(239, 231, 216);
+  background: rgb(239, 231, 216);
+  color: rgb(10, 7, 5);
+}
+
+.secondaryCta {
+  margin-top: 18px;
+  border: 1px solid rgba(239, 231, 216, 0.32);
+  color: rgb(239, 231, 216);
+}
+
+@media (max-width: 900px) {
+  .contactPage {
+    padding: 92px 18px 64px;
+  }
+
+  .contactGrid,
+  .messageTemplate,
+  .pendingContact {
+    grid-template-columns: 1fr;
+  }
+
+  .contactCard {
+    min-height: auto;
+  }
+
+  .contactCard span {
+    margin-bottom: 42px;
+  }
+
+  .finalCta {
+    display: block;
+  }
+
+  .finalCta .primaryCta {
+    margin-top: 24px;
+  }
+}
