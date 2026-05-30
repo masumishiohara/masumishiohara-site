@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { workSeries } from "./work-series-data";
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://masumishiohara-site.vercel.app";
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.masumishiohara.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { route: "/about", priority: 0.75, changeFrequency: "monthly" as const },
     { route: "/exhibitions", priority: 0.65, changeFrequency: "monthly" as const },
     { route: "/contact", priority: 0.7, changeFrequency: "monthly" as const },
+    { route: "/information", priority: 0.58, changeFrequency: "monthly" as const },
   ];
 
   const seriesRoutes = workSeries.map((series) => ({

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { workSeries } from "../work-series-data";
 import styles from "./about.module.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://masumishiohara-site.vercel.app";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.masumishiohara.com";
 const imageSeries =
   workSeries.find((series) => series.slug === "canvas-botanical-studies") ?? workSeries[0];
 const ogImage = imageSeries?.heroImage ? `${siteUrl}${imageSeries.heroImage}` : undefined;
