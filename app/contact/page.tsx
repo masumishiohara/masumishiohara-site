@@ -1,56 +1,57 @@
 import type { Metadata } from "next";
+import { mailtoHref, siteConfig } from "../site-config";
 import styles from "./contact.module.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.masumishiohara.com";
+const siteUrl = siteConfig.siteUrl;
 
 export const metadata: Metadata = {
   title: "Contact | Masumi Shiohara",
   description:
-    "Contact page for exhibition, publication, acquisition, and project enquiries related to Masumi Shiohara's botanical works.",
+    "Contact Masumi Shiohara for editorial, curatorial, exhibition, publication, acquisition, maison, press, and project enquiries.",
   alternates: {
     canonical: `${siteUrl}/contact`,
   },
   openGraph: {
     title: "Contact | Masumi Shiohara",
     description:
-      "Enquiry pathway for exhibitions, publications, acquisitions, collaborations, and project requests.",
+      "Direct enquiry route for exhibitions, publications, acquisitions, collaborations, editorial requests, and image-use guidance.",
     url: `${siteUrl}/contact`,
     type: "website",
   },
 };
 
 const enquiryTypes = [
-  "Exhibition and curatorial enquiries",
-  "Publication, editorial, and interview requests",
+  "Editorial, publication, and interview requests",
+  "Exhibition, curatorial, and institutional enquiries",
+  "Maison, brand, and cultural collaboration enquiries",
   "Artwork, print, and portfolio enquiries",
-  "Project, collaboration, and commission enquiries",
   "Press, image-use, and credit requests",
 ];
 
 const messageChecklist = [
-  "Name and organization",
+  "Name, role, and organization",
   "Purpose of enquiry",
   "Relevant series or work page URL",
-  "Timeline, location, and format",
-  "Preferred reply method",
+  "Timeline, location, and publication or project context",
+  "Image size, credit, and deadline if applicable",
 ];
 
 const routingNotes = [
   {
-    label: "Curatorial",
-    text: "Include the series title, venue or institutional context, target date, and requested image or work references.",
+    label: "Editorial",
+    text: "Include publication name, article direction, language, format, image size requirements, publication date, and credit line needs.",
   },
   {
-    label: "Editorial",
-    text: "Include publication name, format, territory, image size requirements, deadline, and credit line needs.",
+    label: "Maison",
+    text: "Include the project context, desired atmosphere, reference series, usage scope, schedule, and whether the enquiry concerns image, object, installation, or collaboration.",
+  },
+  {
+    label: "Curatorial",
+    text: "Include the series title, venue or institutional context, target date, requested work references, and presentation format.",
   },
   {
     label: "Works",
     text: "Begin with the exact series or work URL so the enquiry is attached to a visible body of work.",
-  },
-  {
-    label: "Press",
-    text: "For image use or editorial material, open the press page first and include the requested context, deadline, size, and credit needs.",
   },
 ];
 
@@ -58,13 +59,16 @@ export default function ContactPage() {
   return (
     <main className={styles.contactPage}>
       <section className={styles.intro} aria-labelledby="contact-title">
-        <p className={styles.eyebrow}>CONTACT</p>
-        <h1 id="contact-title">Enquiries for exhibitions, projects, publications, and works.</h1>
+        <p className={styles.eyebrow}>CONTACT / MASUMI SHIOHARA</p>
+        <h1 id="contact-title">Editorial, curatorial, maison, and project enquiries.</h1>
         <p className={styles.lead}>
-          This page is the public enquiry pathway for Masumi Shiohara. It gives visitors a
-          precise format for professional requests while the confirmed direct contact destination
-          is connected in a separate content pass.
+          For exhibitions, publications, collaborations, image requests, and artwork-related
+          enquiries, please send a concise message with the relevant series or work page.
         </p>
+        <div className={styles.mailBlock}>
+          <span>Direct email</span>
+          <a href={mailtoHref("Masumi Shiohara enquiry")}>{siteConfig.contactEmail}</a>
+        </div>
       </section>
 
       <section className={styles.contactGrid} aria-label="Enquiry categories">
@@ -79,11 +83,11 @@ export default function ContactPage() {
         </article>
         <article className={styles.contactCard}>
           <span>BEFORE WRITING</span>
-          <h2>Start with the works.</h2>
+          <h2>Start with a precise reference.</h2>
           <p>
-            For curatorial, editorial, and acquisition enquiries, begin with the series index
-            and include the relevant page title or URL in the message. This keeps the enquiry
-            specific and reduces back-and-forth.
+            For editorial, maison, curatorial, and acquisition enquiries, begin with the works
+            index and include the relevant page title or URL. This keeps the first message clear
+            and professional.
           </p>
           <a className={styles.secondaryCta} href="/projects/botanical-portraits">
             View works before enquiry
@@ -100,6 +104,23 @@ export default function ContactPage() {
         ))}
       </section>
 
+      <section className={styles.editorialContact} aria-labelledby="editorial-contact-title">
+        <div>
+          <p className={styles.eyebrow}>EDITORIAL / MAISON CONTACT</p>
+          <h2 id="editorial-contact-title">Use the portfolio as the first visual brief.</h2>
+        </div>
+        <div>
+          <p>
+            The site is arranged so an editor, curator, gallery, or maison team can review the
+            work without a long exchange first. Open the relevant series, copy the URL, then send
+            the request with scope, deadline, and credit requirements.
+          </p>
+          <a className={styles.primaryCta} href={mailtoHref("Editorial or maison enquiry for Masumi Shiohara")}>
+            Email {siteConfig.contactEmail}
+          </a>
+        </div>
+      </section>
+
       <section className={styles.messageTemplate} aria-labelledby="message-title">
         <div>
           <p className={styles.eyebrow}>MESSAGE GUIDE</p>
@@ -112,22 +133,14 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className={styles.pendingContact} aria-label="Contact destination pending">
-        <span>Contact destination</span>
-        <p>
-          Add the confirmed email address, contact form, gallery representative, or social link
-          here in the next content pass. No unverified contact information has been published.
-        </p>
-      </section>
-
       <section className={styles.infoLink} aria-labelledby="information-title">
         <div>
           <p className={styles.eyebrow}>REFERENCE</p>
           <h2 id="information-title">Need image-use or enquiry details?</h2>
         </div>
         <div className={styles.resourceActions}>
-          <a className={styles.secondaryCta} href="/information">
-            Open information page
+          <a className={styles.secondaryCta} href="/editorial">
+            Editorial route
           </a>
           <a className={styles.secondaryCta} href="/press">
             Press and image requests
@@ -137,12 +150,11 @@ export default function ContactPage() {
 
       <section className={styles.finalCta} aria-labelledby="contact-cta-title">
         <div>
-          <p className={styles.eyebrow}>PORTFOLIO FIRST</p>
-          <h2 id="contact-cta-title">The clearest enquiry begins with a specific series.</h2>
+          <p className={styles.eyebrow}>DIRECT CONTACT</p>
+          <h2 id="contact-cta-title">Send the enquiry with a series URL and clear context.</h2>
+          <p>{siteConfig.contactEmail}</p>
         </div>
-        <a className={styles.primaryCta} href="/projects/botanical-portraits">
-          View all series
-        </a>
+        <a className={styles.primaryCta} href={mailtoHref("Masumi Shiohara enquiry")}>Send enquiry</a>
       </section>
     </main>
   );

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import { mailtoHref, siteConfig } from "../site-config";
 import styles from "./information.module.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.masumishiohara.com";
+const siteUrl = siteConfig.siteUrl;
 
 export const metadata: Metadata = {
   title: "Information | Masumi Shiohara",
@@ -50,6 +51,7 @@ const quickLinks = [
   { label: "Works index", href: "/projects/botanical-portraits" },
   { label: "Process", href: "/process" },
   { label: "About the practice", href: "/about" },
+  { label: "Editorial route", href: "/editorial" },
   { label: "Press and image requests", href: "/press" },
   { label: "Exhibitions and archive", href: "/exhibitions" },
   { label: "Contact guide", href: "/contact" },
@@ -64,7 +66,7 @@ export default function InformationPage() {
         <p className={styles.lead}>
           This page gives visitors a clear route through the portfolio and sets a consistent
           format for professional enquiries. It supports curators, editors, collectors,
-          collaborators, and project partners without publishing unverified contact details.
+          collaborators, and project partners with a clear direct contact route.
         </p>
       </section>
 
@@ -111,9 +113,14 @@ export default function InformationPage() {
           <p className={styles.eyebrow}>NEXT STEP</p>
           <h2 id="information-cta-title">Begin with the works, then send a precise enquiry.</h2>
         </div>
-        <a className={styles.primaryCta} href="/projects/botanical-portraits">
-          View works
-        </a>
+        <div className={styles.ctaStack}>
+          <a className={styles.primaryCta} href="/projects/botanical-portraits">
+            View works
+          </a>
+          <a className={styles.secondaryCta} href={mailtoHref("Masumi Shiohara enquiry")}>
+            {siteConfig.contactEmail}
+          </a>
+        </div>
       </section>
     </main>
   );

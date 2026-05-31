@@ -200,3 +200,30 @@
 .profileActions .secondaryCta {
   margin-top: 0;
 }
+
+.contextBlock {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(28px, 6vw, 90px);
+  max-width: 1320px;
+  margin: 22px auto 0;
+  padding: clamp(36px, 6vw, 78px);
+  border: 1px solid rgba(218, 191, 137, 0.26);
+  background:
+    linear-gradient(110deg, rgba(218, 191, 137, 0.075), rgba(255, 255, 255, 0.018)),
+    rgba(255, 255, 255, 0.02);
+}
+
+.contextBlock p:not(.eyebrow) {
+  margin-bottom: 0;
+  color: rgba(246, 239, 226, 0.74);
+  font-size: clamp(15px, 1.18vw, 18px);
+  line-height: 1.9;
+}
+
+@media (max-width: 900px) {
+  .contextBlock {
+    grid-template-columns: 1fr;
+    padding: 26px;
+  }
+}
