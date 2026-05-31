@@ -113,40 +113,42 @@ export default function Home() {
       <section className={styles.maisonPanel} aria-labelledby="maison-title">
         <div>
           <p className={styles.eyebrow}>EDITORIAL / MAISON VIEWING</p>
-          <h2 id="maison-title">A restrained visual system for editorial and maison-level viewing.</h2>
+          <h2 id="maison-title">Restraint, sequence, and silence before decoration.</h2>
         </div>
         <p>
-          The presentation avoids decorative excess and emphasizes atmosphere, surface, rarity,
-          botanical structure, and material memory. It is intended to feel closer to an art object,
-          an editorial still life, and a maison archive than to a general image gallery.
+          This section is not meant to impress through quantity. It clarifies how an editor,
+          curator, maison team, gallery, or collector should enter the work without being forced
+          through every image at once. The visual system is quiet by design: fewer signals,
+          more air, and a slower sense of value.
         </p>
       </section>
 
-      <section className={styles.routePanel} aria-labelledby="route-panel-title">
-        <div>
-          <p className={styles.eyebrow}>HIGH-LEVEL ROUTES</p>
-          <h2 id="route-panel-title">Quiet paths for editorial, curatorial, and acquisition review.</h2>
+      <section className={styles.viewingRoutes} aria-labelledby="route-panel-title">
+        <div className={styles.viewingIntro}>
+          <p className={styles.eyebrow}>VIEWING ROUTES</p>
+          <h2 id="route-panel-title">Four restrained entry points, separated by intent.</h2>
         </div>
-        <div className={styles.routePanelLinks}>
-          <a href="/dossier">Curated dossier</a>
-          <a href="/acquisitions">Acquisitions</a>
-          <a href="/curatorial">Curatorial context</a>
-          <a href="/collaborations">Collaborations</a>
-        </div>
-      </section>
-
-      <section className={styles.portfolioMetrics} aria-label="Portfolio overview">
-        <div>
-          <span>{workSeries.length}</span>
-          <p>public series paths</p>
-        </div>
-        <div>
-          <span>Editorial</span>
-          <p>built for publication and curatorial review</p>
-        </div>
-        <div>
-          <span>Mobile</span>
-          <p>compact viewing without a long single-image scroll</p>
+        <div className={styles.viewingList}>
+          <a href="/dossier">
+            <span>01</span>
+            <strong>Dossier</strong>
+            <em>short editorial selection</em>
+          </a>
+          <a href="/projects/botanical-portraits">
+            <span>02</span>
+            <strong>Works</strong>
+            <em>complete series index</em>
+          </a>
+          <a href="/curatorial">
+            <span>03</span>
+            <strong>Curatorial</strong>
+            <em>institutional context</em>
+          </a>
+          <a href="/acquisitions">
+            <span>04</span>
+            <strong>Acquisitions</strong>
+            <em>collector and gallery enquiry</em>
+          </a>
         </div>
       </section>
 

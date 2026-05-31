@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&display=swap");
 .pressPage {
   font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-feature-settings: "kern" 1, "liga" 1;
@@ -412,5 +411,187 @@
 
   .pressPage h2 {
     font-size: clamp(30px, 10vw, 48px);
+  }
+}
+
+
+/* PHASE13_STRICT_LUXURY_REFINEMENT
+   Applies the same slim, quiet typographic system and higher negative-space ratio across the site. */
+.pressPage {
+  --display-font: "Bodoni 72", "Didot", "Baskerville", "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --body-font: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --ink-refined: rgba(246, 239, 226, 0.88);
+  --ink-soft: rgba(246, 239, 226, 0.62);
+  --ink-quieter: rgba(246, 239, 226, 0.46);
+  --hairline: rgba(246, 239, 226, 0.085);
+  --gold-refined: rgba(208, 183, 124, 0.62);
+  font-family: var(--body-font);
+  font-synthesis: none;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+}
+
+.pressPage *,
+.pressPage *::before,
+.pressPage *::after {
+  box-sizing: border-box;
+}
+
+.pressPage h1,
+.pressPage h2,
+.pressPage h3 {
+  font-family: var(--display-font);
+  font-weight: 300;
+  color: var(--ink-refined);
+  line-height: 1.04;
+  letter-spacing: -0.018em;
+  text-wrap: balance;
+}
+
+.pressPage h1 {
+  font-size: clamp(46px, 6.2vw, 96px);
+  line-height: 1.015;
+  letter-spacing: -0.02em;
+}
+
+.pressPage h2 {
+  font-size: clamp(30px, 3.85vw, 56px);
+}
+
+.pressPage h3 {
+  font-size: clamp(21px, 1.85vw, 32px);
+}
+
+.pressPage p,
+.pressPage li {
+  color: var(--ink-soft);
+  font-size: clamp(14px, 1.02vw, 16px);
+  line-height: 1.95;
+  font-weight: 300;
+}
+
+.pressPage a {
+  text-underline-offset: 0.22em;
+}
+
+.eyebrow,
+.pressPage .eyebrow,
+.pressPage span {
+  color: var(--gold-refined);
+}
+
+.pressPage .eyebrow {
+  margin-bottom: 22px;
+  font-size: 0.58rem;
+  line-height: 1.45;
+  letter-spacing: 0.34em;
+}
+
+.pressPage .lead {
+  max-width: 720px;
+  color: var(--ink-soft);
+}
+
+.pressPage .primaryCta,
+.pressPage .secondaryCta,
+.pressPage .tertiaryCta,
+.pressPage .textLink,
+.pressPage .resourceLinks a,
+.pressPage .routePanelLinks a,
+.pressPage .viewingList a {
+  font-size: 0.58rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+}
+
+.pressPage .primaryCta,
+.pressPage .secondaryCta,
+.pressPage .tertiaryCta {
+  min-height: 40px;
+  padding: 0 22px;
+  border-width: 1px;
+}
+
+.pressPage .hero,
+.pressPage .intro,
+.pressPage .heroSection,
+.pressPage .sectionBlock,
+.pressPage .editorialBand,
+.pressPage .dualFeature,
+.pressPage .signatureFeature,
+.pressPage .maisonPanel,
+.pressPage .routePanel,
+.pressPage .viewingRoutes,
+.pressPage .resourceStrip,
+.pressPage .pathwayGrid,
+.pressPage .portfolioMetrics,
+.pressPage .informationGrid,
+.pressPage .archiveGrid,
+.pressPage .contentGrid,
+.pressPage .finalCta,
+.pressPage .emailPanel,
+.pressPage .mailBlock,
+.pressPage .statement {
+  width: min(1160px, calc(100% - clamp(72px, 15vw, 260px)));
+  max-width: 1160px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pressPage .hero,
+.pressPage .intro {
+  padding-top: clamp(138px, 15vw, 220px);
+  padding-bottom: clamp(72px, 11vw, 148px);
+}
+
+.pressPage .sectionBlock,
+.pressPage .editorialBand,
+.pressPage .dualFeature,
+.pressPage .signatureFeature,
+.pressPage .maisonPanel,
+.pressPage .routePanel,
+.pressPage .viewingRoutes,
+.pressPage .resourceStrip,
+.pressPage .informationGrid,
+.pressPage .archiveGrid,
+.pressPage .contentGrid {
+  border-color: var(--hairline);
+}
+
+.pressPage img {
+  filter: brightness(0.84) contrast(1.04) saturate(0.72);
+}
+
+@media (max-width: 860px) {
+  .pressPage .hero,
+  .pressPage .intro,
+  .pressPage .heroSection,
+  .pressPage .sectionBlock,
+  .pressPage .editorialBand,
+  .pressPage .dualFeature,
+  .pressPage .signatureFeature,
+  .pressPage .maisonPanel,
+  .pressPage .routePanel,
+  .pressPage .viewingRoutes,
+  .pressPage .resourceStrip,
+  .pressPage .pathwayGrid,
+  .pressPage .portfolioMetrics,
+  .pressPage .informationGrid,
+  .pressPage .archiveGrid,
+  .pressPage .contentGrid,
+  .pressPage .finalCta,
+  .pressPage .emailPanel,
+  .pressPage .mailBlock,
+  .pressPage .statement {
+    width: calc(100% - 40px);
+  }
+
+  .pressPage h1 {
+    font-size: clamp(42px, 12vw, 68px);
+    line-height: 1.035;
+  }
+
+  .pressPage h2 {
+    font-size: clamp(30px, 9vw, 46px);
   }
 }

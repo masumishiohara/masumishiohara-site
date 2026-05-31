@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&display=swap");
 .homePage {
   font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-feature-settings: "kern" 1, "liga" 1;
@@ -893,5 +892,372 @@
 
   .pathwayGrid a {
     min-height: 230px;
+  }
+}
+
+
+/* PHASE13_STRICT_LUXURY_REFINEMENT
+   Applies the same slim, quiet typographic system and higher negative-space ratio across the site. */
+.homePage {
+  --display-font: "Bodoni 72", "Didot", "Baskerville", "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --body-font: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --ink-refined: rgba(246, 239, 226, 0.88);
+  --ink-soft: rgba(246, 239, 226, 0.62);
+  --ink-quieter: rgba(246, 239, 226, 0.46);
+  --hairline: rgba(246, 239, 226, 0.085);
+  --gold-refined: rgba(208, 183, 124, 0.62);
+  font-family: var(--body-font);
+  font-synthesis: none;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+}
+
+.homePage *,
+.homePage *::before,
+.homePage *::after {
+  box-sizing: border-box;
+}
+
+.homePage h1,
+.homePage h2,
+.homePage h3 {
+  font-family: var(--display-font);
+  font-weight: 300;
+  color: var(--ink-refined);
+  line-height: 1.04;
+  letter-spacing: -0.018em;
+  text-wrap: balance;
+}
+
+.homePage h1 {
+  font-size: clamp(46px, 6.2vw, 96px);
+  line-height: 1.015;
+  letter-spacing: -0.02em;
+}
+
+.homePage h2 {
+  font-size: clamp(30px, 3.85vw, 56px);
+}
+
+.homePage h3 {
+  font-size: clamp(21px, 1.85vw, 32px);
+}
+
+.homePage p,
+.homePage li {
+  color: var(--ink-soft);
+  font-size: clamp(14px, 1.02vw, 16px);
+  line-height: 1.95;
+  font-weight: 300;
+}
+
+.homePage a {
+  text-underline-offset: 0.22em;
+}
+
+.eyebrow,
+.homePage .eyebrow,
+.homePage span {
+  color: var(--gold-refined);
+}
+
+.homePage .eyebrow {
+  margin-bottom: 22px;
+  font-size: 0.58rem;
+  line-height: 1.45;
+  letter-spacing: 0.34em;
+}
+
+.homePage .lead {
+  max-width: 720px;
+  color: var(--ink-soft);
+}
+
+.homePage .primaryCta,
+.homePage .secondaryCta,
+.homePage .tertiaryCta,
+.homePage .textLink,
+.homePage .resourceLinks a,
+.homePage .routePanelLinks a,
+.homePage .viewingList a {
+  font-size: 0.58rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+}
+
+.homePage .primaryCta,
+.homePage .secondaryCta,
+.homePage .tertiaryCta {
+  min-height: 40px;
+  padding: 0 22px;
+  border-width: 1px;
+}
+
+.homePage .hero,
+.homePage .intro,
+.homePage .heroSection,
+.homePage .sectionBlock,
+.homePage .editorialBand,
+.homePage .dualFeature,
+.homePage .signatureFeature,
+.homePage .maisonPanel,
+.homePage .routePanel,
+.homePage .viewingRoutes,
+.homePage .resourceStrip,
+.homePage .pathwayGrid,
+.homePage .portfolioMetrics,
+.homePage .informationGrid,
+.homePage .archiveGrid,
+.homePage .contentGrid,
+.homePage .finalCta,
+.homePage .emailPanel,
+.homePage .mailBlock,
+.homePage .statement {
+  width: min(1160px, calc(100% - clamp(72px, 15vw, 260px)));
+  max-width: 1160px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.homePage .hero,
+.homePage .intro {
+  padding-top: clamp(138px, 15vw, 220px);
+  padding-bottom: clamp(72px, 11vw, 148px);
+}
+
+.homePage .sectionBlock,
+.homePage .editorialBand,
+.homePage .dualFeature,
+.homePage .signatureFeature,
+.homePage .maisonPanel,
+.homePage .routePanel,
+.homePage .viewingRoutes,
+.homePage .resourceStrip,
+.homePage .informationGrid,
+.homePage .archiveGrid,
+.homePage .contentGrid {
+  border-color: var(--hairline);
+}
+
+.homePage img {
+  filter: brightness(0.84) contrast(1.04) saturate(0.72);
+}
+
+@media (max-width: 860px) {
+  .homePage .hero,
+  .homePage .intro,
+  .homePage .heroSection,
+  .homePage .sectionBlock,
+  .homePage .editorialBand,
+  .homePage .dualFeature,
+  .homePage .signatureFeature,
+  .homePage .maisonPanel,
+  .homePage .routePanel,
+  .homePage .viewingRoutes,
+  .homePage .resourceStrip,
+  .homePage .pathwayGrid,
+  .homePage .portfolioMetrics,
+  .homePage .informationGrid,
+  .homePage .archiveGrid,
+  .homePage .contentGrid,
+  .homePage .finalCta,
+  .homePage .emailPanel,
+  .homePage .mailBlock,
+  .homePage .statement {
+    width: calc(100% - 40px);
+  }
+
+  .homePage h1 {
+    font-size: clamp(42px, 12vw, 68px);
+    line-height: 1.035;
+  }
+
+  .homePage h2 {
+    font-size: clamp(30px, 9vw, 46px);
+  }
+}
+
+/* PHASE13_HOME_ROUTE_REBUILD
+   Replaces the boxed dashboard feeling with a quieter luxury navigation system. */
+.homePage .heroSection {
+  grid-template-columns: minmax(0, 0.86fr) minmax(360px, 0.74fr);
+  gap: clamp(72px, 10vw, 160px);
+  min-height: 100svh;
+  padding-left: clamp(72px, 8vw, 132px);
+  padding-right: clamp(72px, 8vw, 132px);
+}
+
+.homePage .heroCopy {
+  max-width: 900px;
+}
+
+.homePage .heroImageWrap::before {
+  inset: -22px;
+  border-color: rgba(208, 183, 124, 0.105);
+}
+
+.homePage .maisonPanel {
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 0.88fr);
+  gap: clamp(72px, 10vw, 156px);
+  padding: clamp(76px, 9vw, 124px) 0;
+  border-right: 0;
+  border-left: 0;
+  background:
+    linear-gradient(90deg, rgba(208, 183, 124, 0.035), transparent 62%),
+    rgba(255, 255, 255, 0.004);
+}
+
+.homePage .maisonPanel p {
+  max-width: 640px;
+}
+
+.viewingRoutes {
+  display: grid;
+  grid-template-columns: minmax(0, 0.64fr) minmax(0, 1.36fr);
+  gap: clamp(72px, 9vw, 148px);
+  align-items: start;
+  padding: clamp(70px, 9vw, 118px) 0;
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.viewingIntro h2 {
+  max-width: 520px;
+  margin-bottom: 0;
+}
+
+.viewingList {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--hairline);
+}
+
+.viewingList a {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 0.82fr) minmax(0, 1fr);
+  gap: clamp(18px, 3vw, 44px);
+  align-items: center;
+  min-height: 92px;
+  padding: 0;
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.viewingList span {
+  color: var(--gold-refined);
+  font-size: 0.58rem;
+  letter-spacing: 0.28em;
+}
+
+.viewingList strong {
+  display: block;
+  font-family: var(--display-font);
+  font-size: clamp(24px, 2vw, 34px);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.014em;
+  color: var(--ink-refined);
+}
+
+.viewingList em {
+  display: block;
+  color: var(--ink-quieter);
+  font-style: normal;
+  font-size: clamp(13px, 0.95vw, 15px);
+  line-height: 1.6;
+}
+
+.homePage .portfolioMetrics {
+  display: none;
+}
+
+.homePage .pathwayGrid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: clamp(118px, 12vw, 180px);
+  border-right: 0;
+  border-left: 0;
+  background: transparent;
+}
+
+.homePage .pathwayGrid a {
+  min-height: 270px;
+  padding: clamp(30px, 3vw, 46px) clamp(24px, 2.6vw, 38px);
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+  border-right: 1px solid var(--hairline);
+  background: transparent;
+}
+
+.homePage .pathwayGrid a:first-child {
+  border-left: 1px solid var(--hairline);
+}
+
+.homePage .pathwayGrid h2 {
+  font-size: clamp(27px, 2.05vw, 34px);
+  line-height: 1.06;
+}
+
+.homePage .pathwayGrid span {
+  margin-bottom: clamp(56px, 6vw, 86px);
+}
+
+.homePage .resourceStrip {
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(72px, 10vw, 150px);
+  margin-top: 0;
+  padding: clamp(74px, 9vw, 118px) 0;
+  border-right: 0;
+  border-left: 0;
+  background: transparent;
+}
+
+.homePage .resourceLinks {
+  border: 0;
+  background: transparent;
+}
+
+.homePage .resourceLinks a {
+  min-height: 72px;
+  padding: 0;
+  border-bottom: 1px solid var(--hairline);
+  background: transparent;
+  justify-content: flex-start;
+}
+
+@media (max-width: 1180px) {
+  .homePage .pathwayGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .viewingRoutes {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .homePage .heroSection {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .homePage .pathwayGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .homePage .pathwayGrid a,
+  .homePage .pathwayGrid a:first-child {
+    min-height: 210px;
+    border-left: 1px solid var(--hairline);
+  }
+
+  .viewingList a {
+    grid-template-columns: 42px 1fr;
+    gap: 12px 22px;
+    min-height: 104px;
+  }
+
+  .viewingList em {
+    grid-column: 2;
   }
 }
