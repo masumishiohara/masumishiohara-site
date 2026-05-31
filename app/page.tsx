@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { workSeries } from "./work-series-data";
+import { mailtoHref, siteConfig } from "./site-config";
 import styles from "./page.module.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.masumishiohara.com";
+const siteUrl = siteConfig.siteUrl;
 
 const primarySeries =
   workSeries.find((series) => series.slug === "black-ground-botanical-works") ?? workSeries[0];
@@ -12,6 +13,9 @@ const canvasSeries =
   workSeries[1] ??
   workSeries[0];
 
+const vellumSeries =
+  workSeries.find((series) => series.slug === "vellum-fruit-studies") ?? workSeries[2] ?? workSeries[0];
+
 const featuredSeries = workSeries.slice(0, 6);
 const quietSeries = workSeries.slice(6, 12);
 const heroImage = primarySeries?.heroImage ? `${siteUrl}${primarySeries.heroImage}` : undefined;
@@ -19,14 +23,14 @@ const heroImage = primarySeries?.heroImage ? `${siteUrl}${primarySeries.heroImag
 export const metadata: Metadata = {
   title: "Masumi Shiohara | Cultivated Botanical Works",
   description:
-    "Series-based portfolio of botanical works by Masumi Shiohara, shaped by cultivated fruit, orchard time, photography, object making, and material memory.",
+    "An elegant series-based portfolio of botanical works by Masumi Shiohara, made for curatorial, editorial, publication, and maison-level review.",
   alternates: {
     canonical: siteUrl,
   },
   openGraph: {
     title: "Masumi Shiohara | Cultivated Botanical Works",
     description:
-      "Browse botanical works by series: black-ground studies, canvas botanical studies, vellum-like surfaces, photographs, objects, and cultivated forms.",
+      "Cultivated botanical works organized for refined editorial, curatorial, and material-led viewing.",
     url: siteUrl,
     type: "website",
     images: heroImage
@@ -48,7 +52,7 @@ const jsonLd = {
   name: "Masumi Shiohara",
   url: siteUrl,
   description:
-    "Portfolio website for Masumi Shiohara's cultivated botanical works, organized by series.",
+    "Portfolio website for Masumi Shiohara's cultivated botanical works, organized by series for editorial and curatorial review.",
   author: {
     "@type": "Person",
     name: "Masumi Shiohara",
@@ -69,19 +73,22 @@ export default function Home() {
       <section className={styles.heroSection} aria-labelledby="home-title">
         <div className={styles.heroCopy}>
           <p className={styles.eyebrow}>MASUMI SHIOHARA / CULTIVATED BOTANICAL WORKS</p>
-          <h1 id="home-title">Botanical forms held between cultivation, image, and time.</h1>
+          <h1 id="home-title">Botanical forms composed for silence, precision, and light.</h1>
           <p className={styles.lead}>
             Masumi Shiohara works with cultivated fruit, botanical forms, orchard time,
-            photography, object making, and print-like surfaces. The portfolio is arranged by
-            series so visitors can move quickly from the whole practice into focused bodies of
-            work.
+            photography, object making, and print-like surfaces. The site is shaped as a quiet
+            editorial portfolio: precise enough for curators, refined enough for publication, and
+            calm enough for close looking.
           </p>
           <div className={styles.ctaRow} aria-label="Primary actions">
             <a className={styles.primaryCta} href="/projects/botanical-portraits">
               View works
             </a>
-            <a className={styles.secondaryCta} href="/about">
-              About the practice
+            <a className={styles.secondaryCta} href="/editorial">
+              Editorial route
+            </a>
+            <a className={styles.tertiaryCta} href={mailtoHref("Editorial enquiry for Masumi Shiohara")}>
+              {siteConfig.contactEmail}
             </a>
           </div>
         </div>
@@ -100,28 +107,41 @@ export default function Home() {
         ) : null}
       </section>
 
+      <section className={styles.maisonPanel} aria-labelledby="maison-title">
+        <div>
+          <p className={styles.eyebrow}>EDITORIAL / MAISON VIEWING</p>
+          <h2 id="maison-title">A restrained visual system for international editorial and luxury-craft contexts.</h2>
+        </div>
+        <p>
+          The presentation avoids decorative excess and emphasizes atmosphere, surface, rarity,
+          botanical structure, and material memory. It is intended to feel closer to an art object,
+          an editorial still life, and a maison archive than to a general image gallery.
+        </p>
+      </section>
+
       <section className={styles.portfolioMetrics} aria-label="Portfolio overview">
         <div>
           <span>{workSeries.length}</span>
           <p>public series paths</p>
         </div>
         <div>
-          <span>Works</span>
-          <p>organized as a series index</p>
+          <span>Editorial</span>
+          <p>built for publication and curatorial review</p>
         </div>
         <div>
           <span>Mobile</span>
-          <p>built for compact browsing</p>
+          <p>compact viewing without a long single-image scroll</p>
         </div>
       </section>
 
       <section className={styles.sectionBlock} aria-labelledby="featured-series-title">
         <div className={styles.sectionHeader}>
           <p className={styles.eyebrow}>WORKS INDEX</p>
-          <h2 id="featured-series-title">Start from a series, not a long scroll.</h2>
+          <h2 id="featured-series-title">Enter through a body of work.</h2>
           <p>
-            The site now treats each body of work as a distinct room in the portfolio. Visitors
-            can read the visual logic of a series first, then enter the individual works.
+            Each series functions as a separate room: black-ground studies, canvas surfaces,
+            vellum-like images, photographic records, and object-based arrangements. The structure
+            lets editors, curators, and collectors move from atmosphere to exact reference.
           </p>
         </div>
 
@@ -164,10 +184,9 @@ export default function Home() {
           <h2 id="practice-summary-title">Cultivated materials become records of season and care.</h2>
         </div>
         <p>
-          The works begin with fruit, leaves, branches, blossoms, and orchard forms that carry
-          duration: weather, growth, harvest, handling, ripening, and disappearance. Photography
-          and surface are used not only to record these materials, but to make their quiet
-          changes visible.
+          A fruit, leaf, blossom, or branch carries duration: weather, growth, harvest, handling,
+          ripening, and disappearance. Photography and surface are used not only to record these
+          materials, but to make their quiet changes visible.
         </p>
       </section>
 
@@ -178,16 +197,36 @@ export default function Home() {
           </a>
         ) : null}
         <div>
-          <p className={styles.eyebrow}>MATERIAL LOGIC</p>
-          <h2 id="material-title">Each surface changes how the botanical form is read.</h2>
+          <p className={styles.eyebrow}>SURFACE AND MATERIAL</p>
+          <h2 id="material-title">The botanical form is treated with the restraint of a jewel setting.</h2>
           <p>
             Black grounds isolate silhouette and presence. Canvas studies connect cultivated
-            forms to a woven pictorial field. Vellum-like surfaces soften the image toward
-            memory, while photographic and object-based works keep the material close to
-            observation and handling.
+            forms to a woven pictorial field. Vellum-like surfaces soften the image toward memory,
+            while photographic and object-based works keep the material close to observation and
+            handling.
           </p>
           <a className={styles.secondaryCta} href="/about">
             Read about the practice
+          </a>
+        </div>
+      </section>
+
+      <section className={styles.signatureFeature} aria-labelledby="signature-title">
+        {vellumSeries ? (
+          <a href={`/works/${vellumSeries.slug}`}>
+            <img src={vellumSeries.heroImage} alt={`${vellumSeries.title} detail`} />
+          </a>
+        ) : null}
+        <div>
+          <p className={styles.eyebrow}>FOR EDITORS AND MAISONS</p>
+          <h2 id="signature-title">A portfolio designed to be remembered after one quiet image.</h2>
+          <p>
+            The visual direction now places fewer elements on each screen, increases the sense of
+            negative space, and lets the botanical work carry the luxury signal through discipline,
+            not ornament.
+          </p>
+          <a className={styles.secondaryCta} href="/editorial">
+            Open editorial viewing route
           </a>
         </div>
       </section>
@@ -198,30 +237,43 @@ export default function Home() {
           <h2>Works</h2>
           <p>Browse the public portfolio by botanical series and visual condition.</p>
         </a>
-        <a href="/about">
+        <a href="/editorial">
           <span>02</span>
-          <h2>About</h2>
-          <p>Read the profile, statement, process, and material approach.</p>
+          <h2>Editorial</h2>
+          <p>A refined pathway for publications, maisons, galleries, and institutional review.</p>
         </a>
-        <a href="/exhibitions">
+        <a href="/press">
           <span>03</span>
-          <h2>Exhibitions</h2>
-          <p>Use the archive page for exhibitions, publications, and project records.</p>
+          <h2>Press</h2>
+          <p>Image-use, credit, and publication request guidance.</p>
         </a>
         <a href="/contact">
           <span>04</span>
           <h2>Contact</h2>
-          <p>Direct enquiries after reviewing the relevant series or work page.</p>
+          <p>Send precise enquiries to {siteConfig.contactEmail}.</p>
         </a>
+      </section>
+
+      <section className={styles.resourceStrip} aria-labelledby="resource-title">
+        <div>
+          <p className={styles.eyebrow}>VISITOR ROUTES</p>
+          <h2 id="resource-title">Clear routes for process, information, and image requests.</h2>
+        </div>
+        <div className={styles.resourceLinks}>
+          <a href="/process">Process</a>
+          <a href="/information">Information</a>
+          <a href="/press">Press / image requests</a>
+        </div>
       </section>
 
       <section className={styles.finalCta} aria-labelledby="final-cta-title">
         <div>
-          <p className={styles.eyebrow}>PORTFOLIO</p>
-          <h2 id="final-cta-title">Begin with the complete works index.</h2>
+          <p className={styles.eyebrow}>CONTACT</p>
+          <h2 id="final-cta-title">For editorial, curatorial, maison, and project enquiries.</h2>
+          <p>{siteConfig.contactEmail}</p>
         </div>
-        <a className={styles.primaryCta} href="/projects/botanical-portraits">
-          View all series
+        <a className={styles.primaryCta} href={mailtoHref("Masumi Shiohara enquiry")}>
+          Send enquiry
         </a>
       </section>
     </main>

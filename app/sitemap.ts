@@ -1,16 +1,20 @@
 import type { MetadataRoute } from "next";
 import { workSeries } from "./work-series-data";
+import { siteConfig } from "./site-config";
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.masumishiohara.com";
+const baseUrl = siteConfig.siteUrl;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     { route: "", priority: 1, changeFrequency: "weekly" as const },
     { route: "/projects/botanical-portraits", priority: 0.95, changeFrequency: "weekly" as const },
-    { route: "/about", priority: 0.75, changeFrequency: "monthly" as const },
+    { route: "/about", priority: 0.78, changeFrequency: "monthly" as const },
+    { route: "/process", priority: 0.74, changeFrequency: "monthly" as const },
+    { route: "/editorial", priority: 0.72, changeFrequency: "monthly" as const },
     { route: "/exhibitions", priority: 0.65, changeFrequency: "monthly" as const },
-    { route: "/contact", priority: 0.7, changeFrequency: "monthly" as const },
-    { route: "/information", priority: 0.58, changeFrequency: "monthly" as const },
+    { route: "/information", priority: 0.62, changeFrequency: "monthly" as const },
+    { route: "/press", priority: 0.6, changeFrequency: "monthly" as const },
+    { route: "/contact", priority: 0.74, changeFrequency: "monthly" as const },
   ];
 
   const seriesRoutes = workSeries.map((series) => ({

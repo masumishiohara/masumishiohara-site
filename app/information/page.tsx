@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
+import { mailtoHref, siteConfig } from "../site-config";
 import styles from "./information.module.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.masumishiohara.com";
+const siteUrl = siteConfig.siteUrl;
 
 export const metadata: Metadata = {
   title: "Information | Masumi Shiohara",
   description:
-    "Viewing, enquiry, image-use, and credit information for Masumi Shiohara's cultivated botanical works and portfolio website.",
+    "Viewing, enquiry, image-use, press, and credit information for Masumi Shiohara's cultivated botanical works and portfolio website.",
   alternates: {
     canonical: `${siteUrl}/information`,
   },
@@ -28,15 +29,15 @@ const informationSections = [
   },
   {
     number: "02",
-    title: "Curatorial and editorial enquiries",
+    title: "Understanding process",
     text:
-      "For exhibitions, publications, interviews, and editorial use, include the relevant series title, page URL, intended context, schedule, venue or publication name, and any requested image dimensions.",
+      "The process page explains how cultivation, observation, photography, surface, object, and archive shape the series structure of the site.",
   },
   {
     number: "03",
-    title: "Artwork and project enquiries",
+    title: "Curatorial and editorial enquiries",
     text:
-      "For acquisition, commission, collaboration, or project enquiries, reference the specific series or work page first. This keeps the conversation tied to a visible body of work rather than a general request.",
+      "For exhibitions, publications, interviews, and editorial use, include the relevant series title, page URL, intended context, schedule, venue or publication name, and any requested image dimensions.",
   },
   {
     number: "04",
@@ -48,7 +49,10 @@ const informationSections = [
 
 const quickLinks = [
   { label: "Works index", href: "/projects/botanical-portraits" },
+  { label: "Process", href: "/process" },
   { label: "About the practice", href: "/about" },
+  { label: "Editorial route", href: "/editorial" },
+  { label: "Press and image requests", href: "/press" },
   { label: "Exhibitions and archive", href: "/exhibitions" },
   { label: "Contact guide", href: "/contact" },
 ];
@@ -58,12 +62,11 @@ export default function InformationPage() {
     <main className={styles.informationPage}>
       <section className={styles.intro} aria-labelledby="information-title">
         <p className={styles.eyebrow}>INFORMATION</p>
-        <h1 id="information-title">Viewing, enquiry, and image-use guidance.</h1>
+        <h1 id="information-title">Viewing, enquiry, image-use, and press guidance.</h1>
         <p className={styles.lead}>
           This page gives visitors a clear route through the portfolio and sets a consistent
-          format for professional enquiries. It is written to support curators, editors,
-          collectors, collaborators, and project partners without adding unverified contact
-          details.
+          format for professional enquiries. It supports curators, editors, collectors,
+          collaborators, and project partners with a clear direct contact route.
         </p>
       </section>
 
@@ -110,9 +113,14 @@ export default function InformationPage() {
           <p className={styles.eyebrow}>NEXT STEP</p>
           <h2 id="information-cta-title">Begin with the works, then send a precise enquiry.</h2>
         </div>
-        <a className={styles.primaryCta} href="/projects/botanical-portraits">
-          View works
-        </a>
+        <div className={styles.ctaStack}>
+          <a className={styles.primaryCta} href="/projects/botanical-portraits">
+            View works
+          </a>
+          <a className={styles.secondaryCta} href={mailtoHref("Masumi Shiohara enquiry")}>
+            {siteConfig.contactEmail}
+          </a>
+        </div>
       </section>
     </main>
   );

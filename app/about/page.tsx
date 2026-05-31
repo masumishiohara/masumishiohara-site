@@ -10,14 +10,14 @@ const ogImage = imageSeries?.heroImage ? `${siteUrl}${imageSeries.heroImage}` : 
 export const metadata: Metadata = {
   title: "About | Masumi Shiohara",
   description:
-    "Artist statement and profile for Masumi Shiohara, whose practice centers on cultivated fruit, botanical forms, photography, object making, and material memory.",
+    "Artist statement and profile for Masumi Shiohara, whose practice centers on cultivated fruit, botanical forms, photography, object making, material memory, and refined editorial viewing.",
   alternates: {
     canonical: `${siteUrl}/about`,
   },
   openGraph: {
     title: "About | Masumi Shiohara",
     description:
-      "A practice centered on cultivated fruit, botanical forms, orchard time, photography, objects, and material memory.",
+      "A practice centered on cultivated fruit, botanical forms, orchard time, photography, objects, material memory, and refined editorial viewing.",
     url: `${siteUrl}/about`,
     type: "profile",
     images: ogImage
@@ -133,6 +133,21 @@ export default function AboutPage() {
         <a className={styles.secondaryCta} href="/projects/botanical-portraits">
           View all series
         </a>
+      </section>
+
+
+
+      <section className={styles.contextBlock} aria-labelledby="context-title">
+        <div>
+          <p className={styles.eyebrow}>EDITORIAL CONTEXT</p>
+          <h2 id="context-title">Quiet botanical images for refined cultural and maison contexts.</h2>
+        </div>
+        <p>
+          The public site is intentionally restrained: dark space, ivory text, soft gold accents,
+          and series-based image rooms. The direction is made for editorial review, curatorial
+          reference, and high-craft contexts where atmosphere, precision, and material presence
+          matter more than decorative volume.
+        </p>
       </section>
 
       <section className={styles.profileBlock} aria-labelledby="profile-title">
