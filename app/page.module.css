@@ -1261,3 +1261,49 @@
     grid-column: 2;
   }
 }
+
+/* PHASE15_HOME_FULL_FRAME_FEATURED_IMAGES
+   Purpose: top-page featured works must show the complete composition, not a cropped editorial slice. */
+.heroImageWrap {
+  display: block;
+  box-sizing: border-box;
+  padding: clamp(12px, 1.45vw, 22px);
+  border: 1px solid rgba(246, 239, 226, 0.105);
+  background:
+    radial-gradient(circle at 50% 42%, rgba(246, 239, 226, 0.026), transparent 46%),
+    #030302;
+}
+
+.heroImageWrap::before {
+  inset: clamp(-18px, -1.1vw, -10px);
+}
+
+.heroImage,
+.seriesImage,
+.dualImage img,
+.signatureFeature img {
+  object-fit: contain;
+  object-position: center;
+  background:
+    radial-gradient(circle at 50% 44%, rgba(246, 239, 226, 0.022), transparent 48%),
+    #030302;
+}
+
+.heroImage {
+  border: 0;
+  aspect-ratio: 1.26 / 1;
+}
+
+.seriesImage {
+  aspect-ratio: 1.28 / 0.92;
+}
+
+.dualImage img,
+.signatureFeature img {
+  aspect-ratio: 1.08 / 1;
+  padding: clamp(8px, 1vw, 16px);
+}
+
+.heroImageCaption {
+  margin-top: 16px;
+}
