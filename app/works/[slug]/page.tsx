@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import { workSeries } from "../../work-series-data";
 import { absoluteUrl, siteConfig } from "../../site-config";
-import styles from "./work-series-page.module.css";
+import WorkSeriesViewer from "./WorkSeriesViewer";
 
 type PageProps = {
   params: {
@@ -131,84 +130,5 @@ export default function WorkSeriesPage({ params }: PageProps) {
   const code = String(series.code ?? "MS");
   const statement = String(series.statement ?? series.description ?? "A quiet body of botanical work by Masumi Shiohara.");
 
-  return (
-    <main className={styles.seriesPage}>
-      <section className={styles.hero} aria-labelledby="series-title">
-        {heroSrc ? (
-          <div className={styles.heroImageFrame}>
-            <Image
-              src={heroSrc}
-              alt={`${title} by Masumi Shiohara`}
-              width={1320}
-              height={920}
-              sizes="(max-width: 900px) 100vw, 48vw"
-              priority
-              quality={68}
-              className={styles.heroImage}
-            />
-          </div>
-        ) : null}
-        <div className={styles.heroCopy}>
-          <p className={styles.eyebrow}>{code}</p>
-          <h1 id="series-title">{title}</h1>
-          <p>{statement}</p>
-          <span>{works.length} works in this series</span>
-        </div>
-      </section>
-
-      <section className={styles.indexSection} aria-labelledby="series-index-title">
-        <div className={styles.indexHeader}>
-          <p className={styles.eyebrow}>SERIES INDEX</p>
-          <h2 id="series-index-title">A compact visual index for faster review.</h2>
-          <p>
-            The index uses smaller optimized images first, then defers larger plates below. This keeps
-            the page lighter while preserving the complete series for close viewing.
-          </p>
-        </div>
-        <div className={styles.thumbnailGrid}>
-          {works.map((work, index) => (
-            <a className={styles.thumbnailCard} href={`#work-${index + 1}`} key={`${work.src}-${index}`}>
-              <Image
-                src={work.src}
-                alt={work.alt}
-                fill
-                sizes="(max-width: 700px) 22vw, (max-width: 1200px) 10vw, 96px"
-                quality={42}
-                loading={index < 12 ? "eager" : "lazy"}
-                className={styles.thumbnailImage}
-              />
-              <span>{work.code}</span>
-            </a>
-          ))}
-        </div>
-      </section>
-
-      <section className={styles.plateSection} aria-labelledby="plates-title">
-        <div className={styles.plateHeader}>
-          <p className={styles.eyebrow}>PLATES</p>
-          <h2 id="plates-title">Complete series plates, loaded progressively.</h2>
-        </div>
-        <div className={styles.plateGrid}>
-          {works.map((work, index) => (
-            <figure className={styles.plate} id={`work-${index + 1}`} key={`${work.src}-plate-${index}`}>
-              <Image
-                src={work.src}
-                alt={work.alt}
-                width={900}
-                height={1180}
-                sizes="(max-width: 700px) 100vw, (max-width: 1200px) 42vw, 520px"
-                quality={64}
-                loading="lazy"
-                className={styles.plateImage}
-              />
-              <figcaption>
-                <span>{work.code}</span>
-                {work.title}
-              </figcaption>
-            </figure>
-          ))}
-        </div>
-      </section>
-    </main>
-  );
+  return <WorkSeriesViewer title={title} code={code} statement={statement} heroSrc={heroSrc} works={works} />;
 }
