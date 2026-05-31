@@ -49,6 +49,8 @@ const informationSections = [
 
 const quickLinks = [
   { label: "Works index", href: "/projects/botanical-portraits" },
+  { label: "Series archive", href: "/archive" },
+  { label: "Curatorial context", href: "/curatorial" },
   { label: "Process", href: "/process" },
   { label: "About the practice", href: "/about" },
   { label: "Editorial route", href: "/editorial" },

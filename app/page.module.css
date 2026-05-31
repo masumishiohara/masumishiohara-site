@@ -224,7 +224,7 @@
 
 .routePanelLinks {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1px;
   border: 1px solid rgba(246, 239, 226, 0.12);
   background: rgba(246, 239, 226, 0.12);
@@ -529,7 +529,8 @@
   .seriesGrid,
   .compactSeries,
   .portfolioMetrics,
-  .pathwayGrid {
+  .pathwayGrid,
+  .routePanelLinks {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

@@ -87,8 +87,8 @@ export default function Home() {
             <a className={styles.secondaryCta} href="/dossier">
               Curated dossier
             </a>
-            <a className={styles.secondaryCta} href="/editorial">
-              Editorial route
+            <a className={styles.secondaryCta} href="/curatorial">
+              Curatorial context
             </a>
             <a className={styles.tertiaryCta} href={mailtoHref("Editorial enquiry for Masumi Shiohara")}>
               {siteConfig.contactEmail}
@@ -130,6 +130,7 @@ export default function Home() {
         <div className={styles.routePanelLinks}>
           <a href="/dossier">Curated dossier</a>
           <a href="/acquisitions">Acquisitions</a>
+          <a href="/curatorial">Curatorial context</a>
           <a href="/collaborations">Collaborations</a>
         </div>
       </section>
@@ -262,10 +263,10 @@ export default function Home() {
           <h2>Acquisitions</h2>
           <p>Collector, gallery, advisor, and artwork-related enquiry route.</p>
         </a>
-        <a href="/collaborations">
+        <a href="/curatorial">
           <span>04</span>
-          <h2>Collaborations</h2>
-          <p>Maison, editorial, cultural, and installation project route.</p>
+          <h2>Curatorial</h2>
+          <p>Institutional, exhibition, cultural, and critical context route.</p>
         </a>
       </section>
 
@@ -276,7 +277,9 @@ export default function Home() {
         </div>
         <div className={styles.resourceLinks}>
           <a href="/dossier">Curated dossier</a>
+          <a href="/archive">Series archive</a>
           <a href="/process">Process</a>
+          <a href="/curatorial">Curatorial</a>
           <a href="/acquisitions">Acquisitions</a>
           <a href="/collaborations">Collaborations</a>
           <a href="/press">Press / image requests</a>

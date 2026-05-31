@@ -143,6 +143,12 @@ export default function ContactPage() {
           <a className={styles.secondaryCta} href="/dossier">
             Curated dossier
           </a>
+          <a className={styles.secondaryCta} href="/archive">
+            Series archive
+          </a>
+          <a className={styles.secondaryCta} href="/curatorial">
+            Curatorial context
+          </a>
           <a className={styles.secondaryCta} href="/acquisitions">
             Acquisitions
           </a>
