@@ -9,6 +9,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { route: "", priority: 1, changeFrequency: "weekly" as const },
     { route: "/projects/botanical-portraits", priority: 0.95, changeFrequency: "weekly" as const },
     { route: "/dossier", priority: 0.9, changeFrequency: "monthly" as const },
+    { route: "/archive", priority: 0.86, changeFrequency: "monthly" as const },
+    { route: "/curatorial", priority: 0.84, changeFrequency: "monthly" as const },
     { route: "/editorial", priority: 0.82, changeFrequency: "monthly" as const },
     { route: "/acquisitions", priority: 0.78, changeFrequency: "monthly" as const },
     { route: "/collaborations", priority: 0.76, changeFrequency: "monthly" as const },

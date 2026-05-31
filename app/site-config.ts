@@ -10,10 +10,9 @@ export const siteConfig = {
   navigation: [
     { label: "Works", href: "/projects/botanical-portraits" },
     { label: "Dossier", href: "/dossier" },
-    { label: "About", href: "/about" },
     { label: "Editorial", href: "/editorial" },
+    { label: "Curatorial", href: "/curatorial" },
     { label: "Acquisitions", href: "/acquisitions" },
-    { label: "Collaborations", href: "/collaborations" },
     { label: "Contact", href: "/contact" },
   ],
 };
