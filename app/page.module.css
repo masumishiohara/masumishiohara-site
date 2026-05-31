@@ -1548,3 +1548,130 @@
     max-width: 82%;
   }
 }
+
+/* Phase 18 — real generated maison frame and stricter luxury homepage balance. */
+.homePage {
+  --luxury-serif: "Bodoni 72", Didot, "Baskerville Old Face", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  background:
+    radial-gradient(circle at 69% 8%, rgba(218, 191, 137, 0.11), transparent 22%),
+    linear-gradient(180deg, rgba(18, 14, 9, 0.86) 0%, #050403 54%, #030302 100%),
+    url("/frames/maison-gallery-wall-light-real.jpg") top center / 100% auto no-repeat;
+}
+
+.homePage h1,
+.homePage h2,
+.homePage h3 {
+  font-family: var(--luxury-serif);
+  font-weight: 300;
+  letter-spacing: -0.062em;
+  text-wrap: balance;
+}
+
+.homePage h1 {
+  max-width: 760px;
+  font-size: clamp(58px, 7vw, 124px);
+  line-height: 0.9;
+}
+
+.homePage h2 {
+  font-size: clamp(36px, 4.8vw, 74px);
+  line-height: 0.98;
+}
+
+.heroSection {
+  max-width: 1660px;
+  margin-inline: auto;
+  grid-template-columns: minmax(340px, 0.72fr) minmax(540px, 1.28fr);
+  align-items: center;
+  gap: clamp(54px, 6.2vw, 132px);
+  min-height: 100svh;
+  padding: clamp(104px, 9vw, 148px) clamp(40px, 5vw, 88px) clamp(84px, 8vw, 132px);
+}
+
+.heroCopy {
+  max-width: 620px;
+}
+
+.lead {
+  max-width: 560px;
+  color: rgba(246, 239, 226, 0.69);
+  font-size: clamp(14px, 1vw, 16px);
+  line-height: 2.04;
+}
+
+.ctaRow {
+  max-width: 580px;
+  gap: 10px;
+}
+
+.primaryCta,
+.secondaryCta,
+.tertiaryCta {
+  min-height: 42px;
+  padding: 0 22px;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+}
+
+.maisonPanel,
+.viewingRoutes,
+.sectionBlock,
+.editorialBand,
+.dualFeature,
+.signatureFeature,
+.pathwayGrid,
+.finalCta,
+.portfolioMetrics,
+.resourceStrip {
+  max-width: min(1320px, calc(100vw - clamp(48px, 10vw, 168px)));
+}
+
+.maisonPanel,
+.viewingRoutes,
+.sectionBlock,
+.editorialBand,
+.dualFeature,
+.signatureFeature,
+.finalCta {
+  margin-top: clamp(36px, 6vw, 92px);
+  margin-bottom: clamp(36px, 6vw, 92px);
+}
+
+.seriesImage,
+.dualImage img,
+.signatureFeature img {
+  object-fit: contain;
+  background: rgba(0, 0, 0, 0.48);
+  filter: saturate(0.86) contrast(1.04) brightness(0.9);
+}
+
+@media (max-width: 1120px) {
+  .heroSection {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .heroCopy {
+    max-width: 760px;
+  }
+}
+
+@media (max-width: 640px) {
+  .heroSection {
+    padding: 104px 22px 68px;
+  }
+
+  .homePage h1 {
+    font-size: clamp(48px, 16vw, 76px);
+  }
+
+  .maisonPanel,
+  .viewingRoutes,
+  .sectionBlock,
+  .editorialBand,
+  .dualFeature,
+  .signatureFeature,
+  .finalCta {
+    max-width: calc(100vw - 34px);
+  }
+}
