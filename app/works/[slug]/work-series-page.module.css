@@ -677,3 +677,37 @@
     grid-row: 2;
   }
 }
+
+/* PHASE16_LIGHTBOX_CAPTION_REFINEMENT
+   Captions sit directly below the title without reducing the image scale. */
+.lightboxTopBar small {
+  display: block;
+  max-width: min(720px, 68vw);
+  margin-top: 10px;
+  color: rgba(246, 239, 226, 0.56);
+  font-family: var(--body-font);
+  font-size: clamp(12px, 0.9vw, 14px);
+  font-weight: 300;
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+.lightboxTopBar > div {
+  padding: 8px 12px 10px 0;
+  background: linear-gradient(90deg, rgba(5, 4, 3, 0.56), transparent);
+}
+
+.lightboxFigure {
+  width: min(97vw, 1880px);
+  height: min(90svh, 1220px);
+  max-height: calc(100svh - clamp(62px, 8svh, 106px));
+}
+
+@media (max-width: 900px) {
+  .lightboxTopBar small {
+    max-width: calc(100vw - 124px);
+    font-size: 11px;
+    line-height: 1.55;
+  }
+}

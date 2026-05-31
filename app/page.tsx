@@ -97,12 +97,26 @@ export default function Home() {
         </div>
 
         {primarySeries ? (
-          <a className={styles.heroImageWrap} href={`/works/${primarySeries.slug}`}>
-            <img
-              src={primarySeries.heroImage}
-              alt={`${primarySeries.title} by Masumi Shiohara`}
-              className={styles.heroImage}
-            />
+          <a className={styles.heroImageWrap} href={`/works/${primarySeries.slug}`} aria-label={`Open ${primarySeries.title}`}>
+            <span className={styles.galleryLight} aria-hidden="true" />
+            <span className={styles.luxuryFrame}>
+              <span className={styles.frameRail}>
+                <span className={styles.outerMat}>
+                  <span className={styles.vGroove} aria-hidden="true" />
+                  <span className={styles.innerMat}>
+                    <img
+                      src={primarySeries.heroImage}
+                      alt={`${primarySeries.title} by Masumi Shiohara`}
+                      className={styles.heroImage}
+                    />
+                  </span>
+                </span>
+              </span>
+              <span className={styles.namePlate}>
+                <span>{primarySeries.code}</span>
+                <strong>{primarySeries.title}</strong>
+              </span>
+            </span>
             <span className={styles.heroImageCaption}>
               Featured series / {primarySeries.title}
             </span>

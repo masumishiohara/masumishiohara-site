@@ -10,6 +10,7 @@ type WorkImage = {
   title: string;
   code: string;
   alt: string;
+  caption?: string;
 };
 
 type WorkSeriesViewerProps = {
@@ -91,6 +92,9 @@ export default function WorkSeriesViewer({ title, code, statement, heroSrc, work
   }, [code, heroSrc, title, works]);
 
   const selectedWork = selectedIndex === null ? null : viewerWorks[selectedIndex] ?? null;
+  const selectedCaption = selectedWork
+    ? selectedWork.caption || `${selectedWork.code}. Full composition from the ${title} series. ${statement}`
+    : "";
   const visiblePlates = viewerWorks.slice(0, visiblePlateCount);
   const hasMorePlates = visiblePlateCount < viewerWorks.length;
 
@@ -257,7 +261,11 @@ export default function WorkSeriesViewer({ title, code, statement, heroSrc, work
           <button type="button" className={styles.lightboxBackdrop} onClick={closeLightbox} aria-label="Close full image view" />
           <div className={styles.lightboxPanel} onContextMenu={handleBlockedAction} onCopy={handleCopy}>
             <div className={styles.lightboxTopBar}>
-              <div><p>{selectedWork.code}</p><h2>{selectedWork.title}</h2></div>
+              <div>
+                <p>{selectedWork.code}</p>
+                <h2>{selectedWork.title}</h2>
+                <small>{selectedCaption}</small>
+              </div>
               <button type="button" onClick={closeLightbox} aria-label="Close full image view">Close</button>
             </div>
             <figure className={`${styles.lightboxFigure} ${styles.protectedImageFrame}`}>

@@ -1,19 +1,21 @@
 import type { Metadata } from "next";
+import { siteConfig } from "../site-config";
+import { siteContent } from "../cms-content";
 import styles from "./exhibitions.module.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.masumishiohara.com";
+const siteUrl = siteConfig.siteUrl;
 
 export const metadata: Metadata = {
-  title: "Exhibitions and Archive | Masumi Shiohara",
+  title: "Exhibitions and Installation Views | Masumi Shiohara",
   description:
-    "Exhibitions, project records, selected CV, publications, and archive notes for Masumi Shiohara's botanical works.",
+    "Exhibition history, installation views, venue records, publications, and project archive for Masumi Shiohara's cultivated botanical works.",
   alternates: {
     canonical: `${siteUrl}/exhibitions`,
   },
   openGraph: {
-    title: "Exhibitions and Archive | Masumi Shiohara",
+    title: "Exhibitions and Installation Views | Masumi Shiohara",
     description:
-      "Archive page for exhibitions, projects, publications, and related activity connected to Masumi Shiohara's botanical works.",
+      "Exhibition history and installation-view archive for Masumi Shiohara's cultivated botanical works.",
     url: `${siteUrl}/exhibitions`,
     type: "website",
   },
@@ -22,15 +24,15 @@ export const metadata: Metadata = {
 const archiveSections = [
   {
     label: "Exhibitions",
-    title: "Solo and group exhibitions",
+    title: "Installation views and venue records",
     text:
-      "A reverse-chronological exhibition list can be placed here after confirmed dates, venues, and titles are collected.",
+      "Each exhibition can hold year, title, venue, location, statement, and one or more installation photographs.",
   },
   {
-    label: "Projects",
-    title: "Botanical and orchard-based projects",
+    label: "Awards",
+    title: "Selections and external references",
     text:
-      "Project-based works, field records, collaborations, residencies, and research notes can be organized here without changing the design.",
+      "Awards and external references are separated into their own page so source links remain clear and verifiable.",
   },
   {
     label: "Publications",
@@ -40,43 +42,15 @@ const archiveSections = [
   },
 ];
 
-const cvBlocks = [
-  {
-    period: "Current",
-    title: "Portfolio and project archive",
-    text:
-      "The public portfolio is structured around botanical series, with this page reserved for the verified CV and archive layer.",
-  },
-  {
-    period: "Selected",
-    title: "Exhibition history",
-    text:
-      "Solo exhibitions, group exhibitions, art fairs, and public presentations will be listed with year, title, venue, and location.",
-  },
-  {
-    period: "Related",
-    title: "Editorial and publication records",
-    text:
-      "Catalogue texts, books, magazines, interviews, and online features can be added as separate archive entries.",
-  },
-  {
-    period: "Projects",
-    title: "Collaborations and field-based activity",
-    text:
-      "Orchard-based projects, commissions, residencies, and collaborations can be connected back to the relevant work series.",
-  },
-];
-
 export default function ExhibitionsPage() {
   return (
     <main className={styles.exhibitionsPage}>
       <section className={styles.intro} aria-labelledby="exhibitions-title">
-        <p className={styles.eyebrow}>EXHIBITIONS / ARCHIVE</p>
-        <h1 id="exhibitions-title">Exhibition records and project archive.</h1>
+        <p className={styles.eyebrow}>EXHIBITIONS / INSTALLATION VIEWS</p>
+        <h1 id="exhibitions-title">Exhibition records with room for installation images.</h1>
         <p className={styles.lead}>
-          This page is the public CV and archive area for Masumi Shiohara. It is prepared to
-          hold exhibitions, publications, project records, texts, and related activity while
-          keeping the primary portfolio path focused on Works.
+          This page is the public exhibition and project record for Masumi Shiohara. It is prepared
+          for confirmed dates, venues, installation photographs, publications, and related archive notes.
         </p>
       </section>
 
@@ -90,18 +64,28 @@ export default function ExhibitionsPage() {
         ))}
       </section>
 
-      <section className={styles.timelineBlock} aria-labelledby="timeline-title">
-        <div>
-          <p className={styles.eyebrow}>CV STRUCTURE</p>
-          <h2 id="timeline-title">A clean record area ready for confirmed dates.</h2>
+      <section className={styles.installationList} aria-labelledby="installation-title">
+        <div className={styles.installationIntro}>
+          <p className={styles.eyebrow}>INSTALLATION RECORDS</p>
+          <h2 id="installation-title">Exhibition entries can include images, venues, and notes.</h2>
         </div>
-        <div className={styles.timelineList}>
-          {cvBlocks.map((item) => (
-            <div className={styles.timelineItem} key={item.title}>
-              <span>{item.period}</span>
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
-            </div>
+        <div className={styles.installationItems}>
+          {siteContent.exhibitions.map((exhibition) => (
+            <article className={styles.installationItem} key={`${exhibition.year}-${exhibition.title}`}>
+              <div className={styles.installationImage}>
+                {exhibition.image ? (
+                  <img src={exhibition.image} alt={exhibition.imageAlt} />
+                ) : (
+                  <span>Installation image to be added</span>
+                )}
+              </div>
+              <div>
+                <span>{exhibition.year}</span>
+                <h3>{exhibition.title}</h3>
+                <p className={styles.venue}>{exhibition.venue} / {exhibition.location}</p>
+                <p>{exhibition.summary}</p>
+              </div>
+            </article>
           ))}
         </div>
       </section>
@@ -109,11 +93,14 @@ export default function ExhibitionsPage() {
       <section className={styles.finalCta} aria-labelledby="exhibitions-cta-title">
         <div>
           <p className={styles.eyebrow}>FOR CURATORS / EDITORS</p>
-          <h2 id="exhibitions-cta-title">Begin with the works, then use the contact page for enquiries.</h2>
+          <h2 id="exhibitions-cta-title">Use Works for visual review and Awards for external source links.</h2>
         </div>
         <div className={styles.ctaRow}>
           <a className={styles.primaryCta} href="/projects/botanical-portraits">
             View works
+          </a>
+          <a className={styles.secondaryCta} href="/awards">
+            Awards
           </a>
           <a className={styles.secondaryCta} href="/contact">
             Contact

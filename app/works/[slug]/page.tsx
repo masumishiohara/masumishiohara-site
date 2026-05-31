@@ -15,6 +15,7 @@ type WorkImage = {
   title: string;
   code: string;
   alt: string;
+  caption?: string;
 };
 
 const allSeries = workSeries as unknown as Array<Record<string, any>>;
@@ -41,6 +42,7 @@ function imageFromItem(item: unknown, index: number, series: Record<string, any>
       title: `${series.title ?? "Work"} ${String(index + 1).padStart(2, "0")}`,
       code: `${series.code ?? "MS"}-${String(index + 1).padStart(3, "0")}`,
       alt: `${series.title ?? "Masumi Shiohara work"} ${index + 1}`,
+      caption: `Full composition from ${series.title ?? "this series"}. Reference ${series.code ?? "MS"}-${String(index + 1).padStart(3, "0")}.`,
     };
   }
 
@@ -51,7 +53,8 @@ function imageFromItem(item: unknown, index: number, series: Record<string, any>
   const code = String(record.code ?? record.id ?? `${series.code ?? "MS"}-${String(index + 1).padStart(3, "0")}`);
   const title = String(record.title ?? record.name ?? `${series.title ?? "Work"} ${String(index + 1).padStart(2, "0")}`);
   const alt = String(record.alt ?? `${title} by Masumi Shiohara`);
-  return { src, title, code, alt };
+  const caption = record.caption ? String(record.caption) : `Full composition from ${series.title ?? "this series"}. Reference ${code}.`;
+  return { src, title, code, alt, caption };
 }
 
 function getWorks(series: Record<string, any>): WorkImage[] {
@@ -76,6 +79,7 @@ function getWorks(series: Record<string, any>): WorkImage[] {
           title: String(series.title ?? "Masumi Shiohara work"),
           code: String(series.code ?? "MS"),
           alt: `${String(series.title ?? "Masumi Shiohara work")} by Masumi Shiohara`,
+          caption: `Hero composition from ${String(series.title ?? "this series")}.`,
         },
       ]
     : [];
