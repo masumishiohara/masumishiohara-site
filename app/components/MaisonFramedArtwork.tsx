@@ -41,24 +41,42 @@ export default function MaisonFramedArtwork({
   const [naturalRatio, setNaturalRatio] = useState(0.66);
 
   const fixedGrowthWindow = isGrowthProcessWork(`${title} ${src}`);
-  const windowRatio = fixedGrowthWindow ? 0.66 : clamp(naturalRatio, 0.42, 2.2);
+  const artRatio = fixedGrowthWindow ? 0.66 : clamp(naturalRatio, 0.42, 2.2);
 
-  // The physical frame remains fixed. The mat opening changes.
-  // For vertical works this makes the artwork occupy the presentation, not the mat.
-  const windowWidthPercent = fixedGrowthWindow
-    ? 69
-    : clamp(windowRatio * 111, windowRatio < 0.82 ? 64 : 58, windowRatio < 1 ? 84 : 88);
-  const plateWidthPercent = clamp(windowWidthPercent * 0.58, 34, 54);
+  // Ratio of the visible mat board area after the fixed frame shell is applied.
+  // The frame is fixed; only the mat window changes.
+  const matBoardRatio = 0.657;
+  const portrait = artRatio < 0.9;
+  const squareish = artRatio >= 0.9 && artRatio < 1.15;
+
+  let windowHeight = portrait ? 73.5 : squareish ? 65 : 52;
+  let windowWidth = (windowHeight * artRatio) / matBoardRatio;
+
+  if (windowWidth > 86) {
+    windowWidth = 86;
+    windowHeight = (windowWidth * matBoardRatio) / artRatio;
+  }
+
+  if (fixedGrowthWindow) {
+    windowHeight = 66;
+    windowWidth = (windowHeight * artRatio) / matBoardRatio;
+  }
+
+  // Bottom weighting: real matting commonly leaves a little more air below the work.
+  const topLift = portrait ? -2.2 : -0.8;
+  const plateWidthPercent = clamp(windowWidth * 0.56, 34, 49);
   const mode = plateMode(title);
 
   const style = useMemo(
     () =>
       ({
-        "--art-ratio": String(windowRatio),
-        "--window-width": `${windowWidthPercent.toFixed(2)}%`,
+        "--art-ratio": String(artRatio),
+        "--window-width": `${windowWidth.toFixed(2)}%`,
+        "--window-height": `${windowHeight.toFixed(2)}%`,
+        "--window-lift": `${topLift.toFixed(2)}%`,
         "--plate-width": `${plateWidthPercent.toFixed(2)}%`,
       }) as CSSProperties,
-    [windowRatio, windowWidthPercent, plateWidthPercent],
+    [artRatio, windowWidth, windowHeight, topLift, plateWidthPercent],
   );
 
   return (
