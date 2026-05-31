@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&display=swap");
 .homePage {
   font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-feature-settings: "kern" 1, "liga" 1;
@@ -53,7 +54,7 @@
 .homePage h1,
 .homePage h2,
 .homePage h3 {
-  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  font-family: "Cormorant Garamond", "Baskerville Old Face", "Baskerville", "Iowan Old Style", "Times New Roman", serif;
   font-weight: 300;
   line-height: 0.98;
   letter-spacing: -0.048em;
@@ -274,7 +275,7 @@
 .portfolioMetrics span {
   display: block;
   margin-bottom: 18px;
-  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  font-family: "Cormorant Garamond", "Baskerville Old Face", "Baskerville", "Iowan Old Style", "Times New Roman", serif;
   font-size: clamp(34px, 4vw, 66px);
   line-height: 0.96;
   letter-spacing: -0.044em;
@@ -364,7 +365,7 @@
   min-height: 112px;
   padding: 22px;
   background: rgb(8, 7, 5);
-  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  font-family: "Cormorant Garamond", "Baskerville Old Face", "Baskerville", "Iowan Old Style", "Times New Roman", serif;
   font-size: clamp(24px, 2.4vw, 38px);
   line-height: 1;
   letter-spacing: -0.038em;
@@ -655,5 +656,242 @@
   .eyebrow {
     font-size: 0.62rem;
     letter-spacing: 0.22em;
+  }
+}
+
+
+/* PHASE12_JAPAN_QUALITY_LAYOUT_REPAIR
+   Purpose: remove card-title clipping, lighten the editorial serif, and make the home page stricter, quieter, and more luxurious. */
+.homePage {
+  --display-font: "Cormorant Garamond", "Baskerville Old Face", "Baskerville", "Iowan Old Style", "Times New Roman", serif;
+  --body-font: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --ink: rgba(246, 239, 226, 0.94);
+  --muted: rgba(246, 239, 226, 0.68);
+  --line: rgba(246, 239, 226, 0.105);
+  --gold-soft: rgba(218, 191, 137, 0.68);
+  font-family: var(--body-font);
+  font-synthesis-weight: none;
+}
+
+.homePage *,
+.homePage *::before,
+.homePage *::after {
+  box-sizing: border-box;
+}
+
+.homePage h1,
+.homePage h2,
+.homePage h3 {
+  font-family: var(--display-font);
+  font-weight: 300;
+  color: var(--ink);
+  line-height: 1.015;
+  letter-spacing: -0.028em;
+  text-wrap: balance;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.homePage h1 {
+  max-width: 900px;
+  font-size: clamp(56px, 7.4vw, 118px);
+  line-height: 0.995;
+  letter-spacing: -0.032em;
+}
+
+.homePage h2 {
+  font-size: clamp(34px, 4.25vw, 64px);
+  letter-spacing: -0.026em;
+}
+
+.homePage h3 {
+  font-size: clamp(24px, 2vw, 34px);
+  letter-spacing: -0.018em;
+  line-height: 1.08;
+}
+
+.lead,
+.sectionHeader p,
+.editorialBand p,
+.dualFeature p,
+.signatureFeature p,
+.pathwayGrid p,
+.seriesText p,
+.finalCta p,
+.portfolioMetrics p,
+.maisonPanel p,
+.resourceStrip p,
+.routePanel p {
+  color: var(--muted);
+  line-height: 1.86;
+}
+
+.eyebrow,
+.seriesText span,
+.compactSeries span,
+.pathwayGrid span,
+.heroImageCaption {
+  color: var(--gold-soft);
+  letter-spacing: 0.255em;
+}
+
+.portfolioMetrics,
+.sectionBlock,
+.editorialBand,
+.dualFeature,
+.signatureFeature,
+.pathwayGrid,
+.finalCta,
+.maisonPanel,
+.routePanel,
+.resourceStrip {
+  width: min(1320px, calc(100% - clamp(40px, 10vw, 144px)));
+}
+
+.heroSection {
+  grid-template-columns: minmax(0, 0.92fr) minmax(360px, 0.78fr);
+  gap: clamp(48px, 8vw, 124px);
+  padding: 132px clamp(40px, 5.6vw, 92px) 92px;
+}
+
+.heroImage,
+.seriesImage,
+.dualImage img,
+.signatureFeature img {
+  filter: brightness(0.82) contrast(1.045) saturate(0.74);
+}
+
+.primaryCta,
+.secondaryCta,
+.tertiaryCta,
+.textLink,
+.resourceLinks a,
+.routePanelLinks a {
+  font-size: 0.62rem;
+  letter-spacing: 0.155em;
+}
+
+.primaryCta,
+.secondaryCta,
+.tertiaryCta {
+  min-height: 42px;
+  padding: 0 22px;
+}
+
+.primaryCta:hover,
+.secondaryCta:hover,
+.tertiaryCta:hover,
+.textLink:hover,
+.seriesCard:hover,
+.pathwayGrid a:hover,
+.compactSeries a:hover,
+.resourceLinks a:hover,
+.routePanelLinks a:hover {
+  transform: none;
+}
+
+.pathwayGrid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  margin-top: 86px;
+  border-color: var(--line);
+  background: var(--line);
+}
+
+.pathwayGrid a {
+  min-width: 0;
+  min-height: 286px;
+  padding: clamp(28px, 2.8vw, 38px);
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.018), rgba(255, 255, 255, 0.004)),
+    rgb(7, 6, 4);
+}
+
+.pathwayGrid h2 {
+  max-width: 100%;
+  margin-bottom: 18px;
+  font-size: clamp(30px, 2.15vw, 40px);
+  line-height: 1.04;
+  letter-spacing: -0.018em;
+  white-space: normal;
+  overflow: visible;
+}
+
+.pathwayGrid p {
+  max-width: 24em;
+  font-size: clamp(14px, 1.05vw, 16px);
+  line-height: 1.78;
+}
+
+.pathwayGrid span {
+  margin-bottom: clamp(48px, 6vw, 78px);
+}
+
+.seriesGrid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+}
+
+.seriesCard,
+.pathwayGrid a,
+.portfolioMetrics div,
+.resourceLinks a,
+.routePanelLinks a {
+  border-color: var(--line);
+}
+
+.resourceLinks a,
+.routePanelLinks a {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 1180px) {
+  .heroSection {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .heroCopy {
+    max-width: 960px;
+  }
+
+  .pathwayGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .homePage h1 {
+    font-size: clamp(48px, 14vw, 72px);
+    letter-spacing: -0.022em;
+  }
+
+  .homePage h2 {
+    font-size: clamp(32px, 10vw, 48px);
+  }
+
+  .heroSection {
+    padding: 100px 20px 58px;
+  }
+
+  .portfolioMetrics,
+  .sectionBlock,
+  .editorialBand,
+  .dualFeature,
+  .signatureFeature,
+  .pathwayGrid,
+  .finalCta,
+  .maisonPanel,
+  .routePanel,
+  .resourceStrip {
+    width: calc(100% - 40px);
+  }
+
+  .pathwayGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .pathwayGrid a {
+    min-height: 230px;
   }
 }
