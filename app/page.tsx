@@ -73,7 +73,7 @@ export default function Home() {
       <section className={styles.heroSection} aria-labelledby="home-title">
         <div className={styles.heroCopy}>
           <p className={styles.eyebrow}>MASUMI SHIOHARA / CULTIVATED BOTANICAL WORKS</p>
-          <h1 id="home-title">Botanical forms composed for silence, precision, and light.</h1>
+          <h1 id="home-title">Botanical forms held in silence, precision, and light.</h1>
           <p className={styles.lead}>
             Masumi Shiohara works with cultivated fruit, botanical forms, orchard time,
             photography, object making, and print-like surfaces. The site is shaped as a quiet
@@ -113,7 +113,7 @@ export default function Home() {
       <section className={styles.maisonPanel} aria-labelledby="maison-title">
         <div>
           <p className={styles.eyebrow}>EDITORIAL / MAISON VIEWING</p>
-          <h2 id="maison-title">A restrained visual system for international editorial and luxury-craft contexts.</h2>
+          <h2 id="maison-title">A restrained visual system for editorial and maison-level viewing.</h2>
         </div>
         <p>
           The presentation avoids decorative excess and emphasizes atmosphere, surface, rarity,
@@ -125,7 +125,7 @@ export default function Home() {
       <section className={styles.routePanel} aria-labelledby="route-panel-title">
         <div>
           <p className={styles.eyebrow}>HIGH-LEVEL ROUTES</p>
-          <h2 id="route-panel-title">Short paths for the people who need to decide quickly.</h2>
+          <h2 id="route-panel-title">Quiet paths for editorial, curatorial, and acquisition review.</h2>
         </div>
         <div className={styles.routePanelLinks}>
           <a href="/dossier">Curated dossier</a>
@@ -235,7 +235,7 @@ export default function Home() {
         ) : null}
         <div>
           <p className={styles.eyebrow}>FOR EDITORS AND MAISONS</p>
-          <h2 id="signature-title">A portfolio designed to be remembered after one quiet image.</h2>
+          <h2 id="signature-title">A portfolio intended to remain after one quiet image.</h2>
           <p>
             The visual direction now places fewer elements on each screen, increases the sense of
             negative space, and lets the botanical work carry the luxury signal through discipline,
@@ -273,7 +273,7 @@ export default function Home() {
       <section className={styles.resourceStrip} aria-labelledby="resource-title">
         <div>
           <p className={styles.eyebrow}>VISITOR ROUTES</p>
-          <h2 id="resource-title">Clear routes for process, information, and image requests.</h2>
+          <h2 id="resource-title">Context for editors, curators, collectors, and project teams.</h2>
         </div>
         <div className={styles.resourceLinks}>
           <a href="/dossier">Curated dossier</a>

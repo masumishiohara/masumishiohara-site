@@ -1,4 +1,8 @@
 .homePage {
+  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-feature-settings: "kern" 1, "liga" 1;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
   min-height: 100vh;
   color: rgb(246, 239, 226);
   background:
@@ -12,8 +16,8 @@
   grid-template-columns: minmax(0, 0.98fr) minmax(320px, 0.72fr);
   gap: clamp(38px, 7vw, 112px);
   align-items: end;
-  min-height: 100svh;
-  padding: 136px 5vw 74px;
+  min-height: 96svh;
+  padding: 124px 5vw 72px;
 }
 
 .heroCopy,
@@ -49,26 +53,26 @@
 .homePage h1,
 .homePage h2,
 .homePage h3 {
-  font-family: "Times New Roman", serif;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
   font-weight: 300;
-  line-height: 0.94;
-  letter-spacing: -0.064em;
+  line-height: 0.98;
+  letter-spacing: -0.048em;
 }
 
 .homePage h1 {
   max-width: 1040px;
   margin-bottom: 34px;
-  font-size: clamp(64px, 10.8vw, 166px);
+  font-size: clamp(58px, 9.6vw, 148px);
 }
 
 .homePage h2 {
   margin-bottom: 24px;
-  font-size: clamp(42px, 6vw, 94px);
+  font-size: clamp(38px, 5.2vw, 82px);
 }
 
 .homePage h3 {
   margin-bottom: 14px;
-  font-size: clamp(28px, 3vw, 48px);
+  font-size: clamp(26px, 2.6vw, 42px);
 }
 
 .lead,
@@ -101,13 +105,13 @@
 .secondaryCta,
 .tertiaryCta {
   display: inline-flex;
-  min-height: 50px;
+  min-height: 46px;
   align-items: center;
   justify-content: center;
   border-radius: 999px;
-  padding: 0 22px;
+  padding: 0 24px;
   text-decoration: none;
-  letter-spacing: 0.11em;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
   font-size: 0.68rem;
   transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, color 180ms ease;
@@ -137,7 +141,7 @@
 }
 
 .tertiaryCta {
-  border: 1px solid rgba(218, 191, 137, 0.42);
+  border: 1px solid rgba(218, 191, 137, 0.34);
   color: rgb(218, 191, 137);
   background: rgba(218, 191, 137, 0.045);
   text-transform: none;
@@ -162,7 +166,7 @@
   content: "";
   position: absolute;
   inset: -18px;
-  border: 1px solid rgba(218, 191, 137, 0.18);
+  border: 1px solid rgba(218, 191, 137, 0.16);
   pointer-events: none;
 }
 
@@ -171,8 +175,8 @@
   width: 100%;
   aspect-ratio: 1.22 / 1;
   object-fit: cover;
-  border: 1px solid rgba(246, 239, 226, 0.14);
-  filter: brightness(0.84) contrast(1.05) saturate(0.92);
+  border: 1px solid rgba(246, 239, 226, 0.12);
+  filter: brightness(0.84) contrast(1.05) saturate(0.84);
 }
 
 .heroImageCaption {
@@ -190,8 +194,8 @@
   gap: clamp(34px, 6vw, 96px);
   margin: 0 auto 22px;
   padding: clamp(42px, 7vw, 88px);
-  border-top: 1px solid rgba(218, 191, 137, 0.32);
-  border-bottom: 1px solid rgba(218, 191, 137, 0.22);
+  border-top: 1px solid rgba(218, 191, 137, 0.26);
+  border-bottom: 1px solid rgba(218, 191, 137, 0.16);
   background:
     linear-gradient(100deg, rgba(218, 191, 137, 0.08), rgba(255, 255, 255, 0.018) 48%, rgba(255, 255, 255, 0.008)),
     rgba(8, 7, 5, 0.66);
@@ -212,7 +216,7 @@
   gap: clamp(28px, 6vw, 88px);
   margin: 22px auto 0;
   padding: clamp(34px, 5vw, 66px);
-  border: 1px solid rgba(218, 191, 137, 0.18);
+  border: 1px solid rgba(218, 191, 137, 0.16);
   background:
     linear-gradient(120deg, rgba(218, 191, 137, 0.06), rgba(255, 255, 255, 0.014)),
     rgba(255, 255, 255, 0.018);
@@ -239,7 +243,7 @@
   color: rgb(246, 239, 226);
   background: rgb(8, 7, 5);
   text-decoration: none;
-  letter-spacing: 0.11em;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
   font-size: 0.68rem;
   transition: transform 180ms ease, background 180ms ease;
@@ -270,10 +274,10 @@
 .portfolioMetrics span {
   display: block;
   margin-bottom: 18px;
-  font-family: "Times New Roman", serif;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
   font-size: clamp(34px, 4vw, 66px);
   line-height: 0.96;
-  letter-spacing: -0.055em;
+  letter-spacing: -0.044em;
 }
 
 .portfolioMetrics p {
@@ -316,7 +320,7 @@
 }
 
 .seriesCard:hover {
-  border-color: rgba(218, 191, 137, 0.42);
+  border-color: rgba(218, 191, 137, 0.34);
   background: rgba(218, 191, 137, 0.035);
 }
 
@@ -325,7 +329,7 @@
   width: 100%;
   aspect-ratio: 1.28 / 0.82;
   object-fit: cover;
-  filter: brightness(0.86) saturate(0.86) contrast(1.04);
+  filter: brightness(0.86) saturate(0.84) contrast(1.04);
 }
 
 .seriesText {
@@ -360,10 +364,10 @@
   min-height: 112px;
   padding: 22px;
   background: rgb(8, 7, 5);
-  font-family: "Times New Roman", serif;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
   font-size: clamp(24px, 2.4vw, 38px);
   line-height: 1;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.038em;
   transition: transform 180ms ease, background 180ms ease;
 }
 
@@ -378,7 +382,7 @@
   text-decoration: none;
   border-bottom: 1px solid rgba(246, 239, 226, 0.46);
   padding-bottom: 6px;
-  letter-spacing: 0.11em;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
   font-size: 0.68rem;
   transition: transform 180ms ease;
@@ -390,7 +394,7 @@
   display: grid;
   gap: clamp(30px, 6vw, 88px);
   align-items: center;
-  border: 1px solid rgba(246, 239, 226, 0.14);
+  border: 1px solid rgba(246, 239, 226, 0.12);
   background:
     radial-gradient(circle at 92% 12%, rgba(218, 191, 137, 0.08), transparent 30%),
     rgba(255, 255, 255, 0.022);
@@ -415,7 +419,7 @@
   aspect-ratio: 1.08 / 1;
   object-fit: cover;
   border: 1px solid rgba(246, 239, 226, 0.12);
-  filter: brightness(0.88) saturate(0.88) contrast(1.03);
+  filter: brightness(0.88) saturate(0.84) contrast(1.03);
 }
 
 .signatureFeature {
@@ -461,7 +465,7 @@
   gap: clamp(28px, 6vw, 88px);
   margin-top: 22px;
   padding: clamp(34px, 5vw, 66px);
-  border: 1px solid rgba(246, 239, 226, 0.14);
+  border: 1px solid rgba(246, 239, 226, 0.12);
   background: rgba(255, 255, 255, 0.022);
 }
 
@@ -481,7 +485,7 @@
   min-height: 76px;
   align-items: center;
   justify-content: space-between;
-  padding: 0 22px;
+  padding: 0 24px;
   color: rgb(246, 239, 226);
   background: rgb(8, 7, 5);
   text-decoration: none;
@@ -605,5 +609,51 @@
 
   .finalCta .primaryCta {
     margin-top: 24px;
+  }
+}
+
+
+/* PHASE11_MOBILE_TYPE_REFINEMENT */
+@media (max-width: 640px) {
+  .homePage h1,
+  .aboutPage h1,
+  .acquisitionsPage h1,
+  .archivePage h1,
+  .collaborationsPage h1,
+  .contactPage h1,
+  .curatorialPage h1,
+  .dossierPage h1,
+  .editorialPage h1,
+  .exhibitionsPage h1,
+  .informationPage h1,
+  .pressPage h1,
+  .processPage h1,
+  .notFoundPage h1 {
+    font-size: clamp(44px, 13vw, 72px);
+    line-height: 1.02;
+    letter-spacing: -0.038em;
+  }
+
+  .homePage h2,
+  .aboutPage h2,
+  .acquisitionsPage h2,
+  .archivePage h2,
+  .collaborationsPage h2,
+  .contactPage h2,
+  .curatorialPage h2,
+  .dossierPage h2,
+  .editorialPage h2,
+  .exhibitionsPage h2,
+  .informationPage h2,
+  .pressPage h2,
+  .processPage h2 {
+    font-size: clamp(32px, 10vw, 52px);
+    line-height: 1.03;
+    letter-spacing: -0.034em;
+  }
+
+  .eyebrow {
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
   }
 }

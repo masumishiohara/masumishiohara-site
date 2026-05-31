@@ -1,4 +1,8 @@
 .contactPage {
+  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-feature-settings: "kern" 1, "liga" 1;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
   min-height: 100vh;
   padding: 122px 5vw 84px;
   color: rgb(246, 239, 226);
@@ -39,7 +43,7 @@
 
 .contactPage h1,
 .contactPage h2 {
-  font-family: "Times New Roman", serif;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
   font-weight: 300;
   line-height: 0.96;
   letter-spacing: -0.058em;
@@ -93,7 +97,7 @@
 
 .mailBlock a {
   color: rgb(246, 239, 226);
-  font-family: "Times New Roman", serif;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
   font-size: clamp(28px, 4vw, 54px);
   line-height: 1;
   letter-spacing: -0.04em;
@@ -130,11 +134,11 @@
 .primaryCta,
 .secondaryCta {
   display: inline-flex;
-  min-height: 50px;
+  min-height: 46px;
   align-items: center;
   justify-content: center;
   border-radius: 999px;
-  padding: 0 22px;
+  padding: 0 24px;
   text-decoration: none;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -205,7 +209,7 @@
   gap: clamp(28px, 6vw, 90px);
   margin-top: 22px;
   padding: clamp(34px, 5vw, 68px);
-  border: 1px solid rgba(246, 239, 226, 0.14);
+  border: 1px solid rgba(246, 239, 226, 0.12);
   background: rgba(255, 255, 255, 0.022);
 }
 
@@ -234,7 +238,7 @@
   gap: 28px;
   margin-top: 18px;
   padding: clamp(28px, 4vw, 46px);
-  border: 1px solid rgba(246, 239, 226, 0.14);
+  border: 1px solid rgba(246, 239, 226, 0.12);
   background: rgba(255, 255, 255, 0.022);
 }
 
@@ -314,5 +318,51 @@
 
   .mailBlock {
     display: grid;
+  }
+}
+
+
+/* PHASE11_MOBILE_TYPE_REFINEMENT */
+@media (max-width: 640px) {
+  .homePage h1,
+  .aboutPage h1,
+  .acquisitionsPage h1,
+  .archivePage h1,
+  .collaborationsPage h1,
+  .contactPage h1,
+  .curatorialPage h1,
+  .dossierPage h1,
+  .editorialPage h1,
+  .exhibitionsPage h1,
+  .informationPage h1,
+  .pressPage h1,
+  .processPage h1,
+  .notFoundPage h1 {
+    font-size: clamp(44px, 13vw, 72px);
+    line-height: 1.02;
+    letter-spacing: -0.038em;
+  }
+
+  .homePage h2,
+  .aboutPage h2,
+  .acquisitionsPage h2,
+  .archivePage h2,
+  .collaborationsPage h2,
+  .contactPage h2,
+  .curatorialPage h2,
+  .dossierPage h2,
+  .editorialPage h2,
+  .exhibitionsPage h2,
+  .informationPage h2,
+  .pressPage h2,
+  .processPage h2 {
+    font-size: clamp(32px, 10vw, 52px);
+    line-height: 1.03;
+    letter-spacing: -0.034em;
+  }
+
+  .eyebrow {
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
   }
 }
