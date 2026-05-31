@@ -24,7 +24,8 @@ const enquiryTypes = [
   "Editorial, publication, and interview requests",
   "Exhibition, curatorial, and institutional enquiries",
   "Maison, brand, and cultural collaboration enquiries",
-  "Artwork, print, and portfolio enquiries",
+  "Artwork, print, portfolio, and acquisition enquiries",
+  "Maison, cultural partner, and collaboration briefs",
   "Press, image-use, and credit requests",
 ];
 
@@ -139,8 +140,14 @@ export default function ContactPage() {
           <h2 id="information-title">Need image-use or enquiry details?</h2>
         </div>
         <div className={styles.resourceActions}>
-          <a className={styles.secondaryCta} href="/editorial">
-            Editorial route
+          <a className={styles.secondaryCta} href="/dossier">
+            Curated dossier
+          </a>
+          <a className={styles.secondaryCta} href="/acquisitions">
+            Acquisitions
+          </a>
+          <a className={styles.secondaryCta} href="/collaborations">
+            Collaborations
           </a>
           <a className={styles.secondaryCta} href="/press">
             Press and image requests

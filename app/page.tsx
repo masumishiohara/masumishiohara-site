@@ -23,7 +23,7 @@ const heroImage = primarySeries?.heroImage ? `${siteUrl}${primarySeries.heroImag
 export const metadata: Metadata = {
   title: "Masumi Shiohara | Cultivated Botanical Works",
   description:
-    "An elegant series-based portfolio of botanical works by Masumi Shiohara, made for curatorial, editorial, publication, and maison-level review.",
+    "An elegant series-based portfolio of botanical works by Masumi Shiohara, made for curatorial, editorial, acquisition, publication, and maison-level review.",
   alternates: {
     canonical: siteUrl,
   },
@@ -84,6 +84,9 @@ export default function Home() {
             <a className={styles.primaryCta} href="/projects/botanical-portraits">
               View works
             </a>
+            <a className={styles.secondaryCta} href="/dossier">
+              Curated dossier
+            </a>
             <a className={styles.secondaryCta} href="/editorial">
               Editorial route
             </a>
@@ -117,6 +120,18 @@ export default function Home() {
           botanical structure, and material memory. It is intended to feel closer to an art object,
           an editorial still life, and a maison archive than to a general image gallery.
         </p>
+      </section>
+
+      <section className={styles.routePanel} aria-labelledby="route-panel-title">
+        <div>
+          <p className={styles.eyebrow}>HIGH-LEVEL ROUTES</p>
+          <h2 id="route-panel-title">Short paths for the people who need to decide quickly.</h2>
+        </div>
+        <div className={styles.routePanelLinks}>
+          <a href="/dossier">Curated dossier</a>
+          <a href="/acquisitions">Acquisitions</a>
+          <a href="/collaborations">Collaborations</a>
+        </div>
       </section>
 
       <section className={styles.portfolioMetrics} aria-label="Portfolio overview">
@@ -232,25 +247,25 @@ export default function Home() {
       </section>
 
       <section className={styles.pathwayGrid} aria-label="Main site pathways">
-        <a href="/projects/botanical-portraits">
+        <a href="/dossier">
           <span>01</span>
+          <h2>Dossier</h2>
+          <p>A short curated route for editors, curators, collectors, and maison teams.</p>
+        </a>
+        <a href="/projects/botanical-portraits">
+          <span>02</span>
           <h2>Works</h2>
           <p>Browse the public portfolio by botanical series and visual condition.</p>
         </a>
-        <a href="/editorial">
-          <span>02</span>
-          <h2>Editorial</h2>
-          <p>A refined pathway for publications, maisons, galleries, and institutional review.</p>
-        </a>
-        <a href="/press">
+        <a href="/acquisitions">
           <span>03</span>
-          <h2>Press</h2>
-          <p>Image-use, credit, and publication request guidance.</p>
+          <h2>Acquisitions</h2>
+          <p>Collector, gallery, advisor, and artwork-related enquiry route.</p>
         </a>
-        <a href="/contact">
+        <a href="/collaborations">
           <span>04</span>
-          <h2>Contact</h2>
-          <p>Send precise enquiries to {siteConfig.contactEmail}.</p>
+          <h2>Collaborations</h2>
+          <p>Maison, editorial, cultural, and installation project route.</p>
         </a>
       </section>
 
@@ -260,8 +275,10 @@ export default function Home() {
           <h2 id="resource-title">Clear routes for process, information, and image requests.</h2>
         </div>
         <div className={styles.resourceLinks}>
+          <a href="/dossier">Curated dossier</a>
           <a href="/process">Process</a>
-          <a href="/information">Information</a>
+          <a href="/acquisitions">Acquisitions</a>
+          <a href="/collaborations">Collaborations</a>
           <a href="/press">Press / image requests</a>
         </div>
       </section>
@@ -269,7 +286,7 @@ export default function Home() {
       <section className={styles.finalCta} aria-labelledby="final-cta-title">
         <div>
           <p className={styles.eyebrow}>CONTACT</p>
-          <h2 id="final-cta-title">For editorial, curatorial, maison, and project enquiries.</h2>
+          <h2 id="final-cta-title">For editorial, curatorial, acquisition, maison, and project enquiries.</h2>
           <p>{siteConfig.contactEmail}</p>
         </div>
         <a className={styles.primaryCta} href={mailtoHref("Masumi Shiohara enquiry")}>

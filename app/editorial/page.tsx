@@ -81,7 +81,10 @@ export default function EditorialPage() {
             partners who need a refined first view of Masumi Shiohara's cultivated botanical works.
           </p>
           <div className={styles.ctaRow}>
-            <a className={styles.primaryCta} href="/projects/botanical-portraits">
+            <a className={styles.primaryCta} href="/dossier">
+              Curated dossier
+            </a>
+            <a className={styles.secondaryCta} href="/projects/botanical-portraits">
               View works
             </a>
             <a className={styles.secondaryCta} href={mailtoHref("Editorial or maison enquiry for Masumi Shiohara")}>
