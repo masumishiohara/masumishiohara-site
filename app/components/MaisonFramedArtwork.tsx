@@ -32,10 +32,10 @@ export default function MaisonFramedArtwork({
   caption,
   plaqueKicker = "Featured work",
 }: MaisonFramedArtworkProps) {
-  const [naturalRatio, setNaturalRatio] = useState(1.32);
+  const [naturalRatio, setNaturalRatio] = useState(0.66);
 
   const fixedGrowthWindow = isGrowthProcessWork(`${title} ${src}`);
-  const windowRatio = fixedGrowthWindow ? 1.42 : Math.max(0.58, Math.min(naturalRatio, 2.15));
+  const windowRatio = fixedGrowthWindow ? 1.42 : Math.max(0.42, Math.min(naturalRatio, 2.2));
   const mode = plateMode(title);
 
   const style = useMemo(

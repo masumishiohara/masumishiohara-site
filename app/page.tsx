@@ -6,6 +6,67 @@ import styles from "./page.module.css";
 
 const siteUrl = siteConfig.siteUrl;
 
+type FeaturedWork = {
+  src: string;
+  title: string;
+  code: string;
+  caption: string;
+};
+
+function normalizeAssetPath(value: unknown) {
+  if (typeof value !== "string" || !value.trim()) return "";
+  const trimmed = value.trim();
+  if (trimmed.startsWith("http://") || trimmed.startsWith("https://") || trimmed.startsWith("/")) return trimmed;
+  return `/${trimmed}`;
+}
+
+function featuredWorkFromSeries(series: any): FeaturedWork | null {
+  if (!series) return null;
+  const rawWorks =
+    (Array.isArray(series.works) && series.works) ||
+    (Array.isArray(series.items) && series.items) ||
+    (Array.isArray(series.images) && series.images) ||
+    (Array.isArray(series.gallery) && series.gallery) ||
+    [];
+
+  const preferredIndex = String(series.slug) === "black-ground-botanical-works" ? 19 : 0;
+  const candidate = rawWorks[Math.min(preferredIndex, Math.max(rawWorks.length - 1, 0))] ?? rawWorks[0];
+
+  if (typeof candidate === "string") {
+    const src = normalizeAssetPath(candidate);
+    if (!src) return null;
+    const indexLabel = String(Math.min(preferredIndex + 1, Math.max(rawWorks.length, 1))).padStart(3, "0");
+    return {
+      src,
+      title: `${series.title ?? "Featured Work"} ${indexLabel}`,
+      code: `${series.code ?? "MS"}-${indexLabel}`,
+      caption: `Featured framed work from ${series.title ?? "Masumi Shiohara Works"}.`,
+    };
+  }
+
+  if (candidate && typeof candidate === "object") {
+    const record = candidate as Record<string, any>;
+    const src = normalizeAssetPath(record.src ?? record.image ?? record.url ?? record.path ?? record.file);
+    if (src) {
+      const code = String(record.code ?? record.id ?? `${series.code ?? "MS"}-020`);
+      const title = String(record.title ?? record.name ?? `${series.title ?? "Featured Work"} ${code}`);
+      const caption = String(record.caption ?? `Featured framed work from ${series.title ?? "Masumi Shiohara Works"}. Reference ${code}.`);
+      return { src, title, code, caption };
+    }
+  }
+
+  const hero = normalizeAssetPath(series.heroImage ?? series.image);
+  return hero
+    ? {
+        src: hero,
+        title: String(series.title ?? "Featured Work"),
+        code: String(series.code ?? "MS"),
+        caption: `Featured series / ${String(series.title ?? "Masumi Shiohara Works")}`,
+      }
+    : null;
+}
+
+
 const primarySeries =
   workSeries.find((series) => series.slug === "black-ground-botanical-works") ?? workSeries[0];
 
@@ -19,7 +80,8 @@ const vellumSeries =
 
 const featuredSeries = workSeries.slice(0, 6);
 const quietSeries = workSeries.slice(6, 12);
-const heroImage = primarySeries?.heroImage ? `${siteUrl}${primarySeries.heroImage}` : undefined;
+const featuredFrameWork = featuredWorkFromSeries(primarySeries);
+const heroImage = featuredFrameWork?.src ? (featuredFrameWork.src.startsWith("http") ? featuredFrameWork.src : `${siteUrl}${featuredFrameWork.src}`) : primarySeries?.heroImage ? `${siteUrl}${primarySeries.heroImage}` : undefined;
 
 export const metadata: Metadata = {
   title: "Masumi Shiohara | Cultivated Botanical Works",
@@ -97,15 +159,15 @@ export default function Home() {
           </div>
         </div>
 
-        {primarySeries ? (
+        {primarySeries && featuredFrameWork ? (
           <MaisonFramedArtwork
             href={`/works/${primarySeries.slug}`}
-            src={primarySeries.heroImage}
-            alt={`${primarySeries.title} by Masumi Shiohara`}
-            code={primarySeries.code}
-            title={primarySeries.title}
-            plaqueKicker="Featured series"
-            caption={`Featured series / ${primarySeries.title}`}
+            src={featuredFrameWork.src}
+            alt={`${featuredFrameWork.title} by Masumi Shiohara`}
+            code={featuredFrameWork.code}
+            title={featuredFrameWork.title}
+            plaqueKicker="Featured framed work"
+            caption={featuredFrameWork.caption}
           />
         ) : null}
       </section>
