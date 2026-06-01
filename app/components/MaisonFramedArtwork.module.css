@@ -6,55 +6,61 @@
 
 .stage {
   position: relative;
-  width: min(46vw, 650px);
+  width: min(52vw, 720px);
   margin: 0 auto;
   padding: 0;
   isolation: isolate;
 }
 
-.galleryLight {
+.stage::before {
+  content: "";
   position: absolute;
-  inset: -12% -12% -10%;
-  z-index: -2;
+  inset: -7% -10% -12%;
+  z-index: -1;
   background:
-    radial-gradient(circle at 50% 10%, rgba(255, 246, 210, 0.22), transparent 17%),
-    radial-gradient(circle at 50% 45%, rgba(212, 203, 174, 0.12), transparent 48%),
-    linear-gradient(180deg, rgba(255,255,255,0.022), rgba(0,0,0,0.18));
+    radial-gradient(circle at 52% 19%, rgba(255, 242, 196, 0.26), transparent 24%),
+    radial-gradient(circle at 50% 58%, rgba(181, 162, 109, 0.12), transparent 46%);
   filter: blur(1px);
-  opacity: 0.86;
+  opacity: 0.88;
 }
 
-.frameAssembly {
-  --frame-border: clamp(46px, 5.2vw, 74px);
+.scene {
   position: relative;
   width: 100%;
-  aspect-ratio: 770 / 850;
-  box-sizing: border-box;
-  border: var(--frame-border) solid transparent;
-  border-image-source: url("/frame-assets/modern/frame-border-v27-no-baked-plate.png");
-  border-image-slice: 86;
-  border-image-width: 1;
-  border-image-repeat: stretch;
-  background: #eee6d6;
-  box-shadow:
-    0 28px 34px rgba(0, 0, 0, 0.48),
-    0 7px 15px rgba(0, 0, 0, 0.44);
+  aspect-ratio: 1050 / 1024;
+  overflow: visible;
+  filter: saturate(0.92) contrast(1.03) brightness(0.94);
 }
 
-/* This is the real mat field. It is not a fixed-window image. */
-.matBoard {
+.scenePhoto {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+
+/* Realistic dynamic mat field. It intentionally covers the baked fixed window
+   of the generated photo so the opening can follow each artwork ratio. */
+.matPanel {
+  position: absolute;
+  left: 16.7%;
+  top: 8.7%;
+  width: 64.3%;
+  height: 76.1%;
   background:
-    radial-gradient(circle at 50% 36%, rgba(255,255,255,0.42), transparent 45%),
-    linear-gradient(180deg, rgba(247, 242, 228, 0.96), rgba(229, 220, 198, 0.97)),
-    url("/frame-assets/modern/mat-texture-v26.png");
-  background-size: auto, auto, 240px 240px;
+    radial-gradient(circle at 50% 38%, rgba(255, 255, 255, 0.30), transparent 48%),
+    linear-gradient(180deg, rgba(247, 243, 232, 0.98), rgba(227, 219, 197, 0.98)),
+    url("/frame-assets/modern/museum-mat-texture-v28.png");
+  background-size: auto, auto, 260px 260px;
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.68),
-    inset 0 0 0 2px rgba(195, 184, 154, 0.34),
-    inset 0 14px 24px rgba(0, 0, 0, 0.045),
-    inset 0 -12px 20px rgba(255, 255, 255, 0.17);
+    inset 0 0 0 1px rgba(255, 255, 255, 0.64),
+    inset 0 0 0 2px rgba(190, 178, 146, 0.28),
+    inset 0 18px 26px rgba(0, 0, 0, 0.040),
+    inset 0 -14px 26px rgba(255, 255, 255, 0.13);
 }
 
 .groove {
@@ -66,9 +72,9 @@
   height: var(--groove-height);
   pointer-events: none;
   box-shadow:
-    0 0 0 1px rgba(177, 165, 133, 0.72),
-    0 0 0 2px rgba(249, 245, 229, 0.94),
-    0 0 0 3px rgba(139, 126, 98, 0.30),
+    0 0 0 1px rgba(150, 138, 105, 0.74),
+    0 0 0 2px rgba(252, 248, 234, 0.82),
+    0 0 0 3px rgba(122, 110, 82, 0.28),
     inset 4px 4px 7px rgba(0, 0, 0, 0.11),
     inset -3px -3px 7px rgba(255, 255, 255, 0.42);
 }
@@ -81,28 +87,26 @@
   height: var(--art-height);
   z-index: 3;
   overflow: hidden;
-  background: #050505;
+  background: #030303;
   box-shadow:
-    0 0 0 1px rgba(14, 14, 12, 0.98),
-    0 0 0 2px rgba(239, 235, 218, 0.96),
-    0 7px 15px rgba(0, 0, 0, 0.25),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+    0 0 0 1px rgba(9, 9, 8, 0.98),
+    0 0 0 2px rgba(241, 237, 220, 0.92),
+    0 8px 14px rgba(0, 0, 0, 0.24),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.055);
 }
 
-.artWindow::before {
+.artWindow::after {
   content: "";
   position: absolute;
-  inset: calc(var(--art-reveal) * -1);
-  z-index: 4;
+  inset: 0;
+  z-index: 5;
   pointer-events: none;
   box-shadow:
-    inset 5px 5px 8px rgba(0, 0, 0, 0.22),
-    inset -4px -4px 7px rgba(255, 255, 255, 0.13);
+    inset 4px 4px 7px rgba(0, 0, 0, 0.20),
+    inset -3px -3px 7px rgba(255, 255, 255, 0.10);
 }
 
 .artImage {
-  position: relative;
-  z-index: 2;
   display: block;
   width: 100.2%;
   height: 100.2%;
@@ -117,11 +121,11 @@
   left: var(--plate-left);
   top: var(--plate-top);
   width: var(--plate-width);
-  aspect-ratio: 145 / 55;
+  aspect-ratio: 382 / 100;
   z-index: 4;
   filter:
-    drop-shadow(0 1px 1px rgba(0, 0, 0, 0.44))
-    drop-shadow(0 3px 5px rgba(0, 0, 0, 0.18));
+    drop-shadow(0 1px 1px rgba(0, 0, 0, 0.40))
+    drop-shadow(0 3px 5px rgba(0, 0, 0, 0.17));
 }
 
 .plate img {
@@ -135,15 +139,12 @@
 
 .plateText {
   position: absolute;
-  inset: 18% 12% 16%;
+  inset: 19% 12% 17%;
   display: grid;
   place-items: center;
   text-align: center;
-  color: rgba(40, 28, 11, 0.80);
-  text-shadow:
-    0 1px 0 rgba(255, 236, 168, 0.28),
-    0 -1px 0 rgba(55, 34, 10, 0.18);
-  line-height: 0.94;
+  color: rgba(45, 30, 10, 0.82);
+  line-height: 0.92;
   letter-spacing: 0.006em;
   font-family:
     "Iowan Old Style",
@@ -151,6 +152,9 @@
     Palatino,
     "Times New Roman",
     serif;
+  text-shadow:
+    0 1px 0 rgba(255, 237, 170, 0.25),
+    0 -1px 0 rgba(50, 30, 8, 0.18);
 }
 
 .plateText strong {
@@ -164,24 +168,24 @@
 
 .plateText em {
   display: block;
-  margin-top: 0.12em;
+  margin-top: 0.10em;
   font-size: 0.55em;
   font-style: normal;
-  letter-spacing: 0.10em;
+  letter-spacing: 0.11em;
   text-transform: uppercase;
-  opacity: 0.60;
+  opacity: 0.62;
 }
 
-.standardTitle { font-size: clamp(4.8px, 0.36vw, 6.6px); }
-.compactTitle { font-size: clamp(4.2px, 0.31vw, 5.8px); letter-spacing: -0.006em; }
-.microTitle { font-size: clamp(3.8px, 0.28vw, 5px); letter-spacing: -0.018em; }
+.standardTitle { font-size: clamp(5.2px, 0.38vw, 7px); }
+.compactTitle { font-size: clamp(4.6px, 0.34vw, 6.2px); letter-spacing: -0.006em; }
+.microTitle { font-size: clamp(4px, 0.30vw, 5.4px); letter-spacing: -0.018em; }
 
 .caption {
-  margin-top: clamp(10px, 0.9vw, 14px);
+  margin-top: clamp(10px, 0.85vw, 14px);
   text-align: center;
   color: rgba(213, 198, 151, 0.54);
   font-size: clamp(8px, 0.62vw, 10px);
-  letter-spacing: 0.19em;
+  letter-spacing: 0.20em;
   text-transform: uppercase;
 }
 
@@ -195,10 +199,15 @@
 }
 
 @media (max-width: 1080px) {
-  .stage { width: min(76vw, 620px); }
+  .stage { width: min(78vw, 700px); }
 }
 
 @media (max-width: 640px) {
-  .stage { width: min(88vw, 480px); }
-  .frameAssembly { --frame-border: clamp(36px, 8vw, 54px); }
+  .stage { width: min(92vw, 520px); }
+  .matPanel {
+    left: 16.9%;
+    top: 8.9%;
+    width: 64%;
+    height: 75.9%;
+  }
 }

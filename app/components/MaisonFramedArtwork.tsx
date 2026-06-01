@@ -2,9 +2,7 @@
 
 import {
   type CSSProperties,
-  useLayoutEffect,
   useMemo,
-  useRef,
   useState,
 } from "react";
 import styles from "./MaisonFramedArtwork.module.css";
@@ -18,53 +16,52 @@ type MaisonFramedArtworkProps = {
   href?: string;
 };
 
-const FRAME_RATIO = 770 / 850;
-const MAX_ART_W = 0.82;
-const MAX_ART_H = 0.76;
-const MIN_ART_W = 0.36;
-const MIN_ART_H = 0.32;
-const ART_TOP_BASE = 0.045;
+const PANEL_RATIO = 675 / 780;
+const MAX_ART_W = 0.76;
+const MAX_ART_H = 0.74;
+const MIN_ART_W = 0.42;
+const MIN_ART_H = 0.42;
 
 function clamp(value: number, min: number, max: number) {
   return Math.max(min, Math.min(max, value));
 }
 
-function computeArtworkFit(artRatio: number, matRatio: number) {
-  const safeArtRatio = Number.isFinite(artRatio) && artRatio > 0 ? artRatio : 0.72;
-  const safeMatRatio = Number.isFinite(matRatio) && matRatio > 0 ? matRatio : FRAME_RATIO;
+function computeFit(artRatio: number) {
+  const safeRatio = Number.isFinite(artRatio) && artRatio > 0 ? artRatio : 0.72;
 
   let height = MAX_ART_H;
-  let width = (height * safeArtRatio) / safeMatRatio;
+  let width = (height * safeRatio) / PANEL_RATIO;
 
   if (width > MAX_ART_W) {
     width = MAX_ART_W;
-    height = (width * safeMatRatio) / safeArtRatio;
+    height = (width * PANEL_RATIO) / safeRatio;
   }
 
   width = clamp(width, MIN_ART_W, MAX_ART_W);
   height = clamp(height, MIN_ART_H, MAX_ART_H);
 
-  // Positioning follows real exhibition framing: art sits slightly above optical center,
-  // with a small plate close underneath. No decorative extra rectangles.
+  // Optical centering: the art sits high enough to allow a small real plate beneath it,
+  // matching exhibition framing rather than poster-layout centering.
   const left = (1 - width) / 2;
-  const top = clamp(ART_TOP_BASE + (MAX_ART_H - height) * 0.16, 0.035, 0.16);
-  const reveal = 0.004; // tiny overlap/reveal around artwork; not a fake oversized window.
-  const grooveGap = 0.016;
+  const top = clamp(0.102 + (MAX_ART_H - height) * 0.20, 0.070, 0.195);
+
+  // V-groove is locked to the artwork window. It is not an independent rectangle.
+  const grooveGap = 0.013;
   const grooveLeft = left - grooveGap;
   const grooveTop = top - grooveGap;
   const grooveWidth = width + grooveGap * 2;
   const grooveHeight = height + grooveGap * 2;
 
-  const plateWidth = clamp(width * 0.20, 0.090, 0.130);
+  // Small museum plate: below the work, not on the outer frame, and never doubled.
+  const plateWidth = clamp(width * 0.34, 0.145, 0.235);
   const plateLeft = (1 - plateWidth) / 2;
-  const plateTop = clamp(top + height + 0.020, 0.70, 0.90);
+  const plateTop = clamp(top + height + 0.035, 0.795, 0.890);
 
   return {
     "--art-left": `${left * 100}%`,
     "--art-top": `${top * 100}%`,
     "--art-width": `${width * 100}%`,
     "--art-height": `${height * 100}%`,
-    "--art-reveal": `${reveal * 100}%`,
     "--groove-left": `${grooveLeft * 100}%`,
     "--groove-top": `${grooveTop * 100}%`,
     "--groove-width": `${grooveWidth * 100}%`,
@@ -76,8 +73,8 @@ function computeArtworkFit(artRatio: number, matRatio: number) {
 }
 
 function titleClass(title: string) {
-  if (title.length > 44) return styles.microTitle;
-  if (title.length > 30) return styles.compactTitle;
+  if (title.length > 42) return styles.microTitle;
+  if (title.length > 28) return styles.compactTitle;
   return styles.standardTitle;
 }
 
@@ -89,35 +86,20 @@ export default function MaisonFramedArtwork({
   caption,
   href,
 }: MaisonFramedArtworkProps) {
-  const matRef = useRef<HTMLDivElement | null>(null);
   const [artRatio, setArtRatio] = useState(0.72);
-  const [matRatio, setMatRatio] = useState(FRAME_RATIO);
-
-  useLayoutEffect(() => {
-    const node = matRef.current;
-    if (!node) return;
-
-    const update = () => {
-      const rect = node.getBoundingClientRect();
-      if (rect.width && rect.height) setMatRatio(rect.width / rect.height);
-    };
-
-    update();
-    const observer = new ResizeObserver(update);
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, []);
-
-  const fitStyle = useMemo(
-    () => computeArtworkFit(artRatio, matRatio),
-    [artRatio, matRatio],
-  );
+  const fitStyle = useMemo(() => computeFit(artRatio), [artRatio]);
 
   const content = (
     <figure className={styles.stage} aria-label={`${title} framed preview`}>
-      <div className={styles.galleryLight} aria-hidden="true" />
-      <div className={styles.frameAssembly}>
-        <div className={styles.matBoard} ref={matRef} style={fitStyle}>
+      <div className={styles.scene}>
+        <img
+          className={styles.scenePhoto}
+          src="/frame-assets/modern/museum-empty-frame-scene-v28.png"
+          alt=""
+          draggable={false}
+          aria-hidden="true"
+        />
+        <div className={styles.matPanel} style={fitStyle}>
           <div className={styles.groove} aria-hidden="true" />
           <div className={styles.artWindow}>
             <img
@@ -135,8 +117,7 @@ export default function MaisonFramedArtwork({
             />
           </div>
           <div className={styles.plate} aria-hidden="true">
-            {/* Single dynamic plate only. The baked plate has been removed from the frame source image. */}
-            <img src="/frame-assets/modern/plate-real-v27-single.png" alt="" draggable={false} />
+            <img src="/frame-assets/modern/museum-brass-plate-v28.png" alt="" draggable={false} />
             <span className={`${styles.plateText} ${titleClass(title)}`}>
               <strong>{title}</strong>
               {code ? <em>{code}</em> : null}
