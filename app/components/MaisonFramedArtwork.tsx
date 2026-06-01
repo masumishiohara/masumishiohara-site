@@ -16,56 +16,61 @@ type MaisonFramedArtworkProps = {
   href?: string;
 };
 
-const PANEL_RATIO = 675 / 780;
-const MAX_ART_W = 0.76;
-const MAX_ART_H = 0.74;
-const MIN_ART_W = 0.42;
-const MIN_ART_H = 0.42;
+// Mat panel ratio taken from the real wall-mounted frame shell crop.
+// The frame is fixed; only the internal mat window changes.
+const MAT_RATIO = 465 / 706;
+const MAX_ART_W = 0.84;
+const MAX_ART_H = 0.80;
+const MIN_ART_W = 0.48;
+const MIN_ART_H = 0.48;
 
 function clamp(value: number, min: number, max: number) {
   return Math.max(min, Math.min(max, value));
 }
 
 function computeFit(artRatio: number) {
-  const safeRatio = Number.isFinite(artRatio) && artRatio > 0 ? artRatio : 0.72;
+  const safeRatio = Number.isFinite(artRatio) && artRatio > 0 ? artRatio : 0.707;
 
-  let height = MAX_ART_H;
-  let width = (height * safeRatio) / PANEL_RATIO;
+  // Fit a print into the mat panel, using as much area as possible.
+  // This is not a centered thumbnail: it is an A2-like framed artwork window.
+  let width = MAX_ART_W;
+  let height = (width * MAT_RATIO) / safeRatio;
 
-  if (width > MAX_ART_W) {
-    width = MAX_ART_W;
-    height = (width * PANEL_RATIO) / safeRatio;
+  if (height > MAX_ART_H) {
+    height = MAX_ART_H;
+    width = (height * safeRatio) / MAT_RATIO;
   }
 
   width = clamp(width, MIN_ART_W, MAX_ART_W);
   height = clamp(height, MIN_ART_H, MAX_ART_H);
 
-  // Optical centering: the art sits high enough to allow a small real plate beneath it,
-  // matching exhibition framing rather than poster-layout centering.
   const left = (1 - width) / 2;
-  const top = clamp(0.102 + (MAX_ART_H - height) * 0.20, 0.070, 0.195);
+  const top = clamp(0.052 + (MAX_ART_H - height) * 0.22, 0.046, 0.120);
 
-  // V-groove is locked to the artwork window. It is not an independent rectangle.
-  const grooveGap = 0.013;
-  const grooveLeft = left - grooveGap;
-  const grooveTop = top - grooveGap;
-  const grooveWidth = width + grooveGap * 2;
-  const grooveHeight = height + grooveGap * 2;
+  // All mat details are locked to the artwork window.
+  // There are no independent floating rectangles.
+  const reveal = 0.001; // near-zero overlap, equivalent to a tiny physical paper lip.
+  const grooveGap = 0.020;
+  const secondGap = 0.034;
 
-  // Small museum plate: below the work, not on the outer frame, and never doubled.
-  const plateWidth = clamp(width * 0.34, 0.145, 0.235);
+  const plateWidth = clamp(width * 0.34, 0.15, 0.235);
+  const plateHeight = plateWidth / 6.2;
   const plateLeft = (1 - plateWidth) / 2;
-  const plateTop = clamp(top + height + 0.035, 0.795, 0.890);
+  const plateTop = clamp(top + height + 0.026, 0.845, 0.935 - plateHeight);
 
   return {
-    "--art-left": `${left * 100}%`,
-    "--art-top": `${top * 100}%`,
-    "--art-width": `${width * 100}%`,
-    "--art-height": `${height * 100}%`,
-    "--groove-left": `${grooveLeft * 100}%`,
-    "--groove-top": `${grooveTop * 100}%`,
-    "--groove-width": `${grooveWidth * 100}%`,
-    "--groove-height": `${grooveHeight * 100}%`,
+    "--art-left": `${(left - reveal) * 100}%`,
+    "--art-top": `${(top - reveal) * 100}%`,
+    "--art-width": `${(width + reveal * 2) * 100}%`,
+    "--art-height": `${(height + reveal * 2) * 100}%`,
+    "--groove-left": `${(left - grooveGap) * 100}%`,
+    "--groove-top": `${(top - grooveGap) * 100}%`,
+    "--groove-width": `${(width + grooveGap * 2) * 100}%`,
+    "--groove-height": `${(height + grooveGap * 2) * 100}%`,
+    "--second-left": `${(left - secondGap) * 100}%`,
+    "--second-top": `${(top - secondGap) * 100}%`,
+    "--second-width": `${(width + secondGap * 2) * 100}%`,
+    "--second-height": `${(height + secondGap * 2) * 100}%`,
     "--plate-left": `${plateLeft * 100}%`,
     "--plate-top": `${plateTop * 100}%`,
     "--plate-width": `${plateWidth * 100}%`,
@@ -86,43 +91,46 @@ export default function MaisonFramedArtwork({
   caption,
   href,
 }: MaisonFramedArtworkProps) {
-  const [artRatio, setArtRatio] = useState(0.72);
+  const [artRatio, setArtRatio] = useState(0.707);
   const fitStyle = useMemo(() => computeFit(artRatio), [artRatio]);
 
   const content = (
     <figure className={styles.stage} aria-label={`${title} framed preview`}>
-      <div className={styles.scene}>
-        <img
-          className={styles.scenePhoto}
-          src="/frame-assets/modern/museum-empty-frame-scene-v28.png"
-          alt=""
-          draggable={false}
-          aria-hidden="true"
-        />
-        <div className={styles.matPanel} style={fitStyle}>
-          <div className={styles.groove} aria-hidden="true" />
-          <div className={styles.artWindow}>
-            <img
-              className={styles.artImage}
-              src={src}
-              alt={title}
-              draggable={false}
-              onContextMenu={(event) => event.preventDefault()}
-              onLoad={(event) => {
-                const image = event.currentTarget;
-                if (image.naturalWidth && image.naturalHeight) {
-                  setArtRatio(image.naturalWidth / image.naturalHeight);
-                }
-              }}
-            />
+      <div className={styles.wallMount}>
+        <div className={styles.scene}>
+          <div className={styles.matPanel} style={fitStyle}>
+            <div className={styles.secondMatLine} aria-hidden="true" />
+            <div className={styles.vGroove} aria-hidden="true" />
+            <div className={styles.artWindow}>
+              <img
+                className={styles.artImage}
+                src={src}
+                alt={title}
+                draggable={false}
+                onContextMenu={(event) => event.preventDefault()}
+                onLoad={(event) => {
+                  const image = event.currentTarget;
+                  if (image.naturalWidth && image.naturalHeight) {
+                    setArtRatio(image.naturalWidth / image.naturalHeight);
+                  }
+                }}
+              />
+            </div>
+            <div className={styles.plate} aria-hidden="true">
+              <img src="/frame-assets/modern/brass-plate-real-v29.png" alt="" draggable={false} />
+              <span className={`${styles.plateText} ${titleClass(title)}`}>
+                <strong>{title}</strong>
+                {code ? <em>{code}</em> : null}
+              </span>
+            </div>
           </div>
-          <div className={styles.plate} aria-hidden="true">
-            <img src="/frame-assets/modern/museum-brass-plate-v28.png" alt="" draggable={false} />
-            <span className={`${styles.plateText} ${titleClass(title)}`}>
-              <strong>{title}</strong>
-              {code ? <em>{code}</em> : null}
-            </span>
-          </div>
+          <img
+            className={styles.frameShell}
+            src="/frame-assets/modern/real-wall-frame-shell-v29.png"
+            alt=""
+            draggable={false}
+            aria-hidden="true"
+          />
         </div>
       </div>
 

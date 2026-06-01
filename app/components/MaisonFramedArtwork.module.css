@@ -6,104 +6,134 @@
 
 .stage {
   position: relative;
-  width: min(52vw, 720px);
+  width: min(43vw, 660px);
   margin: 0 auto;
   padding: 0;
   isolation: isolate;
 }
 
-.stage::before {
-  content: "";
-  position: absolute;
-  inset: -7% -10% -12%;
-  z-index: -1;
+.wallMount {
+  position: relative;
+  padding: clamp(22px, 2.8vw, 44px) clamp(16px, 2.2vw, 34px) clamp(18px, 2.5vw, 34px);
   background:
-    radial-gradient(circle at 52% 19%, rgba(255, 242, 196, 0.26), transparent 24%),
-    radial-gradient(circle at 50% 58%, rgba(181, 162, 109, 0.12), transparent 46%);
-  filter: blur(1px);
-  opacity: 0.88;
+    radial-gradient(circle at 52% 12%, rgba(252, 239, 194, 0.24), transparent 28%),
+    linear-gradient(180deg, rgba(73, 67, 51, 0.48), rgba(26, 24, 20, 0.42)),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.020) 0 1px, transparent 1px 9px);
+  box-shadow:
+    inset 0 0 0 1px rgba(233, 218, 171, 0.055),
+    inset 0 42px 70px rgba(255, 238, 194, 0.050),
+    0 28px 70px rgba(0, 0, 0, 0.40);
 }
 
 .scene {
   position: relative;
   width: 100%;
-  aspect-ratio: 1050 / 1024;
+  aspect-ratio: 685 / 883;
   overflow: visible;
-  filter: saturate(0.92) contrast(1.03) brightness(0.94);
+  filter: saturate(0.94) contrast(1.045) brightness(0.95);
 }
 
-.scenePhoto {
+.scene::before {
+  content: "";
+  position: absolute;
+  left: 12.5%;
+  top: 6.4%;
+  width: 75%;
+  height: 88%;
+  z-index: 0;
+  background: rgba(0, 0, 0, 0.42);
+  filter: blur(18px);
+  transform: translate(18px, 24px);
+  opacity: 0.58;
+}
+
+.matPanel {
+  position: absolute;
+  left: 16.2%;
+  top: 11.05%;
+  width: 67.9%;
+  height: 79.95%;
+  z-index: 1;
+  background:
+    radial-gradient(circle at 48% 30%, rgba(255,255,255,0.26), transparent 38%),
+    linear-gradient(180deg, rgba(241, 236, 218, 0.985), rgba(224, 216, 194, 0.988)),
+    url("/frame-assets/modern/mat-paper-v29.png");
+  background-size: auto, auto, 230px 230px;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.72),
+    inset 0 0 0 2px rgba(185, 173, 135, 0.30),
+    inset 9px 12px 25px rgba(0, 0, 0, 0.045),
+    inset -8px -9px 22px rgba(255, 255, 255, 0.19);
+}
+
+.frameShell {
   position: absolute;
   inset: 0;
+  z-index: 4;
   width: 100%;
   height: 100%;
   object-fit: contain;
-  user-select: none;
   pointer-events: none;
+  user-select: none;
   -webkit-user-drag: none;
 }
 
-/* Realistic dynamic mat field. It intentionally covers the baked fixed window
-   of the generated photo so the opening can follow each artwork ratio. */
-.matPanel {
+.secondMatLine,
+.vGroove {
   position: absolute;
-  left: 16.7%;
-  top: 8.7%;
-  width: 64.3%;
-  height: 76.1%;
-  background:
-    radial-gradient(circle at 50% 38%, rgba(255, 255, 255, 0.30), transparent 48%),
-    linear-gradient(180deg, rgba(247, 243, 232, 0.98), rgba(227, 219, 197, 0.98)),
-    url("/frame-assets/modern/museum-mat-texture-v28.png");
-  background-size: auto, auto, 260px 260px;
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.64),
-    inset 0 0 0 2px rgba(190, 178, 146, 0.28),
-    inset 0 18px 26px rgba(0, 0, 0, 0.040),
-    inset 0 -14px 26px rgba(255, 255, 255, 0.13);
+  pointer-events: none;
 }
 
-.groove {
-  position: absolute;
+.secondMatLine {
   z-index: 2;
+  left: var(--second-left);
+  top: var(--second-top);
+  width: var(--second-width);
+  height: var(--second-height);
+  box-shadow:
+    0 0 0 1px rgba(168, 154, 116, 0.36),
+    inset 1px 1px 0 rgba(255,255,255,0.70),
+    inset -1px -1px 0 rgba(105, 93, 66, 0.16);
+}
+
+.vGroove {
+  z-index: 3;
   left: var(--groove-left);
   top: var(--groove-top);
   width: var(--groove-width);
   height: var(--groove-height);
-  pointer-events: none;
   box-shadow:
-    0 0 0 1px rgba(150, 138, 105, 0.74),
-    0 0 0 2px rgba(252, 248, 234, 0.82),
-    0 0 0 3px rgba(122, 110, 82, 0.28),
-    inset 4px 4px 7px rgba(0, 0, 0, 0.11),
-    inset -3px -3px 7px rgba(255, 255, 255, 0.42);
+    0 0 0 1px rgba(125, 113, 82, 0.55),
+    0 0 0 2px rgba(252, 248, 234, 0.72),
+    inset 4px 4px 8px rgba(0, 0, 0, 0.10),
+    inset -3px -3px 7px rgba(255, 255, 255, 0.37);
 }
 
 .artWindow {
   position: absolute;
+  z-index: 4;
   left: var(--art-left);
   top: var(--art-top);
   width: var(--art-width);
   height: var(--art-height);
-  z-index: 3;
   overflow: hidden;
   background: #030303;
   box-shadow:
-    0 0 0 1px rgba(9, 9, 8, 0.98),
-    0 0 0 2px rgba(241, 237, 220, 0.92),
-    0 8px 14px rgba(0, 0, 0, 0.24),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.055);
+    0 0 0 1px rgba(2,2,2,0.98),
+    0 0 0 2px rgba(238, 233, 216, 0.88),
+    0 10px 16px rgba(0, 0, 0, 0.22),
+    inset 0 0 0 1px rgba(255,255,255,0.045);
 }
 
 .artWindow::after {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: 5;
+  z-index: 2;
   pointer-events: none;
   box-shadow:
-    inset 4px 4px 7px rgba(0, 0, 0, 0.20),
-    inset -3px -3px 7px rgba(255, 255, 255, 0.10);
+    inset 4px 4px 8px rgba(0,0,0,0.22),
+    inset -3px -3px 7px rgba(255,255,255,0.08);
 }
 
 .artImage {
@@ -118,14 +148,14 @@
 
 .plate {
   position: absolute;
+  z-index: 5;
   left: var(--plate-left);
   top: var(--plate-top);
   width: var(--plate-width);
-  aspect-ratio: 382 / 100;
-  z-index: 4;
+  aspect-ratio: 6.2 / 1;
   filter:
-    drop-shadow(0 1px 1px rgba(0, 0, 0, 0.40))
-    drop-shadow(0 3px 5px rgba(0, 0, 0, 0.17));
+    drop-shadow(0 1px 1px rgba(0,0,0,0.42))
+    drop-shadow(0 3px 6px rgba(0,0,0,0.18));
 }
 
 .plate img {
@@ -139,22 +169,22 @@
 
 .plateText {
   position: absolute;
-  inset: 19% 12% 17%;
+  inset: 21% 13% 18%;
   display: grid;
   place-items: center;
   text-align: center;
-  color: rgba(45, 30, 10, 0.82);
-  line-height: 0.92;
-  letter-spacing: 0.006em;
+  color: rgba(39, 28, 12, 0.82);
   font-family:
     "Iowan Old Style",
     "Palatino Linotype",
     Palatino,
     "Times New Roman",
     serif;
+  line-height: 0.92;
+  letter-spacing: 0.006em;
   text-shadow:
-    0 1px 0 rgba(255, 237, 170, 0.25),
-    0 -1px 0 rgba(50, 30, 8, 0.18);
+    0 1px 0 rgba(255, 236, 170, 0.26),
+    0 -1px 0 rgba(43, 25, 6, 0.18);
 }
 
 .plateText strong {
@@ -168,23 +198,23 @@
 
 .plateText em {
   display: block;
-  margin-top: 0.10em;
-  font-size: 0.55em;
+  margin-top: 0.05em;
+  font-size: 0.53em;
   font-style: normal;
-  letter-spacing: 0.11em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  opacity: 0.62;
+  opacity: 0.60;
 }
 
-.standardTitle { font-size: clamp(5.2px, 0.38vw, 7px); }
-.compactTitle { font-size: clamp(4.6px, 0.34vw, 6.2px); letter-spacing: -0.006em; }
-.microTitle { font-size: clamp(4px, 0.30vw, 5.4px); letter-spacing: -0.018em; }
+.standardTitle { font-size: clamp(5px, 0.34vw, 6.4px); }
+.compactTitle { font-size: clamp(4.3px, 0.30vw, 5.6px); letter-spacing: -0.006em; }
+.microTitle { font-size: clamp(3.8px, 0.27vw, 5px); letter-spacing: -0.018em; }
 
 .caption {
-  margin-top: clamp(10px, 0.85vw, 14px);
+  margin-top: clamp(10px, 0.8vw, 14px);
   text-align: center;
-  color: rgba(213, 198, 151, 0.54);
-  font-size: clamp(8px, 0.62vw, 10px);
+  color: rgba(213, 198, 151, 0.52);
+  font-size: clamp(8px, 0.60vw, 10px);
   letter-spacing: 0.20em;
   text-transform: uppercase;
 }
@@ -192,22 +222,17 @@
 .caption small {
   display: block;
   margin-top: 6px;
-  color: rgba(226, 221, 204, 0.45);
-  font-size: clamp(9px, 0.7vw, 11px);
+  color: rgba(226, 221, 204, 0.42);
+  font-size: clamp(9px, 0.68vw, 11px);
   letter-spacing: 0.055em;
   text-transform: none;
 }
 
 @media (max-width: 1080px) {
-  .stage { width: min(78vw, 700px); }
+  .stage { width: min(76vw, 630px); }
 }
 
 @media (max-width: 640px) {
-  .stage { width: min(92vw, 520px); }
-  .matPanel {
-    left: 16.9%;
-    top: 8.9%;
-    width: 64%;
-    height: 75.9%;
-  }
+  .stage { width: min(92vw, 500px); }
+  .wallMount { padding: 18px 10px; }
 }
