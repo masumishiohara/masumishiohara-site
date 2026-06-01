@@ -68,10 +68,6 @@ const featuredCode =
   asString(featured.code) ??
   "MS-BG-020";
 
-const featuredCaption =
-  asString(featured.caption) ??
-  "Framed reference from the Black Ground Botanical Works series.";
-
 const blackSlug = asString(blackGround.slug) ?? "black-ground-botanical-works";
 
 const routeCards = [
@@ -128,15 +124,29 @@ export default function HomePage() {
         </div>
 
         <div className={styles.heroFrame}>
-          <Link href={`/works/${blackSlug}`} className={styles.heroFramedPhotoLink} aria-label="View Black Ground Botanical Works series">
+          <Link href={`/works/${blackSlug}`} className={styles.realFrameLink} aria-label="View Black Ground Botanical Works series">
             <img
-              src="/home/framed-ms-bg-020-real-v31.jpg"
-              alt="Black Ground Botanical Works 020 by Masumi Shiohara, framed and lit on a gallery wall"
-              className={styles.heroFramedPhoto}
+              src="/home/empty-gallery-frame-scene-v32.png"
+              alt="Empty gallery wall frame with ivory mat and small brass plate"
+              className={styles.realFrameBase}
               draggable={false}
             />
+            <span className={styles.actualArtworkSlot} aria-hidden="true">
+              <img
+                src={featuredSrc}
+                alt=""
+                className={styles.actualArtwork}
+                draggable={false}
+                loading="eager"
+                fetchPriority="high"
+              />
+            </span>
+            <span className={styles.plateText} aria-hidden="true">
+              <strong>{featuredTitle}</strong>
+              <small>{featuredCode}</small>
+            </span>
           </Link>
-          <p className={styles.heroFrameCaption}>Featured framed work / Black Ground Botanical Works 020</p>
+          <p className={styles.heroFrameCaption}>Featured framed work / {featuredTitle}</p>
         </div>
       </section>
 
