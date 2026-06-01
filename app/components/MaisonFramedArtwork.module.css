@@ -31,7 +31,7 @@
   aspect-ratio: 770 / 850;
   box-sizing: border-box;
   border: var(--frame-border) solid transparent;
-  border-image-source: url("/frame-assets/modern/frame-border-v26.png");
+  border-image-source: url("/frame-assets/modern/frame-border-v27-no-baked-plate.png");
   border-image-slice: 86;
   border-image-width: 1;
   border-image-repeat: stretch;

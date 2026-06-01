@@ -55,7 +55,7 @@ function computeArtworkFit(artRatio: number, matRatio: number) {
   const grooveWidth = width + grooveGap * 2;
   const grooveHeight = height + grooveGap * 2;
 
-  const plateWidth = clamp(width * 0.25, 0.105, 0.165);
+  const plateWidth = clamp(width * 0.20, 0.090, 0.130);
   const plateLeft = (1 - plateWidth) / 2;
   const plateTop = clamp(top + height + 0.020, 0.70, 0.90);
 
@@ -135,7 +135,8 @@ export default function MaisonFramedArtwork({
             />
           </div>
           <div className={styles.plate} aria-hidden="true">
-            <img src="/frame-assets/modern/plate-real-v26.png" alt="" draggable={false} />
+            {/* Single dynamic plate only. The baked plate has been removed from the frame source image. */}
+            <img src="/frame-assets/modern/plate-real-v27-single.png" alt="" draggable={false} />
             <span className={`${styles.plateText} ${titleClass(title)}`}>
               <strong>{title}</strong>
               {code ? <em>{code}</em> : null}
