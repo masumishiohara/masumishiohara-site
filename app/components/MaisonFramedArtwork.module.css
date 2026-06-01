@@ -6,7 +6,7 @@
 
 .stage {
   position: relative;
-  width: min(48vw, 720px);
+  width: min(44vw, 640px);
   margin: 0 auto;
   padding: 0;
   isolation: isolate;
@@ -14,34 +14,57 @@
 
 .galleryLight {
   position: absolute;
-  inset: -12% -9% -8%;
+  inset: -9% -10% -8%;
   z-index: -2;
   background:
-    radial-gradient(circle at 50% 7%, rgba(255, 245, 204, 0.28), transparent 18%),
-    radial-gradient(circle at 50% 38%, rgba(232, 220, 181, 0.14), transparent 46%),
-    linear-gradient(180deg, rgba(255,255,255,0.035), rgba(0,0,0,0.16));
+    radial-gradient(circle at 50% 6%, rgba(255, 245, 205, 0.20), transparent 15%),
+    radial-gradient(circle at 50% 44%, rgba(216, 205, 174, 0.11), transparent 47%),
+    linear-gradient(180deg, rgba(255,255,255,0.022), rgba(0,0,0,0.17));
   filter: blur(1px);
-  opacity: 0.86;
+  opacity: 0.78;
 }
 
 .frameAssembly {
   position: relative;
   width: 100%;
-  aspect-ratio: 855 / 925;
-  filter:
-    drop-shadow(0 30px 28px rgba(0, 0, 0, 0.48))
-    drop-shadow(0 8px 12px rgba(0, 0, 0, 0.38));
+  aspect-ratio: 0.755;
+  overflow: visible;
+  background: #eee6d7;
+  box-shadow:
+    0 28px 34px rgba(0, 0, 0, 0.46),
+    0 6px 14px rgba(0, 0, 0, 0.42);
 }
 
-.frameShell {
+.matBoard {
   position: absolute;
-  inset: 0;
+  inset: var(--frame-rail);
   z-index: 1;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  user-select: none;
+  background:
+    radial-gradient(circle at 50% 36%, rgba(255,255,255,0.46), transparent 45%),
+    linear-gradient(180deg, rgba(247, 241, 225, 0.94), rgba(225, 216, 194, 0.96)),
+    url("/frame-assets/modern/mat-texture.png");
+  background-size: auto, auto, 160px 160px;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.62),
+    inset 0 0 0 2px rgba(198, 188, 160, 0.36),
+    inset 0 12px 22px rgba(0, 0, 0, 0.055),
+    inset 0 -12px 22px rgba(255, 255, 255, 0.18);
+}
+
+.groove {
+  position: absolute;
+  z-index: 2;
+  left: var(--groove-left);
+  top: var(--groove-top);
+  width: var(--groove-width);
+  height: var(--groove-height);
   pointer-events: none;
+  box-shadow:
+    0 0 0 1px rgba(180, 169, 139, 0.72),
+    0 0 0 3px rgba(247, 242, 226, 0.92),
+    0 0 0 4px rgba(148, 135, 105, 0.34),
+    inset 4px 4px 7px rgba(0, 0, 0, 0.13),
+    inset -3px -3px 7px rgba(255, 255, 255, 0.44);
 }
 
 .artWindow {
@@ -54,31 +77,21 @@
   overflow: hidden;
   background: #050505;
   box-shadow:
-    0 0 0 1px rgba(18, 18, 16, 0.95),
-    0 0 0 2px rgba(238, 234, 217, 0.96),
-    0 0 0 3px rgba(105, 98, 80, 0.36),
-    0 7px 14px rgba(0, 0, 0, 0.24),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+    0 0 0 1px rgba(12, 12, 10, 0.98),
+    0 0 0 2px rgba(238, 234, 217, 0.98),
+    0 8px 16px rgba(0, 0, 0, 0.25),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06);
 }
 
 .artWindow::before {
   content: "";
   position: absolute;
-  inset: -1.8%;
+  inset: -0.12%;
   z-index: 4;
   pointer-events: none;
   box-shadow:
-    inset 8px 8px 11px rgba(0, 0, 0, 0.23),
-    inset -5px -5px 10px rgba(255, 255, 255, 0.15);
-}
-
-.artWindow::after {
-  content: "";
-  position: absolute;
-  inset: -0.12%;
-  z-index: 5;
-  pointer-events: none;
-  border: 1px solid rgba(238, 233, 210, 0.74);
+    inset 6px 6px 9px rgba(0, 0, 0, 0.24),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.15);
 }
 
 .artImage {
@@ -98,11 +111,11 @@
   left: var(--plate-left);
   top: var(--plate-top);
   width: var(--plate-width);
-  aspect-ratio: 4.5 / 1;
+  aspect-ratio: 4.16 / 1;
   z-index: 4;
   filter:
     drop-shadow(0 1px 1px rgba(0, 0, 0, 0.46))
-    drop-shadow(0 4px 5px rgba(0, 0, 0, 0.22));
+    drop-shadow(0 3px 5px rgba(0, 0, 0, 0.18));
 }
 
 .plate img {
@@ -116,16 +129,16 @@
 
 .plateText {
   position: absolute;
-  inset: 19% 11% 17%;
+  inset: 18% 12% 14%;
   display: grid;
   place-items: center;
   text-align: center;
-  color: rgba(44, 29, 12, 0.82);
+  color: rgba(42, 27, 9, 0.82);
   text-shadow:
-    0 1px 0 rgba(255, 235, 161, 0.32),
-    0 -1px 0 rgba(77, 45, 13, 0.20);
-  line-height: 0.96;
-  letter-spacing: 0.015em;
+    0 1px 0 rgba(255, 237, 170, 0.28),
+    0 -1px 0 rgba(55, 33, 9, 0.18);
+  line-height: 0.94;
+  letter-spacing: 0.01em;
   font-family:
     "Iowan Old Style",
     "Palatino Linotype",
@@ -145,43 +158,121 @@
 
 .plateText em {
   display: block;
-  margin-top: 0.18em;
-  font-size: 0.58em;
+  margin-top: 0.14em;
+  font-size: 0.55em;
   font-style: normal;
-  letter-spacing: 0.11em;
+  letter-spacing: 0.10em;
   text-transform: uppercase;
-  opacity: 0.65;
+  opacity: 0.62;
 }
 
 .standardTitle {
-  font-size: clamp(6px, 0.48vw, 9px);
+  font-size: clamp(5px, 0.41vw, 7.5px);
 }
 
 .compactTitle {
-  font-size: clamp(5px, 0.42vw, 7.5px);
-  letter-spacing: 0;
+  font-size: clamp(4.5px, 0.36vw, 6.8px);
+  letter-spacing: -0.006em;
 }
 
 .microTitle {
-  font-size: clamp(4px, 0.36vw, 6.5px);
-  letter-spacing: -0.018em;
+  font-size: clamp(4px, 0.31vw, 5.8px);
+  letter-spacing: -0.02em;
 }
+
+.corner,
+.edge,
+.bead {
+  position: absolute;
+  z-index: 8;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+}
+
+.corner {
+  width: var(--corner-size);
+  height: var(--corner-size);
+  background-image: url("/frame-assets/modern/corner-tl.png");
+}
+
+.cornerTl { left: 0; top: 0; }
+.cornerTr { right: 0; top: 0; transform: scaleX(-1); }
+.cornerBl { left: 0; bottom: 0; transform: scaleY(-1); }
+.cornerBr { right: 0; bottom: 0; transform: scale(-1); }
+
+.edgeTop,
+.edgeBottom {
+  left: calc(var(--corner-size) * 0.62);
+  right: calc(var(--corner-size) * 0.62);
+  height: var(--frame-rail);
+  background-image: url("/frame-assets/modern/edge-horizontal.png");
+  background-repeat: repeat-x;
+  background-size: var(--edge-h-tile) 100%;
+}
+
+.edgeTop { top: 0; }
+.edgeBottom { bottom: 0; transform: scaleY(-1); }
+
+.edgeLeft,
+.edgeRight {
+  top: calc(var(--corner-size) * 0.62);
+  bottom: calc(var(--corner-size) * 0.62);
+  width: var(--frame-rail);
+  background-image: url("/frame-assets/modern/edge-vertical.png");
+  background-repeat: repeat-y;
+  background-size: 100% var(--edge-v-tile);
+}
+
+.edgeLeft { left: 0; }
+.edgeRight { right: 0; transform: scaleX(-1); }
+
+.beadTop,
+.beadBottom {
+  left: var(--frame-rail);
+  right: var(--frame-rail);
+  height: 9px;
+  background-image: url("/frame-assets/modern/inner-bead.png");
+  background-repeat: repeat-x;
+  background-size: 96px 100%;
+  opacity: 0.82;
+  z-index: 7;
+}
+
+.beadTop { top: calc(var(--frame-rail) - 8px); }
+.beadBottom { bottom: calc(var(--frame-rail) - 8px); transform: scaleY(-1); }
+
+.beadLeft,
+.beadRight {
+  top: var(--frame-rail);
+  bottom: var(--frame-rail);
+  width: 9px;
+  background-image: url("/frame-assets/modern/inner-bead.png");
+  background-repeat: repeat-y;
+  background-size: 100% 96px;
+  opacity: 0.72;
+  z-index: 7;
+}
+
+.beadLeft { left: calc(var(--frame-rail) - 8px); transform: rotate(180deg); }
+.beadRight { right: calc(var(--frame-rail) - 8px); }
 
 .caption {
   margin-top: clamp(10px, 0.9vw, 14px);
   text-align: center;
-  color: rgba(213, 198, 151, 0.58);
-  font-size: clamp(8px, 0.64vw, 10px);
-  letter-spacing: 0.20em;
+  color: rgba(213, 198, 151, 0.54);
+  font-size: clamp(8px, 0.62vw, 10px);
+  letter-spacing: 0.19em;
   text-transform: uppercase;
 }
 
 .caption small {
   display: block;
   margin-top: 6px;
-  color: rgba(226, 221, 204, 0.48);
-  font-size: clamp(9px, 0.72vw, 11px);
-  letter-spacing: 0.06em;
+  color: rgba(226, 221, 204, 0.45);
+  font-size: clamp(9px, 0.7vw, 11px);
+  letter-spacing: 0.055em;
   text-transform: none;
 }
 
@@ -194,9 +285,5 @@
 @media (max-width: 640px) {
   .stage {
     width: min(88vw, 480px);
-  }
-
-  .plate {
-    width: max(var(--plate-width), 17%);
   }
 }
