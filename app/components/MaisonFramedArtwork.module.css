@@ -6,7 +6,7 @@
 
 .stage {
   position: relative;
-  width: min(44vw, 640px);
+  width: min(46vw, 650px);
   margin: 0 auto;
   padding: 0;
   isolation: isolate;
@@ -14,41 +14,47 @@
 
 .galleryLight {
   position: absolute;
-  inset: -9% -10% -8%;
+  inset: -12% -12% -10%;
   z-index: -2;
   background:
-    radial-gradient(circle at 50% 6%, rgba(255, 245, 205, 0.20), transparent 15%),
-    radial-gradient(circle at 50% 44%, rgba(216, 205, 174, 0.11), transparent 47%),
-    linear-gradient(180deg, rgba(255,255,255,0.022), rgba(0,0,0,0.17));
+    radial-gradient(circle at 50% 10%, rgba(255, 246, 210, 0.22), transparent 17%),
+    radial-gradient(circle at 50% 45%, rgba(212, 203, 174, 0.12), transparent 48%),
+    linear-gradient(180deg, rgba(255,255,255,0.022), rgba(0,0,0,0.18));
   filter: blur(1px);
-  opacity: 0.78;
+  opacity: 0.86;
 }
 
 .frameAssembly {
+  --frame-border: clamp(46px, 5.2vw, 74px);
   position: relative;
   width: 100%;
-  aspect-ratio: 0.755;
-  overflow: visible;
-  background: #eee6d7;
+  aspect-ratio: 770 / 850;
+  box-sizing: border-box;
+  border: var(--frame-border) solid transparent;
+  border-image-source: url("/frame-assets/modern/frame-border-v26.png");
+  border-image-slice: 86;
+  border-image-width: 1;
+  border-image-repeat: stretch;
+  background: #eee6d6;
   box-shadow:
-    0 28px 34px rgba(0, 0, 0, 0.46),
-    0 6px 14px rgba(0, 0, 0, 0.42);
+    0 28px 34px rgba(0, 0, 0, 0.48),
+    0 7px 15px rgba(0, 0, 0, 0.44);
 }
 
+/* This is the real mat field. It is not a fixed-window image. */
 .matBoard {
   position: absolute;
-  inset: var(--frame-rail);
-  z-index: 1;
+  inset: 0;
   background:
-    radial-gradient(circle at 50% 36%, rgba(255,255,255,0.46), transparent 45%),
-    linear-gradient(180deg, rgba(247, 241, 225, 0.94), rgba(225, 216, 194, 0.96)),
-    url("/frame-assets/modern/mat-texture.png");
-  background-size: auto, auto, 160px 160px;
+    radial-gradient(circle at 50% 36%, rgba(255,255,255,0.42), transparent 45%),
+    linear-gradient(180deg, rgba(247, 242, 228, 0.96), rgba(229, 220, 198, 0.97)),
+    url("/frame-assets/modern/mat-texture-v26.png");
+  background-size: auto, auto, 240px 240px;
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.62),
-    inset 0 0 0 2px rgba(198, 188, 160, 0.36),
-    inset 0 12px 22px rgba(0, 0, 0, 0.055),
-    inset 0 -12px 22px rgba(255, 255, 255, 0.18);
+    inset 0 0 0 1px rgba(255, 255, 255, 0.68),
+    inset 0 0 0 2px rgba(195, 184, 154, 0.34),
+    inset 0 14px 24px rgba(0, 0, 0, 0.045),
+    inset 0 -12px 20px rgba(255, 255, 255, 0.17);
 }
 
 .groove {
@@ -60,11 +66,11 @@
   height: var(--groove-height);
   pointer-events: none;
   box-shadow:
-    0 0 0 1px rgba(180, 169, 139, 0.72),
-    0 0 0 3px rgba(247, 242, 226, 0.92),
-    0 0 0 4px rgba(148, 135, 105, 0.34),
-    inset 4px 4px 7px rgba(0, 0, 0, 0.13),
-    inset -3px -3px 7px rgba(255, 255, 255, 0.44);
+    0 0 0 1px rgba(177, 165, 133, 0.72),
+    0 0 0 2px rgba(249, 245, 229, 0.94),
+    0 0 0 3px rgba(139, 126, 98, 0.30),
+    inset 4px 4px 7px rgba(0, 0, 0, 0.11),
+    inset -3px -3px 7px rgba(255, 255, 255, 0.42);
 }
 
 .artWindow {
@@ -77,21 +83,21 @@
   overflow: hidden;
   background: #050505;
   box-shadow:
-    0 0 0 1px rgba(12, 12, 10, 0.98),
-    0 0 0 2px rgba(238, 234, 217, 0.98),
-    0 8px 16px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(14, 14, 12, 0.98),
+    0 0 0 2px rgba(239, 235, 218, 0.96),
+    0 7px 15px rgba(0, 0, 0, 0.25),
     inset 0 0 0 1px rgba(255, 255, 255, 0.06);
 }
 
 .artWindow::before {
   content: "";
   position: absolute;
-  inset: -0.12%;
+  inset: calc(var(--art-reveal) * -1);
   z-index: 4;
   pointer-events: none;
   box-shadow:
-    inset 6px 6px 9px rgba(0, 0, 0, 0.24),
-    inset -4px -4px 8px rgba(255, 255, 255, 0.15);
+    inset 5px 5px 8px rgba(0, 0, 0, 0.22),
+    inset -4px -4px 7px rgba(255, 255, 255, 0.13);
 }
 
 .artImage {
@@ -111,10 +117,10 @@
   left: var(--plate-left);
   top: var(--plate-top);
   width: var(--plate-width);
-  aspect-ratio: 4.16 / 1;
+  aspect-ratio: 145 / 55;
   z-index: 4;
   filter:
-    drop-shadow(0 1px 1px rgba(0, 0, 0, 0.46))
+    drop-shadow(0 1px 1px rgba(0, 0, 0, 0.44))
     drop-shadow(0 3px 5px rgba(0, 0, 0, 0.18));
 }
 
@@ -129,16 +135,16 @@
 
 .plateText {
   position: absolute;
-  inset: 18% 12% 14%;
+  inset: 18% 12% 16%;
   display: grid;
   place-items: center;
   text-align: center;
-  color: rgba(42, 27, 9, 0.82);
+  color: rgba(40, 28, 11, 0.80);
   text-shadow:
-    0 1px 0 rgba(255, 237, 170, 0.28),
-    0 -1px 0 rgba(55, 33, 9, 0.18);
+    0 1px 0 rgba(255, 236, 168, 0.28),
+    0 -1px 0 rgba(55, 34, 10, 0.18);
   line-height: 0.94;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.006em;
   font-family:
     "Iowan Old Style",
     "Palatino Linotype",
@@ -158,105 +164,17 @@
 
 .plateText em {
   display: block;
-  margin-top: 0.14em;
+  margin-top: 0.12em;
   font-size: 0.55em;
   font-style: normal;
   letter-spacing: 0.10em;
   text-transform: uppercase;
-  opacity: 0.62;
+  opacity: 0.60;
 }
 
-.standardTitle {
-  font-size: clamp(5px, 0.41vw, 7.5px);
-}
-
-.compactTitle {
-  font-size: clamp(4.5px, 0.36vw, 6.8px);
-  letter-spacing: -0.006em;
-}
-
-.microTitle {
-  font-size: clamp(4px, 0.31vw, 5.8px);
-  letter-spacing: -0.02em;
-}
-
-.corner,
-.edge,
-.bead {
-  position: absolute;
-  z-index: 8;
-  pointer-events: none;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100% 100%;
-}
-
-.corner {
-  width: var(--corner-size);
-  height: var(--corner-size);
-  background-image: url("/frame-assets/modern/corner-tl.png");
-}
-
-.cornerTl { left: 0; top: 0; }
-.cornerTr { right: 0; top: 0; transform: scaleX(-1); }
-.cornerBl { left: 0; bottom: 0; transform: scaleY(-1); }
-.cornerBr { right: 0; bottom: 0; transform: scale(-1); }
-
-.edgeTop,
-.edgeBottom {
-  left: calc(var(--corner-size) * 0.62);
-  right: calc(var(--corner-size) * 0.62);
-  height: var(--frame-rail);
-  background-image: url("/frame-assets/modern/edge-horizontal.png");
-  background-repeat: repeat-x;
-  background-size: var(--edge-h-tile) 100%;
-}
-
-.edgeTop { top: 0; }
-.edgeBottom { bottom: 0; transform: scaleY(-1); }
-
-.edgeLeft,
-.edgeRight {
-  top: calc(var(--corner-size) * 0.62);
-  bottom: calc(var(--corner-size) * 0.62);
-  width: var(--frame-rail);
-  background-image: url("/frame-assets/modern/edge-vertical.png");
-  background-repeat: repeat-y;
-  background-size: 100% var(--edge-v-tile);
-}
-
-.edgeLeft { left: 0; }
-.edgeRight { right: 0; transform: scaleX(-1); }
-
-.beadTop,
-.beadBottom {
-  left: var(--frame-rail);
-  right: var(--frame-rail);
-  height: 9px;
-  background-image: url("/frame-assets/modern/inner-bead.png");
-  background-repeat: repeat-x;
-  background-size: 96px 100%;
-  opacity: 0.82;
-  z-index: 7;
-}
-
-.beadTop { top: calc(var(--frame-rail) - 8px); }
-.beadBottom { bottom: calc(var(--frame-rail) - 8px); transform: scaleY(-1); }
-
-.beadLeft,
-.beadRight {
-  top: var(--frame-rail);
-  bottom: var(--frame-rail);
-  width: 9px;
-  background-image: url("/frame-assets/modern/inner-bead.png");
-  background-repeat: repeat-y;
-  background-size: 100% 96px;
-  opacity: 0.72;
-  z-index: 7;
-}
-
-.beadLeft { left: calc(var(--frame-rail) - 8px); transform: rotate(180deg); }
-.beadRight { right: calc(var(--frame-rail) - 8px); }
+.standardTitle { font-size: clamp(4.8px, 0.36vw, 6.6px); }
+.compactTitle { font-size: clamp(4.2px, 0.31vw, 5.8px); letter-spacing: -0.006em; }
+.microTitle { font-size: clamp(3.8px, 0.28vw, 5px); letter-spacing: -0.018em; }
 
 .caption {
   margin-top: clamp(10px, 0.9vw, 14px);
@@ -277,13 +195,10 @@
 }
 
 @media (max-width: 1080px) {
-  .stage {
-    width: min(76vw, 620px);
-  }
+  .stage { width: min(76vw, 620px); }
 }
 
 @media (max-width: 640px) {
-  .stage {
-    width: min(88vw, 480px);
-  }
+  .stage { width: min(88vw, 480px); }
+  .frameAssembly { --frame-border: clamp(36px, 8vw, 54px); }
 }
