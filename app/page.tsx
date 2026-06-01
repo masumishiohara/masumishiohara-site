@@ -1,364 +1,175 @@
 import type { Metadata } from "next";
-import { workSeries } from "./work-series-data";
-import { mailtoHref, siteConfig } from "./site-config";
+import Link from "next/link";
 import MaisonFramedArtwork from "./components/MaisonFramedArtwork";
 import styles from "./page.module.css";
-
-const siteUrl = siteConfig.siteUrl;
-
-type FeaturedWork = {
-  src: string;
-  title: string;
-  code: string;
-  caption: string;
-};
-
-function normalizeAssetPath(value: unknown) {
-  if (typeof value !== "string" || !value.trim()) return "";
-  const trimmed = value.trim();
-  if (trimmed.startsWith("http://") || trimmed.startsWith("https://") || trimmed.startsWith("/")) return trimmed;
-  return `/${trimmed}`;
-}
-
-function featuredWorkFromSeries(series: any): FeaturedWork | null {
-  if (!series) return null;
-  const rawWorks =
-    (Array.isArray(series.works) && series.works) ||
-    (Array.isArray(series.items) && series.items) ||
-    (Array.isArray(series.images) && series.images) ||
-    (Array.isArray(series.gallery) && series.gallery) ||
-    [];
-
-  const preferredIndex = String(series.slug) === "black-ground-botanical-works" ? 19 : 0;
-  const candidate = rawWorks[Math.min(preferredIndex, Math.max(rawWorks.length - 1, 0))] ?? rawWorks[0];
-
-  if (typeof candidate === "string") {
-    const src = normalizeAssetPath(candidate);
-    if (!src) return null;
-    const indexLabel = String(Math.min(preferredIndex + 1, Math.max(rawWorks.length, 1))).padStart(3, "0");
-    return {
-      src,
-      title: `${series.title ?? "Featured Work"} ${indexLabel}`,
-      code: `${series.code ?? "MS"}-${indexLabel}`,
-      caption: `Featured framed work from ${series.title ?? "Masumi Shiohara Works"}.`,
-    };
-  }
-
-  if (candidate && typeof candidate === "object") {
-    const record = candidate as Record<string, any>;
-    const src = normalizeAssetPath(record.src ?? record.image ?? record.url ?? record.path ?? record.file);
-    if (src) {
-      const code = String(record.code ?? record.id ?? `${series.code ?? "MS"}-020`);
-      const title = String(record.title ?? record.name ?? `${series.title ?? "Featured Work"} ${code}`);
-      const caption = String(record.caption ?? `Featured framed work from ${series.title ?? "Masumi Shiohara Works"}. Reference ${code}.`);
-      return { src, title, code, caption };
-    }
-  }
-
-  const hero = normalizeAssetPath(series.heroImage ?? series.image);
-  return hero
-    ? {
-        src: hero,
-        title: String(series.title ?? "Featured Work"),
-        code: String(series.code ?? "MS"),
-        caption: `Featured series / ${String(series.title ?? "Masumi Shiohara Works")}`,
-      }
-    : null;
-}
-
-
-const primarySeries =
-  workSeries.find((series) => series.slug === "black-ground-botanical-works") ?? workSeries[0];
-
-const canvasSeries =
-  workSeries.find((series) => series.slug === "canvas-botanical-studies") ??
-  workSeries[1] ??
-  workSeries[0];
-
-const vellumSeries =
-  workSeries.find((series) => series.slug === "vellum-fruit-studies") ?? workSeries[2] ?? workSeries[0];
-
-const featuredSeries = workSeries.slice(0, 6);
-const quietSeries = workSeries.slice(6, 12);
-const featuredFrameWork = featuredWorkFromSeries(primarySeries);
-const heroImage = featuredFrameWork?.src ? (featuredFrameWork.src.startsWith("http") ? featuredFrameWork.src : `${siteUrl}${featuredFrameWork.src}`) : primarySeries?.heroImage ? `${siteUrl}${primarySeries.heroImage}` : undefined;
+import { workSeries } from "./work-series-data";
 
 export const metadata: Metadata = {
   title: "Masumi Shiohara | Cultivated Botanical Works",
   description:
-    "An elegant series-based portfolio of botanical works by Masumi Shiohara, made for curatorial, editorial, acquisition, publication, and maison-level review.",
-  alternates: {
-    canonical: siteUrl,
-  },
-  openGraph: {
-    title: "Masumi Shiohara | Cultivated Botanical Works",
-    description:
-      "Cultivated botanical works organized for refined editorial, curatorial, and material-led viewing.",
-    url: siteUrl,
-    type: "website",
-    images: heroImage
-      ? [
-          {
-            url: heroImage,
-            width: 1200,
-            height: 900,
-            alt: "Masumi Shiohara botanical work",
-          },
-        ]
-      : undefined,
-  },
+    "Masumi Shiohara works with cultivated fruit, botanical forms, orchard time, photography, object making, and print-like surfaces.",
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: "Masumi Shiohara",
-  url: siteUrl,
-  description:
-    "Portfolio website for Masumi Shiohara's cultivated botanical works, organized by series for editorial and curatorial review.",
-  author: {
-    "@type": "Person",
-    name: "Masumi Shiohara",
-    jobTitle: "Artist",
-    description:
-      "Artist working with cultivated fruit, botanical forms, photography, object making, and material memory.",
-  },
-};
+type AnyRecord = Record<string, unknown>;
 
-export default function Home() {
+function asRecord(value: unknown): AnyRecord {
+  return value && typeof value === "object" ? (value as AnyRecord) : {};
+}
+
+function asString(value: unknown): string | undefined {
+  return typeof value === "string" && value.trim() ? value : undefined;
+}
+
+function arrayFrom(value: unknown): AnyRecord[] {
+  return Array.isArray(value) ? value.map(asRecord) : [];
+}
+
+function getImages(series: AnyRecord): AnyRecord[] {
+  return [
+    ...arrayFrom(series.images),
+    ...arrayFrom(series.works),
+    ...arrayFrom(series.items),
+    ...arrayFrom(series.plates),
+  ];
+}
+
+function getImageSrc(item: AnyRecord): string | undefined {
+  return (
+    asString(item.src) ??
+    asString(item.image) ??
+    asString(item.url) ??
+    asString(item.href) ??
+    asString(item.path)
+  );
+}
+
+const seriesList = (workSeries as unknown as AnyRecord[]) ?? [];
+const blackGround =
+  seriesList.find((series) => asString(series.slug)?.includes("black-ground")) ??
+  seriesList.find((series) => asString(series.title)?.toLowerCase().includes("black ground")) ??
+  seriesList[0] ??
+  {};
+
+const blackImages = getImages(blackGround);
+const featured =
+  blackImages.find((item) => asString(item.code)?.includes("020")) ??
+  blackImages.find((item) => asString(item.title)?.includes("020")) ??
+  blackImages[0] ??
+  {};
+
+const featuredSrc =
+  getImageSrc(featured) ??
+  "/gallery/black-ground-botanical-works/MS-B-G-020.jpg";
+
+const featuredTitle =
+  asString(featured.title) ??
+  "Black Ground Botanical Works 020";
+
+const featuredCode =
+  asString(featured.code) ??
+  "MS-BG-020";
+
+const featuredCaption =
+  asString(featured.caption) ??
+  "Framed reference from the Black Ground Botanical Works series.";
+
+const blackSlug = asString(blackGround.slug) ?? "black-ground-botanical-works";
+
+const routeCards = [
+  {
+    number: "01",
+    title: "Works",
+    href: "/projects/botanical-portraits",
+    text: "Browse the public series as works, studies, processes, and archive routes.",
+  },
+  {
+    number: "02",
+    title: "Dossier",
+    href: "/dossier",
+    text: "A concise editorial route for curators, editors, collectors, and maison teams.",
+  },
+  {
+    number: "03",
+    title: "Curatorial",
+    href: "/curatorial",
+    text: "Context for exhibition, institutional review, and critical presentation.",
+  },
+  {
+    number: "04",
+    title: "Archive",
+    href: "/archive",
+    text: "Series map, visual condition, selection, process, and reference structure.",
+  },
+];
+
+const worldRoutes = [
+  ["Cultivation", "Orchard time, seasonal work, and the living material before the photograph."],
+  ["Breeding", "Selection, variation, rejected forms, and the long span of agricultural decision."],
+  ["Image", "Photographic surfaces that hold botanical evidence rather than decoration."],
+];
+
+export default function HomePage() {
   return (
     <main className={styles.homePage}>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-
-      <section className={styles.heroSection} aria-labelledby="home-title">
+      <section className={styles.hero} aria-labelledby="home-title">
         <div className={styles.heroCopy}>
-          <p className={styles.eyebrow}>MASUMI SHIOHARA / CULTIVATED BOTANICAL WORKS</p>
-          <h1 id="home-title">Botanical forms held in silence, precision, and light.</h1>
-          <p className={styles.lead}>
-            Masumi Shiohara works with cultivated fruit, botanical forms, orchard time,
-            photography, object making, and print-like surfaces. The site is shaped as a quiet
-            editorial portfolio: precise enough for curators, refined enough for publication, and
-            calm enough for close looking.
+          <p className={styles.eyebrow}>Masumi Shiohara / Cultivated Botanical Works</p>
+          <h1 id="home-title">A cultivated world of fruit, form, time, and image.</h1>
+          <p className={styles.lede}>
+            The work begins in the orchard: with breeding, cultivation, selection,
+            waiting, rejection, and the final photographic surface. The website is
+            arranged as a quiet route into that world, not as a decoration around it.
           </p>
-          <div className={styles.ctaRow} aria-label="Primary actions">
-            <a className={styles.primaryCta} href="/projects/botanical-portraits">
-              View works
-            </a>
-            <a className={styles.secondaryCta} href="/dossier">
-              Curated dossier
-            </a>
-            <a className={styles.secondaryCta} href="/curatorial">
-              Curatorial context
-            </a>
-            <a className={styles.tertiaryCta} href={mailtoHref("Editorial enquiry for Masumi Shiohara")}>
-              {siteConfig.contactEmail}
-            </a>
+          <div className={styles.heroActions}>
+            <Link href="/projects/botanical-portraits">View works</Link>
+            <Link href="/dossier">Curated dossier</Link>
+            <Link href="/curatorial">Curatorial context</Link>
+            <Link href="/contact">contact@masumishiohara.com</Link>
           </div>
         </div>
 
-        {primarySeries && featuredFrameWork ? (
+        <div className={styles.heroFrame}>
           <MaisonFramedArtwork
-            href={`/works/${primarySeries.slug}`}
-            src={featuredFrameWork.src}
-            alt={`${featuredFrameWork.title} by Masumi Shiohara`}
-            code={featuredFrameWork.code}
-            title={featuredFrameWork.title}
-            plaqueKicker="Featured framed work"
-            caption={featuredFrameWork.caption}
+            src={featuredSrc}
+            title={featuredTitle}
+            code={featuredCode}
+            seriesTitle="Featured framed work"
+            caption={featuredCaption}
+            href={`/works/${blackSlug}`}
           />
-        ) : null}
+        </div>
       </section>
 
-      <section className={styles.maisonPanel} aria-labelledby="maison-title">
+      <section className={styles.seriesRoutes} aria-label="Primary visitor routes">
+        {routeCards.map((card) => (
+          <Link href={card.href} className={styles.routeCard} key={card.title}>
+            <span>{card.number}</span>
+            <h2>{card.title}</h2>
+            <p>{card.text}</p>
+          </Link>
+        ))}
+      </section>
+
+      <section className={styles.worldSection} aria-labelledby="world-title">
         <div>
-          <p className={styles.eyebrow}>EDITORIAL / MAISON VIEWING</p>
-          <h2 id="maison-title">Restraint, sequence, and silence before decoration.</h2>
+          <p className={styles.eyebrow}>The work is not a single framed object</p>
+          <h2 id="world-title">It is an archive of cultivation, choice, and photographic form.</h2>
         </div>
-        <p>
-          This section is not meant to impress through quantity. It clarifies how an editor,
-          curator, maison team, gallery, or collector should enter the work without being forced
-          through every image at once. The visual system is quiet by design: fewer signals,
-          more air, and a slower sense of value.
-        </p>
-      </section>
-
-      <section className={styles.viewingRoutes} aria-labelledby="route-panel-title">
-        <div className={styles.viewingIntro}>
-          <p className={styles.eyebrow}>VIEWING ROUTES</p>
-          <h2 id="route-panel-title">Four restrained entry points, separated by intent.</h2>
-        </div>
-        <div className={styles.viewingList}>
-          <a href="/dossier">
-            <span>01</span>
-            <strong>Dossier</strong>
-            <em>short editorial selection</em>
-          </a>
-          <a href="/projects/botanical-portraits">
-            <span>02</span>
-            <strong>Works</strong>
-            <em>complete series index</em>
-          </a>
-          <a href="/curatorial">
-            <span>03</span>
-            <strong>Curatorial</strong>
-            <em>institutional context</em>
-          </a>
-          <a href="/acquisitions">
-            <span>04</span>
-            <strong>Acquisitions</strong>
-            <em>collector and gallery enquiry</em>
-          </a>
-        </div>
-      </section>
-
-      <section className={styles.sectionBlock} aria-labelledby="featured-series-title">
-        <div className={styles.sectionHeader}>
-          <p className={styles.eyebrow}>WORKS INDEX</p>
-          <h2 id="featured-series-title">Enter through a body of work.</h2>
-          <p>
-            Each series functions as a separate room: black-ground studies, canvas surfaces,
-            vellum-like images, photographic records, and object-based arrangements. The structure
-            lets editors, curators, and collectors move from atmosphere to exact reference.
-          </p>
-        </div>
-
-        <div className={styles.seriesGrid}>
-          {featuredSeries.map((series) => (
-            <a className={styles.seriesCard} href={`/works/${series.slug}`} key={series.slug}>
-              <img
-                src={series.heroImage}
-                alt={`${series.title} series thumbnail`}
-                className={styles.seriesImage}
-              />
-              <div className={styles.seriesText}>
-                <span>{series.code}</span>
-                <h3>{series.title}</h3>
-                <p>{series.statement}</p>
-              </div>
-            </a>
+        <div className={styles.worldGrid}>
+          {worldRoutes.map(([title, text]) => (
+            <article key={title}>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </article>
           ))}
         </div>
-
-        {quietSeries.length > 0 ? (
-          <div className={styles.compactSeries} aria-label="Additional work series">
-            {quietSeries.map((series) => (
-              <a href={`/works/${series.slug}`} key={series.slug}>
-                <span>{series.code}</span>
-                {series.title}
-              </a>
-            ))}
-          </div>
-        ) : null}
-
-        <a className={styles.textLink} href="/projects/botanical-portraits">
-          Open complete works index
-        </a>
       </section>
 
-      <section className={styles.editorialBand} aria-labelledby="practice-summary-title">
-        <div>
-          <p className={styles.eyebrow}>PRACTICE</p>
-          <h2 id="practice-summary-title">Cultivated materials become records of season and care.</h2>
-        </div>
-        <p>
-          A fruit, leaf, blossom, or branch carries duration: weather, growth, harvest, handling,
-          ripening, and disappearance. Photography and surface are used not only to record these
-          materials, but to make their quiet changes visible.
-        </p>
-      </section>
-
-      <section className={styles.dualFeature} aria-labelledby="material-title">
-        {canvasSeries ? (
-          <a className={styles.dualImage} href={`/works/${canvasSeries.slug}`}>
-            <img src={canvasSeries.heroImage} alt={`${canvasSeries.title} feature`} />
-          </a>
-        ) : null}
-        <div>
-          <p className={styles.eyebrow}>SURFACE AND MATERIAL</p>
-          <h2 id="material-title">The botanical form is treated with the restraint of a jewel setting.</h2>
-          <p>
-            Black grounds isolate silhouette and presence. Canvas studies connect cultivated
-            forms to a woven pictorial field. Vellum-like surfaces soften the image toward memory,
-            while photographic and object-based works keep the material close to observation and
-            handling.
-          </p>
-          <a className={styles.secondaryCta} href="/about">
-            Read about the practice
-          </a>
-        </div>
-      </section>
-
-      <section className={styles.signatureFeature} aria-labelledby="signature-title">
-        {vellumSeries ? (
-          <a href={`/works/${vellumSeries.slug}`}>
-            <img src={vellumSeries.heroImage} alt={`${vellumSeries.title} detail`} />
-          </a>
-        ) : null}
-        <div>
-          <p className={styles.eyebrow}>FOR EDITORS AND MAISONS</p>
-          <h2 id="signature-title">A portfolio intended to remain after one quiet image.</h2>
-          <p>
-            The visual direction now places fewer elements on each screen, increases the sense of
-            negative space, and lets the botanical work carry the luxury signal through discipline,
-            not ornament.
-          </p>
-          <a className={styles.secondaryCta} href="/editorial">
-            Open editorial viewing route
-          </a>
-        </div>
-      </section>
-
-      <section className={styles.pathwayGrid} aria-label="Main site pathways">
-        <a href="/dossier">
-          <span>01</span>
-          <h2>Dossier</h2>
-          <p>A short curated route for editors, curators, collectors, and maison teams.</p>
-        </a>
-        <a href="/projects/botanical-portraits">
-          <span>02</span>
-          <h2>Works</h2>
-          <p>Browse the public portfolio by botanical series and visual condition.</p>
-        </a>
-        <a href="/acquisitions">
-          <span>03</span>
-          <h2>Acquisitions</h2>
-          <p>Collector, gallery, advisor, and artwork-related enquiry route.</p>
-        </a>
-        <a href="/curatorial">
-          <span>04</span>
-          <h2>Curatorial</h2>
-          <p>Institutional, exhibition, cultural, and critical context route.</p>
-        </a>
-      </section>
-
-      <section className={styles.resourceStrip} aria-labelledby="resource-title">
-        <div>
-          <p className={styles.eyebrow}>VISITOR ROUTES</p>
-          <h2 id="resource-title">Context for editors, curators, collectors, and project teams.</h2>
-        </div>
-        <div className={styles.resourceLinks}>
-          <a href="/dossier">Curated dossier</a>
-          <a href="/archive">Series archive</a>
-          <a href="/process">Process</a>
-          <a href="/curatorial">Curatorial</a>
-          <a href="/acquisitions">Acquisitions</a>
-          <a href="/collaborations">Collaborations</a>
-          <a href="/press">Press / image requests</a>
-        </div>
-      </section>
-
-      <section className={styles.finalCta} aria-labelledby="final-cta-title">
-        <div>
-          <p className={styles.eyebrow}>CONTACT</p>
-          <h2 id="final-cta-title">For editorial, curatorial, acquisition, maison, and project enquiries.</h2>
-          <p>{siteConfig.contactEmail}</p>
-        </div>
-        <a className={styles.primaryCta} href={mailtoHref("Masumi Shiohara enquiry")}>
-          Send enquiry
-        </a>
+      <section className={styles.finalRoute} aria-label="Editorial and acquisition routes">
+        <Link href="/editorial">Editorial viewing</Link>
+        <Link href="/acquisitions">Acquisitions</Link>
+        <Link href="/exhibitions">Exhibitions</Link>
+        <Link href="/awards">Awards</Link>
       </section>
     </main>
   );
