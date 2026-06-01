@@ -6,36 +6,37 @@
 
 .stage {
   position: relative;
-  width: min(45vw, 650px);
+  width: min(48vw, 720px);
   margin: 0 auto;
-  padding: clamp(8px, 1vw, 16px) 0 0;
+  padding: 0;
   isolation: isolate;
 }
 
-.wallGlow {
+.galleryLight {
   position: absolute;
-  inset: -12% -14% -10%;
+  inset: -12% -9% -8%;
   z-index: -2;
   background:
-    radial-gradient(circle at 50% 8%, rgba(239, 224, 173, 0.32), transparent 28%),
-    radial-gradient(circle at 47% 42%, rgba(221, 207, 167, 0.16), transparent 44%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(0, 0, 0, 0.18));
+    radial-gradient(circle at 50% 7%, rgba(255, 245, 204, 0.28), transparent 18%),
+    radial-gradient(circle at 50% 38%, rgba(232, 220, 181, 0.14), transparent 46%),
+    linear-gradient(180deg, rgba(255,255,255,0.035), rgba(0,0,0,0.16));
   filter: blur(1px);
-  opacity: 0.92;
+  opacity: 0.86;
 }
 
 .frameAssembly {
   position: relative;
   width: 100%;
-  aspect-ratio: 1360 / 1480;
+  aspect-ratio: 855 / 925;
   filter:
-    drop-shadow(0 26px 32px rgba(0, 0, 0, 0.48))
-    drop-shadow(0 8px 14px rgba(0, 0, 0, 0.34));
+    drop-shadow(0 30px 28px rgba(0, 0, 0, 0.48))
+    drop-shadow(0 8px 12px rgba(0, 0, 0, 0.38));
 }
 
 .frameShell {
   position: absolute;
   inset: 0;
+  z-index: 1;
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -50,34 +51,43 @@
   width: var(--art-width);
   height: var(--art-height);
   z-index: 3;
-  background: #050505;
-  border: clamp(2px, 0.35vw, 5px) solid rgba(10, 10, 9, 0.92);
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.34),
-    0 0 0 5px rgba(218, 212, 192, 0.95),
-    0 0 0 7px rgba(125, 116, 88, 0.38),
-    0 9px 16px rgba(0, 0, 0, 0.24),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
   overflow: hidden;
+  background: #050505;
+  box-shadow:
+    0 0 0 1px rgba(18, 18, 16, 0.95),
+    0 0 0 2px rgba(238, 234, 217, 0.96),
+    0 0 0 3px rgba(105, 98, 80, 0.36),
+    0 7px 14px rgba(0, 0, 0, 0.24),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
 .artWindow::before {
   content: "";
   position: absolute;
-  inset: -10px;
-  z-index: 2;
+  inset: -1.8%;
+  z-index: 4;
   pointer-events: none;
   box-shadow:
-    inset 8px 8px 12px rgba(0, 0, 0, 0.22),
-    inset -4px -4px 9px rgba(255, 255, 255, 0.16);
+    inset 8px 8px 11px rgba(0, 0, 0, 0.23),
+    inset -5px -5px 10px rgba(255, 255, 255, 0.15);
+}
+
+.artWindow::after {
+  content: "";
+  position: absolute;
+  inset: -0.12%;
+  z-index: 5;
+  pointer-events: none;
+  border: 1px solid rgba(238, 233, 210, 0.74);
 }
 
 .artImage {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: block;
-  width: 100%;
-  height: 100%;
+  width: 100.2%;
+  height: 100.2%;
+  transform: translate(-0.1%, -0.1%);
   object-fit: fill;
   user-select: none;
   -webkit-user-drag: none;
@@ -88,17 +98,17 @@
   left: var(--plate-left);
   top: var(--plate-top);
   width: var(--plate-width);
+  aspect-ratio: 4.5 / 1;
   z-index: 4;
-  aspect-ratio: 6 / 1;
   filter:
-    drop-shadow(0 2px 2px rgba(0, 0, 0, 0.42))
-    drop-shadow(0 7px 10px rgba(0, 0, 0, 0.18));
+    drop-shadow(0 1px 1px rgba(0, 0, 0, 0.46))
+    drop-shadow(0 4px 5px rgba(0, 0, 0, 0.22));
 }
 
 .plate img {
+  display: block;
   width: 100%;
   height: 100%;
-  display: block;
   object-fit: fill;
   user-select: none;
   pointer-events: none;
@@ -106,16 +116,16 @@
 
 .plateText {
   position: absolute;
-  inset: 21% 12% 18%;
+  inset: 19% 11% 17%;
   display: grid;
   place-items: center;
   text-align: center;
-  color: rgba(54, 35, 14, 0.86);
+  color: rgba(44, 29, 12, 0.82);
   text-shadow:
-    0 1px 0 rgba(255, 231, 151, 0.45),
-    0 -1px 0 rgba(61, 36, 12, 0.28);
-  line-height: 1;
-  letter-spacing: 0.018em;
+    0 1px 0 rgba(255, 235, 161, 0.32),
+    0 -1px 0 rgba(77, 45, 13, 0.20);
+  line-height: 0.96;
+  letter-spacing: 0.015em;
   font-family:
     "Iowan Old Style",
     "Palatino Linotype",
@@ -126,67 +136,67 @@
 
 .plateText strong {
   display: block;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   font-weight: 500;
 }
 
 .plateText em {
   display: block;
-  margin-top: 0.2em;
-  font-size: 0.62em;
+  margin-top: 0.18em;
+  font-size: 0.58em;
   font-style: normal;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.11em;
   text-transform: uppercase;
-  opacity: 0.68;
+  opacity: 0.65;
 }
 
 .standardTitle {
-  font-size: clamp(7px, 0.58vw, 11px);
+  font-size: clamp(6px, 0.48vw, 9px);
 }
 
 .compactTitle {
-  font-size: clamp(6px, 0.49vw, 9px);
-  letter-spacing: 0.005em;
+  font-size: clamp(5px, 0.42vw, 7.5px);
+  letter-spacing: 0;
 }
 
 .microTitle {
-  font-size: clamp(5px, 0.42vw, 8px);
-  letter-spacing: -0.01em;
+  font-size: clamp(4px, 0.36vw, 6.5px);
+  letter-spacing: -0.018em;
 }
 
 .caption {
-  margin-top: clamp(12px, 1.2vw, 18px);
+  margin-top: clamp(10px, 0.9vw, 14px);
   text-align: center;
-  color: rgba(213, 198, 151, 0.64);
-  font-size: clamp(9px, 0.72vw, 11px);
-  letter-spacing: 0.22em;
+  color: rgba(213, 198, 151, 0.58);
+  font-size: clamp(8px, 0.64vw, 10px);
+  letter-spacing: 0.20em;
   text-transform: uppercase;
 }
 
 .caption small {
   display: block;
-  margin-top: 8px;
-  color: rgba(226, 221, 204, 0.54);
-  font-size: clamp(10px, 0.78vw, 12px);
-  letter-spacing: 0.08em;
+  margin-top: 6px;
+  color: rgba(226, 221, 204, 0.48);
+  font-size: clamp(9px, 0.72vw, 11px);
+  letter-spacing: 0.06em;
   text-transform: none;
 }
 
-@media (max-width: 980px) {
+@media (max-width: 1080px) {
   .stage {
-    width: min(76vw, 520px);
-  }
-
-  .caption {
-    letter-spacing: 0.14em;
+    width: min(76vw, 620px);
   }
 }
 
 @media (max-width: 640px) {
   .stage {
-    width: min(86vw, 440px);
+    width: min(88vw, 480px);
   }
 
   .plate {
-    width: max(var(--plate-width), 18%);
+    width: max(var(--plate-width), 17%);
   }
 }

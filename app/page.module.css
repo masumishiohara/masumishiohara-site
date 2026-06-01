@@ -15,12 +15,12 @@
 }
 
 .hero {
-  width: min(1420px, 100%);
+  width: min(1480px, 100%);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(330px, 0.86fr) minmax(460px, 1.04fr);
+  grid-template-columns: minmax(330px, 0.78fr) minmax(520px, 1.14fr);
   align-items: center;
-  gap: clamp(42px, 7vw, 118px);
+  gap: clamp(46px, 6vw, 106px);
 }
 
 .heroCopy {
@@ -39,9 +39,9 @@
   margin: 0;
   max-width: 720px;
   color: rgba(247, 242, 226, 0.96);
-  font-size: clamp(54px, 7.4vw, 118px);
-  line-height: 0.91;
-  letter-spacing: -0.068em;
+  font-size: clamp(54px, 6.6vw, 104px);
+  line-height: 0.92;
+  letter-spacing: -0.058em;
   font-weight: 390;
 }
 
