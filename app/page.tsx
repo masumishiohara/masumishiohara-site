@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import MaisonFramedArtwork from "./components/MaisonFramedArtwork";
 import styles from "./page.module.css";
 import { workSeries } from "./work-series-data";
 
@@ -129,14 +128,15 @@ export default function HomePage() {
         </div>
 
         <div className={styles.heroFrame}>
-          <MaisonFramedArtwork
-            src={featuredSrc}
-            title={featuredTitle}
-            code={featuredCode}
-            seriesTitle="Featured framed work"
-            caption={featuredCaption}
-            href={`/works/${blackSlug}`}
-          />
+          <Link href={`/works/${blackSlug}`} className={styles.heroFramedPhotoLink} aria-label="View Black Ground Botanical Works series">
+            <img
+              src="/home/framed-ms-bg-020-real-v31.jpg"
+              alt="Black Ground Botanical Works 020 by Masumi Shiohara, framed and lit on a gallery wall"
+              className={styles.heroFramedPhoto}
+              draggable={false}
+            />
+          </Link>
+          <p className={styles.heroFrameCaption}>Featured framed work / Black Ground Botanical Works 020</p>
         </div>
       </section>
 

@@ -243,3 +243,45 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+.heroFramedPhotoLink {
+  display: block;
+  width: min(760px, 100%);
+  text-decoration: none;
+}
+
+.heroFramedPhoto {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  box-shadow: 0 34px 90px rgba(0, 0, 0, 0.42);
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.heroFrameCaption {
+  margin: 14px 0 0;
+  color: rgba(205, 176, 105, 0.58);
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+@media (max-width: 1080px) {
+  .heroFramedPhotoLink {
+    width: min(700px, 100%);
+  }
+}
+
+@media (max-width: 680px) {
+  .heroFramedPhotoLink {
+    width: 100%;
+  }
+  .heroFrameCaption {
+    font-size: 9px;
+  }
+}
