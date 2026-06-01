@@ -44,27 +44,29 @@ export default function MaisonFramedArtwork({
   const artRatio = fixedGrowthWindow ? 0.66 : clamp(naturalRatio, 0.42, 2.2);
 
   // Ratio of the visible mat board area after the fixed frame shell is applied.
-  // The frame is fixed; only the mat window changes.
+  // The frame remains fixed; the artwork window must dominate the mat, not float inside it.
   const matBoardRatio = 0.657;
-  const portrait = artRatio < 0.9;
-  const squareish = artRatio >= 0.9 && artRatio < 1.15;
+  const portrait = artRatio < 0.88;
+  const squareish = artRatio >= 0.88 && artRatio < 1.16;
 
-  let windowHeight = portrait ? 73.5 : squareish ? 65 : 52;
+  // Target: artwork first, mat second. Portrait works should occupy roughly 68–74%
+  // of the usable mat board area. The V-groove follows this exact window.
+  let windowHeight = portrait ? 83.8 : squareish ? 75.5 : 61.5;
   let windowWidth = (windowHeight * artRatio) / matBoardRatio;
 
-  if (windowWidth > 86) {
-    windowWidth = 86;
+  if (windowWidth > 91.5) {
+    windowWidth = 91.5;
     windowHeight = (windowWidth * matBoardRatio) / artRatio;
   }
 
   if (fixedGrowthWindow) {
-    windowHeight = 66;
+    windowHeight = 72;
     windowWidth = (windowHeight * artRatio) / matBoardRatio;
   }
 
-  // Bottom weighting: real matting commonly leaves a little more air below the work.
-  const topLift = portrait ? -2.2 : -0.8;
-  const plateWidthPercent = clamp(windowWidth * 0.56, 34, 49);
+  // Small optical lift only. The window and grooves remain centered; the plate sits close below.
+  const topLift = portrait ? -0.9 : -0.4;
+  const plateWidthPercent = clamp(windowWidth * 0.72, 42, 62);
   const mode = plateMode(title);
 
   const style = useMemo(

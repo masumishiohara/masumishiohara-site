@@ -1,7 +1,7 @@
 .frameLink {
   position: relative;
   display: block;
-  width: min(100%, 720px, 74svh);
+  width: min(100%, 760px, 78svh);
   margin-inline: auto;
   color: inherit;
   text-decoration: none;
@@ -11,13 +11,13 @@
 
 .sceneLight {
   position: absolute;
-  inset: -11% -14% -11%;
+  inset: -10% -15% -12%;
   z-index: -4;
   background:
     radial-gradient(ellipse at 50% 0%, rgba(255, 232, 176, 0.46), transparent 24%),
-    radial-gradient(ellipse at 50% 23%, rgba(255, 238, 203, 0.18), transparent 31%),
-    radial-gradient(ellipse at 50% 88%, rgba(218, 191, 137, 0.12), transparent 40%);
-  filter: blur(16px);
+    radial-gradient(ellipse at 50% 20%, rgba(255, 238, 203, 0.22), transparent 34%),
+    radial-gradient(ellipse at 50% 88%, rgba(218, 191, 137, 0.10), transparent 41%);
+  filter: blur(15px);
   opacity: 0.98;
   pointer-events: none;
 }
@@ -31,11 +31,11 @@
   background:
     radial-gradient(ellipse at 50% 2%, rgba(255, 231, 176, 0.20), transparent 18%),
     radial-gradient(ellipse at 50% 43%, rgba(255, 246, 222, 0.035), transparent 48%),
-    linear-gradient(110deg, rgba(218, 191, 137, 0.055), rgba(255, 255, 255, 0.012) 44%, rgba(0, 0, 0, 0.24)),
+    linear-gradient(110deg, rgba(218, 191, 137, 0.052), rgba(255, 255, 255, 0.012) 44%, rgba(0, 0, 0, 0.24)),
     rgba(4, 3, 2, 0.72);
   box-shadow:
-    0 58px 138px rgba(0, 0, 0, 0.70),
-    0 12px 34px rgba(0, 0, 0, 0.48),
+    0 60px 142px rgba(0, 0, 0, 0.72),
+    0 14px 36px rgba(0, 0, 0, 0.50),
     inset 0 0 0 1px rgba(218, 191, 137, 0.055);
 }
 
@@ -45,7 +45,7 @@
   z-index: -1;
   border-radius: 2px;
   background:
-    linear-gradient(90deg, rgba(0, 0, 0, 0.34), transparent 10%, transparent 90%, rgba(0, 0, 0, 0.36)),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.36), transparent 10%, transparent 90%, rgba(0, 0, 0, 0.37)),
     radial-gradient(ellipse at 50% 7%, rgba(255, 238, 197, 0.11), transparent 27%);
   box-shadow:
     20px 32px 68px rgba(0, 0, 0, 0.52),
@@ -64,7 +64,7 @@
 
 .matAssembly {
   position: absolute;
-  inset: 10.42% 12.32% 7.92%;
+  inset: 9.85% 11.85% 7.45%;
   z-index: 1;
   display: grid;
   place-items: stretch;
@@ -78,31 +78,30 @@
   height: 100%;
   overflow: hidden;
   background:
-    radial-gradient(circle at 36% 18%, rgba(255, 255, 255, 0.34), transparent 38%),
-    linear-gradient(135deg, rgba(248, 243, 225, 0.99), rgba(226, 213, 185, 0.99) 54%, rgba(248, 241, 219, 0.98)),
-    repeating-linear-gradient(90deg, rgba(91, 65, 31, 0.018) 0 1px, transparent 1px 6px);
+    radial-gradient(circle at 34% 17%, rgba(255, 255, 255, 0.32), transparent 38%),
+    linear-gradient(135deg, rgba(249, 244, 225, 0.99), rgba(231, 219, 190, 0.99) 55%, rgba(248, 241, 219, 0.98)),
+    repeating-linear-gradient(90deg, rgba(91, 65, 31, 0.014) 0 1px, transparent 1px 7px);
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.70),
-    inset 0 0 0 2px rgba(84, 62, 30, 0.08),
-    inset 0 0 44px rgba(83, 59, 29, 0.12),
-    0 10px 18px rgba(0, 0, 0, 0.16);
+    inset 0 0 0 1px rgba(255, 255, 255, 0.66),
+    inset 0 0 0 2px rgba(84, 62, 30, 0.075),
+    inset 0 0 34px rgba(83, 59, 29, 0.09),
+    0 10px 18px rgba(0, 0, 0, 0.15);
 }
 
-/* Only a very quiet outside bevel remains. No floating ghost rectangles. */
+/* No decorative ghost rectangle. The only mat lines are tied to the real artwork window. */
 .matBoard::before {
   content: "";
   position: absolute;
-  inset: 4.4% 5.2% 5.2%;
+  inset: 0;
   pointer-events: none;
-  border: 1px solid rgba(112, 84, 41, 0.13);
-  box-shadow:
-    inset 1px 1px 0 rgba(255, 255, 255, 0.38),
-    inset -1px -1px 0 rgba(71, 48, 22, 0.18);
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08), transparent 14%, transparent 86%, rgba(78, 54, 24, 0.07)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.10), transparent 18%, transparent 84%, rgba(76, 52, 23, 0.06));
 }
 
 .artStack {
   position: absolute;
-  inset: 5.6% 0 5.2%;
+  inset: 3.7% 0 3.4%;
   z-index: 3;
   display: flex;
   flex-direction: column;
@@ -116,16 +115,16 @@
   position: relative;
   width: var(--window-width);
   height: var(--window-height);
-  min-width: 45%;
-  max-width: 88%;
-  max-height: 78%;
+  min-width: 62%;
+  max-width: 92%;
+  max-height: 86%;
   padding: 0;
-  background: rgba(12, 8, 4, 0.96);
+  background: rgba(8, 5, 3, 0.98);
   box-shadow:
-    0 0 0 1px rgba(20, 13, 6, 0.98),
-    0 0 0 2px rgba(229, 204, 151, 0.24),
-    0 0 0 3px rgba(33, 22, 10, 0.90),
-    0 18px 28px rgba(0, 0, 0, 0.30);
+    0 0 0 1px rgba(10, 7, 3, 0.98),
+    0 0 0 2px rgba(232, 208, 157, 0.28),
+    0 0 0 3px rgba(31, 20, 9, 0.94),
+    0 14px 22px rgba(0, 0, 0, 0.28);
 }
 
 .vGrooveOuter,
@@ -140,12 +139,12 @@
 }
 
 .vGrooveOuter {
-  inset: clamp(-26px, -2.1vw, -13px);
+  inset: clamp(-18px, -1.25vw, -9px);
 }
 
 .vGrooveInner {
-  inset: clamp(-14px, -1.25vw, -7px);
-  border-color: rgba(118, 88, 43, 0.25);
+  inset: clamp(-9px, -0.68vw, -5px);
+  border-color: rgba(118, 88, 43, 0.26);
 }
 
 .artWindow {
@@ -164,11 +163,11 @@
   z-index: 4;
   pointer-events: none;
   box-shadow:
-    inset 0 0 0 1px rgba(9, 6, 3, 0.98),
-    inset 0 2px 2px rgba(255, 255, 255, 0.22),
+    inset 0 0 0 1px rgba(8, 5, 3, 0.98),
+    inset 0 2px 2px rgba(255, 255, 255, 0.20),
     inset 0 -2px 7px rgba(0, 0, 0, 0.42),
-    inset 2px 0 4px rgba(0, 0, 0, 0.24),
-    inset -2px 0 3px rgba(255, 255, 255, 0.10);
+    inset 2px 0 4px rgba(0, 0, 0, 0.22),
+    inset -2px 0 3px rgba(255, 255, 255, 0.09);
 }
 
 .artImage {
@@ -178,7 +177,7 @@
   object-fit: contain;
   object-position: center;
   transform: scale(1.001);
-  filter: saturate(0.92) contrast(1.04) brightness(0.98);
+  filter: saturate(0.93) contrast(1.04) brightness(0.99);
   user-select: none;
   -webkit-user-drag: none;
 }
@@ -188,44 +187,46 @@
   z-index: 5;
   display: grid;
   width: var(--plate-width);
-  min-width: 218px;
-  max-width: 50%;
-  aspect-ratio: 1680 / 360;
-  margin-top: clamp(10px, 1.25vw, 18px);
+  min-width: 232px;
+  max-width: 62%;
+  aspect-ratio: 2200 / 500;
+  margin-top: clamp(9px, 1.0vw, 15px);
   align-content: center;
   justify-items: center;
-  padding: clamp(7px, 0.8vw, 13px) clamp(22px, 2.3vw, 36px);
-  background: url("/frames/maison-real-brass-titleplate-blank-v2.png") center / 100% 100% no-repeat;
-  color: rgba(38, 23, 7, 0.96);
+  padding: clamp(7px, 0.7vw, 11px) clamp(24px, 2.0vw, 38px);
+  background: url("/frames/maison-real-brass-titleplate-v3.png") center / 100% 100% no-repeat;
+  color: rgba(35, 21, 6, 0.98);
   text-align: center;
   text-shadow:
-    0 1px 0 rgba(255, 231, 166, 0.35),
-    0 -1px 0 rgba(43, 25, 7, 0.25);
-  filter: saturate(0.92) contrast(1.10) brightness(0.93);
+    0 1px 0 rgba(255, 233, 171, 0.38),
+    0 -1px 0 rgba(34, 20, 6, 0.30);
+  filter: saturate(0.96) contrast(1.14) brightness(0.94);
 }
 
 .brassPlate::after {
   content: "";
   position: absolute;
-  inset: 8% 7%;
+  inset: 9% 8%;
   border-radius: 2px;
   pointer-events: none;
-  background: linear-gradient(100deg, transparent, rgba(255,255,255,0.20) 42%, transparent 60%);
+  background:
+    linear-gradient(100deg, transparent 0%, rgba(255, 255, 255, 0.22) 43%, transparent 61%),
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.035) 0 1px, transparent 1px 4px);
   mix-blend-mode: screen;
-  opacity: 0.42;
+  opacity: 0.48;
 }
 
 .brassPlate span,
 .brassPlate em {
   display: block;
   font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: clamp(4.8px, 0.43vw, 7px);
+  font-size: clamp(4.8px, 0.42vw, 7px);
   font-style: normal;
-  font-weight: 600;
+  font-weight: 650;
   letter-spacing: 0.24em;
   line-height: 1.05;
   text-transform: uppercase;
-  opacity: 0.70;
+  opacity: 0.78;
 }
 
 .brassPlate strong {
@@ -253,9 +254,9 @@
 
 .caption {
   display: block;
-  margin-top: 16px;
-  color: rgba(218, 191, 137, 0.70);
-  font-size: 0.60rem;
+  margin-top: 14px;
+  color: rgba(218, 191, 137, 0.68);
+  font-size: 0.58rem;
   letter-spacing: 0.20em;
   line-height: 1.5;
   text-align: center;
@@ -271,52 +272,52 @@
 
 @media (max-width: 1180px) {
   .frameLink {
-    width: min(100%, 660px, 70svh);
+    width: min(100%, 690px, 74svh);
   }
 }
 
 @media (max-width: 900px) {
   .frameLink {
-    width: min(100%, 540px);
+    width: min(100%, 560px);
   }
 
   .brassPlate {
-    min-width: 184px;
+    min-width: 190px;
   }
 }
 
 @media (max-width: 560px) {
   .frameLink {
-    width: min(100%, 390px);
+    width: min(100%, 405px);
   }
 
   .artStack {
-    inset: 5.2% 0 6.2%;
+    inset: 3.8% 0 4.8%;
   }
 
   .windowMount {
-    max-height: 76%;
+    max-height: 84%;
   }
 
   .vGrooveOuter {
-    inset: -13px;
+    inset: -10px;
   }
 
   .vGrooveInner {
-    inset: -7px;
+    inset: -5px;
   }
 
   .brassPlate {
-    min-width: 154px;
-    margin-top: 9px;
+    min-width: 160px;
+    margin-top: 8px;
   }
 
   .brassPlate span,
   .brassPlate em {
-    font-size: 4.6px;
+    font-size: 4.4px;
   }
 
   .brassPlate strong {
-    font-size: 8px;
+    font-size: 7.8px;
   }
 }
