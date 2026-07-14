@@ -90,7 +90,7 @@ export default function WorkSeriesPage({
         </div>
         <div className="thumbGrid">
           {series.works.map((work) => (
-            <a href={`#work-${work.id.toLowerCase()}`} key={work.id} className="thumb">
+            <a href={work.image} target="_blank" rel="noreferrer" key={work.id} className="thumb">
               <img src={work.image} alt={work.title} loading="lazy" />
               <span>{work.id}</span>
             </a>
