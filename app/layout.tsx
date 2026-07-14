@@ -50,11 +50,12 @@ export default function RootLayout({
           </a>
 
           <nav className="museumGlobalNav">
-            <a href="/projects/botanical-portraits">Works</a>
-            <a href="/about">About</a>
-            <a href="/exhibitions">Exhibitions</a>
-            <a href="/contact">Contact</a>
-          </nav>
+  <a href="/projects/botanical-portraits">Works</a>
+  <a href="/about">About</a>
+  <a href="/exhibitions">Exhibitions</a>
+  <a href="/contact">Contact</a>
+  <a href="/ja">日本語</a>
+</nav>
         </header>
 
         {children}
