@@ -27,6 +27,7 @@ type SanityWork = {
 const worksQuery =
 "*[_type == 'work' && published == true] | order(sortOrder asc) {_id, workId, titleJa, titleEn, commentJa, commentEn, sortOrder, published, 'imageUrl': image.asset->url, series->{titleJa, titleEn, seriesId}}";
 
+export const dynamic = 'force-dynamic';
 export default async function JapaneseSanityWorksPage() {
   const works = await client.fetch<SanityWork[]>(worksQuery);
 
