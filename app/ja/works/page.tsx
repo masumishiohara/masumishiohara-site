@@ -16,6 +16,7 @@ type SanityWork = {
   commentEn?: string;
   sortOrder?: number;
   published?: boolean;
+  imageUrl?: string;
   series?: {
     titleJa?: string;
     titleEn?: string;
@@ -24,7 +25,7 @@ type SanityWork = {
 };
 
 const worksQuery =
-  "*[_type == 'work' && published == true] | order(sortOrder asc) {_id, workId, titleJa, titleEn, commentJa, commentEn, sortOrder, published, series->{titleJa, titleEn, seriesId}}";
+"*[_type == 'work' && published == true] | order(sortOrder asc) {_id, workId, titleJa, titleEn, commentJa, commentEn, sortOrder, published, 'imageUrl': image.asset->url, series->{titleJa, titleEn, seriesId}}";
 
 export default async function JapaneseSanityWorksPage() {
   const works = await client.fetch<SanityWork[]>(worksQuery);
@@ -61,6 +62,18 @@ export default async function JapaneseSanityWorksPage() {
               background: 'rgba(255,255,255,.02)',
             }}
           >
+            {work.imageUrl && (
+  <img
+    src={work.imageUrl}
+    alt={work.titleJa || work.titleEn || work.workId}
+    style={{
+      width: '100%',
+      height: 'auto',
+      display: 'block',
+      marginBottom: 20,
+    }}
+  />
+)}
             <p style={{ color: '#c9a86a', margin: '0 0 10px' }}>
               {work.workId || '作品IDなし'}
             </p>
