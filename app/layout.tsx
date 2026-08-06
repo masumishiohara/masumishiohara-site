@@ -54,7 +54,7 @@ export default function RootLayout({
   <a href="/about">About</a>
   <a href="/exhibitions">Exhibitions</a>
   <a href="/contact">Contact</a>
-  <a href="/ja">日本語</a>
+  <a href="/ja" className="languageSwitch">日本語サイト</a>
 </nav>
         </header>
 

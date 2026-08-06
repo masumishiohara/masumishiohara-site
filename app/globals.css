@@ -35,6 +35,7 @@ img {
   margin: 140px auto 180px;
 }
 
+
 .framedGalleryGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -17637,4 +17638,39 @@ body::after,
 
   text-shadow:
     0 0 42px rgba(201,168,106,0.12) !important;
+}
+.languageSwitch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 7px 12px;
+  border: 1px solid rgba(239, 231, 216, 0.55);
+  border-radius: 999px;
+  color: #efe7d8;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .museuGlobalHeader {
+    gap: 14px;
+  }
+
+  .museuGlobalNav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 8px 12px;
+  }
+
+  .languageSwitch {
+    display: inline-flex !important;
+    min-height: 38px;
+    padding: 8px 14px;
+    border-color: rgba(201, 168, 106, 0.85);
+    color: #c9a86a;
+    font-size: 13px;
+  }
 }
