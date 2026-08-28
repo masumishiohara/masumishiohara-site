@@ -187,8 +187,8 @@ export default function JapaneseHomePage() {
           <div>MASUMI SHIOHARA</div>
           <nav>
             <a href="/">English</a>
-            <a href="/works">Works</a>
-            <a href="/contact">Contact</a>
+            <a href="/ja/works">作品</a>
+            <a href="/ja/contact">お問い合わせ</a>
           </nav>
         </header>
 
@@ -204,10 +204,10 @@ export default function JapaneseHomePage() {
           </p>
 
           <div className="jaButtons">
-            <a href="/works">作品を見る</a>
-            <a href="/about">プロフィール</a>
-            <a href="/exhibitions">展示・掲載</a>
-            <a href="/contact">問い合わせ</a>
+            <a href="/ja/works">作品を見る</a>
+            <a href="/ja/about">プロフィール</a>
+            <a href="/ja/exhibitions">展示・掲載</a>
+            <a href="/ja/contact">問い合わせ</a>
           </div>
         </section>
 
