@@ -1,6 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
-
+import GlobalHeader from "./GlobalHeader";
 export const metadata: Metadata = {
   title: "Masumi Shiohara | Cultivated Fruit Works",
   description:
@@ -44,19 +44,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <header className="museumGlobalHeader">
-          <a href="/" className="museumGlobalLogo">
-            MASUMI SHIOHARA
-          </a>
-
-          <nav className="museumGlobalNav">
-  <a href="/projects/botanical-portraits">Works</a>
-  <a href="/about">About</a>
-  <a href="/exhibitions">Exhibitions</a>
-  <a href="/contact">Contact</a>
-  <a href="/ja" className="languageSwitch">日本語サイト</a>
-</nav>
-        </header>
+       <GlobalHeader />
 
         {children}
       </body>
