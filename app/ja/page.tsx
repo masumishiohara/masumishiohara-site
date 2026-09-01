@@ -183,14 +183,7 @@ export default function JapaneseHomePage() {
       `}</style>
 
       <div className="jaWrap">
-        <header className="jaHeader">
-          <div>MASUMI SHIOHARA</div>
-          <nav>
-            <a href="/">English</a>
-            <a href="/ja/works">作品</a>
-            <a href="/ja/contact">お問い合わせ</a>
-          </nav>
-        </header>
+       
 
         <section>
           <div className="jaKicker">日本語ページ</div>
