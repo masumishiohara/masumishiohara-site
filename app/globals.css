@@ -17652,7 +17652,25 @@ body::after,
   letter-spacing: 0.08em;
   white-space: nowrap;
 }
+.museuGlobalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 22px 64px;
+  box-sizing: border-box;
+}
 
+.museuGlobalNav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 24px;
+}
+
+.museuGlobalNav a {
+  white-space: nowrap;
+}
 @media (max-width: 900px) {
   .museuGlobalHeader {
     gap: 14px;
