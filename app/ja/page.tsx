@@ -186,23 +186,31 @@ export default function JapaneseHomePage() {
        
 
         <section>
-          <div className="jaKicker">日本語ページ</div>
-          <h1 className="jaTitle">
-            栽培の現場から生まれる、果実と植物の写真作品。
-          </h1>
-          <p className="jaLead">
-            塩原真澄は、果樹栽培と育種に携わりながら、自園で育てた果実や植物を撮影している写真家です。
-            果実の形、生育過程、選抜から外れた個体、栽培の中で生まれる偶然の造形を、
-            農業の現場に近い視点から記録しています。
-          </p>
+  <div className="jaKicker">
+    MASUMI SHIOHARA / CULTIVATED BOTANICAL WORKS
+  </div>
 
-          <div className="jaButtons">
-            <a href="/ja/works">作品を見る</a>
-            <a href="/ja/about">プロフィール</a>
-            <a href="/ja/exhibitions">展示・掲載</a>
-            <a href="/ja/contact">問い合わせ</a>
-          </div>
-        </section>
+  <h1 className="jaTitle">
+    栽培の現場から生まれる、
+    <br />
+    果実と植物の写真作品。
+  </h1>
+
+  <p className="jaLead">
+    塩原真澄は、果樹栽培と育種に携わりながら、
+    自園で育てた果実や植物を撮影している写真家です。
+    果実の形、生育過程、選抜から外れた個体、
+    栽培の中で生まれる偶然の造形を、
+    農業の現場に近い視点から記録しています。
+  </p>
+
+  <div className="jaButtons">
+    <a href="/ja/works">作品を見る</a>
+    <a href="/ja/about">プロフィール</a>
+    <a href="/ja/exhibitions">展示・掲載</a>
+    <a href="/ja/contact">お問い合わせ</a>
+  </div>
+</section>
 
         <section className="jaSection">
           <h2>農家、育種家、写真家として。</h2>
