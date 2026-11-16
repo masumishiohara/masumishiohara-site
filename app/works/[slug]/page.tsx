@@ -5,14 +5,13 @@ export function generateStaticParams() {
   return workSeries.map((series) => ({ slug: series.slug }));
 }
 
-export default function WorkSeriesPage({
+export default async function WorkSeriesPage({
   params,
 }: {
-  params: {
-    slug: string;
-  };
+  params: Promise<{ slug: string }>;
 }) {
-  const series = workSeries.find((item) => item.slug === params.slug);
+  const { slug } = await params;
+  const series = workSeries.find((item) => item.slug === slug);
 
   if (!series) {
     notFound();

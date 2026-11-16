@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 import { projects } from "../../project-data";
 
 type FrameStyle = "modern" | "antique" | "elegant";
@@ -62,11 +63,8 @@ const botanicalWorks = [
   image: `/images/botanical-portraits/${id}.jpg`,
 }));
 
-export default function ProjectPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export default function ProjectPage() {
+  const params = useParams<{ slug: string }>();
   const project = projects.find((item) => item.slug === params.slug);
 
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
